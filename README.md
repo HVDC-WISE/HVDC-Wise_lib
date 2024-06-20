@@ -4,8 +4,7 @@ This repository stores and exchanges hybrid AC & DC power system equipment model
 
 ## Structure
 
-- `CGMES`: TODO: Add short description.
-- `CIM`: TODO: Add short description.
+- `Data_exchange`: TODO: Add short description.
 - `Documentation`: TODO: Add short description.
 - `Dynamic_part/`: Contains dynamic part of the model in different formats (Modelica, Matlab, FMI).
 - `Test`: TODO: Add short description.
