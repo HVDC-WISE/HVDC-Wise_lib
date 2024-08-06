@@ -1,33 +1,23 @@
 ---
 layout: page 
 title: Grid-following inverter
-tags: ["Three-phase","EMT", "Modelica","C++","DPsim"] 
+tags: ["Three-phase", "CIM", "EMT", "Modelica","C++","DPsim"] 
 date: 09/06/2024 
 last-updated: 09/06/2024
 authors: Georgii Tishenin (RWTH)
 ---
 
-## Context (mandatory)
+## Context
 
-_A short paragraph reminding the history of the model, in which context it was developed for, what are the physics and the modelling approximations behind it._
-
-References citations can be made pointing to the references section (at the end of the document). Two ways to **include a citation**:
-
-- **by using footnote links**: put ```[^1]``` inside the main text and a markdown list at the end of the document.
-- **by using a bibtex file**:
-  add your bibtexfile in the _bibliography folder. Add a citation inside your text with:
-  {% raw %}
-  ``` {% cite DUMMY:2 %} ```
-  {% endraw %}
-add bibliography at the end of the document.
+An electromagnetic transient (EMT) average value grid-following inverter model, described in [[1]](#1) was developed and implemented in [ModPowerSystems](https://git.rwth-aachen.de/acs/public/simulation/modpowersystems) and in [DPsim](https://github.com/sogno-platform/dpsim) by RWTH Aachen. The EMT model was developed to serve as a benchmark in studies to compare simulation accuracy, numerical stability and performance against DP (dynamic phasor) model in large-scale grid simulations.
 
 ## Model use, assumptions, validity domain and limitations
 
-Model can be used for transient stability studies.
+The model can be used for transient stability analysis and for testing frequency control techniques.
 
 **Assumptions:**
- - Average value model. The model does not represent switching harmonics.
- - Positive sequence model. Model contains only one PLL and is limited to simulation of symmetric networks. 
+ - Average value model. The voltage source interface of the model does not allow to represent switching harmonics.
+ - Positive sequence model. The control architecture of the model contains only one phase-locked-loop (PLL) and only can correctly track the voltage angle in simulations of symmetric grids. 
 
 ## Model description (mandatory)
 
