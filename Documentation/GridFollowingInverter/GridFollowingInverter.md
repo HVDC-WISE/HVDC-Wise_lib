@@ -8,7 +8,6 @@ authors: Georgii Tishenin (RWTH)
 ---
 
 ## Context
-
 An electromagnetic transient (EMT) average value grid-following inverter model, described in [[1]](#1), was developed and implemented in [ModPowerSystems](https://git.rwth-aachen.de/acs/public/simulation/modpowersystems) and in [DPsim](https://github.com/sogno-platform/dpsim) by RWTH Aachen University, Germany. The EMT model was developed to serve as a benchmark in studies to compare simulation accuracy, numerical stability and performance against DP (dynamic phasor) model in large-scale grid simulations.
 
 ## Model use, assumptions, validity domain and limitations
@@ -22,9 +21,18 @@ The model can be used for transient stability analysis and for testing frequency
 
 ## Model description
 
-Model description and modeling equations.
+The EMT average value grid-following inverter model includes: electrical circuit, controls and interface connecting the former two, as shown in [Figure 1](#fig_grid_following_inverter). The EMT model electrical circuit is described with time-domain differential equations in *abc* stationary reference frame and includes:
+ - A controlled voltage source. The controlled voltage source represents the inverter’s output based on an averaged switching model.
+ - An LC filter (as an output filter), which is composed of two resistors, an inductor and a capacitor.
+ - (Optionally) a step-up transformer.
+
+Transformation between *abc* and *dq* reference frames is done with Park transform.
+
+<span id="fig_grid_following_inverter"></span>
+**Figure 1:** Grid-following inverter diagram
 
 ![Grid-following inverter diagram](images/average_grid_following_inverter.svg "Grid-following inverter diagram")
+
 
 ## Model exchange
 static part, dynamic part
