@@ -9,34 +9,30 @@ authors: Georgii Tishenin (RWTH)
 
 ## Context
 
-An electromagnetic transient (EMT) average value grid-following inverter model, described in [[1]](#1) was developed and implemented in [ModPowerSystems](https://git.rwth-aachen.de/acs/public/simulation/modpowersystems) and in [DPsim](https://github.com/sogno-platform/dpsim) by RWTH Aachen. The EMT model was developed to serve as a benchmark in studies to compare simulation accuracy, numerical stability and performance against DP (dynamic phasor) model in large-scale grid simulations.
+An electromagnetic transient (EMT) average value grid-following inverter model, described in [[1]](#1), was developed and implemented in [ModPowerSystems](https://git.rwth-aachen.de/acs/public/simulation/modpowersystems) and in [DPsim](https://github.com/sogno-platform/dpsim) by RWTH Aachen University, Germany. The EMT model was developed to serve as a benchmark in studies to compare simulation accuracy, numerical stability and performance against DP (dynamic phasor) model in large-scale grid simulations.
 
 ## Model use, assumptions, validity domain and limitations
 
 The model can be used for transient stability analysis and for testing frequency control techniques.
 
-**Assumptions:**
+**Assumptions and limitations:**
  - Average value model. The voltage source interface of the model does not allow to represent switching harmonics.
- - Positive sequence model. The control architecture of the model contains only one phase-locked-loop (PLL) and only can correctly track the voltage angle in simulations of symmetric grids. 
+ - Positive sequence model. The control architecture of the model contains only one phase-locked-loop (PLL) and only can correctly track the voltage angle in simulations of symmetric grids.
+ - Infinite power model. No primary energy source or storage is modelled, the output power of the model is not limited by physical constraints.
 
-## Model description (mandatory)
+## Model description
 
-_This section gives the full description of the different model's component._
+Model description and modeling equations.
 
-For each component, is given: a brief explanation about the functioning of the component (how it works, what it is made of, which implementation choices are made) and the component equations or control diagram. The author can also point to another component page if the component is already explained in another page. In such case, he clearly needs to make coherence is achieved with the rest of the model in terms of notation, convention, and connection aspects.
+![Grid-following inverter diagram](images\average_grid_following_inverter.svg "Grid-following inverter diagram")
 
-- **For the equation system / algorithm :** the author can use Latex language, which is fully compatible with markdown. For example: ```$$ x_{j}^{i} $$```. He can also use numbered equations. The variables and parameters should be clearly specified, as well as their type (complex, real, etc.), unit (MW, MVA, etc), and meaning (phase to neutral voltage for the output terminal A). The notation should follow scientific standards.
-
-- **Images can be added** for clarity with: ```<img src="{{'pages/templates/gaussian.png' | relative_url}}" alt="Normalized Gaussian curves"``` **The image must be of good quality and more preferably in .svg format**.
-
-- **Electric/Electronic/Control/Phasor diagrams:** they can be used instead of equations system to describe the component. We invite the author to use the [draw.io](https://www.drawio.com/) plugin for github allowing you to make your own diagram easily. The diagram is fully editable with github commit using a graphical interface, and allowing multiple format outputs (for more details, see: [draw.io github](https://app.diagrams.net/)). if the diagram includes common control block, you can use the already available drawio library in pages/models/controlBlocks/ . For each block a corresponding page is provided describing the block itself, it diagram representation and the corresponding equations/algorithm.
-
-- **Initial equations/boundary conditions:** when initial equations or boundary conditions are necessary to fully described the system, a subsection dedicated to those aspects can be added in this section.
+## Model exchange
+static part, dynamic part
 
 
 ## Open source implementations
 
-This model has been successfully implemented in :
+This model has been implemented in:
 
 | Software      | URL | Language | Open-Source License | Last consulted date | Comments |
 | --------------| --- | --------- | ------------------- |------------------- | -------- |
