@@ -24,7 +24,7 @@ The model can be used for transient stability analysis and for testing frequency
 
 Model description and modeling equations.
 
-![Grid-following inverter diagram](images\average_grid_following_inverter.svg "Grid-following inverter diagram")
+![Grid-following inverter diagram](images/average_grid_following_inverter.svg "Grid-following inverter diagram")
 
 ## Model exchange
 static part, dynamic part
