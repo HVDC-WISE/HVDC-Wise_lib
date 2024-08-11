@@ -22,7 +22,9 @@ This repository stores and exchanges hybrid AC & DC power system equipment model
 
  ## License
 
-- TODO:  Add information about the project's license.
+ TODO: Review https://choosealicense.com/
+
+This project is licensed under the [CC-BY-4.0](LICENSE) - see the LICENSE file for details.
 
 ## Contact
 
