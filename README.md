@@ -18,6 +18,8 @@ This repository stores and exchanges hybrid AC & DC power system equipment model
 
  - TODO: Provide instructions on how to contribute to repository.
 
+ ![Workflow to contribute model](Documentation/Resources/Images/workflow.svg "Workflow to contribute model")
+
  ## License
 
 - TODO:  Add information about the project's license.
