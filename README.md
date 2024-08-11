@@ -1,6 +1,6 @@
-# Public library of IEC CIM/CGMES models
+# HVDC-Wise lib
 
-This repository hosts a library of HVDC equipment models for model exchange, based on the IEC CIM/CGMES standard format. For the purpose of standardized model exchange, the models in the library are split into a *static part* and a *dynamic part*: 
+HVDC-Wise lib hosts a library of HVDC equipment models for model exchange, based on the IEC CIM/CGMES standard format. For the purpose of standardized model exchange, the models in the library are split into a *static part* and a *dynamic part*: 
 - For the *static part* of a model, the data are exchanged, e.g., model topology and equipment parameters. 
 - For the *dynamic part* of a model, the actual model equations and optionally even a solver are exchanged.
 
@@ -12,11 +12,11 @@ This repository hosts a library of HVDC equipment models for model exchange, bas
 
 ## Usage
 
--  **TODO:** Provide instructions on how to use repository.
+-  **TODO:** Provide instructions on how to use HVDC-Wise lib.
 
 ## Contributing
 
- - **TODO:** Provide instructions on how to contribute to repository.
+ - **TODO:** Provide instructions on how to contribute to HVDC-Wise lib.
 
  ![Workflow to contribute model](Documentation/Resources/Images/workflow.svg "Workflow to contribute model")
 
@@ -24,14 +24,14 @@ This repository hosts a library of HVDC equipment models for model exchange, bas
 
  - **TODO:** Review https://choosealicense.com/
 
-This project is licensed under the [CC-BY-4.0](LICENSE).
+HVDC-Wise lib is licensed under the [CC-BY-4.0](LICENSE).
 
 ## Contact
 
  - **TODO:** Add contact information.
 
  ## Acknowledgement
-This project is developed as a part of the HVDC-WISE project.
+HVDC-Wise lib is developed as a part of the HVDC-WISE project.
 
 HVDC-WISE is supported by the European Union’s Horizon Europe programme under agreement 101075424.
 
