@@ -31,7 +31,7 @@ Transformation between *abc* and *dq* reference frames is done with Park transfo
 <span id="fig_grid_following_inverter"></span>
 **Figure 1:** Grid-following inverter diagram
 
-![Grid-following inverter diagram](images/average_grid_following_inverter.svg "Grid-following inverter diagram")
+![Grid-following inverter diagram](Resources/Images/average_grid_following_inverter.svg "Grid-following inverter diagram")
 
 
 ## Model exchange
@@ -44,7 +44,7 @@ This model has been implemented in:
 
 | Software      | URL | Language | Open-Source License | Last consulted date | Comments |
 | --------------| --- | --------- | ------------------- |------------------- | -------- |
-| ModPowerSystems | [ModPowerSystems on GitHub](https://github.com/ModPowerSystems/ModPowerSystems), [ModPowerSystems on GitLab](https://git.rwth-aachen.de/acs/public/simulation/modpowersystems)  | Modelica | [Modelica License 2](https://modelica.org/licenses/ModelicaLicense2)  | 08/06/2024 | - |
+| ModPowerSystems | [ModPowerSystems on GitHub](https://github.com/ModPowerSystems/ModPowerSystems), [ModPowerSystems on GitLab](https://git.rwth-aachen.de/acs/public/simulation/modpowersystems)  | Modelica | [Modelica License 2](https://modelica.org/licenses/ModelicaLicense2)  | 08/06/2024 | Electrical circuit in this implementation of the model does not include resistor $R_2$ and step-up transformer.|
 | DPsim | [DPsim](https://github.com/sogno-platform/dpsim)  | C++ | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 08/06/2024 | - |
 
 ## Table of references
