@@ -29,3 +29,10 @@ This project is licensed under the [CC-BY-4.0](LICENSE).
 ## Contact
 
  - TODO: Add contact information.
+
+ ## Acknowledgement
+This project is developed as a part of the HVDC-WISE project.
+
+HVDC-WISE is supported by the European Union’s Horizon Europe programme under agreement 101075424.
+
+UK Research and Innovation (UKRI) funding for HVDC-WISE is provided under the UK government’s Horizon Europe funding guarantee [grant numbers 10041877 and 10051113].
