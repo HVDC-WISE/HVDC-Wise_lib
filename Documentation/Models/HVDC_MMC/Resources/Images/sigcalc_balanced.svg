@@ -1,0 +1,1158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg baseProfile='full' height='100.000000%' version='1.1' viewBox='0.000000 0.000000 1753.000000 1240.000000' width='100.000000%' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+
+
+  <defs>
+    <clipPath id='clipPath-01'>
+      <polygon points='0.000000 1240.157480, 0.000000 0.000000, 1753.937008 0.000000, 1753.937008 1240.157480' />
+    </clipPath>
+  </defs>
+
+  <g clip-path='url(#clipPath-01)'>
+    <g id='Page Layer'>
+      <polygon fill='#ffffff' points='0.500000 0.500000, 0.500000 1239.500000, 1752.500000 1239.500000, 1752.500000 0.500000' stroke='#808080' stroke-width='1.000000' />
+    </g>
+    <g id='Block definition'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef.BlkDef'>
+        <polyline fill='none' points='88.582677 1195.866142, 1653.543307 1195.866142, 1653.543307 44.291339, 88.582677 44.291339, 88.582677 1195.866142' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='88.582677' cy='620.078740' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='70.318898' y='624.876969'>5</text>
+        <ellipse cx='88.582677' cy='634.841929' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='70.318898' y='639.640157'>6</text>
+        <ellipse cx='88.582677' cy='738.190010' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='70.318898' y='742.988238'>8</text>
+        <ellipse cx='88.582677' cy='767.716388' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='70.318898' y='772.514616'>9</text>
+        <ellipse cx='88.582677' cy='782.479577' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='68.818898' y='787.277805'>10</text>
+        <ellipse cx='1653.543307' cy='782.479577' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1663.307087' y='787.277805'>15</text>
+        <ellipse cx='1653.543307' cy='797.242766' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1663.307087' y='802.040994'>16</text>
+        <ellipse cx='88.582677' cy='723.426821' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='70.818898' y='728.225049'>7</text>
+        <ellipse cx='88.582677' cy='162.402608' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='70.318898' y='167.200837'>0</text>
+        <ellipse cx='88.582677' cy='177.165797' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='71.318898' y='181.964026'>1</text>
+        <ellipse cx='88.582677' cy='369.093012' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='70.318898' y='373.891240'>3</text>
+        <ellipse cx='88.582677' cy='959.643602' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='69.318898' y='964.441831'>11</text>
+        <ellipse cx='88.582677' cy='989.175738' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='68.818898' y='993.973967'>12</text>
+        <ellipse cx='88.582677' cy='1122.044439' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='68.818898' y='1126.842667'>13</text>
+        <ellipse cx='88.582677' cy='1151.576575' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='68.818898' y='1156.374803'>14</text>
+        <ellipse cx='88.582677' cy='428.151526' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='70.818898' y='432.949754'>4</text>
+        <ellipse cx='1653.543307' cy='428.151526' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1664.807087' y='432.949754'>6</text>
+        <ellipse cx='88.582677' cy='250.981742' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='70.318898' y='255.779970'>2</text>
+        <ellipse cx='1653.543307' cy='516.730659' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1665.307087' y='521.528888'>7</text>
+        <ellipse cx='1653.543307' cy='546.257037' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1664.807087' y='551.055266'>8</text>
+        <ellipse cx='1653.543307' cy='162.402608' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1665.807087' y='167.200837'>1</text>
+        <ellipse cx='1653.543307' cy='206.692175' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1664.807087' y='211.490404'>2</text>
+        <ellipse cx='1653.543307' cy='339.566634' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1665.307087' y='344.364862'>4</text>
+        <ellipse cx='1653.543307' cy='398.619390' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1664.807087' y='403.417618'>5</text>
+        <ellipse cx='1653.543307' cy='841.538091' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1663.807087' y='846.336319'>17</text>
+        <ellipse cx='1653.543307' cy='738.190010' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1663.307087' y='742.988238'>14</text>
+        <ellipse cx='1653.543307' cy='693.900443' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1663.307087' y='698.698671'>13</text>
+        <ellipse cx='1653.543307' cy='649.605118' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1663.307087' y='654.403346'>12</text>
+        <ellipse cx='1653.543307' cy='634.841929' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1663.807087' y='639.640157'>11</text>
+        <ellipse cx='1653.543307' cy='620.078740' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1663.307087' y='624.876969'>10</text>
+        <ellipse cx='1653.543307' cy='590.552362' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1664.807087' y='595.350591'>9</text>
+        <ellipse cx='1653.543307' cy='1136.813386' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1663.307087' y='1141.611614'>21</text>
+        <ellipse cx='1653.543307' cy='1077.754872' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1662.807087' y='1082.553100'>20</text>
+        <ellipse cx='1653.543307' cy='1033.465305' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1663.307087' y='1038.263533'>19</text>
+        <ellipse cx='1653.543307' cy='974.406791' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1663.307087' y='979.205020'>18</text>
+        <ellipse cx='1653.543307' cy='250.981742' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1664.807087' y='255.779970'>3</text>
+        <ellipse cx='1653.543307' cy='118.113041' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1664.807087' y='122.911270'>0</text>
+      </g>
+    </g>
+    <g id='Net elements'>
+      <g id='AnnotationElem 0'>
+        <polyline fill='none' points='1653.539062 900.592082, 88.578432 900.592082' stroke='#0000ff' stroke-dasharray='15.448819 15.448819' stroke-width='2.362205' />
+        <polyline fill='none' points='1653.539062 900.592082, 1653.539062 900.592082, 1653.539062 900.592082' stroke='#0000ff' stroke-width='2.362205' />
+        <polyline fill='none' points='88.578432 900.592082, 88.578432 900.592082, 88.578432 900.592082' stroke='#0000ff' stroke-width='2.362205' />
+      </g>
+      <g id='AnnotationElem 1'>
+        <polyline fill='none' points='1653.537780 295.276041, 88.577150 295.276041' stroke='#0000ff' stroke-dasharray='15.448819 15.448819' stroke-width='2.362205' />
+        <polyline fill='none' points='1653.537780 295.276041, 1653.537780 295.276041, 1653.537780 295.276041' stroke='#0000ff' stroke-width='2.362205' />
+        <polyline fill='none' points='88.577150 295.276041, 88.577150 295.276041, 88.577150 295.276041' stroke='#0000ff' stroke-width='2.362205' />
+      </g>
+      <g id='AnnotationElem 2'>
+        <text fill='#0000ff' font-family='Arial' font-size='12.401575' font-weight='bold' text-anchor='start' x='198.398967' y='293.154797'>Local DC measurements</text>
+      </g>
+      <g id='AnnotationElem 3'>
+        <text fill='#0000ff' font-family='Arial' font-size='12.401575' font-weight='bold' text-anchor='start' x='262.009203' y='499.847710'>Local AC measurements, positive sequence</text>
+      </g>
+      <g id='AnnotationElem 4'>
+        <text fill='#0000ff' font-family='Arial' font-size='12.401575' font-weight='bold' text-anchor='start' x='291.536762' y='898.469757'>Local AC measurements, positive sequence</text>
+      </g>
+      <g id='AnnotationElem 5'>
+        <text fill='#0000ff' font-family='Arial' font-size='12.401575' font-weight='bold' text-anchor='start' x='346.146999' y='927.997316'>AC measurements at Point of Connection (PoC), positive sequence</text>
+      </g>
+      <g id='AnnotationElem 6'>
+        <text fill='#0000ff' font-family='Arial' font-size='12.401575' font-weight='bold' text-anchor='start' x='225.454085' y='322.682356'>Local AC measurements, frequency</text>
+      </g>
+      <g id='AnnotationElem 7'>
+        <polyline fill='none' points='1653.539062 472.441022, 88.578432 472.441022' stroke='#0000ff' stroke-dasharray='15.448819 15.448819' stroke-width='2.362205' />
+        <polyline fill='none' points='1653.539062 472.441022, 1653.539062 472.441022, 1653.539062 472.441022' stroke='#0000ff' stroke-width='2.362205' />
+        <polyline fill='none' points='88.578432 472.441022, 88.578432 472.441022, 88.578432 472.441022' stroke='#0000ff' stroke-width='2.362205' />
+      </g>
+      <g id='AnnotationElem 8'>
+        <text fill='#0000ff' font-family='Arial' font-size='12.401575' font-weight='bold' text-anchor='start' x='225.454085' y='470.320151'>Local AC measurements, frequency</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Limiter.BlkRef'>
+        <polygon fill='none' points='856.299213 398.622047, 856.299213 339.566929, 974.409449 339.566929, 974.409449 398.622047' stroke='#000000' stroke-width='2.362205' />
+        <polyline fill='none' points='844.488189 406.003937, 874.015748 406.003937, 885.826772 398.622047' stroke='#000000' stroke-width='1.181102' />
+        <polyline fill='none' points='986.220472 332.185039, 956.692913 332.185039, 944.881890 339.566929' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='856.299213' cy='369.094488' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='974.409449' cy='369.094488' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Magnitude.BlkRef'>
+        <polygon fill='none' points='797.244094 1166.338586, 797.244094 1107.283461, 1033.464567 1107.283461, 1033.464567 1166.338586' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='797.244094' cy='1122.047242' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='808.507874' y='1126.845471'>0</text>
+        <ellipse cx='797.244094' cy='1151.574805' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='809.507874' y='1156.373033'>1</text>
+        <ellipse cx='1033.464567' cy='1136.811024' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Magnitude.BlkRef'>
+        <polygon fill='none' points='797.244094 1003.937011, 797.244094 944.881886, 1033.464567 944.881886, 1033.464567 1003.937011' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='797.244094' cy='959.645668' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='808.507874' y='964.443896'>0</text>
+        <ellipse cx='797.244094' cy='989.173230' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='809.507874' y='993.971458'>1</text>
+        <ellipse cx='1033.464567' cy='974.409449' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Magnitude.BlkRef'>
+        <polygon fill='none' points='797.244094 871.062996, 797.244094 812.007870, 1033.464567 812.007870, 1033.464567 871.062996' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='797.244094' cy='826.771652' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='808.507874' y='831.569880'>0</text>
+        <ellipse cx='797.244094' cy='856.299214' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='809.507874' y='861.097443'>1</text>
+        <ellipse cx='1033.464567' cy='841.535433' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Magnitude.BlkRef'>
+        <polygon fill='none' points='797.244094 620.078744, 797.244094 561.023619, 1033.464567 561.023619, 1033.464567 620.078744' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='797.244094' cy='575.787400' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='808.507874' y='580.585628'>0</text>
+        <ellipse cx='797.244094' cy='605.314962' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='809.507874' y='610.113191'>1</text>
+        <ellipse cx='1033.464567' cy='590.551181' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\dq-Transform.BlkRef'>
+        <polygon fill='none' points='354.330709 826.771654, 354.330709 752.952756, 620.078740 752.952756, 620.078740 826.771654' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='354.330709' cy='767.716535' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='365.594488' y='772.514764'>0</text>
+        <ellipse cx='354.330709' cy='782.480315' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='366.594488' y='787.278543'>1</text>
+        <ellipse cx='354.330709' cy='797.244094' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='365.594488' y='802.042323'>2</text>
+        <ellipse cx='354.330709' cy='812.007874' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='365.594488' y='816.806102'>3</text>
+        <ellipse cx='620.078740' cy='782.480315' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='601.814961' y='787.278543'>0</text>
+        <ellipse cx='620.078740' cy='797.244094' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='602.814961' y='802.042323'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\dq-Transform.BlkRef'>
+        <polygon fill='none' points='354.330709 679.133858, 354.330709 605.314961, 620.078740 605.314961, 620.078740 679.133858' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='354.330709' cy='620.078740' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='365.594488' y='624.876969'>0</text>
+        <ellipse cx='354.330709' cy='634.842520' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='366.594488' y='639.640748'>1</text>
+        <ellipse cx='354.330709' cy='649.606299' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='365.594488' y='654.404528'>2</text>
+        <ellipse cx='354.330709' cy='664.370079' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='365.594488' y='669.168307'>3</text>
+        <ellipse cx='620.078740' cy='634.842520' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='601.814961' y='639.640748'>0</text>
+        <ellipse cx='620.078740' cy='649.606299' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='602.814961' y='654.404528'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Power Calculation AC.BlkRef'>
+        <polygon fill='none' points='797.244094 1092.519685, 797.244094 1018.700787, 1033.464567 1018.700787, 1033.464567 1092.519685' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='797.244094' cy='1033.464567' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='808.507874' y='1038.262795'>0</text>
+        <ellipse cx='797.244094' cy='1048.228346' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='809.507874' y='1053.026575'>1</text>
+        <ellipse cx='797.244094' cy='1062.992126' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='808.507874' y='1067.790354'>2</text>
+        <ellipse cx='797.244094' cy='1077.755906' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='808.507874' y='1082.554134'>3</text>
+        <ellipse cx='1033.464567' cy='1033.464567' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1015.200787' y='1038.262795'>0</text>
+        <ellipse cx='1033.464567' cy='1077.755906' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1016.200787' y='1082.554134'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Power Calculation AC.BlkRef'>
+        <polygon fill='none' points='797.244094 752.952756, 797.244094 679.133858, 1033.464567 679.133858, 1033.464567 752.952756' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='797.244094' cy='693.897638' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='808.507874' y='698.695866'>0</text>
+        <ellipse cx='797.244094' cy='708.661417' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='809.507874' y='713.459646'>1</text>
+        <ellipse cx='797.244094' cy='723.425197' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='808.507874' y='728.223425'>2</text>
+        <ellipse cx='797.244094' cy='738.188976' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='808.507874' y='742.987205'>3</text>
+        <ellipse cx='1033.464567' cy='693.897638' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1015.200787' y='698.695866'>0</text>
+        <ellipse cx='1033.464567' cy='738.188976' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1016.200787' y='742.987205'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1.BlkRef'>
+        <polygon fill='none' points='442.913386 531.496063, 442.913386 501.968504, 561.023622 501.968504, 561.023622 531.496063' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='442.913386' cy='516.732283' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='561.023622' cy='516.732283' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1.BlkRef'>
+        <polygon fill='none' points='442.913386 561.023622, 442.913386 531.496063, 561.023622 531.496063, 561.023622 561.023622' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='442.913386' cy='546.259843' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='561.023622' cy='546.259843' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1.BlkRef'>
+        <polygon fill='none' points='442.913386 442.913386, 442.913386 413.385827, 561.023622 413.385827, 561.023622 442.913386' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='442.913386' cy='428.149606' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='561.023622' cy='428.149606' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Measurement Adjustment.BlkRef'>
+        <polygon fill='none' points='236.220472 1166.338583, 236.220472 1107.283465, 501.968504 1107.283465, 501.968504 1166.338583' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='236.220472' cy='1122.047244' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='247.484252' y='1126.845472'>0</text>
+        <ellipse cx='236.220472' cy='1151.574803' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='248.484252' y='1156.373031'>1</text>
+        <ellipse cx='501.968504' cy='1122.047244' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='483.704724' y='1126.845472'>0</text>
+        <ellipse cx='501.968504' cy='1151.574803' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='484.704724' y='1156.373031'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1269.685046 177.165354, 1269.685046 147.637795, 1476.377946 147.637795, 1476.377946 177.165354' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='162.401575' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1476.377946' cy='162.401575' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1269.685046 413.385827, 1269.685046 383.858268, 1476.377946 383.858268, 1476.377946 413.385827' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='398.622047' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1476.377946' cy='398.622047' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1269.685046 708.661426, 1269.685046 679.133128, 1476.377946 679.133128, 1476.377946 708.661426' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='693.897277' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1476.377946' cy='693.897277' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1269.685046 752.952756, 1269.685046 723.425197, 1476.377946 723.425197, 1476.377946 752.952756' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='738.188976' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1476.377946' cy='738.188976' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1269.685046 132.874016, 1269.685046 103.346457, 1476.377946 103.346457, 1476.377946 132.874016' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='118.110236' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1476.377946' cy='118.110236' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT) mag-d-q.BlkRef'>
+        <polygon fill='none' points='1269.685046 664.370079, 1269.685046 605.314961, 1476.377946 605.314961, 1476.377946 664.370079' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='620.078740' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1280.948826' y='624.876969'>0</text>
+        <ellipse cx='1269.685046' cy='634.842520' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1281.948826' y='639.640748'>1</text>
+        <ellipse cx='1269.685046' cy='649.606299' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1280.948826' y='654.404528'>2</text>
+        <ellipse cx='1476.377946' cy='620.078740' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1458.114166' y='624.876969'>0</text>
+        <ellipse cx='1476.377946' cy='634.842520' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1459.114166' y='639.640748'>1</text>
+        <ellipse cx='1476.377946' cy='649.606299' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='1458.114166' y='654.404528'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1269.685046 1048.228356, 1269.685046 1018.700057, 1476.377946 1018.700057, 1476.377946 1048.228356' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='1033.464206' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1476.377946' cy='1033.464206' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1269.685046 1092.519685, 1269.685046 1062.992126, 1476.377946 1062.992126, 1476.377946 1092.519685' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='1077.755906' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1476.377946' cy='1077.755906' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1269.685046 989.173228, 1269.685046 959.645669, 1476.377946 959.645669, 1476.377946 989.173228' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='974.409449' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1476.377946' cy='974.409449' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1269.685046 354.330709, 1269.685046 324.803150, 1476.377946 324.803150, 1476.377946 354.330709' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='339.566929' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1476.377946' cy='339.566929' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1269.685046 265.748031, 1269.685046 236.220472, 1476.377946 236.220472, 1476.377946 265.748031' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='250.984252' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1476.377946' cy='250.984252' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1269.685046 221.456693, 1269.685046 191.929134, 1476.377946 191.929134, 1476.377946 221.456693' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1269.685046' cy='206.692913' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1476.377946' cy='206.692913' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Power Calculation DC.BlkRef'>
+        <polygon fill='none' points='797.244094 236.220472, 797.244094 177.165354, 1033.464567 177.165354, 1033.464567 236.220472' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='797.244094' cy='191.929134' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='808.507874' y='196.727362'>0</text>
+        <ellipse cx='797.244094' cy='221.456693' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='809.507874' y='226.254921'>1</text>
+        <ellipse cx='1033.464567' cy='206.692913' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Vdc.BlkRef'>
+        <polygon fill='none' points='324.803150 191.929134, 324.803150 147.637795, 561.023622 147.637795, 561.023622 191.929134' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='561.023622' cy='162.402313' fill='#ff0000' rx='5.314961' ry='2.657480' stroke='#ff0000' stroke-width='1.000000' />
+        <ellipse cx='324.803150' cy='162.402313' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='336.066929' y='167.200541'>0</text>
+        <ellipse cx='324.803150' cy='177.164616' fill='#00bf00' rx='5.314961' ry='2.657480' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='7.381890' text-anchor='start' x='337.066929' y='181.962844'>1</text>
+      </g>
+    </g>
+    <g id='Signals'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1q_unfiltered.BlkSig'>
+        <polyline fill='none' points='944.881890 649.606299, 620.078740 649.606299' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='944.881890 649.606299, 1269.685039 649.606299' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1d_unfiltered.BlkSig'>
+        <polyline fill='none' points='944.881890 634.842520, 620.078740 634.842520' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='944.881890 634.842520, 1269.685039 634.842520' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_n.BlkSig'>
+        <polyline fill='none' points='206.692913 177.165174, 88.582677 177.165354' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='206.692913 177.165174, 324.803150 177.164633' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_p.BlkSig'>
+        <polyline fill='none' points='206.692913 162.402476, 88.582677 162.401575' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='206.692913 162.402476, 324.803150 162.402296' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_limited.BlkSig'>
+        <polyline fill='none' points='1062.992126 369.094488, 974.409449 369.094488' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1062.992126 369.094488, 1151.574803 369.094488, 1151.574803 339.566929, 1269.685039 339.566929' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\sinphi1(1).BlkSig'>
+        <polyline fill='none' points='177.165354 738.189472, 88.582677 738.188976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='177.165354 738.189472, 265.748031 738.188976, 265.748031 812.007874, 354.330709 812.007874' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1i_loc.BlkSig'>
+        <polyline fill='none' points='221.456693 634.842204, 88.582677 634.842520' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='221.456693 634.842204, 354.330709 634.842520' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1q(2).BlkSig'>
+        <polyline fill='none' points='708.661417 826.771654, 708.661417 797.244094, 620.078740 797.244094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='708.661417 826.771654, 708.661417 856.299213, 797.244094 856.299213' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1r_loc.BlkSig'>
+        <polyline fill='none' points='221.456693 620.078740, 88.582677 620.078740' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='221.456693 620.078740, 354.330709 620.078740' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1q(1).BlkSig'>
+        <polyline fill='none' points='708.661417 767.716535, 708.661417 797.244094, 620.078740 797.244094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='708.661417 767.716535, 708.661417 738.188976, 797.244094 738.188976' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1q.BlkSig'>
+        <polyline fill='none' points='1136.811024 797.243419, 620.078740 797.244094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1136.811024 797.243419, 1653.543307 797.244094' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1d.BlkSig'>
+        <polyline fill='none' points='1136.811024 782.479955, 620.078740 782.480315' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1136.811024 782.479955, 1653.543307 782.480315' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1i_loc.BlkSig'>
+        <polyline fill='none' points='221.456693 782.479955, 88.582677 782.480315' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='221.456693 782.479955, 354.330709 782.480315' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\sinphi1.BlkSig'>
+        <polyline fill='none' points='177.165354 738.189472, 88.582677 738.188976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='177.165354 738.189472, 265.748031 738.188976, 265.748031 664.370079, 354.330709 664.370079' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1r_loc.BlkSig'>
+        <polyline fill='none' points='221.456693 767.716445, 88.582677 767.716535' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='221.456693 767.716445, 354.330709 767.716535' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1q_unfiltered(2).BlkSig'>
+        <polyline fill='none' points='708.661417 679.133858, 708.661417 649.606299, 620.078740 649.606299' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='708.661417 679.133858, 708.661417 708.661417, 797.244094 708.661417' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1d_unfiltered(2).BlkSig'>
+        <polyline fill='none' points='679.133858 664.370079, 679.133858 634.842520, 620.078740 634.842520' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='679.133858 664.370079, 679.133858 693.897638, 797.244094 693.897638' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1i_poc(1).BlkSig'>
+        <polyline fill='none' points='383.858268 989.174490, 88.582677 989.173228' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='383.858268 989.174490, 679.133858 989.173228, 679.133858 1048.228346, 797.244094 1048.228346' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1q_unfiltered(1).BlkSig'>
+        <polyline fill='none' points='708.661417 627.460630, 708.661417 649.606299, 620.078740 649.606299' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='708.661417 627.460630, 708.661417 605.314961, 797.244094 605.314961' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1r_poc(1).BlkSig'>
+        <polyline fill='none' points='398.622047 959.644633, 88.582677 959.645669' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='398.622047 959.644633, 708.661417 959.645669, 708.661417 1033.464567, 797.244094 1033.464567' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1d_unfiltered(1).BlkSig'>
+        <polyline fill='none' points='738.188976 575.787402, 679.133858 575.787402, 679.133858 634.842520, 620.078740 634.842520' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='738.188976 575.787402, 797.244094 575.787402' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1_poc_unfiltered.BlkSig'>
+        <polyline fill='none' points='1151.574803 974.409449, 1033.464567 974.409449' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 974.409449, 1269.685039 974.409449' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_Hz_in.BlkSig'>
+        <polyline fill='none' points='472.440945 369.093767, 88.582677 369.094488' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='472.440945 369.093767, 856.299213 369.094488' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\cosphi1(1).BlkSig'>
+        <polyline fill='none' points='162.401575 723.426008, 88.582677 723.425197' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='162.401575 723.426008, 236.220472 723.425197, 236.220472 797.244094, 354.330709 797.244094' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\fn.BlkSig'>
+        <polyline fill='none' points='1107.283465 428.150598, 561.023622 428.149606' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1107.283465 428.150598, 1653.543307 428.149606' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\fn_Hz_in.BlkSig'>
+        <polyline fill='none' points='265.748031 428.150598, 88.582677 428.149606' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='265.748031 428.150598, 442.913386 428.149606' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_fast.BlkSig'>
+        <polyline fill='none' points='1564.960630 118.110236, 1476.377953 118.110236' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 118.110236, 1653.543307 118.110236' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_unfiltered(2).BlkSig'>
+        <polyline fill='none' points='1003.937008 118.110236, 738.188976 118.110236, 738.188976 162.401575, 561.023622 162.402296' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1003.937008 118.110236, 1269.685039 118.110236' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\idc_in(1).BlkSig'>
+        <polyline fill='none' points='413.385827 250.982990, 88.582677 250.984252' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='413.385827 250.982990, 738.188976 250.984252, 738.188976 221.456693, 797.244094 221.456693' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1i_poc.BlkSig'>
+        <polyline fill='none' points='162.401575 1151.575687, 88.582677 1151.574803' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='162.401575 1151.575687, 236.220472 1151.574803' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1r_poc.BlkSig'>
+        <polyline fill='none' points='162.401575 1122.045836, 88.582677 1122.047244' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='162.401575 1122.045836, 236.220472 1122.047244' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_unfiltered(1).BlkSig'>
+        <polyline fill='none' points='649.606299 162.401935, 561.023622 162.402296' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='649.606299 162.401935, 738.188976 162.401575, 738.188976 191.929134, 797.244094 191.929134' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1q.BlkSig'>
+        <polyline fill='none' points='1564.960630 649.605713, 1476.377953 649.606299' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 649.605713, 1653.543307 649.606299' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pac_loc.BlkSig'>
+        <polyline fill='none' points='1564.960630 693.898854, 1476.377953 693.897277' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 693.898854, 1653.543307 693.897638' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q_loc.BlkSig'>
+        <polyline fill='none' points='1564.960630 738.189472, 1476.377953 738.188976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 738.189472, 1653.543307 738.188976' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1_loc.BlkSig'>
+        <polyline fill='none' points='1343.503937 841.536740, 1033.464567 841.535433' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1343.503937 841.536740, 1653.543307 841.535433' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_slow.BlkSig'>
+        <polyline fill='none' points='1564.960630 398.620696, 1476.377953 398.622047' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 398.620696, 1653.543307 398.622047' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_fast.BlkSig'>
+        <polyline fill='none' points='1564.960630 339.566749, 1476.377953 339.566929' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 339.566749, 1653.543307 339.566929' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pdc.BlkSig'>
+        <polyline fill='none' points='1564.960630 206.692553, 1476.377953 206.692913' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 206.692553, 1653.543307 206.692913' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc.BlkSig'>
+        <polyline fill='none' points='1564.960630 162.402115, 1476.377953 162.401575' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 162.402115, 1653.543307 162.401575' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pdc_unfiltered.BlkSig'>
+        <polyline fill='none' points='1151.574803 206.692913, 1033.464567 206.692913' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 206.692913, 1269.685039 206.692913' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\idc.BlkSig'>
+        <polyline fill='none' points='1564.960630 250.982990, 1476.377953 250.984252' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 250.982990, 1653.543307 250.984252' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1_poc.BlkSig'>
+        <polyline fill='none' points='1564.960630 974.409449, 1476.377953 974.409449' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 974.409449, 1653.543307 974.409449' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pac_poc.BlkSig'>
+        <polyline fill='none' points='1564.960630 1033.464387, 1476.377953 1033.464206' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 1033.464387, 1653.543307 1033.464567' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q_poc.BlkSig'>
+        <polyline fill='none' points='1564.960630 1077.755906, 1476.377953 1077.755906' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 1077.755906, 1653.543307 1077.755906' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1_poc.BlkSig'>
+        <polyline fill='none' points='1343.503937 1136.811024, 1033.464567 1136.811024' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1343.503937 1136.811024, 1653.543307 1136.811024' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1_loc.BlkSig'>
+        <polyline fill='none' points='1564.960630 620.078740, 1476.377953 620.078740' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 620.078740, 1653.543307 620.078740' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1d.BlkSig'>
+        <polyline fill='none' points='1564.960630 634.842204, 1476.377953 634.842520' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1564.960630 634.842204, 1653.543307 634.842520' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\uspi_loc_inst.BlkSig'>
+        <polyline fill='none' points='1107.283465 546.258446, 561.023622 546.259843' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1107.283465 546.258446, 1653.543307 546.259843' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1i_poc.BlkSig'>
+        <polyline fill='none' points='442.913386 989.174490, 88.582677 989.173228' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='442.913386 989.174490, 797.244094 989.173228' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\usp_loc_inst(1).BlkSig'>
+        <polyline fill='none' points='1092.519685 590.551181, 1033.464567 590.551181' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1092.519685 590.551181, 1151.574803 590.551181, 1151.574803 620.078740, 1269.685039 620.078740' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_limited(1).BlkSig'>
+        <polyline fill='none' points='1077.755906 369.094488, 974.409449 369.094488' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1077.755906 369.094488, 1151.574803 369.094488, 1151.574803 398.622047, 1269.685039 398.622047' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\uspr_loc_inst.BlkSig'>
+        <polyline fill='none' points='1107.283465 516.731472, 561.023622 516.732283' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1107.283465 516.731472, 1653.543307 516.732283' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1r_poc.BlkSig'>
+        <polyline fill='none' points='442.913386 959.644633, 88.582677 959.645669' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='442.913386 959.644633, 797.244094 959.645669' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\usp_loc_inst.BlkSig'>
+        <polyline fill='none' points='1343.503937 590.551767, 1033.464567 590.551181' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1343.503937 590.551767, 1653.543307 590.551181' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1i_loc(1).BlkSig'>
+        <polyline fill='none' points='177.165354 634.842204, 88.582677 634.842520' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='177.165354 634.842204, 265.748031 634.842520, 265.748031 546.259843, 442.913386 546.259843' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1r_loc(1).BlkSig'>
+        <polyline fill='none' points='162.401575 620.078740, 88.582677 620.078740' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='162.401575 620.078740, 236.220472 620.078740, 236.220472 516.732283, 442.913386 516.732283' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1i_poc_oriented(1).BlkSig'>
+        <polyline fill='none' points='708.661417 1114.665354, 708.661417 1151.574803, 501.968504 1151.574803' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='708.661417 1114.665354, 708.661417 1077.755906, 797.244094 1077.755906' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1r_poc_oriented(1).BlkSig'>
+        <polyline fill='none' points='590.551181 1122.047244, 501.968504 1122.047244' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='590.551181 1122.047244, 679.133858 1122.047244, 679.133858 1062.992126, 797.244094 1062.992126' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1i_poc_oriented.BlkSig'>
+        <polyline fill='none' points='649.606299 1151.574803, 501.968504 1151.574803' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='649.606299 1151.574803, 797.244094 1151.574803' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1r_poc_oriented.BlkSig'>
+        <polyline fill='none' points='649.606299 1122.047244, 501.968504 1122.047244' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='649.606299 1122.047244, 797.244094 1122.047244' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\idc_in.BlkSig'>
+        <polyline fill='none' points='679.133858 250.982990, 88.582677 250.984252' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='679.133858 250.982990, 1269.685039 250.984252' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_unfiltered.BlkSig'>
+        <polyline fill='none' points='915.354331 162.401935, 561.023622 162.402296' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='915.354331 162.401935, 1269.685039 162.401575' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1d(2).BlkSig'>
+        <polyline fill='none' points='679.133858 782.480315, 620.078740 782.480315' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='679.133858 782.480315, 679.133858 826.771654, 797.244094 826.771654' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\cosphi1.BlkSig'>
+        <polyline fill='none' points='162.401575 723.426008, 88.582677 723.425197' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='162.401575 723.426008, 236.220472 723.425197, 236.220472 649.606299, 354.330709 649.606299' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1d(1).BlkSig'>
+        <polyline fill='none' points='679.133858 782.480315, 620.078740 782.480315' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='679.133858 782.480315, 679.133858 723.425197, 797.244094 723.425197' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q1_poc_unfiltered.BlkSig'>
+        <polyline fill='none' points='1151.574803 1077.755906, 1033.464567 1077.755906' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 1077.755906, 1269.685039 1077.755906' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q1_loc_unfiltered.BlkSig'>
+        <polyline fill='none' points='1151.574803 738.188976, 1033.464567 738.188976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 738.188976, 1269.685039 738.188976' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\P1_poc_unfiltered.BlkSig'>
+        <polyline fill='none' points='1151.574803 1033.464387, 1033.464567 1033.464567' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 1033.464387, 1269.685039 1033.464206' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\P1_loc_unfiltered.BlkSig'>
+        <polyline fill='none' points='1151.574803 693.897458, 1033.464567 693.897638' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 693.897458, 1269.685039 693.897277' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1q_unfiltered.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 649.606299, 1240.157480 652.559055, 1240.157480 646.653543' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1d_unfiltered.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 634.842520, 1240.157480 637.795276, 1240.157480 631.889764' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_n.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='324.803150 177.164633, 295.275645 180.117525, 295.275536 174.212013' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_p.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='324.803150 162.402296, 295.275609 165.355097, 295.275573 159.449585' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_limited.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 339.566929, 1240.157480 342.519685, 1240.157480 336.614173' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\sinphi1(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.330709 812.007874, 324.803150 814.960630, 324.803150 809.055118' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1i_loc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.330709 634.842520, 324.803122 637.795206, 324.803178 631.889694' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1q(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 856.299213, 767.716535 859.251969, 767.716535 853.346457' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1r_loc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.330709 620.078740, 324.803150 623.031496, 324.803150 617.125984' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1q(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 738.188976, 767.716535 741.141732, 767.716535 735.236220' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 797.244094, 1624.015733 800.196812, 1624.015763 794.291300' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 782.480315, 1624.015740 785.433050, 1624.015756 779.527538' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1i_loc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.330709 782.480315, 324.803118 785.432991, 324.803182 779.527479' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\sinphi1.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.330709 664.370079, 324.803150 667.322835, 324.803150 661.417323' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1r_loc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.330709 767.716535, 324.803142 770.669271, 324.803158 764.763760' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1q_unfiltered(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 708.661417, 767.716535 711.614173, 767.716535 705.708661' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1d_unfiltered(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 693.897638, 767.716535 696.850394, 767.716535 690.944882' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1i_poc(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 1048.228346, 767.716535 1051.181102, 767.716535 1045.275591' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1q_unfiltered(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 605.314961, 767.716535 608.267717, 767.716535 602.362205' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1r_poc(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 1033.464567, 767.716535 1036.417323, 767.716535 1030.511811' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1d_unfiltered(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 575.787402, 767.716535 578.740157, 767.716535 572.834646' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1_poc_unfiltered.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 974.409449, 1240.157480 977.362205, 1240.157480 971.456693' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_Hz_in.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='856.299213 369.094488, 826.771631 372.047189, 826.771676 366.141677' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\cosphi1(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.330709 797.244094, 324.803150 800.196850, 324.803150 794.291339' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\fn.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 428.149606, 1624.015769 431.102416, 1624.015727 425.196904' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\fn_Hz_in.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='442.913386 428.149606, 413.385893 431.102527, 413.385761 425.197016' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_fast.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 118.110236, 1624.015748 121.062992, 1624.015748 115.157480' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_unfiltered(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 118.110236, 1240.157480 121.062992, 1240.157480 115.157480' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\idc_in(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 221.456693, 767.716535 224.409449, 767.716535 218.503937' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1i_poc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='236.220472 1151.574803, 206.693055 1154.527913, 206.692772 1148.622401' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1r_poc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='236.220472 1122.047244, 206.692688 1124.999437, 206.693139 1119.093925' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_unfiltered(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 191.929134, 767.716535 194.881890, 767.716535 188.976378' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 649.606299, 1624.015670 652.558860, 1624.015826 646.653348' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pac_loc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 693.897638, 1624.015910 696.850799, 1624.015586 690.945287' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q_loc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 738.188976, 1624.015814 741.141897, 1624.015682 735.236386' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1_loc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 841.535433, 1624.015798 844.488313, 1624.015698 838.582802' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_slow.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 398.622047, 1624.015568 401.574353, 1624.015928 395.668841' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_fast.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 339.566929, 1624.015724 342.519625, 1624.015772 336.614113' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pdc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 206.692913, 1624.015700 209.645549, 1624.015796 203.740037' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 162.401575, 1624.015820 165.354511, 1624.015676 159.448999' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pdc_unfiltered.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 206.692913, 1240.157480 209.645669, 1240.157480 203.740157' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\idc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 250.984252, 1624.015580 253.936587, 1624.015916 248.031076' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1_poc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 974.409449, 1624.015748 977.362205, 1624.015748 971.456693' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pac_poc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 1033.464567, 1624.015724 1036.417263, 1624.015772 1030.511751' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q_poc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 1077.755906, 1624.015748 1080.708661, 1624.015748 1074.803150' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1_poc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 1136.811024, 1624.015748 1139.763780, 1624.015748 1133.858268' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1_loc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 620.078740, 1624.015748 623.031496, 1624.015748 617.125984' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 634.842520, 1624.015706 637.795170, 1624.015790 631.889659' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\uspi_loc_inst.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 546.259843, 1624.015718 549.212523, 1624.015778 543.307011' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1i_poc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 989.173228, 767.716577 992.126089, 767.716493 986.220578' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\usp_loc_inst(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 620.078740, 1240.157480 623.031496, 1240.157480 617.125984' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_limited(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 398.622047, 1240.157480 401.574803, 1240.157480 395.669291' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\uspr_loc_inst.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 516.732283, 1624.015730 519.684996, 1624.015766 513.779484' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1r_poc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 959.645669, 767.716501 962.598339, 767.716570 956.692827' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\usp_loc_inst.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 590.551181, 1624.015770 593.503993, 1624.015726 587.598481' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1i_loc(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='442.913386 546.259843, 413.385827 549.212598, 413.385827 543.307087' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1r_loc(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='442.913386 516.732283, 413.385827 519.685039, 413.385827 513.779528' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1i_poc_oriented(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 1077.755906, 767.716535 1080.708661, 767.716535 1074.803150' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1r_poc_oriented(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 1062.992126, 767.716535 1065.944882, 767.716535 1060.039370' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1i_poc_oriented.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 1151.574803, 767.716535 1154.527559, 767.716535 1148.622047' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1r_poc_oriented.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 1122.047244, 767.716535 1125.000000, 767.716535 1119.094488' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\idc_in.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 250.984252, 1240.157455 253.936945, 1240.157506 248.031433' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_unfiltered.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 162.401575, 1240.157492 165.354361, 1240.157468 159.448849' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1d(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 826.771654, 767.716535 829.724409, 767.716535 823.818898' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\cosphi1.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.330709 649.606299, 324.803150 652.559055, 324.803150 646.653543' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1d(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='797.244094 723.425197, 767.716535 726.377953, 767.716535 720.472441' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q1_poc_unfiltered.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 1077.755906, 1240.157480 1080.708661, 1240.157480 1074.803150' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q1_loc_unfiltered.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 738.188976, 1240.157480 741.141732, 1240.157480 735.236220' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\P1_poc_unfiltered.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 1033.464206, 1240.157498 1036.417007, 1240.157462 1030.511496' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\P1_loc_unfiltered.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1269.685039 693.897277, 1240.157498 696.850078, 1240.157462 690.944567' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='Cross Points'>
+        <g id='Cross Point'>
+          <ellipse cx='679.133858' cy='634.842520' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='708.661417' cy='649.606299' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='679.133858' cy='782.480315' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='708.661417' cy='797.244094' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='679.133858' cy='634.842520' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='708.661417' cy='649.606299' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='679.133858' cy='782.480315' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='708.661417' cy='797.244094' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='265.748031' cy='738.188976' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='1151.574803' cy='590.551181' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='679.133858' cy='1122.047244' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='708.661417' cy='1151.574803' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='738.188976' cy='162.401575' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='679.133858' cy='782.480315' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='738.188976' cy='250.984252' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='738.188976' cy='162.401575' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='236.220472' cy='620.078740' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='236.220472' cy='723.425197' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='265.748031' cy='634.842520' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='1151.574803' cy='369.094488' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='708.661417' cy='959.645669' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='679.133858' cy='989.173228' fill='#000000' rx='5.905512' ry='2.952756' stroke='#000000' stroke-width='1.000000' />
+        </g>
+      </g>
+    </g>
+    <g id='Labels'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1q_unfiltered.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='914.381889' y='650.019685'>u1q_unfiltered</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1d_unfiltered.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='914.381889' y='635.255906'>u1d_unfiltered</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_n.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='193.192913' y='177.578560'>udc_n</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_p.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='193.192913' y='162.815862'>udc_p</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_limited.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1043.992125' y='369.507874'>f_limited</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1i_loc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='205.956692' y='635.255590'>u1i_loc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1r_loc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='205.456692' y='620.492126'>u1r_loc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1129.811023' y='797.656804'>i1q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1129.811023' y='782.893340'>i1d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1i_loc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='207.456692' y='782.893340'>i1i_loc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\sinphi1.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='162.165354' y='738.602858'>sinphi1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1r_loc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='206.956692' y='768.129831'>i1r_loc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1_poc_unfiltered.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1113.574803' y='974.822835'>u1_poc_unfiltered</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_Hz_in.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='455.440944' y='369.507153'>f_Hz_in</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\fn.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1101.783464' y='428.563983'>fn</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\fn_Hz_in.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='246.248031' y='428.563983'>fn_Hz_in</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_fast.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1545.460629' y='118.523622'>udc_fast</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1i_poc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='146.901574' y='1151.989073'>i1i_poc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1r_poc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='146.401574' y='1122.459222'>i1r_poc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1556.460629' y='650.019099'>u1q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pac_loc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1547.960629' y='694.312240'>Pac_loc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q_loc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1552.460629' y='738.602858'>Q_loc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1_loc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1330.503936' y='841.950126'>i1_loc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_slow.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1550.460629' y='399.034081'>f_slow</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\f_fast.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1550.960629' y='339.980135'>f_fast</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pdc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1556.460629' y='207.105939'>Pdc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1556.460629' y='162.815501'>udc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pdc_unfiltered.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1121.074803' y='207.106299'>Pdc_unfiltered</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\idc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1557.960629' y='251.396376'>idc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1_poc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1548.960629' y='974.822835'>u1_poc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Pac_poc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1546.460629' y='1033.877773'>Pac_poc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q_poc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1550.960629' y='1078.169291'>Q_poc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1_poc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1329.003936' y='1137.224409'>i1_poc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1_loc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1550.460629' y='620.492126'>u1_loc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1556.460629' y='635.255590'>u1d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\uspi_loc_inst.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1079.283464' y='546.671832'>uspi_loc_inst</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1i_poc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='425.913385' y='989.587876'>u1i_poc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\uspr_loc_inst.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1078.783464' y='517.144858'>uspr_loc_inst</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\u1r_poc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='425.413385' y='960.058019'>u1r_poc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\usp_loc_inst.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1316.503936' y='590.965153'>usp_loc_inst</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1i_poc_oriented.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='615.106299' y='1151.988189'>i1i_poc_oriented</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\i1r_poc_oriented.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='614.606299' y='1122.460630'>i1r_poc_oriented</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\idc_in.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='666.133858' y='251.396376'>idc_in</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\udc_unfiltered.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='884.854330' y='162.815321'>udc_unfiltered</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\cosphi1.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='145.901574' y='723.839394'>cosphi1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q1_poc_unfiltered.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1113.074803' y='1078.169291'>Q1_poc_unfiltered</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Q1_loc_unfiltered.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1114.574803' y='738.602362'>Q1_loc_unfiltered</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\P1_poc_unfiltered.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1113.574803' y='1033.877773'>P1_poc_unfiltered</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\P1_loc_unfiltered.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1115.074803' y='694.310843'>P1_loc_unfiltered</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef.BlkDef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.287402' text-anchor='start' x='88.582677' y='28.937008'>Signal Calculation (RMS balanced) BlkDef: Signal Calculation for balanced RMS simulation</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Limiter.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='900.354331' y='368.149606'>Limiter</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Magnitude.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='893.354331' y='1135.866142'>Magnitude</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Magnitude.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='893.354331' y='973.464567'>Magnitude</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Magnitude.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='893.354331' y='840.590551'>Magnitude</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Magnitude.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='893.354331' y='589.606299'>Magnitude</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\dq-Transform.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='458.204724' y='788.917323'>dq-Transform</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\dq-Transform.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='458.204724' y='641.279528'>dq-Transform</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Power Calculation AC.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='869.854331' y='1054.665354'>Power Calculation AC</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Power Calculation AC.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='869.854331' y='715.098425'>Power Calculation AC</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='499.468504' y='515.787402'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='499.468504' y='545.314961'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='499.468504' y='427.204724'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Measurement Adjustment.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='315.094488' y='1135.866142'>Measurement Adjustment</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='328.594488' y='1145.314961'>Sr_mmc,Sr_poc,ori</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1355.031496' y='161.456693'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1362.031496' y='170.905512'>Tudc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1355.031496' y='397.677165'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1356.031496' y='407.125984'>Tf_slow</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1353.816839' y='692.952395'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1363.316839' y='702.401214'>Tpq</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1355.031496' y='737.244094'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1364.531496' y='746.692913'>Tpq</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1355.031496' y='117.165354'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1351.031496' y='126.614173'>Tudc_fast</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT) mag-d-q.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1337.031496' y='633.897638'>1/(1+sT) mag-d-q</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1362.031496' y='643.346457'>Tuac</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1353.816839' y='1032.519325'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1363.316839' y='1041.968143'>Tpq</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1355.031496' y='1076.811024'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1364.531496' y='1086.259843'>Tpq</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1352.890438' y='973.464567'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1359.890438' y='982.913386'>Tuac</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1355.031496' y='338.622047'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1356.531496' y='348.070866'>Tf_fast</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1355.031496' y='250.039370'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1363.531496' y='259.488189'>Tidc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1355.031496' y='205.748031'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='1362.031496' y='215.196850'>Tpdc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Power Calculation DC.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='869.354331' y='205.748031'>Power Calculation DC</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Vdc.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='433.913386' y='168.838583'>Vdc</text>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='431.913386' y='178.287402'>Topo</text>
+      </g>
+    </g>
+    <g id='Device data'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Limiter.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='962.409449' y='330.059055'>fmax</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Signal Calculation (RMS balanced) BlkDef\Limiter.BlkRef::TextBox 2'>
+        <text fill='#000000' font-family='Arial' font-size='9.448819' text-anchor='start' x='845.799213' y='415.688976'>fmin</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

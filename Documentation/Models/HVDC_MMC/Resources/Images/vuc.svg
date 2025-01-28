@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg baseProfile='full' height='100.000000%' version='1.1' viewBox='0.000000 0.000000 1753.000000 1240.000000' width='100.000000%' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+
+
+  <defs>
+    <clipPath id='clipPath-01'>
+      <polygon points='0.000000 1240.157480, 0.000000 0.000000, 1753.937008 0.000000, 1753.937008 1240.157480' />
+    </clipPath>
+  </defs>
+
+  <g clip-path='url(#clipPath-01)'>
+    <g id='Page Layer'>
+      <polygon fill='#ffffff' points='0.500000 0.500000, 0.500000 1239.500000, 1752.500000 1239.500000, 1752.500000 0.500000' stroke='#808080' stroke-width='1.000000' />
+    </g>
+    <g id='Block definition'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef.BlkDef'>
+        <polyline fill='none' points='88.582677 1151.574803, 1653.543307 1151.574803, 1653.543307 88.582677, 88.582677 88.582677, 88.582677 1151.574803' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='88.582677' cy='708.663189' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='714.568701'>3</text>
+        <ellipse cx='88.582677' cy='1033.465748' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='1039.371260'>5</text>
+        <ellipse cx='88.582677' cy='797.242323' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='68.818898' y='803.147835'>4</text>
+        <ellipse cx='88.582677' cy='1122.044882' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='1127.950394'>6</text>
+        <ellipse cx='1653.543307' cy='679.133268' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1663.807087' y='685.038780'>0</text>
+        <ellipse cx='1653.543307' cy='1003.935827' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1665.307087' y='1009.841339'>1</text>
+        <ellipse cx='88.582677' cy='354.330709' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='360.236220'>2</text>
+        <ellipse cx='88.582677' cy='147.637205' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='153.542717'>0</text>
+        <ellipse cx='88.582677' cy='324.800787' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='70.818898' y='330.706299'>1</text>
+      </g>
+    </g>
+    <g id='Net elements'>
+      <g id='AnnotationElem 0'>
+        <polygon fill='none' points='383.858268 649.606299, 383.858268 1092.519685, 1092.519685 1092.519685, 1092.519685 649.606299' stroke='#0000ff' stroke-dasharray='8.905512 5.937008' stroke-width='2.952756' />
+      </g>
+      <g id='AnnotationElem 1'>
+        <polygon fill='none' points='531.496063 177.165354, 531.496063 620.078740, 1151.574803 620.078740, 1151.574803 177.165354' stroke='#0000ff' stroke-dasharray='8.905512 5.937008' stroke-width='2.952756' />
+      </g>
+      <g id='AnnotationElem 2'>
+        <text fill='#0000ff' font-family='Arial' font-size='24.803150' text-anchor='start' x='403.793710' y='831.329358'>Mode = 1:</text>
+        <text fill='#0000ff' font-family='Arial' font-size='24.803150' text-anchor='start' x='403.793710' y='861.093137'>Impedance</text>
+        <text fill='#0000ff' font-family='Arial' font-size='24.803150' text-anchor='start' x='403.793710' y='890.856917'>Emulation</text>
+      </g>
+      <g id='AnnotationElem 3'>
+        <text fill='#0000ff' font-family='Arial' font-size='24.803150' text-anchor='start' x='539.486624' y='226.132507'>Mode = 2:</text>
+        <text fill='#0000ff' font-family='Arial' font-size='24.803150' text-anchor='start' x='539.486624' y='255.896287'>PI Controller with Droop</text>
+      </g>
+      <g id='AnnotationElem 4'>
+        <polygon fill='none' points='1210.629921 797.244094, 1210.629921 915.354331, 1594.488189 915.354331, 1594.488189 797.244094' stroke='#0000ff' stroke-dasharray='8.905512 5.937008' stroke-width='2.952756' />
+      </g>
+      <g id='AnnotationElem 5'>
+        <text fill='#0000ff' font-family='Arial' font-size='24.803150' text-anchor='start' x='1352.730763' y='831.329358'>Mode = 0:</text>
+        <text fill='#0000ff' font-family='Arial' font-size='24.803150' text-anchor='start' x='1352.730763' y='861.093137'>Negative sequence</text>
+        <text fill='#0000ff' font-family='Arial' font-size='24.803150' text-anchor='start' x='1352.730763' y='890.856917'>current reference = 0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(1).BlkSum'>
+        <ellipse cx='236.220472' cy='1033.464567' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='221.456693' cy='1033.464567' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='236.220472' cy='1048.228346' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='250.984252' cy='1033.464567' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='236.220472' cy='1018.700787' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='708.661417 590.551181, 708.661417 531.496063, 826.771654 531.496063, 826.771654 590.551181' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='826.771654' cy='561.023622' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='708.661417' cy='561.023622' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point.BlkSum'>
+        <ellipse cx='236.220472' cy='708.661417' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='221.456693' cy='708.661417' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='236.220472' cy='723.425197' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='250.984252' cy='708.661417' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='236.220472' cy='693.897638' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Selector Out.BlkRef'>
+        <polygon fill='none' points='1387.795276 1092.519685, 1387.795276 944.881890, 1535.433071 944.881890, 1535.433071 1092.519685' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1535.433071' cy='1003.937008' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <ellipse cx='1387.795276' cy='974.409449' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1398.059055' y='980.314961'>0</text>
+        <ellipse cx='1387.795276' cy='1003.937008' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1399.559055' y='1009.842520'>1</text>
+        <ellipse cx='1387.795276' cy='1033.464567' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1398.059055' y='1039.370079'>2</text>
+        <ellipse cx='1387.795276' cy='1062.992126' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1398.059055' y='1068.897638'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Selector Out.BlkRef'>
+        <polygon fill='none' points='1387.795276 767.716535, 1387.795276 620.078740, 1535.433071 620.078740, 1535.433071 767.716535' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1535.433071' cy='679.133858' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <ellipse cx='1387.795276' cy='649.606299' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1398.059055' y='655.511811'>0</text>
+        <ellipse cx='1387.795276' cy='679.133858' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1399.559055' y='685.039370'>1</text>
+        <ellipse cx='1387.795276' cy='708.661417' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1398.059055' y='714.566929'>2</text>
+        <ellipse cx='1387.795276' cy='738.188976' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1398.059055' y='744.094488'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Selector In.BlkRef'>
+        <polygon fill='none' points='324.803150 501.968504, 324.803150 383.858268, 472.440945 383.858268, 472.440945 501.968504' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='472.440945' cy='442.913386' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <ellipse cx='324.803150' cy='413.385827' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='335.066929' y='419.291339'>0</text>
+        <ellipse cx='324.803150' cy='442.913386' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='336.566929' y='448.818898'>1</text>
+        <ellipse cx='324.803150' cy='472.440945' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='335.066929' y='478.346457'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\K.BlkRef'>
+        <polygon fill='none' points='679.133858 1062.992126, 679.133858 1003.937008, 797.244094 1003.937008, 797.244094 1062.992126' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='679.133858' cy='1033.464567' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='797.244094' cy='1033.464567' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(4).BlkSum'>
+        <ellipse cx='649.606299' cy='442.913386' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='634.842520' cy='442.913386' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='649.606299' cy='457.677165' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='664.370079' cy='442.913386' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='649.606299' cy='428.149606' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Kp+Ki/s.BlkRef'>
+        <polygon fill='none' points='826.771654 472.440945, 826.771654 265.748031, 944.881890 265.748031, 944.881890 472.440945' stroke='#000000' stroke-width='2.362205' />
+        <polyline fill='none' points='956.692913 239.911417, 927.165354 239.911417, 915.354331 265.748031' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='944.881890' cy='383.862697' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <ellipse cx='826.771654' cy='295.274114' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='837.035433' y='301.179626'>0</text>
+        <ellipse cx='826.771654' cy='324.800197' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='838.535433' y='330.705709'>1</text>
+        <ellipse cx='826.771654' cy='354.326280' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='837.035433' y='360.231791'>2</text>
+        <ellipse cx='826.771654' cy='442.914862' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='837.035433' y='448.820374'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\0.BlkRef'>
+        <polygon fill='none' points='1240.157480 885.826772, 1240.157480 826.771654, 1299.212598 826.771654, 1299.212598 885.826772' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1299.212598' cy='856.299213' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\0.BlkRef'>
+        <polygon fill='none' points='118.110236 442.913386, 118.110236 383.858268, 177.165354 383.858268, 177.165354 442.913386' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='177.165354' cy='413.385827' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\K.BlkRef'>
+        <polygon fill='none' points='944.881890 590.551181, 944.881890 531.496063, 1062.992126 531.496063, 1062.992126 590.551181' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1062.992126' cy='561.023622' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='944.881890' cy='561.023622' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\K.BlkRef'>
+        <polygon fill='none' points='679.133858 974.409449, 679.133858 915.354331, 797.244094 915.354331, 797.244094 974.409449' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='679.133858' cy='944.881890' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='797.244094' cy='944.881890' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\K.BlkRef'>
+        <polygon fill='none' points='679.133858 826.771654, 679.133858 767.716535, 797.244094 767.716535, 797.244094 826.771654' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='679.133858' cy='797.244094' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='797.244094' cy='797.244094' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\K.BlkRef'>
+        <polygon fill='none' points='679.133858 738.188976, 679.133858 679.133858, 797.244094 679.133858, 797.244094 738.188976' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='679.133858' cy='708.661417' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='797.244094' cy='708.661417' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(3).BlkSum'>
+        <ellipse cx='1062.992126' cy='1033.464567' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='1048.228346' cy='1033.464567' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1062.992126' cy='1048.228346' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1077.755906' cy='1033.464567' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1062.992126' cy='1018.700787' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(2).BlkSum'>
+        <ellipse cx='1003.937008' cy='708.661417' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='989.173228' cy='708.661417' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1003.937008' cy='723.425197' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1018.700787' cy='708.661417' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1003.937008' cy='693.897638' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(1).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='227.952756' y='1038.425197'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(1).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='232.220472' y='1043.149606'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(1).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='239.125984' y='1038.425197'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(1).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='233.220472' y='1032.519685'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(1).BlkSum::TextBox 4'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='201.692913' y='1032.283465'>-</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='227.952756' y='713.622047'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='232.220472' y='718.346457'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='239.125984' y='713.622047'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='233.220472' y='707.716535'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point.BlkSum::TextBox 4'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='201.692913' y='707.480315'>-</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(4).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='641.338583' y='447.874016'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(4).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='645.606299' y='452.598425'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(4).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='652.511811' y='447.874016'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(4).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='646.606299' y='441.968504'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(4).BlkSum::TextBox 5'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='629.842520' y='483.070866'>-</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(3).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1054.724409' y='1038.425197'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(3).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1058.992126' y='1043.149606'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(3).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1065.897638' y='1038.425197'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(3).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1059.992126' y='1032.519685'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(2).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='995.669291' y='713.622047'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(2).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='999.937008' y='718.346457'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(2).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1006.842520' y='713.622047'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(2).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1000.937008' y='707.716535'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Summation Point(2).BlkSum::TextBox 5'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='984.173228' y='748.818898'>-</text>
+      </g>
+    </g>
+    <g id='Signals'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2q.BlkSig'>
+        <polyline fill='none' points='465.059055 1033.464567, 250.984252 1033.464567' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='465.059055 1033.464567, 679.133858 1033.464567' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2d.BlkSig'>
+        <polyline fill='none' points='465.059055 708.661417, 250.984252 708.661417' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='465.059055 708.661417, 679.133858 708.661417' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2q.BlkSig'>
+        <polyline fill='none' points='155.019685 1033.465806, 88.582677 1033.464567' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='155.019685 1033.465806, 221.456693 1033.464567' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_in_limit.BlkSig'>
+        <polyline fill='none' points='457.677165 324.803150, 88.582677 324.803150' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='457.677165 324.803150, 826.771654 324.800176' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\block(2).BlkSig'>
+        <polyline fill='none' points='1181.102362 531.496063, 1181.102362 147.637795, 88.582677 147.637795' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1181.102362 531.496063, 1181.102362 974.409449, 1387.795276 974.409449' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\block(1).BlkSig'>
+        <polyline fill='none' points='634.842520 295.274870, 442.913386 295.275681, 442.913386 147.637795, 88.582677 147.637795' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='634.842520 295.274870, 826.771654 295.274149' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\block.BlkSig'>
+        <polyline fill='none' points='634.842520 147.637795, 88.582677 147.637795' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='634.842520 147.637795, 1181.102362 147.637795, 1181.102362 649.606299, 1387.795276 649.606299' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_ref_imp.BlkSig'>
+        <polyline fill='none' points='1232.775591 1033.464567, 1077.755906 1033.464567' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1232.775591 1033.464567, 1387.795276 1033.464567' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\FRT.BlkSig'>
+        <polyline fill='none' points='457.677165 354.329537, 88.582677 354.330709' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='457.677165 354.329537, 826.771654 354.326293' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2d.BlkSig'>
+        <polyline fill='none' points='155.019685 708.660832, 88.582677 708.661417' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='155.019685 708.660832, 221.456693 708.661417' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_out(2).BlkSig'>
+        <polyline fill='none' points='1358.267717 738.188976, 1328.740157 738.188976, 1328.740157 856.299213, 1299.212598 856.299213' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1358.267717 738.188976, 1387.795276 738.188976' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2d(1).BlkSig'>
+        <polyline fill='none' points='420.767717 708.661417, 250.984252 708.661417' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='420.767717 708.661417, 590.551181 708.661417, 590.551181 797.244094, 679.133858 797.244094' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_out(1).BlkSig'>
+        <polyline fill='none' points='1328.740157 930.118110, 1328.740157 856.299213, 1299.212598 856.299213' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1328.740157 930.118110, 1328.740157 1003.937008, 1387.795276 1003.937008' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_out.BlkSig'>
+        <polyline fill='none' points='1328.740157 767.716535, 1328.740157 856.299213, 1299.212598 856.299213' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1328.740157 767.716535, 1328.740157 679.133858, 1387.795276 679.133858' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_in(1).BlkSig'>
+        <polyline fill='none' points='295.275591 442.913386, 265.748031 442.913386, 265.748031 413.385827, 177.165354 413.385827' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='295.275591 442.913386, 324.803150 442.913386' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_in.BlkSig'>
+        <polyline fill='none' points='250.984252 413.385827, 177.165354 413.385827' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='250.984252 413.385827, 324.803150 413.385827' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\droop_pt1.BlkSig'>
+        <polyline fill='none' points='649.606299 509.350394, 649.606299 561.023622, 708.661417 561.023622' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='649.606299 509.350394, 649.606299 457.677165' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\droop.BlkSig'>
+        <polyline fill='none' points='885.826772 561.023622, 944.881890 561.023622' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='885.826772 561.023622, 826.771654 561.023622' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2d(2).BlkSig'>
+        <polyline fill='none' points='265.748031 472.440945, 265.748031 708.661417, 250.984252 708.661417' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='265.748031 472.440945, 324.803150 472.440945' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_ref_pictrl(1).BlkSig'>
+        <polyline fill='none' points='1122.047244 472.441305, 1122.047244 383.858898, 944.881890 383.862683' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1122.047244 472.441305, 1122.047244 561.023622, 1062.992126 561.023622' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_ref_pictrl.BlkSig'>
+        <polyline fill='none' points='1122.047244 723.425512, 1122.047244 383.858898, 944.881890 383.862683' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1122.047244 723.425512, 1122.047244 1062.992126, 1387.795276 1062.992126' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2P_ref_imp.BlkSig'>
+        <polyline fill='none' points='1203.248031 708.661417, 1018.700787 708.661417' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1203.248031 708.661417, 1387.795276 708.661417' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2d_pictrl.BlkSig'>
+        <polyline fill='none' points='553.641732 442.913386, 472.440945 442.913386' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='553.641732 442.913386, 634.842520 442.913386' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\pictrl_error.BlkSig'>
+        <polyline fill='none' points='745.570866 442.913386, 664.370079 442.913386' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='745.570866 442.913386, 826.771654 442.914828' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Pq_ref.BlkSig'>
+        <polyline fill='none' points='1003.937008 834.153543, 1003.937008 944.881890, 797.244094 944.881890' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1003.937008 834.153543, 1003.937008 723.425197' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Qd_ref.BlkSig'>
+        <polyline fill='none' points='1062.992126 907.972441, 1062.992126 797.244094, 797.244094 797.244094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1062.992126 907.972441, 1062.992126 1018.700787' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2q(1).BlkSig'>
+        <polyline fill='none' points='590.551181 989.173228, 590.551181 1033.464567, 250.984252 1033.464567' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='590.551181 989.173228, 590.551181 944.881890, 679.133858 944.881890' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Qq_ref.BlkSig'>
+        <polyline fill='none' points='922.736220 1033.464567, 797.244094 1033.464567' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='922.736220 1033.464567, 1048.228346 1033.464567' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Pd_ref.BlkSig'>
+        <polyline fill='none' points='893.208661 708.661417, 797.244094 708.661417' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='893.208661 708.661417, 989.173228 708.661417' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_ref.BlkSig'>
+        <polyline fill='none' points='1594.488189 1003.934575, 1535.433071 1003.937008' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1594.488189 1003.934575, 1653.543307 1003.937008' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2P_ref.BlkSig'>
+        <polyline fill='none' points='1594.488189 679.131380, 1535.433071 679.133858' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1594.488189 679.131380, 1653.543307 679.133858' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2q_ref.BlkSig'>
+        <polyline fill='none' points='162.401575 1122.047244, 88.582677 1122.047244' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='162.401575 1122.047244, 236.220472 1122.047244, 236.220472 1048.228346' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2d_ref.BlkSig'>
+        <polyline fill='none' points='162.401575 797.244275, 88.582677 797.244094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='162.401575 797.244275, 236.220472 797.244094, 236.220472 723.425197' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='679.133858 1033.464567, 649.606299 1039.370079, 649.606299 1027.559055' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='679.133858 708.661417, 649.606299 714.566929, 649.606299 702.755906' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='221.456693 1033.464567, 191.929244 1039.370629, 191.929024 1027.559606' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_in_limit.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='826.771654 324.800176, 797.244142 330.705926, 797.244047 318.894902' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\block(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1387.795276 974.409449, 1358.267717 980.314961, 1358.267717 968.503937' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\block(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='826.771654 295.274149, 797.244117 301.179771, 797.244072 289.368748' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\block.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1387.795276 649.606299, 1358.267717 655.511811, 1358.267717 643.700787' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_ref_imp.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1387.795276 1033.464567, 1358.267717 1039.370079, 1358.267717 1027.559055' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\FRT.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='826.771654 354.326293, 797.244146 360.232065, 797.244043 348.421041' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='221.456693 708.661417, 191.929082 714.566669, 191.929186 702.755645' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_out(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1387.795276 738.188976, 1358.267717 744.094488, 1358.267717 732.283465' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2d(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='679.133858 797.244094, 649.606299 803.149606, 649.606299 791.338583' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_out(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1387.795276 1003.937008, 1358.267717 1009.842520, 1358.267717 998.031496' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_out.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1387.795276 679.133858, 1358.267717 685.039370, 1358.267717 673.228346' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_in(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='324.803150 442.913386, 295.275591 448.818898, 295.275591 437.007874' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_in.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='324.803150 413.385827, 295.275591 419.291339, 295.275591 407.480315' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\droop_pt1.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='649.606299 457.677165, 655.511811 487.204724, 643.700787 487.204724' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\droop.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='826.771654 561.023622, 856.299213 555.118110, 856.299213 566.929134' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2d(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='324.803150 472.440945, 295.275591 478.346457, 295.275591 466.535433' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_ref_pictrl(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1062.992126 561.023622, 1092.519685 555.118110, 1092.519685 566.929134' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_ref_pictrl.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1387.795276 1062.992126, 1358.267717 1068.897638, 1358.267717 1057.086614' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2P_ref_imp.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1387.795276 708.661417, 1358.267717 714.566929, 1358.267717 702.755906' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2d_pictrl.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='634.842520 442.913386, 605.314961 448.818898, 605.314961 437.007874' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\pictrl_error.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='826.771654 442.914828, 797.243990 448.819815, 797.244199 437.008792' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Pq_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1003.937008 723.425197, 1009.842520 752.952756, 998.031496 752.952756' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Qd_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1062.992126 1018.700787, 1057.086614 989.173228, 1068.897638 989.173228' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2q(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='679.133858 944.881890, 649.606299 950.787402, 649.606299 938.976378' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Qq_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1048.228346 1033.464567, 1018.700787 1039.370079, 1018.700787 1027.559055' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Pd_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='989.173228 708.661417, 959.645669 714.566929, 959.645669 702.755906' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 1003.937008, 1624.015505 1009.841303, 1624.015991 998.030280' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2P_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 679.133858, 1624.015500 685.038131, 1624.015996 673.227107' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2q_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='236.220472 1048.228346, 242.125984 1077.755906, 230.314961 1077.755906' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2d_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='236.220472 723.425197, 242.125984 752.952756, 230.314961 752.952756' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='Cross Points'>
+        <g id='Cross Point'>
+          <ellipse cx='1122.047244' cy='561.023622' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='265.748031' cy='708.661417' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='265.748031' cy='413.385827' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='1328.740157' cy='856.299213' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='1328.740157' cy='738.188976' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='590.551181' cy='708.661417' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='442.913386' cy='147.637795' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='1181.102362' cy='649.606299' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='590.551181' cy='1033.464567' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+      </g>
+    </g>
+    <g id='Labels'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='422.559055' y='1024.842520'>delta_u2q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='422.559055' y='700.039370'>delta_u2d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='138.519684' y='1024.843759'>u2q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_in_limit.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='407.177165' y='316.181102'>i2Q_in_limit</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\block.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='611.342519' y='139.015748'>block</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_ref_imp.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1179.275590' y='1024.842520'>i2Q_ref_imp</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\FRT.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='438.677165' y='345.707490'>FRT</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='138.519684' y='700.038784'>u2d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_out.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' transform='rotate(270.000000,1303.110236,806.216536)' x='1303.110236' y='823.224410'>zero_out</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\zero_in.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='218.984251' y='404.763780'>zero_in</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\droop_pt1.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' transform='rotate(270.000000,623.976378,552.350394)' x='623.976378' y='569.358268'>droop_pt1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\droop.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='860.326771' y='552.401575'>droop</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_ref_pictrl.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='966.731869' y='347.688489'>i2Q_ref_pictrl</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2P_ref_imp.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1150.748031' y='700.039370'>i2P_ref_imp</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\delta_u2d_pictrl.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='485.641732' y='434.291339'>delta_u2d_pictrl</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\pictrl_error.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='699.070866' y='434.291339'>pictrl_error</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Pq_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' transform='rotate(270.000000,978.307087,921.164709)' x='978.307087' y='938.172583'>i2Pq_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Qd_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' transform='rotate(270.000000,1037.362205,946.972442)' x='1037.362205' y='963.980316'>i2Qd_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Qq_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='883.736220' y='1024.842520'>i2Qq_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Pd_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='855.208661' y='700.039370'>i2Pd_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2Q_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1560.988188' y='995.312528'>i2Q_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\i2P_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1561.988188' y='670.509333'>i2P_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2q_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='127.901574' y='1113.425197'>u2q_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\u2d_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='127.901574' y='788.622227'>u2d_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef.BlkDef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='88.582677' y='57.874016'>u2_Voltage Unbalance Control BlkDef: Voltage Unbalance Control</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='731.716535' y='559.133858'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='736.216535' y='578.031496'>Tdroop</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Selector Out.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1407.614173' y='1016.811024'>Selector Out</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1437.114173' y='1035.708661'>Mode</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Selector Out.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1407.614173' y='692.007874'>Selector Out</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1437.114173' y='710.905512'>Mode</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Selector In.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='352.122047' y='441.023622'>Selector In</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='374.122047' y='459.921260'>Mode</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\K.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='731.188976' y='1031.574803'>K</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='724.688976' y='1050.472441'>G2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Kp+Ki/s.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='852.326772' y='367.204724'>Kp+Ki/s</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='862.826772' y='386.102362'>Kp,Ki</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\0.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1263.685039' y='854.409449'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\0.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='141.637795' y='411.496063'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\K.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='996.937008' y='559.133858'>K</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='990.937008' y='578.031496'>X2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\K.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='731.188976' y='942.992126'>K</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='726.188976' y='961.889764'>B2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\K.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='731.188976' y='795.354331'>K</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='726.188976' y='814.251969'>B2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\K.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='731.188976' y='706.771654'>K</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='724.688976' y='725.669291'>G2</text>
+      </g>
+    </g>
+    <g id='Device data'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\u2_Voltage Unbalance Control BlkDef\Kp+Ki/s.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='921.395797' y='236.381001'>i2max</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

@@ -1,0 +1,1187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg baseProfile='full' height='100.000000%' version='1.1' viewBox='0.000000 0.000000 1753.000000 1240.000000' width='100.000000%' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+
+
+  <defs>
+    <clipPath id='clipPath-01'>
+      <polygon points='0.000000 1240.157480, 0.000000 0.000000, 1753.937008 0.000000, 1753.937008 1240.157480' />
+    </clipPath>
+  </defs>
+
+  <g clip-path='url(#clipPath-01)'>
+    <g id='Page Layer'>
+      <polygon fill='#ffffff' points='0.500000 0.500000, 0.500000 1239.500000, 1752.500000 1239.500000, 1752.500000 0.500000' stroke='#808080' stroke-width='1.000000' />
+    </g>
+    <g id='Block definition'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef.BlkDef'>
+        <polyline fill='none' points='62.640607 1177.523264, 1691.296400 1177.523264, 1691.296400 70.985445, 62.640607 70.985445, 62.640607 1177.523264' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='62.640607' cy='363.277410' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='367.453557'>3</text>
+        <ellipse cx='62.640607' cy='509.423392' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='513.599539'>7</text>
+        <ellipse cx='62.640607' cy='1156.642895' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.200506' y='1160.819042'>20</text>
+        <ellipse cx='62.640607' cy='822.595726' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='826.771873'>15</text>
+        <ellipse cx='62.640607' cy='947.866872' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='952.043019'>17</text>
+        <ellipse cx='62.640607' cy='1073.132486' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='1077.308633'>19</text>
+        <ellipse cx='62.640607' cy='906.106135' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='910.282282'>16</text>
+        <ellipse cx='62.640607' cy='1031.377282' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='1035.553429'>18</text>
+        <ellipse cx='62.640607' cy='551.178597' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='555.354744'>9</text>
+        <ellipse cx='62.640607' cy='592.939334' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='597.115481'>10</text>
+        <ellipse cx='62.640607' cy='634.694539' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='46.200506' y='638.870686'>11</text>
+        <ellipse cx='62.640607' cy='676.449743' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='680.625890'>12</text>
+        <ellipse cx='62.640607' cy='718.204948' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='722.381095'>13</text>
+        <ellipse cx='62.640607' cy='759.960153' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.200506' y='764.136300'>14</text>
+        <ellipse cx='1691.296400' cy='864.350931' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1697.236502' y='868.527078'>4</text>
+        <ellipse cx='1691.296400' cy='989.622077' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1697.736502' y='993.798224'>5</text>
+        <ellipse cx='1691.296400' cy='1114.887691' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1697.736502' y='1119.063838'>6</text>
+        <ellipse cx='1691.296400' cy='112.740650' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1697.736502' y='116.916797'>0</text>
+        <ellipse cx='1691.296400' cy='196.256592' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1698.736502' y='200.432738'>1</text>
+        <ellipse cx='1691.296400' cy='279.767001' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1697.736502' y='283.943148'>2</text>
+        <ellipse cx='62.640607' cy='112.740650' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='116.916797'>0</text>
+        <ellipse cx='62.640607' cy='196.256592' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='49.200506' y='200.432738'>1</text>
+        <ellipse cx='62.640607' cy='279.767001' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='283.943148'>2</text>
+        <ellipse cx='1691.296400' cy='384.157779' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1697.736502' y='388.333926'>3</text>
+        <ellipse cx='62.640607' cy='530.303761' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='534.479908'>8</text>
+        <ellipse cx='62.640607' cy='425.912983' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='47.700506' y='430.089130'>4</text>
+        <ellipse cx='62.640607' cy='446.793352' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='450.969499'>5</text>
+        <ellipse cx='62.640607' cy='467.668188' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='471.844335'>6</text>
+      </g>
+    </g>
+    <g id='Net elements'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\From_Model.BlkFrom'>
+        <polyline fill='none' points='1336.332958 321.522310, 1320.672807 300.644238, 1294.572553 300.644238, 1294.572553 342.400382, 1320.672807 342.400382, 1336.332958 321.522310' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1336.332958' cy='321.522310' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Goto.BlkGoto'>
+        <polyline fill='none' points='480.244657 592.937246, 495.904809 613.815319, 522.005062 613.815319, 522.005062 572.059174, 495.904809 572.059174, 480.244657 592.937246' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='480.244657' cy='592.937246' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Switch for Block Diagrams.BlkSwt'>
+        <polyline fill='none' points='1409.413667 415.473634, 1472.054274 415.473634, 1472.054274 352.839418, 1409.413667 352.839418, 1409.413667 415.473634' stroke='#000000' stroke-dasharray='5.000000 3.333333' stroke-width='1.000000' />
+        <ellipse cx='1424.029809' cy='363.278454' fill='none' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1424.029809' cy='405.034598' fill='none' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1457.438133' cy='384.156526' fill='none' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1453.262092 384.156526, 1449.086052 384.156526' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1428.205849 405.034598, 1436.557930 405.034598' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1428.205849 363.278454, 1436.557930 363.278454' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1449.086052 384.156526, 1432.381890 367.454068' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1436.557930 363.278454, 1436.557930 373.717490' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1440.733971' cy='352.839418' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1419.853768' cy='363.278454' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1419.853768' cy='405.034598' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1461.614173' cy='384.156526' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\MMC Type.BlkRef'>
+        <polygon fill='none' points='918.728909 446.791774, 918.728909 405.034585, 1064.890326 405.034585, 1064.890326 446.791774' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='918.728909' cy='425.913180' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1064.890326' cy='425.911092' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Multiplier(1).BlkMul'>
+        <polyline fill='none' points='730.807087 676.449535, 772.567492 676.449535, 772.567492 634.693391, 730.807087 634.693391, 730.807087 676.449535' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='734.983127 672.273920, 768.391451 672.273920, 768.391451 638.869005, 734.983127 638.869005, 734.983127 672.273920' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='734.983127 672.273920, 768.391451 638.869005' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='734.983127 638.869005, 768.391451 672.273920' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='730.807087' cy='655.571463' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='751.687289' cy='634.693391' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='772.567492' cy='655.571463' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='751.687289' cy='676.449535' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Flag DC bias.BlkRef'>
+        <polygon fill='none' points='459.364454 488.546886, 459.364454 384.156526, 563.765467 384.156526, 563.765467 488.546886' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='563.765467' cy='425.912670' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <ellipse cx='459.364454' cy='405.034598' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='465.804556' y='409.210745'>0</text>
+        <ellipse cx='459.364454' cy='425.912670' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='466.804556' y='430.088817'>1</text>
+        <ellipse cx='459.364454' cy='446.790742' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='465.804556' y='450.966889'>2</text>
+        <ellipse cx='459.364454' cy='467.668814' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='465.804556' y='471.844961'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\DC bias simplified.BlkRef'>
+        <polygon fill='none' points='918.728909 384.156526, 918.728909 342.400382, 1064.890326 342.400382, 1064.890326 384.156526' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='918.728909' cy='363.278454' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1064.890326' cy='363.278454' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point.BlkSum'>
+        <ellipse cx='1169.291339' cy='551.181102' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1158.851237' cy='551.181102' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1169.291339' cy='561.620138' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1179.731440' cy='551.181102' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1169.291339' cy='540.742066' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\SGN.BlkRef'>
+        <polygon fill='none' points='835.208099 509.424958, 835.208099 467.668814, 897.848706 467.668814, 897.848706 509.424958' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='835.208099' cy='488.546886' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='897.848706' cy='488.546886' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(12).BlkSum'>
+        <ellipse cx='1586.895388' cy='279.766166' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1576.455287' cy='279.766166' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1586.895388' cy='290.205202' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1597.335489' cy='279.766166' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1586.895388' cy='269.327130' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(11).BlkSum'>
+        <ellipse cx='1586.895388' cy='196.253877' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1576.455287' cy='196.253877' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1586.895388' cy='206.692913' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1597.335489' cy='196.253877' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1586.895388' cy='185.814841' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(10).BlkSum'>
+        <ellipse cx='1586.895388' cy='112.741589' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1576.455287' cy='112.741589' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1586.895388' cy='123.180625' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1597.335489' cy='112.741589' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1586.895388' cy='102.302553' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Multiplier.BlkMul'>
+        <polyline fill='none' points='1023.129921 572.059174, 1064.890326 572.059174, 1064.890326 530.303030, 1023.129921 530.303030, 1023.129921 572.059174' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1027.305962 567.883560, 1060.714286 567.883560, 1060.714286 534.478645, 1027.305962 534.478645, 1027.305962 567.883560' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1027.305962 567.883560, 1060.714286 534.478645' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1027.305962 534.478645, 1060.714286 567.883560' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1023.129921' cy='551.181102' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1044.010124' cy='530.303030' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1064.890326' cy='551.181102' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1044.010124' cy='572.059174' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(9).BlkSum'>
+        <ellipse cx='668.166479' cy='655.571463' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='657.726378' cy='655.571463' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='668.166479' cy='666.010499' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='678.606580' cy='655.571463' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='668.166479' cy='645.132427' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\C.BlkRef'>
+        <polygon fill='none' points='375.843645 759.961823, 375.843645 718.205679, 459.364454 718.205679, 459.364454 759.961823' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='459.364454' cy='739.083751' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Divisor(1).BlkDiv'>
+        <polyline fill='none' points='522.005062 676.449535, 563.765467 676.449535, 563.765467 634.693391, 522.005062 634.693391, 522.005062 676.449535' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='526.181102 672.273920, 559.589426 672.273920, 559.589426 638.869005, 526.181102 638.869005, 526.181102 672.273920' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='526.181102 672.273920, 559.589426 638.869005' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='536.621204' cy='649.308041' fill='#000000' rx='2.088020' ry='2.087807' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='549.149325' cy='661.834884' fill='#000000' rx='2.088020' ry='2.087807' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='522.005062' cy='655.571463' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='542.885264' cy='634.693391' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='563.765467' cy='655.571463' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='542.885264' cy='676.449535' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(8).BlkSum'>
+        <ellipse cx='292.322835' cy='655.571463' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='281.882733' cy='655.571463' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='292.322835' cy='666.010499' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='302.762936' cy='655.571463' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='292.322835' cy='645.132427' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(7).BlkSum'>
+        <ellipse cx='187.921822' cy='718.205679' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='177.481721' cy='718.205679' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='187.921822' cy='728.644715' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='198.361924' cy='718.205679' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='187.921822' cy='707.766643' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(6).BlkSum'>
+        <ellipse cx='187.921822' cy='592.937246' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='177.481721' cy='592.937246' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='187.921822' cy='603.376283' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='198.361924' cy='592.937246' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='187.921822' cy='582.498210' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(5).BlkSum'>
+        <ellipse cx='1482.494376' cy='467.668814' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1472.054274' cy='467.668814' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1482.494376' cy='478.107850' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1492.934477' cy='467.668814' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1482.494376' cy='457.229778' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(3).BlkSum'>
+        <ellipse cx='187.921822' cy='1114.889048' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='177.481721' cy='1114.889048' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='187.921822' cy='1125.328084' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='198.361924' cy='1114.889048' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='187.921822' cy='1104.450012' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Kp+Ki/s.BlkRef'>
+        <polygon fill='none' points='856.088301 697.327607, 856.088301 613.815319, 981.369516 613.815319, 981.369516 697.327607' stroke='#000000' stroke-width='1.670416' />
+        <polyline fill='none' points='993.897638 603.376283, 962.577334 603.376283, 950.049213 613.815319' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='856.088301' cy='655.571463' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='981.369516' cy='676.449535' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Kp+Ki/s.BlkRef'>
+        <polygon fill='none' points='1273.692351 592.937246, 1273.692351 509.424958, 1398.973566 509.424958, 1398.973566 592.937246' stroke='#000000' stroke-width='1.670416' />
+        <polyline fill='none' points='1411.501687 498.985922, 1380.181384 498.985922, 1367.653262 509.424958' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1273.692351' cy='551.181102' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1398.973566' cy='551.181102' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(4).BlkSum'>
+        <ellipse cx='814.327897' cy='801.717967' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='803.887795' cy='801.717967' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='814.327897' cy='812.157003' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='824.767998' cy='801.717967' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='814.327897' cy='791.278931' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(2).BlkSum'>
+        <ellipse cx='187.921822' cy='989.620616' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='177.481721' cy='989.620616' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='187.921822' cy='1000.059652' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='198.361924' cy='989.620616' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='187.921822' cy='979.181580' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(1).BlkSum'>
+        <ellipse cx='187.921822' cy='864.352183' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='177.481721' cy='864.352183' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='187.921822' cy='874.791219' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='198.361924' cy='864.352183' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='187.921822' cy='853.913147' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\1/6.BlkRef'>
+        <polygon fill='none' points='375.843645 676.449535, 375.843645 634.693391, 438.484252 634.693391, 438.484252 676.449535' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='375.843645' cy='655.571463' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='438.484252' cy='655.571463' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\1/3.BlkRef'>
+        <polygon fill='none' points='981.369516 822.596039, 981.369516 780.839895, 1044.010124 780.839895, 1044.010124 822.596039' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='981.369516' cy='801.717967' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1044.010124' cy='801.717967' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\1/2.BlkRef'>
+        <polygon fill='none' points='292.322835 1135.767120, 292.322835 1094.010976, 354.963442 1094.010976, 354.963442 1135.767120' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='292.322835' cy='1114.889048' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='354.963442' cy='1114.889048' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\1/2.BlkRef'>
+        <polygon fill='none' points='292.322835 1010.498688, 292.322835 968.742544, 354.963442 968.742544, 354.963442 1010.498688' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='292.322835' cy='989.620616' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='354.963442' cy='989.620616' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\1/2.BlkRef'>
+        <polygon fill='none' points='292.322835 885.230255, 292.322835 843.474111, 354.963442 843.474111, 354.963442 885.230255' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='292.322835' cy='864.352183' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='354.963442' cy='864.352183' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Base Current.BlkRef'>
+        <polygon fill='none' points='459.364454 1156.645192, 459.364454 1073.132904, 563.765467 1073.132904, 563.765467 1156.645192' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='459.364454' cy='1114.889048' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='563.765467' cy='1114.889048' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Base Current.BlkRef'>
+        <polygon fill='none' points='459.364454 1031.376760, 459.364454 947.864471, 563.765467 947.864471, 563.765467 1031.376760' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='459.364454' cy='989.620616' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='563.765467' cy='989.620616' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Base Current.BlkRef'>
+        <polygon fill='none' points='459.364454 906.108327, 459.364454 822.596039, 563.765467 822.596039, 563.765467 906.108327' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='459.364454' cy='864.352183' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='563.765467' cy='864.352183' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1163.444882' y='554.688618'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1166.791339' y='558.029110'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1170.967379' y='554.688618'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1166.291339' y='550.513004'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point.BlkSum::TextBox 5'>
+        <text fill='#000000' font-family='Arial' font-size='18.790265' text-anchor='start' x='1154.851237' y='579.575280'>-</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(12).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1581.048931' y='283.273682'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(12).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1584.395388' y='286.614173'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(12).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1588.571429' y='283.273682'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(12).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1583.895388' y='279.098067'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(11).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1581.048931' y='199.761393'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(11).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1584.395388' y='203.101885'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(11).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1588.571429' y='199.761393'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(11).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1583.895388' y='195.585779'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(10).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1581.048931' y='116.249105'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(10).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1584.395388' y='119.589597'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(10).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1588.571429' y='116.249105'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(10).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1583.895388' y='112.073491'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(9).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='662.320022' y='659.078979'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(9).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='665.666479' y='662.419470'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(9).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='669.842520' y='659.078979'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(9).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='665.166479' y='654.903364'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(9).BlkSum::TextBox 4'>
+        <text fill='#000000' font-family='Arial' font-size='18.790265' text-anchor='start' x='643.286277' y='654.736340'>-</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(8).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='286.476378' y='659.078979'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(8).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='289.822835' y='662.419470'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(8).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='293.998875' y='659.078979'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(8).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='289.322835' y='654.903364'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(7).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='182.075366' y='721.713195'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(7).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='185.421822' y='725.053686'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(7).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='189.597863' y='721.713195'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(7).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='184.921822' y='717.537580'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(6).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='182.075366' y='596.444763'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(6).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='185.421822' y='599.785254'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(6).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='189.597863' y='596.444763'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(6).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='184.921822' y='592.269148'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(5).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1476.647919' y='471.176330'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(5).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1479.994376' y='474.516822'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(5).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1484.170416' y='471.176330'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(5).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1479.494376' y='467.000716'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(5).BlkSum::TextBox 5'>
+        <text fill='#000000' font-family='Arial' font-size='18.790265' text-anchor='start' x='1468.054274' y='496.062992'>-</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(3).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='182.075366' y='1118.396564'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(3).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='185.421822' y='1121.737056'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(3).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='189.597863' y='1118.396564'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(3).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='184.921822' y='1114.220950'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(4).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='808.481440' y='805.225483'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(4).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='811.827897' y='808.565975'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(4).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='816.003937' y='805.225483'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(4).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='811.327897' y='801.049869'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(2).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='182.075366' y='993.128132'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(2).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='185.421822' y='996.468623'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(2).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='189.597863' y='993.128132'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(2).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='184.921822' y='988.952517'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(1).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='182.075366' y='867.859699'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(1).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='185.421822' y='871.200191'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(1).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='189.597863' y='867.859699'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Summation Point(1).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='184.921822' y='863.684085'>3</text>
+      </g>
+    </g>
+    <g id='Signals'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc_FB_MMC.BlkSig'>
+        <polyline fill='none' points='1289.352503 467.668814, 1106.650731 467.668814, 1106.650731 425.912670, 1064.890326 425.911077' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1289.352503 467.668814, 1472.054274 467.668814' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_detailed.BlkSig'>
+        <polyline fill='none' points='1440.733971 446.790742, 1524.254781 446.790742, 1524.254781 467.668814, 1492.934477 467.668814' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1440.733971 446.790742, 1357.213161 446.790742, 1357.213161 405.034598, 1419.853768 405.034598' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc(2).BlkSig'>
+        <polyline fill='none' points='417.604049 363.278581, 62.640607 363.278454' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='417.604049 363.278581, 793.447694 363.278454, 793.447694 488.546886, 835.208099 488.546886' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Model_detected.BlkSig'>
+        <polyline fill='none' points='1398.973566 321.522310, 1336.332958 321.522310' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1398.973566 321.522310, 1440.733971 321.522310, 1440.733971 352.839418' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_simplified.BlkSig'>
+        <polyline fill='none' points='1242.372047 363.278454, 1064.890326 363.278454' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1242.372047 363.278454, 1419.853768 363.278454' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc(3).BlkSig'>
+        <polyline fill='none' points='1524.254781 352.839418, 1524.254781 384.156526, 1461.614173 384.156526' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1524.254781 352.839418, 1524.254781 321.522310, 1586.895388 321.522310, 1586.895388 290.205202' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ucap.BlkSig'>
+        <polyline fill='none' points='271.442632 530.303030, 62.640607 530.303030' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='271.442632 530.303030, 438.484252 530.303030, 438.484252 592.937246, 480.244657 592.937246' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_C(1).BlkSig'>
+        <polyline fill='none' points='814.327897 963.523026, 814.327897 1114.889048, 563.765467 1114.889048' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='814.327897 963.523026, 814.327897 812.157003' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_B(1).BlkSig'>
+        <polyline fill='none' points='751.687289 895.669291, 751.687289 989.620616, 563.765467 989.620616' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='751.687289 895.669291, 751.687289 801.717967, 803.887795 801.717967' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_A(1).BlkSig'>
+        <polyline fill='none' points='751.687289 739.083751, 689.046682 739.083751, 689.046682 864.352183, 563.765467 864.352183' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='751.687289 739.083751, 814.327897 739.083751, 814.327897 791.278931' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_C.BlkSig'>
+        <polyline fill='none' points='1127.530934 1114.889048, 563.765467 1114.889048' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1127.530934 1114.889048, 1691.296400 1114.889048' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_B.BlkSig'>
+        <polyline fill='none' points='1127.530934 989.620616, 563.765467 989.620616' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1127.530934 989.620616, 1691.296400 989.620616' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_A.BlkSig'>
+        <polyline fill='none' points='1127.530934 864.352183, 563.765467 864.352183' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1127.530934 864.352183, 1691.296400 864.352183' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias_ref_abs.BlkSig'>
+        <polyline fill='none' points='1044.010124 624.254355, 1044.010124 676.449535, 981.369516 676.449535' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1044.010124 624.254355, 1044.010124 572.059174' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\didc_bias.BlkSig'>
+        <polyline fill='none' points='1226.711895 551.181102, 1179.731440 551.181102' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1226.711895 551.181102, 1273.692351 551.181102' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias.BlkSig'>
+        <polyline fill='none' points='1169.291339 681.669053, 1169.291339 801.717967, 1044.010124 801.717967' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1169.291339 681.669053, 1169.291339 561.620138' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias_3.BlkSig'>
+        <polyline fill='none' points='903.068757 801.717967, 824.767998 801.717967' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='903.068757 801.717967, 981.369516 801.717967' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_C2.BlkSig'>
+        <polyline fill='none' points='245.342379 1114.889048, 198.361924 1114.889048' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='245.342379 1114.889048, 292.322835 1114.889048' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_B2.BlkSig'>
+        <polyline fill='none' points='245.342379 989.620616, 198.361924 989.620616' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='245.342379 989.620616, 292.322835 989.620616' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_A2.BlkSig'>
+        <polyline fill='none' points='245.342379 864.352183, 198.361924 864.352183' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='245.342379 864.352183, 292.322835 864.352183' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_C.BlkSig'>
+        <polyline fill='none' points='407.163948 1114.889048, 354.963442 1114.889048' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='407.163948 1114.889048, 459.364454 1114.889048' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_B.BlkSig'>
+        <polyline fill='none' points='407.163948 989.620616, 354.963442 989.620616' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='407.163948 989.620616, 459.364454 989.620616' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_A.BlkSig'>
+        <polyline fill='none' points='407.163948 864.352183, 354.963442 864.352183' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='407.163948 864.352183, 459.364454 864.352183' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc(3).BlkSig'>
+        <polyline fill='none' points='229.682227 363.277944, 62.640607 363.278454' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='229.682227 363.277944, 396.723847 363.278454, 396.723847 405.034598, 459.364454 405.034598' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ducap_enabled.BlkSig'>
+        <polyline fill='none' points='814.327897 655.571463, 772.567492 655.571463' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='814.327897 655.571463, 856.088301 655.571463' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Enable_idc_bias(1).BlkSig'>
+        <polyline fill='none' points='657.726378 425.912670, 563.765467 425.912670' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='657.726378 425.912670, 751.687289 425.912670, 751.687289 634.693391' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Enable_idc_bias.BlkSig'>
+        <polyline fill='none' points='887.408605 551.181102, 751.687289 551.181102, 751.687289 425.912670, 563.765467 425.912670' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='887.408605 551.181102, 1023.129921 551.181102' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\STATCOM_on.BlkSig'>
+        <polyline fill='none' points='261.002531 467.668814, 62.640607 467.668814' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='261.002531 467.668814, 459.364454 467.668814' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\trip_dc.BlkSig'>
+        <polyline fill='none' points='261.002531 446.790742, 62.640607 446.790742' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='261.002531 446.790742, 459.364454 446.790742' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\DC_switch_open.BlkSig'>
+        <polyline fill='none' points='261.002531 425.912670, 62.640607 425.912670' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='261.002531 425.912670, 459.364454 425.912670' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias_ref.BlkSig'>
+        <polyline fill='none' points='1111.870782 551.181102, 1064.890326 551.181102' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1111.870782 551.181102, 1158.851237 551.181102' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc(1).BlkSig'>
+        <polyline fill='none' points='1524.254781 269.327130, 1524.254781 384.156526, 1461.614173 384.156526' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1524.254781 269.327130, 1524.254781 154.497733, 1586.895388 154.497733, 1586.895388 123.180625' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc.BlkSig'>
+        <polyline fill='none' points='1576.455287 384.157609, 1461.614173 384.156526' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1576.455287 384.157609, 1691.296400 384.156526' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucirc_C.BlkSig'>
+        <polyline fill='none' points='819.547947 279.766166, 62.640607 279.766166' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='819.547947 279.766166, 1576.455287 279.766166' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc(2).BlkSig'>
+        <polyline fill='none' points='1524.254781 311.083274, 1524.254781 384.156526, 1461.614173 384.156526' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1524.254781 311.083274, 1524.254781 238.010021, 1586.895388 238.010021, 1586.895388 206.692913' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc(1).BlkSig'>
+        <polyline fill='none' points='428.044151 363.278581, 62.640607 363.278454' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='428.044151 363.278581, 793.447694 363.278454, 793.447694 425.912670, 918.728909 425.913180' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucirc_B.BlkSig'>
+        <polyline fill='none' points='819.547947 196.253877, 62.640607 196.253877' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='819.547947 196.253877, 1576.455287 196.253877' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucirc_A.BlkSig'>
+        <polyline fill='none' points='819.547947 112.741589, 62.640607 112.741589' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='819.547947 112.741589, 1576.455287 112.741589' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_c.BlkSig'>
+        <polyline fill='none' points='1644.315945 279.766166, 1597.335489 279.766166' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1644.315945 279.766166, 1691.296400 279.766166' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_b.BlkSig'>
+        <polyline fill='none' points='1644.315945 196.253877, 1597.335489 196.253877' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1644.315945 196.253877, 1691.296400 196.253877' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\sign_udc.BlkSig'>
+        <polyline fill='none' points='970.929415 488.546886, 897.848706 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='970.929415 488.546886, 1044.010124 488.546886, 1044.010124 530.303030' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_a.BlkSig'>
+        <polyline fill='none' points='1644.315945 112.741589, 1597.335489 112.741589' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1644.315945 112.741589, 1691.296400 112.741589' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ducap.BlkSig'>
+        <polyline fill='none' points='704.706834 655.571463, 678.606580 655.571463' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='704.706834 655.571463, 730.807087 655.571463' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucap_avg.BlkSig'>
+        <polyline fill='none' points='610.745922 655.571463, 563.765467 655.571463' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='610.745922 655.571463, 657.726378 655.571463' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Un.BlkSig'>
+        <polyline fill='none' points='501.124859 739.083751, 459.364454 739.083751' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='501.124859 739.083751, 542.885264 739.083751, 542.885264 676.449535' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ucap6.BlkSig'>
+        <polyline fill='none' points='339.303290 655.571463, 302.762936 655.571463' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='339.303290 655.571463, 375.843645 655.571463' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ucap_avg.BlkSig'>
+        <polyline fill='none' points='480.244657 655.571463, 438.484252 655.571463' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='480.244657 655.571463, 522.005062 655.571463' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap3.BlkSig'>
+        <polyline fill='none' points='245.342379 718.205679, 198.361924 718.205679' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='245.342379 718.205679, 292.322835 718.205679, 292.322835 666.010499' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap3.BlkSig'>
+        <polyline fill='none' points='245.342379 592.937246, 198.361924 592.937246' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='245.342379 592.937246, 292.322835 592.937246, 292.322835 645.132427' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap_C.BlkSig'>
+        <polyline fill='none' points='125.281215 759.961823, 62.640607 759.961823' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 759.961823, 187.921822 759.961823, 187.921822 728.644715' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap_B.BlkSig'>
+        <polyline fill='none' points='120.061164 718.205679, 62.640607 718.205679' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='120.061164 718.205679, 177.481721 718.205679' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap_A.BlkSig'>
+        <polyline fill='none' points='125.281215 676.449535, 62.640607 676.449535' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 676.449535, 187.921822 676.449535, 187.921822 707.766643' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap_C.BlkSig'>
+        <polyline fill='none' points='125.281215 634.693391, 62.640607 634.693391' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 634.693391, 187.921822 634.693391, 187.921822 603.376283' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap_B.BlkSig'>
+        <polyline fill='none' points='120.061164 592.937246, 62.640607 592.937246' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='120.061164 592.937246, 177.481721 592.937246' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap_A.BlkSig'>
+        <polyline fill='none' points='125.281215 551.181102, 62.640607 551.181102' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 551.181102, 187.921822 551.181102, 187.921822 582.498210' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ilow_B.BlkSig'>
+        <polyline fill='none' points='125.281215 1031.378082, 62.640607 1031.376760' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 1031.378082, 187.921822 1031.376760, 187.921822 1000.059652' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ilow_A.BlkSig'>
+        <polyline fill='none' points='125.281215 906.107212, 62.640607 906.108327' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 906.107212, 187.921822 906.108327, 187.921822 874.791219' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Iup_C.BlkSig'>
+        <polyline fill='none' points='125.281215 1073.133366, 62.640607 1073.132904' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 1073.133366, 187.921822 1073.132904, 187.921822 1104.450012' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\uref.BlkSig'>
+        <polyline fill='none' points='1440.733971 551.181102, 1398.973566 551.181102' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1440.733971 551.181102, 1482.494376 551.181102, 1482.494376 478.107850' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Iup_B.BlkSig'>
+        <polyline fill='none' points='125.281215 947.862496, 62.640607 947.864471' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 947.862496, 187.921822 947.864471, 187.921822 979.181580' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Iup_A.BlkSig'>
+        <polyline fill='none' points='125.281215 822.596613, 62.640607 822.596039' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 822.596613, 187.921822 822.596039, 187.921822 853.913147' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucap_ref.BlkSig'>
+        <polyline fill='none' points='365.403543 509.424130, 62.640607 509.424958' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='365.403543 509.424130, 668.166479 509.424831, 668.166479 645.132427' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ilow_C.BlkSig'>
+        <polyline fill='none' points='125.281215 1156.643974, 62.640607 1156.645192' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 1156.643974, 187.921822 1156.645192, 187.921822 1125.328084' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc.BlkSig'>
+        <polyline fill='none' points='490.684758 363.278581, 62.640607 363.278454' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='490.684758 363.278581, 918.728909 363.278454' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc_FB_MMC.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1472.054274 467.668814, 1451.174072 471.844429, 1451.174072 463.493200' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_detailed.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1419.853768 405.034598, 1398.973566 409.210212, 1398.973566 400.858984' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='835.208099 488.546886, 814.327897 492.722501, 814.327897 484.371272' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Model_detected.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1440.733971 352.839418, 1436.557930 331.961346, 1444.910011 331.961346' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_simplified.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1419.853768 363.278454, 1398.973566 367.454068, 1398.973566 359.102839' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc(3).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1586.895388 290.205202, 1591.071429 311.083274, 1582.719348 311.083274' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ucap.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='480.244657 592.937246, 459.364454 597.112861, 459.364454 588.761632' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_C(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='814.327897 812.157003, 818.503937 833.035075, 810.151856 833.035075' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_B(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='803.887795 801.717967, 783.007593 805.893581, 783.007593 797.542353' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_A(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='814.327897 791.278931, 810.151856 770.400859, 818.503937 770.400859' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_C.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 1114.889048, 1670.416198 1119.064662, 1670.416198 1110.713434' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_B.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 989.620616, 1670.416198 993.796230, 1670.416198 985.445001' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_A.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 864.352183, 1670.416198 868.527798, 1670.416198 860.176569' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias_ref_abs.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1044.010124 572.059174, 1048.186164 592.937246, 1039.834083 592.937246' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\didc_bias.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1273.692351 551.181102, 1252.812148 555.356717, 1252.812148 547.005488' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1169.291339 561.620138, 1173.467379 582.498210, 1165.115298 582.498210' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias_3.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='981.369516 801.717967, 960.489314 805.893581, 960.489314 797.542353' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_C2.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='292.322835 1114.889048, 271.442632 1119.064662, 271.442632 1110.713434' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_B2.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='292.322835 989.620616, 271.442632 993.796230, 271.442632 985.445001' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_A2.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='292.322835 864.352183, 271.442632 868.527798, 271.442632 860.176569' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_C.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='459.364454 1114.889048, 438.484252 1119.064662, 438.484252 1110.713434' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_B.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='459.364454 989.620616, 438.484252 993.796230, 438.484252 985.445001' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_A.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='459.364454 864.352183, 438.484252 868.527798, 438.484252 860.176569' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc(3).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='459.364454 405.034598, 438.484252 409.210212, 438.484252 400.858984' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ducap_enabled.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='856.088301 655.571463, 835.208099 659.747077, 835.208099 651.395848' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Enable_idc_bias(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='751.687289 634.693391, 747.511249 613.815319, 755.863330 613.815319' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Enable_idc_bias.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1023.129921 551.181102, 1002.249719 555.356717, 1002.249719 547.005488' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\STATCOM_on.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='459.364454 467.668814, 438.484252 471.844429, 438.484252 463.493200' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\trip_dc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='459.364454 446.790742, 438.484252 450.966356, 438.484252 442.615128' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\DC_switch_open.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='459.364454 425.912670, 438.484252 430.088284, 438.484252 421.737056' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1158.851237 551.181102, 1137.971035 555.356717, 1137.971035 547.005488' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1586.895388 123.180625, 1591.071429 144.058697, 1582.719348 144.058697' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 384.156526, 1670.416237 388.332337, 1670.416159 379.981108' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucirc_C.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1576.455287 279.766166, 1555.575084 283.941780, 1555.575084 275.590551' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1586.895388 206.692913, 1591.071429 227.570985, 1582.719348 227.570985' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='918.728909 425.913180, 897.848689 430.088709, 897.848723 421.737480' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucirc_B.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1576.455287 196.253877, 1555.575084 200.429492, 1555.575084 192.078263' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucirc_A.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1576.455287 112.741589, 1555.575084 116.917204, 1555.575084 108.565975' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_c.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 279.766166, 1670.416198 283.941780, 1670.416198 275.590551' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_b.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 196.253877, 1670.416198 200.429492, 1670.416198 192.078263' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\sign_udc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1044.010124 530.303030, 1039.834083 509.424958, 1048.186164 509.424958' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_a.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 112.741589, 1670.416198 116.917204, 1670.416198 108.565975' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ducap.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='730.807087 655.571463, 709.926884 659.747077, 709.926884 651.395848' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucap_avg.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='657.726378 655.571463, 636.846175 659.747077, 636.846175 651.395848' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Un.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='542.885264 676.449535, 547.061305 697.327607, 538.709224 697.327607' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ucap6.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='375.843645 655.571463, 354.963442 659.747077, 354.963442 651.395848' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ucap_avg.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='522.005062 655.571463, 501.124859 659.747077, 501.124859 651.395848' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap3.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='292.322835 666.010499, 296.498875 686.888571, 288.146794 686.888571' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap3.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='292.322835 645.132427, 288.146794 624.254355, 296.498875 624.254355' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap_C.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 728.644715, 192.097863 749.522787, 183.745782 749.522787' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap_B.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='177.481721 718.205679, 156.601519 722.381293, 156.601519 714.030064' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap_A.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 707.766643, 183.745782 686.888571, 192.097863 686.888571' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap_C.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 603.376283, 192.097863 624.254355, 183.745782 624.254355' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap_B.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='177.481721 592.937246, 156.601519 597.112861, 156.601519 588.761632' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap_A.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 582.498210, 183.745782 561.620138, 192.097863 561.620138' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ilow_B.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 1000.059652, 192.097863 1020.937724, 183.745782 1020.937724' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ilow_A.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 874.791219, 192.097863 895.669291, 183.745782 895.669291' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Iup_C.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 1104.450012, 183.745782 1083.571940, 192.097863 1083.571940' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\uref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1482.494376 478.107850, 1486.670416 498.985922, 1478.318335 498.985922' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Iup_B.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 979.181580, 183.745782 958.303508, 192.097863 958.303508' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Iup_A.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 853.913147, 183.745782 833.035075, 192.097863 833.035075' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucap_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='668.166479 645.132427, 663.990439 624.254355, 672.342520 624.254355' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ilow_C.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 1125.328084, 192.097863 1146.206156, 183.745782 1146.206156' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='918.728909 363.278454, 897.848708 367.454074, 897.848705 359.102846' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='Cross Points'>
+        <g id='Cross Point'>
+          <ellipse cx='793.447694' cy='363.278454' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='1524.254781' cy='384.156526' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='689.046682' cy='864.352183' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='751.687289' cy='989.620616' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='814.327897' cy='1114.889048' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='1524.254781' cy='238.010021' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='1524.254781' cy='321.522310' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='793.447694' cy='425.912670' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='751.687289' cy='551.181102' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='396.723847' cy='363.278454' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+      </g>
+    </g>
+    <g id='Labels'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc_FB_MMC.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1247.352502' y='461.573780'>udc_FB_MMC</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_detailed.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1401.733970' y='440.694345'>mdc_detailed</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Model_detected.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1352.473565' y='315.427276'>Model_detected</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_simplified.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1198.872047' y='357.183420'>mdc_simplified</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ucap.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='255.942632' y='524.207997'>Ucap</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_C.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1109.030933' y='1108.794014'>ileg_C</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_B.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1109.030933' y='983.525582'>ileg_B</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ileg_A.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1108.530933' y='858.257150'>ileg_A</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias_ref_abs.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' transform='rotate(270.000000,1025.887471,673.249355)' x='1025.887471' y='685.275125'>idc_bias_ref_abs</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\didc_bias.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1198.711895' y='545.086069'>didc_bias</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' transform='rotate(270.000000,1151.168686,706.166553)' x='1151.168686' y='718.192323'>idc_bias</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias_3.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='871.568757' y='795.622933'>idc_bias_3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_C2.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='223.342379' y='1108.794014'>Ileg_C2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_B2.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='223.342379' y='983.525582'>Ileg_B2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_A2.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='223.342379' y='858.257150'>Ileg_A2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_C.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='388.663948' y='1108.794014'>Ileg_C</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_B.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='388.663948' y='983.525582'>Ileg_B</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ileg_A.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='388.163948' y='858.257150'>Ileg_A</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ducap_enabled.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='770.327896' y='649.476429'>ducap_enabled</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Enable_idc_bias.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='839.408605' y='545.086069'>Enable_idc_bias</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\STATCOM_on.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='219.002531' y='461.573780'>STATCOM_on</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\trip_dc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='240.502531' y='440.695708'>trip_dc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\DC_switch_open.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='212.002531' y='419.817636'>DC_switch_open</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\idc_bias_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1075.870781' y='545.086069'>idc_bias_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1563.455286' y='378.062575'>mdc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucirc_C.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='797.047947' y='273.671132'>ucirc_C</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucirc_B.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='797.047947' y='190.158844'>ucirc_B</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucirc_A.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='796.547947' y='106.646555'>ucirc_A</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_c.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1624.315944' y='273.671132'>mdc_c</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_b.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1624.315944' y='190.158844'>mdc_b</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\sign_udc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='944.429415' y='482.451852'>sign_udc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\mdc_a.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1624.315944' y='106.646555'>mdc_a</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ducap.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='686.706833' y='649.476429'>ducap</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucap_avg.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='583.245922' y='649.476429'>ucap_avg</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Un.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='492.624859' y='732.988717'>Un</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ucap6.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='320.303290' y='649.476429'>Ucap6</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ucap_avg.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='451.744657' y='649.476429'>Ucap_avg</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap3.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='216.842379' y='712.110645'>Ulowcap3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap3.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='219.342379' y='586.842213'>Uupcap3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap_C.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='92.281214' y='753.866789'>Ulowcap_C</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap_B.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='87.061164' y='712.110645'>Ulowcap_B</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ulowcap_A.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='91.781214' y='670.354501'>Ulowcap_A</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap_C.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='94.781214' y='628.598357'>Uupcap_C</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap_B.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='89.561164' y='586.842213'>Uupcap_B</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Uupcap_A.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='94.281214' y='545.086069'>Uupcap_A</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ilow_B.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='105.781214' y='1025.283048'>Ilow_B</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ilow_A.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='105.281214' y='900.012179'>Ilow_A</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Iup_C.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='108.281214' y='1067.038332'>Iup_C</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\uref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1428.733970' y='545.086069'>uref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Iup_B.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='108.281214' y='941.767463'>Iup_B</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Iup_A.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='107.781214' y='816.501579'>Iup_A</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\ucap_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='339.403543' y='503.329096'>ucap_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Ilow_C.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='105.781214' y='1150.548940'>Ilow_C</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\udc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='479.684758' y='357.183548'>udc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef.BlkDef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.790265' text-anchor='start' x='62.640607' y='49.272250'>cap_MMC Capacitor Control BlkDef: Arm Capacitor Voltage Control for MMC</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\From_Model.BlkFrom::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1293.276715' y='326.867096'>Model</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\MMC Type.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='959.809618' y='424.576983'>MMC Type</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='958.309618' y='437.938949'>MMC_Type</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Flag DC bias.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='473.564961' y='435.015509'>Flag DC bias</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\DC bias simplified.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='939.309618' y='361.942257'>DC bias simplified</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='958.309618' y='375.304223'>MMC_Type</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\SGN.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='852.028403' y='487.210690'>SGN</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\C.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='412.604049' y='737.747554'>C</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='398.604049' y='751.109520'>Un_dc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Kp+Ki/s.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='894.728909' y='654.235266'>Kp+Ki/s</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='867.228909' y='667.597232'>Kp_ucap,Ki_ucap</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Kp+Ki/s.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1312.332958' y='549.844906'>Kp+Ki/s</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1287.832958' y='563.206872'>Kp_iarm,Ki_iarm</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\1/6.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='397.663948' y='654.235266'>1/6</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\1/3.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1003.189820' y='800.381770'>1/3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\1/2.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='314.143138' y='1113.552851'>1/2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\1/2.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='314.143138' y='988.284419'>1/2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\1/2.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='314.143138' y='863.015987'>1/2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Base Current.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='473.064961' y='1113.552851'>Base Current</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='484.064961' y='1126.914817'>Sr,Un_dc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Base Current.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='473.064961' y='988.284419'>Base Current</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='484.064961' y='1001.646385'>Sr,Un_dc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Base Current.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='473.064961' y='863.015987'>Base Current</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='484.064961' y='876.377953'>Sr,Un_dc</text>
+      </g>
+    </g>
+    <g id='Device data'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Kp+Ki/s.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='952.369516' y='600.369840'>iarm_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\cap_MMC Capacitor Control BlkDef\Kp+Ki/s.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1371.973566' y='495.979480'>udc_max</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

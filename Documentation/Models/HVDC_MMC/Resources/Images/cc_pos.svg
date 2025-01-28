@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg baseProfile='full' height='100.000000%' version='1.1' viewBox='0.000000 0.000000 1753.000000 1240.000000' width='100.000000%' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+
+
+  <defs>
+    <clipPath id='clipPath-01'>
+      <polygon points='0.000000 1240.157480, 0.000000 0.000000, 1753.937008 0.000000, 1753.937008 1240.157480' />
+    </clipPath>
+  </defs>
+
+  <g clip-path='url(#clipPath-01)'>
+    <g id='Page Layer'>
+      <polygon fill='#ffffff' points='0.500000 0.500000, 0.500000 1239.500000, 1752.500000 1239.500000, 1752.500000 0.500000' stroke='#808080' stroke-width='1.000000' />
+    </g>
+    <g id='Block definition'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef.BlkDef'>
+        <polyline fill='none' points='88.582677 1151.574803, 1653.543307 1151.574803, 1653.543307 88.582677, 88.582677 88.582677, 88.582677 1151.574803' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='88.582677' cy='354.330709' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='70.818898' y='360.236220'>1</text>
+        <ellipse cx='88.582677' cy='531.499606' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='537.405118'>2</text>
+        <ellipse cx='88.582677' cy='885.826772' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='68.818898' y='891.732283'>4</text>
+        <ellipse cx='88.582677' cy='708.663189' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='714.568701'>3</text>
+        <ellipse cx='88.582677' cy='177.167126' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='183.072638'>0</text>
+        <ellipse cx='88.582677' cy='1062.990354' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='1068.895866'>5</text>
+        <ellipse cx='1653.543307' cy='354.330709' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1663.807087' y='360.236220'>0</text>
+        <ellipse cx='1653.543307' cy='885.826772' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1665.307087' y='891.732283'>1</text>
+      </g>
+    </g>
+    <g id='Net elements'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(9).BlkSum'>
+        <ellipse cx='1358.267717' cy='679.133858' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='1343.503937' cy='679.133858' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1358.267717' cy='693.897638' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1373.031496' cy='679.133858' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1358.267717' cy='664.370079' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(8).BlkSum'>
+        <ellipse cx='1181.102362' cy='501.968504' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='1166.338583' cy='501.968504' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1181.102362' cy='516.732283' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1195.866142' cy='501.968504' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1181.102362' cy='487.204724' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(3).BlkSum'>
+        <ellipse cx='1358.267717' cy='885.826772' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='1343.503937' cy='885.826772' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1358.267717' cy='900.590551' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1373.031496' cy='885.826772' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1358.267717' cy='871.062992' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(2).BlkSum'>
+        <ellipse cx='1181.102362' cy='354.330709' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='1166.338583' cy='354.330709' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1181.102362' cy='369.094488' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1195.866142' cy='354.330709' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1181.102362' cy='339.566929' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(1).BlkSum'>
+        <ellipse cx='501.968504' cy='885.826772' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='487.204724' cy='885.826772' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='501.968504' cy='900.590551' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='516.732283' cy='885.826772' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='501.968504' cy='871.062992' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Activate Gain.BlkRef'>
+        <polygon fill='none' points='679.133858 1122.047244, 679.133858 1003.937008, 944.881890 1003.937008, 944.881890 1122.047244' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='679.133858' cy='1062.992126' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='944.881890' cy='1062.992126' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Activate Gain.BlkRef'>
+        <polygon fill='none' points='679.133858 236.220472, 679.133858 118.110236, 944.881890 118.110236, 944.881890 236.220472' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='679.133858' cy='177.165354' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='944.881890' cy='177.165354' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point.BlkSum'>
+        <ellipse cx='501.968504' cy='354.330709' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='487.204724' cy='354.330709' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='501.968504' cy='369.094488' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='516.732283' cy='354.330709' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='501.968504' cy='339.566929' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Voltage Drop Compensation.BlkRef'>
+        <polygon fill='none' points='679.133901 767.716585, 679.133901 649.606250, 944.881848 649.606250, 944.881848 767.716585' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='679.133901' cy='708.661417' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='944.881848' cy='679.133834' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='925.618068' y='685.039345'>0</text>
+        <ellipse cx='944.881848' cy='738.189001' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='927.118068' y='744.094513'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Voltage Drop Compensation.BlkRef'>
+        <polygon fill='none' points='679.133901 590.551216, 679.133901 472.440910, 944.881848 472.440910, 944.881848 590.551216' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='679.133901' cy='531.496063' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='944.881848' cy='501.968486' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='925.618068' y='507.873998'>0</text>
+        <ellipse cx='944.881848' cy='561.023640' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='927.118068' y='566.929151'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Kp+Ki/s.BlkRef'>
+        <polygon fill='none' points='679.133872 944.881918, 679.133872 826.771625, 944.881876 826.771625, 944.881876 944.881918' stroke='#000000' stroke-width='2.362205' />
+        <polyline fill='none' points='971.456676 812.007839, 905.019675 812.007839, 878.444875 826.771625' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='679.133872' cy='885.826772' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='944.881876' cy='885.826772' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Kp+Ki/s.BlkRef'>
+        <polygon fill='none' points='679.133872 413.385855, 679.133872 295.275562, 944.881876 295.275562, 944.881876 413.385855' stroke='#000000' stroke-width='2.362205' />
+        <polyline fill='none' points='971.456676 280.511776, 905.019675 280.511776, 878.444875 295.275562' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='679.133872' cy='354.330709' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='944.881876' cy='354.330709' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(9).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1350.000000' y='684.094488'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(9).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1354.267717' y='688.818898'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(9).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1361.173228' y='684.094488'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(9).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1355.267717' y='678.188976'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(8).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1172.834646' y='506.929134'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(8).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1177.102362' y='511.653543'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(8).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1184.007874' y='506.929134'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(8).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1178.102362' y='501.023622'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(8).BlkSum::TextBox 5'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='1161.338583' y='542.125984'>-</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(3).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1350.000000' y='890.787402'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(3).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1354.267717' y='895.511811'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(3).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1361.173228' y='890.787402'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(3).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1355.267717' y='884.881890'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(2).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1172.834646' y='359.291339'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(2).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1177.102362' y='364.015748'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(2).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1184.007874' y='359.291339'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(2).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='1178.102362' y='353.385827'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(1).BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='493.700787' y='890.787402'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(1).BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='497.968504' y='895.511811'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(1).BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='504.874016' y='890.787402'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(1).BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='498.968504' y='884.881890'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point(1).BlkSum::TextBox 7'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='511.732283' y='866.929134'>-</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='493.700787' y='359.291339'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='497.968504' y='364.015748'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='504.874016' y='359.291339'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='498.968504' y='353.385827'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Summation Point.BlkSum::TextBox 5'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='482.204724' y='394.488189'>-</text>
+      </g>
+    </g>
+    <g id='Signals'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1q_ref.BlkSig'>
+        <polyline fill='none' points='391.240157 885.824068, 88.582677 885.826772' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='391.240157 885.824068, 487.204724 885.826772' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1d.BlkSig'>
+        <polyline fill='none' points='295.275591 531.496649, 88.582677 531.496063' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='295.275591 531.496649, 501.968504 531.496063, 501.968504 369.094488' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_iZ_1q.BlkSig'>
+        <polyline fill='none' points='1358.267717 782.480315, 1358.267717 693.897638' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1358.267717 782.480315, 1358.267717 871.062992' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1d_ref.BlkSig'>
+        <polyline fill='none' points='287.893701 354.329447, 88.582677 354.330709' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='287.893701 354.329447, 487.204724 354.330709' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1q_R.BlkSig'>
+        <polyline fill='none' points='1144.192913 679.133858, 944.881890 679.133858' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1144.192913 679.133858, 1343.503937 679.133858' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_iZ_1d.BlkSig'>
+        <polyline fill='none' points='1181.102362 428.149606, 1181.102362 487.204724' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1181.102362 428.149606, 1181.102362 369.094488' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1d_R.BlkSig'>
+        <polyline fill='none' points='1055.610236 501.968504, 944.881890 501.968504' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1055.610236 501.968504, 1166.338583 501.968504' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1d(1).BlkSig'>
+        <polyline fill='none' points='383.858268 531.496649, 88.582677 531.496063' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='383.858268 531.496649, 679.133903 531.496063' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1q_enabled.BlkSig'>
+        <polyline fill='none' points='1151.574803 1062.992126, 944.881890 1062.992126' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 1062.992126, 1358.267717 1062.992126, 1358.267717 900.590551' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1d_enabled.BlkSig'>
+        <polyline fill='none' points='1062.992126 177.165354, 944.881890 177.165354' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1062.992126 177.165354, 1181.102362 177.165354, 1181.102362 339.566929' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1q.BlkSig'>
+        <polyline fill='none' points='383.858268 1062.989333, 88.582677 1062.992126' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='383.858268 1062.989333, 679.133858 1062.992126' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1d.BlkSig'>
+        <polyline fill='none' points='383.858268 177.165084, 88.582677 177.165354' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='383.858268 177.165084, 679.133858 177.165354' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1q_X.BlkSig'>
+        <polyline fill='none' points='1062.992126 738.188976, 944.881890 738.188976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1062.992126 738.188976, 1181.102362 738.188976, 1181.102362 516.732283' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1d_X.BlkSig'>
+        <polyline fill='none' points='1151.574803 561.023622, 944.881890 561.023622' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 561.023622, 1358.267717 561.023622, 1358.267717 664.370079' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1q(1).BlkSig'>
+        <polyline fill='none' points='295.275591 708.658714, 88.582677 708.661417' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='295.275591 708.658714, 679.133903 708.661417' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\uconv_1q.BlkSig'>
+        <polyline fill='none' points='1513.287402 885.826772, 1373.031496 885.826772' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1513.287402 885.826772, 1653.543307 885.826772' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\uconv_1d.BlkSig'>
+        <polyline fill='none' points='1424.704724 354.329447, 1195.866142 354.330709' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1424.704724 354.329447, 1653.543307 354.330709' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\duconv_1q.BlkSig'>
+        <polyline fill='none' points='1144.192913 885.826772, 944.881890 885.826772' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1144.192913 885.826772, 1343.503937 885.826772' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\duconv_1d.BlkSig'>
+        <polyline fill='none' points='1055.610236 354.330709, 944.881890 354.330709' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1055.610236 354.330709, 1166.338583 354.330709' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\di1q.BlkSig'>
+        <polyline fill='none' points='597.933071 885.826772, 516.732283 885.826772' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='597.933071 885.826772, 679.133858 885.826772' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\di1d.BlkSig'>
+        <polyline fill='none' points='597.933071 354.330709, 516.732283 354.330709' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='597.933071 354.330709, 679.133858 354.330709' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1q.BlkSig'>
+        <polyline fill='none' points='398.622047 708.661778, 88.582677 708.661417' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='398.622047 708.661778, 501.968504 708.661417, 501.968504 871.062992' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1q_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='487.204724 885.826772, 457.676999 891.731452, 457.677332 879.920428' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='501.968504 369.094488, 507.874016 398.622047, 496.062992 398.622047' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_iZ_1q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1358.267717 871.062992, 1352.362205 841.535433, 1364.173228 841.535433' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1d_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='487.204724 354.330709, 457.677128 360.236034, 457.677203 348.425010' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1q_R.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1343.503937 679.133858, 1313.976378 685.039370, 1313.976378 673.228346' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_iZ_1d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1181.102362 369.094488, 1187.007874 398.622047, 1175.196850 398.622047' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1d_R.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1166.338583 501.968504, 1136.811024 507.874016, 1136.811024 496.062992' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1d(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='679.133903 531.496063, 649.606356 537.401633, 649.606333 525.590610' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1q_enabled.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1358.267717 900.590551, 1364.173228 930.118110, 1352.362205 930.118110' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1d_enabled.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1181.102362 339.566929, 1175.196850 310.039370, 1187.007874 310.039370' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='679.133858 1062.992126, 649.606243 1068.897358, 649.606355 1057.086335' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='679.133858 177.165354, 649.606294 183.070839, 649.606305 171.259815' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1q_X.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1181.102362 516.732283, 1187.007874 546.259843, 1175.196850 546.259843' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1d_X.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1358.267717 664.370079, 1352.362205 634.842520, 1364.173228 634.842520' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1q(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='679.133903 708.661417, 649.606303 714.566721, 649.606386 702.755698' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\uconv_1q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 885.826772, 1624.015748 891.732283, 1624.015748 879.921260' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\uconv_1d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 354.330709, 1624.015715 360.236058, 1624.015781 348.425034' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\duconv_1q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1343.503937 885.826772, 1313.976378 891.732283, 1313.976378 879.921260' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\duconv_1d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1166.338583 354.330709, 1136.811024 360.236220, 1136.811024 348.425197' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\di1q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='679.133858 885.826772, 649.606299 891.732283, 649.606299 879.921260' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\di1d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='679.133858 354.330709, 649.606299 360.236220, 649.606299 348.425197' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='501.968504 871.062992, 496.062992 841.535433, 507.874016 841.535433' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='Cross Points'>
+        <g id='Cross Point'>
+          <ellipse cx='501.968504' cy='531.496063' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='501.968504' cy='708.661417' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+      </g>
+    </g>
+    <g id='Labels'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1q_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='359.740157' y='877.202021'>i1q_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='281.775590' y='522.874601'>i1d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_iZ_1q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' transform='rotate(270.000000,1332.637795,823.480316)' x='1332.637795' y='840.488190'>du_iZ_1q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1d_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='256.393700' y='345.707400'>i1d_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1q_R.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1102.192913' y='670.511811'>du_i1q_R</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_iZ_1d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' transform='rotate(270.000000,1155.472441,469.149607)' x='1155.472441' y='486.157481'>du_iZ_1d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1d_R.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1013.610236' y='493.346457'>du_i1d_R</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1q_enabled.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1095.574803' y='1054.370079'>u1q_enabled</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1d_enabled.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1006.992125' y='168.543307'>u1d_enabled</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='367.358267' y='1054.367285'>u1q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\u1d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='367.358267' y='168.543037'>u1d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1q_X.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1020.992125' y='729.566929'>du_i1q_X</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\du_i1d_X.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1109.574803' y='552.401575'>du_i1d_X</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\uconv_1q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1471.287401' y='877.204724'>uconv_1q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\uconv_1d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1382.704724' y='345.707400'>uconv_1d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\duconv_1q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1096.692913' y='877.204724'>duconv_1q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\duconv_1d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1008.110236' y='345.708661'>duconv_1d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\di1q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='578.933070' y='877.204724'>di1q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\di1d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='578.933070' y='345.708661'>di1d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\i1q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='385.122047' y='700.039731'>i1q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef.BlkDef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='88.582677' y='57.874016'>idq_Current Control (Pos Seq) BlkDef: Current controller in dq components, positive sequence</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Activate Gain.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='755.507874' y='1061.102362'>Activate Gain</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='734.007874' y='1080.000000'>Enable_uFF,KuFF</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Activate Gain.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='755.507874' y='175.275591'>Activate Gain</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='734.007874' y='194.173228'>Enable_uFF,KuFF</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Voltage Drop Compensation.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='691.007874' y='706.771654'>Voltage Drop Compensation</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='692.507874' y='725.669291'>Enable_iFF,Rseries,Xseries</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Voltage Drop Compensation.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='691.007874' y='529.606299'>Voltage Drop Compensation</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='692.507874' y='548.503937'>Enable_iFF,Rseries,Xseries</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Kp+Ki/s.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='778.507874' y='883.937008'>Kp+Ki/s</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='789.007874' y='902.834646'>Kp,Ki</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Kp+Ki/s.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='778.507874' y='352.440945'>Kp+Ki/s</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='789.007874' y='371.338583'>Kp,Ki</text>
+      </g>
+    </g>
+    <g id='Device data'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Kp+Ki/s.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='893.881876' y='807.755877'>Vconv_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\idq_Current Control (Pos Seq) BlkDef\Kp+Ki/s.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='893.881876' y='276.259814'>Vconv_max</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

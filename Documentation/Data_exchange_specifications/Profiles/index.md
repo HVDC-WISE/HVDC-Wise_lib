@@ -1,0 +1,1 @@
+The work on the data exchange profiles that include the proposed exchanges is in progress. Updated profiles will be published here as an illustration reference. The final versions are expected to be standardised by IEC and artifacts would be available within the CIM open community pages hosted by UCAIug. 

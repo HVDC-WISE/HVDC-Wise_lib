@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg baseProfile='full' height='100.000000%' version='1.1' viewBox='0.000000 0.000000 1753.000000 1240.000000' width='100.000000%' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+
+
+  <defs>
+    <clipPath id='clipPath-01'>
+      <polygon points='0.000000 1240.157480, 0.000000 0.000000, 1753.937008 0.000000, 1753.937008 1240.157480' />
+    </clipPath>
+  </defs>
+
+  <g clip-path='url(#clipPath-01)'>
+    <g id='Page Layer'>
+      <polygon fill='#ffffff' points='0.500000 0.500000, 0.500000 1239.500000, 1752.500000 1239.500000, 1752.500000 0.500000' stroke='#808080' stroke-width='1.000000' />
+    </g>
+    <g id='Block definition'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef.BlkDef'>
+        <polyline fill='none' points='88.582677 1151.574803, 1653.543307 1151.574803, 1653.543307 88.582677, 88.582677 88.582677, 88.582677 1151.574803' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='88.582677' cy='531.494291' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='537.399803'>0</text>
+        <ellipse cx='88.582677' cy='561.024213' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='70.818898' y='566.929724'>1</text>
+        <ellipse cx='88.582677' cy='590.548819' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='596.454331'>2</text>
+        <ellipse cx='88.582677' cy='620.078740' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='625.984252'>3</text>
+        <ellipse cx='88.582677' cy='649.608661' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='68.818898' y='655.514173'>4</text>
+        <ellipse cx='1653.543307' cy='561.024213' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1663.807087' y='566.929724'>0</text>
+        <ellipse cx='1653.543307' cy='620.078740' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1665.307087' y='625.984252'>1</text>
+      </g>
+    </g>
+    <g id='Net elements'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\K.BlkRef'>
+        <polygon fill='none' points='738.188994 649.606299, 738.188994 531.496063, 856.299195 531.496063, 856.299195 649.606299' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='738.188994' cy='590.551181' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='856.299195' cy='590.551181' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\-1.BlkRef'>
+        <polygon fill='none' points='472.440945 413.385827, 472.440945 295.275591, 590.551181 295.275591, 590.551181 413.385827' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='472.440945' cy='354.330709' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='590.551181' cy='354.330709' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Divider.BlkRef'>
+        <polygon fill='none' points='1446.850394 649.606299, 1446.850394 531.496063, 1564.960630 531.496063, 1564.960630 649.606299' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1446.850394' cy='590.551181' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1564.960630' cy='561.023622' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1545.696850' y='566.929134'>0</text>
+        <ellipse cx='1564.960630' cy='620.078740' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1547.196850' y='625.984252'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Limiter.BlkRef'>
+        <polygon fill='none' points='944.881890 413.385827, 944.881890 295.275591, 1092.519685 295.275591, 1092.519685 413.385827' stroke='#000000' stroke-width='2.362205' />
+        <polyline fill='none' points='930.118110 428.149606, 967.027559 428.149606, 981.791339 413.385827' stroke='#000000' stroke-width='1.181102' />
+        <polyline fill='none' points='1107.283465 280.511811, 1070.374016 280.511811, 1055.610236 295.275591' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='944.881890' cy='354.330709' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1092.519685' cy='354.330709' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Selector 2.BlkRef'>
+        <polygon fill='none' points='1240.157480 649.606299, 1240.157480 531.496063, 1358.267717 531.496063, 1358.267717 649.606299' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1240.157480' cy='561.023622' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1250.421260' y='566.929134'>0</text>
+        <ellipse cx='1240.157480' cy='620.078740' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1251.921260' y='625.984252'>1</text>
+        <ellipse cx='1358.267717' cy='590.551181' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Divider.BlkRef'>
+        <polygon fill='none' points='915.354331 649.606299, 915.354331 531.496063, 1033.464567 531.496063, 1033.464567 649.606299' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='915.354331' cy='590.551181' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1033.464567' cy='561.023622' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1014.200787' y='566.929134'>0</text>
+        <ellipse cx='1033.464567' cy='620.078740' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1015.700787' y='625.984252'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\K dx/dt.BlkRef'>
+        <polygon fill='none' points='708.661417 413.385827, 708.661417 295.275591, 856.299213 295.275591, 856.299213 413.385827' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='708.661417' cy='354.330709' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='856.299213' cy='354.330709' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Selector 5.BlkRef'>
+        <polygon fill='none' points='206.692913 708.661417, 206.692913 472.440945, 354.330709 472.440945, 354.330709 708.661417' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='354.330709' cy='590.551181' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <ellipse cx='206.692913' cy='531.496063' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='216.956693' y='537.401575'>0</text>
+        <ellipse cx='206.692913' cy='561.023622' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='218.456693' y='566.929134'>1</text>
+        <ellipse cx='206.692913' cy='590.551181' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='216.956693' y='596.456693'>2</text>
+        <ellipse cx='206.692913' cy='620.078740' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='216.956693' y='625.984252'>3</text>
+        <ellipse cx='206.692913' cy='649.606299' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='216.456693' y='655.511811'>4</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\(1+sT1)/(1+sT2).BlkRef'>
+        <polygon fill='none' points='561.023622 885.826747, 561.023622 767.716560, 767.716535 767.716560, 767.716535 885.826747' stroke='#000000' stroke-width='2.362205' />
+        <polyline fill='none' points='540.354331 900.590520, 592.027559 900.590520, 612.696850 885.826747' stroke='#000000' stroke-width='1.181102' />
+        <polyline fill='none' points='788.385827 752.952787, 736.712598 752.952787, 716.043307 767.716560' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='561.023622' cy='826.771654' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='767.716535' cy='826.771654' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\(1+sT1)/(1+sT2).BlkRef'>
+        <polygon fill='none' points='885.826772 885.826747, 885.826772 767.716560, 1092.519685 767.716560, 1092.519685 885.826747' stroke='#000000' stroke-width='2.362205' />
+        <polyline fill='none' points='865.157480 900.590520, 916.830709 900.590520, 937.500000 885.826747' stroke='#000000' stroke-width='1.181102' />
+        <polyline fill='none' points='1113.188976 752.952787, 1061.515748 752.952787, 1040.846457 767.716560' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='885.826772' cy='826.771654' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1092.519685' cy='826.771654' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\sTw/(1+sTw).BlkRef'>
+        <polygon fill='none' points='472.440945 649.606299, 472.440945 531.496063, 620.078740 531.496063, 620.078740 649.606299' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='472.440945' cy='590.551181' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='620.078740' cy='590.551181' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+    </g>
+    <g id='Signals'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_washout.BlkSig'>
+        <polyline fill='none' points='679.133858 590.551181, 620.078740 590.551181' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='679.133858 590.551181, 738.188976 590.551181' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yi_invert.BlkSig'>
+        <polyline fill='none' points='649.606299 354.330709, 590.551181 354.330709' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='649.606299 354.330709, 708.661417 354.330709' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dQ.BlkSig'>
+        <polyline fill='none' points='1609.251969 620.078740, 1564.960630 620.078740' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1609.251969 620.078740, 1653.543307 620.078740' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dP.BlkSig'>
+        <polyline fill='none' points='1609.251969 561.023622, 1564.960630 561.023622' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1609.251969 561.023622, 1653.543307 561.023622' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dy_out.BlkSig'>
+        <polyline fill='none' points='1402.559055 590.551181, 1358.267717 590.551181' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1402.559055 590.551181, 1446.850394 590.551181' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_1.BlkSig'>
+        <polyline fill='none' points='900.590551 354.330709, 856.299213 354.330709' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='900.590551 354.330709, 944.881890 354.330709' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yi_derivative.BlkSig'>
+        <polyline fill='none' points='738.188976 472.440945, 1062.992126 472.440945, 1062.992126 561.023622, 1033.464567 561.023622' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='738.188976 472.440945, 413.385827 472.440945, 413.385827 354.330709, 472.440945 354.330709' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yi_lead_lag.BlkSig'>
+        <polyline fill='none' points='738.188976 708.661417, 1062.992126 708.661417, 1062.992126 620.078740, 1033.464567 620.078740' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='738.188976 708.661417, 413.385827 708.661417, 413.385827 826.771654, 561.023622 826.771654' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yin_ext.BlkSig'>
+        <polyline fill='none' points='147.637863 649.606299, 88.582677 649.606299' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='147.637863 649.606299, 206.692913 649.606299' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_K.BlkSig'>
+        <polyline fill='none' points='885.826772 590.551181, 856.299213 590.551181' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='885.826772 590.551181, 915.354331 590.551181' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\f.BlkSig'>
+        <polyline fill='none' points='147.637863 620.078740, 88.582677 620.078740' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='147.637863 620.078740, 206.692913 620.078740' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\uac.BlkSig'>
+        <polyline fill='none' points='147.637863 590.551181, 88.582677 590.551181' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='147.637863 590.551181, 206.692913 590.551181' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Q.BlkSig'>
+        <polyline fill='none' points='147.637863 561.023622, 88.582677 561.023622' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='147.637863 561.023622, 206.692913 561.023622' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dP_lead_lag.BlkSig'>
+        <polyline fill='none' points='1151.574803 723.425197, 1151.574803 826.771654, 1092.519685 826.771654' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 723.425197, 1151.574803 620.078740, 1240.157480 620.078740' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\P.BlkSig'>
+        <polyline fill='none' points='147.637863 531.496063, 88.582677 531.496063' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='147.637863 531.496063, 206.692913 531.496063' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dP_derivative.BlkSig'>
+        <polyline fill='none' points='1151.574803 457.677165, 1151.574803 354.330709, 1092.519685 354.330709' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 457.677165, 1151.574803 561.023622, 1240.157480 561.023622' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_signal.BlkSig'>
+        <polyline fill='none' points='413.385827 590.551181, 354.330709 590.551181' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='413.385827 590.551181, 472.440945 590.551181' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_2.BlkSig'>
+        <polyline fill='none' points='826.771654 826.771654, 767.716535 826.771654' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='826.771654 826.771654, 885.826772 826.771654' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_washout.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 590.551181, 708.661417 596.456693, 708.661417 584.645669' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yi_invert.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='708.661417 354.330709, 679.133858 360.236220, 679.133858 348.425197' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dQ.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 620.078740, 1624.015748 625.984252, 1624.015748 614.173228' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dP.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 561.023622, 1624.015748 566.929134, 1624.015748 555.118110' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dy_out.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1446.850394 590.551181, 1417.322835 596.456693, 1417.322835 584.645669' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_1.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='944.881890 354.330709, 915.354331 360.236220, 915.354331 348.425197' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yi_derivative.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='472.440945 354.330709, 442.913386 360.236220, 442.913386 348.425197' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yi_lead_lag.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='561.023622 826.771654, 531.496063 832.677165, 531.496063 820.866142' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yin_ext.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='206.692913 649.606299, 177.165354 655.511811, 177.165354 643.700787' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_K.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='915.354331 590.551181, 885.826772 596.456693, 885.826772 584.645669' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\f.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='206.692913 620.078740, 177.165354 625.984252, 177.165354 614.173228' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\uac.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='206.692913 590.551181, 177.165354 596.456693, 177.165354 584.645669' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='206.692913 561.023622, 177.165354 566.929134, 177.165354 555.118110' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dP_lead_lag.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 620.078740, 1210.629921 625.984252, 1210.629921 614.173228' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\P.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='206.692913 531.496063, 177.165354 537.401575, 177.165354 525.590551' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dP_derivative.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 561.023622, 1210.629921 566.929134, 1210.629921 555.118110' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_signal.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='472.440945 590.551181, 442.913386 596.456693, 442.913386 584.645669' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_2.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='885.826772 826.771654, 856.299213 832.677165, 856.299213 820.866142' stroke='#000000' stroke-width='1.000000' />
+      </g>
+    </g>
+    <g id='Labels'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_washout.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='633.133858' y='581.929134'>y_washout</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yi_invert.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='613.606299' y='345.708661'>yi_invert</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dQ.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1595.751968' y='611.456693'>dQ</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dP.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1596.751968' y='552.401575'>dP</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dy_out.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1373.059055' y='581.929134'>dy_out</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_1.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='885.590551' y='345.708661'>y_1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yi_derivative.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='685.188976' y='463.818898'>yi_derivative</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yi_lead_lag.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='689.188976' y='700.039370'>yi_lead_lag</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\yin_ext.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='116.637862' y='640.984252'>yin_ext</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_K.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='867.826771' y='581.929134'>y_K</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\f.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='143.137862' y='611.456693'>f</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\uac.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='132.137862' y='581.929134'>uac</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='139.637862' y='552.401575'>Q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dP_lead_lag.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' transform='rotate(270.000000,1125.944882,777.425197)' x='1125.944882' y='794.433071'>dP_lead_lag</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\P.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='141.137862' y='522.874016'>P</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\dP_derivative.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' transform='rotate(270.000000,1125.944882,515.677166)' x='1125.944882' y='532.685040'>dP_derivative</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_signal.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='377.885826' y='581.929134'>y_signal</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\y_2.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='810.271653' y='818.149606'>y_2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef.BlkDef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='88.582677' y='57.874016'>pod_Power Oscillation Damping BlkDef: Power Oscillation Damping</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\K.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='790.244094' y='591.858463'>K</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='783.744094' y='610.756101'>Kin</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\-1.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='523.496063' y='352.440945'>-1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Divider.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1475.905512' y='588.661417'>Divider</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1476.905512' y='607.559055'>Output</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Limiter.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='989.700787' y='352.440945'>Limiter</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Selector 2.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1255.212598' y='588.661417'>Selector 2</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1274.712598' y='607.559055'>Mode</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Divider.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='944.409449' y='588.661417'>Divider</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='949.909449' y='607.559055'>Mode</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\K dx/dt.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='752.480315' y='352.440945'>K dx/dt</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='770.480315' y='371.338583'>Kd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Selector 5.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='237.791438' y='587.865516'>Selector 5</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='260.291438' y='606.763153'>Input</text>
+      </g>
+    </g>
+    <g id='Device data'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Limiter.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1056.519685' y='276.259843'>dP_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\Limiter.BlkRef::TextBox 2'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='911.881890' y='447.519685'>dP_min</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\(1+sT1)/(1+sT2).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='594.370079' y='834.307086'>(1+sT1)/(1+sT2)</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='638.370079' y='853.204724'>T1,T2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\(1+sT1)/(1+sT2).BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='711.047244' y='750.177190'>dP_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\(1+sT1)/(1+sT2).BlkRef::TextBox 2'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='542.787402' y='919.960605'>dP_min</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\(1+sT1)/(1+sT2).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='919.173228' y='834.307086'>(1+sT1)/(1+sT2)</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='963.173228' y='853.204724'>T3,T4</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\(1+sT1)/(1+sT2).BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1035.850394' y='750.177190'>dP_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\(1+sT1)/(1+sT2).BlkRef::TextBox 2'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='867.590551' y='919.960605'>dP_min</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\pod_Power Oscillation Damping BlkDef\sTw/(1+sTw).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='491.259843' y='598.080709'>sTw/(1+sTw)</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='532.259843' y='616.978347'>Tw</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

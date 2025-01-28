@@ -1,0 +1,3498 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<Package name="ExtHVDCwise" guid="{496767A1-2CD2-45e8-A0C2-18EB681BDDA2}">
+	<Table name="t_package">
+		<Row>
+			<Column name="Package_ID" value="2743"/>
+			<Column name="Name" value="ExtDCEquipment"/>
+			<Column name="Parent_ID" value="2742"/>
+			<Column name="CreatedDate" value="2023-10-22 18:50:22"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:59:41"/>
+			<Column name="Notes" value="The section contains extensions related to the DC equipment."/>
+			<Column name="ea_guid" value="{1A682D37-4450-46ef-B610-7C2C858E0428}"/>
+			<Column name="IsControlled" value="FALSE"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Protected" value="FALSE"/>
+			<Column name="UseDTD" value="FALSE"/>
+			<Column name="LogXML" value="FALSE"/>
+			<Extension Parent_ID="{496767A1-2CD2-45e8-A0C2-18EB681BDDA2}"/>
+		</Row>
+		<Row>
+			<Column name="Package_ID" value="2742"/>
+			<Column name="Name" value="ExtHVDCwise"/>
+			<Column name="Parent_ID" value="2476"/>
+			<Column name="CreatedDate" value="2023-10-22 18:49:39"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:59:16"/>
+			<Column name="Notes" value="This section provides detailed information on extensions related to DC modelling proposed by HVDC WISE project."/>
+			<Column name="ea_guid" value="{496767A1-2CD2-45e8-A0C2-18EB681BDDA2}"/>
+			<Column name="IsControlled" value="FALSE"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Protected" value="FALSE"/>
+			<Column name="UseDTD" value="FALSE"/>
+			<Column name="LogXML" value="FALSE"/>
+			<Extension/>
+		</Row>
+		<Row>
+			<Column name="Package_ID" value="2745"/>
+			<Column name="Name" value="ExtDCStateVariables"/>
+			<Column name="Parent_ID" value="2742"/>
+			<Column name="CreatedDate" value="2023-10-22 21:05:33"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:59:25"/>
+			<Column name="Notes" value="This section contains extensions to the state variables."/>
+			<Column name="ea_guid" value="{7C07A74B-2E3D-433a-A12F-74903A0CF18B}"/>
+			<Column name="IsControlled" value="FALSE"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Protected" value="FALSE"/>
+			<Column name="UseDTD" value="FALSE"/>
+			<Column name="LogXML" value="FALSE"/>
+			<Extension Parent_ID="{496767A1-2CD2-45e8-A0C2-18EB681BDDA2}"/>
+		</Row>
+		<Row>
+			<Column name="Package_ID" value="2744"/>
+			<Column name="Name" value="ExtDCTerminal"/>
+			<Column name="Parent_ID" value="2742"/>
+			<Column name="CreatedDate" value="2023-10-22 21:05:20"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:59:33"/>
+			<Column name="Notes" value="This section contains extensions related to the DCTerminal."/>
+			<Column name="ea_guid" value="{CEA403D8-8017-4b7f-8F48-487628823543}"/>
+			<Column name="IsControlled" value="FALSE"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Protected" value="FALSE"/>
+			<Column name="UseDTD" value="FALSE"/>
+			<Column name="LogXML" value="FALSE"/>
+			<Extension Parent_ID="{496767A1-2CD2-45e8-A0C2-18EB681BDDA2}"/>
+		</Row>
+	</Table>
+	<Table name="t_object">
+		<Row>
+			<Column name="Object_ID" value="44606"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="DCSuperCapacitorStorageSubModule"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="Super capacitor storage submodule of the DC storage device.&#xA;"/>
+			<Column name="Package_ID" value="2743"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 19:09:13"/>
+			<Column name="ModifiedDate" value="2024-10-27 06:09:58"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{0B7FAB48-C6FC-4179-B374-FCD338530066}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{1A682D37-4450-46ef-B610-7C2C858E0428}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44616"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="SvDCPowerFlow"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="State variable for power flow. Load convention is used for flow direction. This means flow out from the DCTopologicalNode into the equipment is positive."/>
+			<Column name="Package_ID" value="2745"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 21:17:51"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:45:41"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{11305EEF-1B06-4f9a-A459-441660E30F41}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{7C07A74B-2E3D-433a-A12F-74903A0CF18B}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44603"/>
+			<Column name="Object_Type" value="Package"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="ExtDCEquipment"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="The section contains extensions related to the DC equipment."/>
+			<Column name="Package_ID" value="2742"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 18:50:22"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:59:41"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA1" value="2743"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{1A682D37-4450-46ef-B610-7C2C858E0428}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{496767A1-2CD2-45e8-A0C2-18EB681BDDA2}" PDATA1="{1A682D37-4450-46ef-B610-7C2C858E0428}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44618"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="SvDCBattery"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="State variable for direct current battery.&#xA;"/>
+			<Column name="Package_ID" value="2745"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 21:28:56"/>
+			<Column name="ModifiedDate" value="2024-10-27 06:20:24"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{30A82433-59FF-4790-8FB4-7B4C33EB626E}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{7C07A74B-2E3D-433a-A12F-74903A0CF18B}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44617"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="SvDCStorage"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="State variable for direct current storage.&#xA;"/>
+			<Column name="Package_ID" value="2745"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 21:27:07"/>
+			<Column name="ModifiedDate" value="2024-10-27 06:11:25"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{48D8BA1E-C5AE-462c-8017-D31DEDC8CAD1}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{7C07A74B-2E3D-433a-A12F-74903A0CF18B}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44602"/>
+			<Column name="Object_Type" value="Package"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="ExtHVDCwise"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="This section provides detailed information on extensions related to DC modelling proposed by HVDC WISE project."/>
+			<Column name="Package_ID" value="2476"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 18:49:39"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:59:16"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA1" value="2742"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{496767A1-2CD2-45e8-A0C2-18EB681BDDA2}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension PDATA1="{496767A1-2CD2-45e8-A0C2-18EB681BDDA2}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44607"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="DCBatteryStorageSubModule"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="Battery storage submodule of the DC storage device."/>
+			<Column name="Package_ID" value="2743"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 19:09:34"/>
+			<Column name="ModifiedDate" value="2024-10-27 06:07:17"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{581AFF77-8A06-4af5-8B40-740130B372B9}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{1A682D37-4450-46ef-B610-7C2C858E0428}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44614"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="DCTerminalPolarityKind"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="Polarity for DC terminal. Used in DC system configurations that have explicit polarity of the terminals, e.g., voltage source converter (VSC) technology."/>
+			<Column name="Package_ID" value="2744"/>
+			<Column name="Stereotype" value="enumeration"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 21:09:24"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:53:12"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{58DBCC85-975F-419d-B0F6-ACA790FD217C}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{CEA403D8-8017-4b7f-8F48-487628823543}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44612"/>
+			<Column name="Object_Type" value="Package"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="ExtDCStateVariables"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="This section contains extensions to the state variables."/>
+			<Column name="Package_ID" value="2742"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 21:05:33"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:59:25"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA1" value="2745"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{7C07A74B-2E3D-433a-A12F-74903A0CF18B}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{496767A1-2CD2-45e8-A0C2-18EB681BDDA2}" PDATA1="{7C07A74B-2E3D-433a-A12F-74903A0CF18B}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44615"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="SvDCVoltage"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="State variable for direct current voltage.&#xA;"/>
+			<Column name="Package_ID" value="2745"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 21:17:43"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:47:27"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA2" value="Java"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{83F655C9-ECA9-4b99-A691-D56F04657CAE}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{7C07A74B-2E3D-433a-A12F-74903A0CF18B}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44619"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="SvDCSuperCapacitor"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="State variable for direct current super capacitor.&#xA;"/>
+			<Column name="Package_ID" value="2745"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 21:29:06"/>
+			<Column name="ModifiedDate" value="2024-10-27 06:21:06"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{95F244B1-5A87-4a2a-BDC6-6C29F5CCF018}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{7C07A74B-2E3D-433a-A12F-74903A0CF18B}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44608"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="DCStorageController"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="Controller of the DC storage."/>
+			<Column name="Package_ID" value="2743"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 20:55:00"/>
+			<Column name="ModifiedDate" value="2024-10-27 06:09:09"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{9709B1E7-6D9C-437c-8801-BEF65F3B886F}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{1A682D37-4450-46ef-B610-7C2C858E0428}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44605"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="DCStorageBranchKind"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="Kind of DC storage in terms of number of branches."/>
+			<Column name="Package_ID" value="2743"/>
+			<Column name="Stereotype" value="enumeration"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 19:04:25"/>
+			<Column name="ModifiedDate" value="2023-10-22 19:05:47"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{984411BF-DA81-4093-97B7-C29827CC5218}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{1A682D37-4450-46ef-B610-7C2C858E0428}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44609"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="DCStorageControlModeKind"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="Kinds of control modes of the DC storage."/>
+			<Column name="Package_ID" value="2743"/>
+			<Column name="Stereotype" value="enumeration"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 20:56:38"/>
+			<Column name="ModifiedDate" value="2024-10-27 06:05:32"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{998D2D17-A152-4a9c-8F59-6BDADF2ECDAC}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{1A682D37-4450-46ef-B610-7C2C858E0428}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44613"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="ExtDCTerminal"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="Extended class."/>
+			<Column name="Package_ID" value="2744"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 21:07:39"/>
+			<Column name="ModifiedDate" value="2024-10-27 06:15:19"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{9CF244D9-E39E-45f9-A5CE-B95AA1F46BDC}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{CEA403D8-8017-4b7f-8F48-487628823543}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44610"/>
+			<Column name="Object_Type" value="Note"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="Link this to the FACTS and DC controls models. There are functions attached to the controllers and this will bring target values for power and voltage."/>
+			<Column name="Package_ID" value="2743"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 20:58:20"/>
+			<Column name="ModifiedDate" value="2024-10-27 06:08:50"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="GenType" value="&lt;none&gt;"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{A1300DBB-2124-46d0-942B-6C3C9D21571F}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{1A682D37-4450-46ef-B610-7C2C858E0428}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44611"/>
+			<Column name="Object_Type" value="Package"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="ExtDCTerminal"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="This section contains extensions related to the DCTerminal."/>
+			<Column name="Package_ID" value="2742"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 21:05:20"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:59:33"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA1" value="2744"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{CEA403D8-8017-4b7f-8F48-487628823543}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{496767A1-2CD2-45e8-A0C2-18EB681BDDA2}" PDATA1="{CEA403D8-8017-4b7f-8F48-487628823543}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44604"/>
+			<Column name="Object_Type" value="Class"/>
+			<Column name="Diagram_ID" value="0"/>
+			<Column name="Name" value="DCStorage"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Note" value="Direct current storage. It is a two terminal device.&#xA;The DC storage has been primarily defined for DC-connected single branch of series-connected submodules with energy storage but can be used for models with several branches in parallel."/>
+			<Column name="Package_ID" value="2743"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="NType" value="0"/>
+			<Column name="Complexity" value="1"/>
+			<Column name="Effort" value="0"/>
+			<Column name="Backcolor" value="-1"/>
+			<Column name="BorderStyle" value="0"/>
+			<Column name="BorderWidth" value="-1"/>
+			<Column name="Fontcolor" value="-1"/>
+			<Column name="Bordercolor" value="-1"/>
+			<Column name="CreatedDate" value="2023-10-22 18:51:09"/>
+			<Column name="ModifiedDate" value="2024-10-27 05:53:50"/>
+			<Column name="Status" value="Proposed"/>
+			<Column name="Abstract" value="0"/>
+			<Column name="Tagged" value="0"/>
+			<Column name="PDATA4" value="0"/>
+			<Column name="GenType" value="Java"/>
+			<Column name="Phase" value="1.0"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="IsActive" value="FALSE"/>
+			<Extension Package_ID="{1A682D37-4450-46ef-B610-7C2C858E0428}"/>
+		</Row>
+	</Table>
+	<Table name="t_attribute">
+		<Row>
+			<Column name="Object_ID" value="44617"/>
+			<Column name="Name" value="activeSubModules"/>
+			<Column name="Scope" value="Private"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Number of active submodules of the DC storage."/>
+			<Column name="ID" value="164811"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13089"/>
+			<Column name="Type" value="Integer"/>
+			<Column name="ea_guid" value="{14744046-4F08-4d0e-B178-209445B8E4C1}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{48D8BA1E-C5AE-462c-8017-D31DEDC8CAD1}" Classifier="{5F6B613B-C31A-4476-8050-E600FBD5F789}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44606"/>
+			<Column name="Name" value="normalMaxUdc"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Normal maximum permissible supercapacitor voltage. When the supercapacitor voltage is superior to this value, the power that the device can absorb is reduced. The attribute shall be positive value."/>
+			<Column name="ID" value="164791"/>
+			<Column name="Pos" value="2"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13080"/>
+			<Column name="Type" value="Voltage"/>
+			<Column name="ea_guid" value="{16E663E0-767C-4f3b-A5F4-40739D7E409B}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}" Classifier="{233C330A-11B8-4705-879C-5497380F1D82}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44614"/>
+			<Column name="Name" value="negative"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="enum"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="1"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Negative terminal."/>
+			<Column name="ID" value="164807"/>
+			<Column name="Pos" value="1"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{1E776D67-12CC-4f67-A984-00245E9EB918}"/>
+			<Column name="StyleEx" value="IsLiteral=1;volatile=0;union=0;"/>
+			<Extension Object_ID="{58DBCC85-975F-419d-B0F6-ACA790FD217C}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44606"/>
+			<Column name="Name" value="maxUdc"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Maximum permissible supercapacitor voltage. When the supercapacitor voltage is superior to this value, the power that the device can absorb is set to zero. The attribute shall be positive value."/>
+			<Column name="ID" value="164792"/>
+			<Column name="Pos" value="3"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13080"/>
+			<Column name="Type" value="Voltage"/>
+			<Column name="ea_guid" value="{2794460D-58DD-418c-A8B4-9C55E1AD24FE}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}" Classifier="{233C330A-11B8-4705-879C-5497380F1D82}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44604"/>
+			<Column name="Name" value="inductance"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Inductance of the branch inductor. The attribute shall be positive value."/>
+			<Column name="ID" value="164778"/>
+			<Column name="Pos" value="1"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13105"/>
+			<Column name="Type" value="Inductance"/>
+			<Column name="ea_guid" value="{28B5A5AC-1811-4f74-AD34-50B5A7EBC117}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}" Classifier="{A5C20135-6480-450b-812C-23263BCC8553}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44604"/>
+			<Column name="Name" value="numberOfSubModules"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Number of submodules."/>
+			<Column name="ID" value="164781"/>
+			<Column name="Pos" value="4"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13089"/>
+			<Column name="Type" value="Integer"/>
+			<Column name="ea_guid" value="{2C8D74E3-5393-438c-A07A-323081BDB570}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}" Classifier="{5F6B613B-C31A-4476-8050-E600FBD5F789}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44604"/>
+			<Column name="Name" value="branchKind"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Kind of DC storage in terms of number of branches."/>
+			<Column name="ID" value="164784"/>
+			<Column name="Pos" value="7"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="44605"/>
+			<Column name="Type" value="DCStorageBranchKind"/>
+			<Column name="ea_guid" value="{31750316-4153-48e2-975F-A6314EF5D9CA}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}" Classifier="{984411BF-DA81-4093-97B7-C29827CC5218}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44607"/>
+			<Column name="Name" value="normalMaxE"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Normal maximum battery energy. When the battery energy is superior to this value, the power that the device can absorb is reduced. The attribute shall be positive value."/>
+			<Column name="ID" value="164795"/>
+			<Column name="Pos" value="2"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13133"/>
+			<Column name="Type" value="RealEnergy"/>
+			<Column name="ea_guid" value="{424FAED1-AB90-4a2e-A626-7552686CACFF}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}" Classifier="{FD0D7251-962F-4c57-ACFB-C1F578AB6361}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44618"/>
+			<Column name="Name" value="energy"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Battery energy. The attribute shall be positive value or zero."/>
+			<Column name="ID" value="164812"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13133"/>
+			<Column name="Type" value="RealEnergy"/>
+			<Column name="ea_guid" value="{44E7C291-CB67-4668-9F99-2010CDB441EA}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{30A82433-59FF-4790-8FB4-7B4C33EB626E}" Classifier="{FD0D7251-962F-4c57-ACFB-C1F578AB6361}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44607"/>
+			<Column name="Name" value="resistance"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Internal battery resistance per sub-module (Rbat). Used for calculation of the resistance of the equivalent circuit. The attribute shall be positive value. "/>
+			<Column name="ID" value="164789"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13129"/>
+			<Column name="Type" value="Resistance"/>
+			<Column name="ea_guid" value="{4D6D9374-0B24-4115-A3BF-4D6F6AF3408C}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}" Classifier="{EDB281E6-BBB4-438d-953B-7D746CAF55B5}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44607"/>
+			<Column name="Name" value="noLoadUdc"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="No load battery voltage per sub-module (Vbat). Used for calculation of the equivalent battery voltage. The attribute shall be positive value. "/>
+			<Column name="ID" value="164790"/>
+			<Column name="Pos" value="1"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13080"/>
+			<Column name="Type" value="Voltage"/>
+			<Column name="ea_guid" value="{52B8549E-4479-45f8-8807-8A96E02F7DC7}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}" Classifier="{233C330A-11B8-4705-879C-5497380F1D82}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44619"/>
+			<Column name="Name" value="v"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="State variable for direct current voltage of the super capacitor.&#xA;"/>
+			<Column name="ID" value="164813"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13080"/>
+			<Column name="Type" value="Voltage"/>
+			<Column name="ea_guid" value="{55519BF3-940B-4d80-8806-2FCEA1B158E3}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{95F244B1-5A87-4a2a-BDC6-6C29F5CCF018}" Classifier="{233C330A-11B8-4705-879C-5497380F1D82}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44609"/>
+			<Column name="Name" value="voltage"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="enum"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="1"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="In this control mode, the reference value corresponds to the dc voltage at the device terminals."/>
+			<Column name="ID" value="164802"/>
+			<Column name="Pos" value="1"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{5C770F7A-5A8F-444a-8A08-DC98EF55D94F}"/>
+			<Column name="StyleEx" value="IsLiteral=1;volatile=0;union=0;"/>
+			<Extension Object_ID="{998D2D17-A152-4a9c-8F59-6BDADF2ECDAC}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44606"/>
+			<Column name="Name" value="resistance"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Resistance of supercapacitor per sub-module (Rsc). Used for calculation of the resistance of the equivalent circuit. The attribute shall be positive value."/>
+			<Column name="ID" value="164788"/>
+			<Column name="Pos" value="1"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13129"/>
+			<Column name="Type" value="Resistance"/>
+			<Column name="ea_guid" value="{5E0A9C1F-0204-4ec5-844E-06A1F47502B9}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}" Classifier="{EDB281E6-BBB4-438d-953B-7D746CAF55B5}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44607"/>
+			<Column name="Name" value="minE"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Minimum battery energy. When the battery energy is inferior to this value, the power that the device can provide is set to zero. The attribute shall be positive value."/>
+			<Column name="ID" value="164798"/>
+			<Column name="Pos" value="5"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13133"/>
+			<Column name="Type" value="RealEnergy"/>
+			<Column name="ea_guid" value="{6378785E-F6F1-487a-BA56-5203AE127B74}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}" Classifier="{FD0D7251-962F-4c57-ACFB-C1F578AB6361}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44605"/>
+			<Column name="Name" value="multiple"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="enum"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="1"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="DC storage is made of multiple branches of series-connected submodules with energy storage."/>
+			<Column name="ID" value="164786"/>
+			<Column name="Pos" value="1"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{6759E69E-3AEC-4119-9FE2-D359E799C401}"/>
+			<Column name="StyleEx" value="IsLiteral=1;volatile=0;union=0;"/>
+			<Extension Object_ID="{984411BF-DA81-4093-97B7-C29827CC5218}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44605"/>
+			<Column name="Name" value="single"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="enum"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="1"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="DC storage is a single branch of series-connected submodules with energy storage. "/>
+			<Column name="ID" value="164785"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{68C9EB24-5B6D-469c-9DC6-78AE6B9BD698}"/>
+			<Column name="StyleEx" value="IsLiteral=1;volatile=0;union=0;"/>
+			<Extension Object_ID="{984411BF-DA81-4093-97B7-C29827CC5218}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44606"/>
+			<Column name="Name" value="initialUdc"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Initial voltage of the capacitance of the super capacitor (Csc). The attribute shall be positive or zero value."/>
+			<Column name="ID" value="164803"/>
+			<Column name="Pos" value="6"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13080"/>
+			<Column name="Type" value="Voltage"/>
+			<Column name="ea_guid" value="{7CB046DD-3E96-4eda-92CD-651EF4EABF6A}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}" Classifier="{233C330A-11B8-4705-879C-5497380F1D82}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44606"/>
+			<Column name="Name" value="minUdc"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Minimum permissible supercapacitor voltage. When the supercapacitor voltage is inferior to this value, the power that the device can provide is set to zero. The attribute shall be positive or zero value."/>
+			<Column name="ID" value="164794"/>
+			<Column name="Pos" value="5"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13080"/>
+			<Column name="Type" value="Voltage"/>
+			<Column name="ea_guid" value="{92E5DE48-5766-4048-9B89-3B435F26FB22}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}" Classifier="{233C330A-11B8-4705-879C-5497380F1D82}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44604"/>
+			<Column name="Name" value="resistanceStorageFilter"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Storage filter inductor resistance for each sub-module (Rsm). Used for calculation of the resistance of the equivalent circuit. The attribute shall be positive value."/>
+			<Column name="ID" value="164783"/>
+			<Column name="Pos" value="6"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13129"/>
+			<Column name="Type" value="Resistance"/>
+			<Column name="ea_guid" value="{9F104419-AD5F-45f3-B376-2D50B52CE7FF}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}" Classifier="{EDB281E6-BBB4-438d-953B-7D746CAF55B5}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44607"/>
+			<Column name="Name" value="normalMinE"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Normal minimum battery energy. When the battery energy is inferior to this value, the power that the device can provide is reduced. The attribute shall be positive value."/>
+			<Column name="ID" value="164797"/>
+			<Column name="Pos" value="4"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13133"/>
+			<Column name="Type" value="RealEnergy"/>
+			<Column name="ea_guid" value="{A2FC254A-204C-40b3-9658-6742D7B5BEB7}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}" Classifier="{FD0D7251-962F-4c57-ACFB-C1F578AB6361}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44607"/>
+			<Column name="Name" value="initialE"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Initial energy of the battery storage. The attribute shall be positive value."/>
+			<Column name="ID" value="164804"/>
+			<Column name="Pos" value="6"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13133"/>
+			<Column name="Type" value="RealEnergy"/>
+			<Column name="ea_guid" value="{A5FDCABC-54FA-4a5c-A038-D851CD1A42A4}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}" Classifier="{FD0D7251-962F-4c57-ACFB-C1F578AB6361}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44606"/>
+			<Column name="Name" value="capacitance"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Capacitance of supercapacitor per sub-module (Csc). Used for calculation of the capacitance of the equivalent circuit. The attribute shall be positive value."/>
+			<Column name="ID" value="164787"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13109"/>
+			<Column name="Type" value="Capacitance"/>
+			<Column name="ea_guid" value="{A7AE9FE1-AB49-4880-9110-3A26030715BF}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}" Classifier="{B2C696FA-9529-4b58-9D82-4062406AEACF}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44604"/>
+			<Column name="Name" value="ratedPdc"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Rated DC power of the converter. The attribute shall be positive value."/>
+			<Column name="ID" value="164777"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13127"/>
+			<Column name="Type" value="ActivePower"/>
+			<Column name="ea_guid" value="{AC946387-4B4A-41f0-A0E8-00FA96938C06}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}" Classifier="{E52EDC2D-8972-42c7-A7EB-D8C017E138A4}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44606"/>
+			<Column name="Name" value="normalMinUdc"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Normal minimum permissible supercapacitor voltage. When the supercapacitor voltage is inferior to this value, the power that the device can provide is reduced. The attribute shall be positive value."/>
+			<Column name="ID" value="164793"/>
+			<Column name="Pos" value="4"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13080"/>
+			<Column name="Type" value="Voltage"/>
+			<Column name="ea_guid" value="{AE575B87-F6DE-4eee-902E-D268C9CB56B8}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}" Classifier="{233C330A-11B8-4705-879C-5497380F1D82}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44614"/>
+			<Column name="Name" value="positive"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="enum"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="1"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Positive terminal."/>
+			<Column name="ID" value="164806"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{B29FC6F8-D241-49e9-B05D-632ABA875E11}"/>
+			<Column name="StyleEx" value="IsLiteral=1;volatile=0;union=0;"/>
+			<Extension Object_ID="{58DBCC85-975F-419d-B0F6-ACA790FD217C}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44608"/>
+			<Column name="Name" value="mode"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Direct current storage control mode."/>
+			<Column name="ID" value="164800"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="44609"/>
+			<Column name="Type" value="DCStorageControlModeKind"/>
+			<Column name="ea_guid" value="{B9191BE6-D3BC-4bde-8180-D00C480DB116}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{9709B1E7-6D9C-437c-8801-BEF65F3B886F}" Classifier="{998D2D17-A152-4a9c-8F59-6BDADF2ECDAC}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44616"/>
+			<Column name="Name" value="p"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="The active power flow. Load sign convention is used, i.e. positive sign means flow out from a DCTopologicalNode (bus) into the conducting equipment.&#xA;"/>
+			<Column name="ID" value="164810"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13127"/>
+			<Column name="Type" value="ActivePower"/>
+			<Column name="ea_guid" value="{BE2E3530-0FBD-4f73-895E-D8435CC7498F}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{11305EEF-1B06-4f9a-A459-441660E30F41}" Classifier="{E52EDC2D-8972-42c7-A7EB-D8C017E138A4}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44613"/>
+			<Column name="Name" value="polarity"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Represents the normal network polarity condition. Used in DC system configurations that have explicit polarity of the terminals, e.g., voltage source converter (VSC) technology.&#xA;"/>
+			<Column name="ID" value="164805"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="44614"/>
+			<Column name="Type" value="DCTerminalPolarityKind"/>
+			<Column name="ea_guid" value="{C2A7D480-9D92-4363-9F36-E71D02C86CC3}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{9CF244D9-E39E-45f9-A5CE-B95AA1F46BDC}" Classifier="{58DBCC85-975F-419d-B0F6-ACA790FD217C}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44615"/>
+			<Column name="Name" value="v"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="State variable for direct current voltage."/>
+			<Column name="ID" value="164809"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13080"/>
+			<Column name="Type" value="Voltage"/>
+			<Column name="ea_guid" value="{D950CC64-B926-4bfe-AF81-9BFA5F10752B}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{83F655C9-ECA9-4b99-A691-D56F04657CAE}" Classifier="{233C330A-11B8-4705-879C-5497380F1D82}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44609"/>
+			<Column name="Name" value="activePower"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="enum"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="1"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="In this control mode, the reference value is an active power to be provided or absorbed by the device."/>
+			<Column name="ID" value="164801"/>
+			<Column name="Pos" value="0"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="0"/>
+			<Column name="ea_guid" value="{DD6E793B-8269-4fa7-96F7-E47B0DEF4D04}"/>
+			<Column name="StyleEx" value="IsLiteral=1;volatile=0;union=0;"/>
+			<Extension Object_ID="{998D2D17-A152-4a9c-8F59-6BDADF2ECDAC}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44607"/>
+			<Column name="Name" value="maxE"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Maximum battery energy. When the battery energy is superior to this value, the power that the device can absorb is set to zero. The attribute shall be positive value."/>
+			<Column name="ID" value="164796"/>
+			<Column name="Pos" value="3"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13133"/>
+			<Column name="Type" value="RealEnergy"/>
+			<Column name="ea_guid" value="{E5EDD4AE-5B9A-4309-8213-73B907A89B18}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}" Classifier="{FD0D7251-962F-4c57-ACFB-C1F578AB6361}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44604"/>
+			<Column name="Name" value="inductanceStorageFilter"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Storage filter inductance for each sub-module (Lsm). Used for calculation of the inductance of  the equivalent circuit. The attribute shall be positive value."/>
+			<Column name="ID" value="164782"/>
+			<Column name="Pos" value="5"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13105"/>
+			<Column name="Type" value="Inductance"/>
+			<Column name="ea_guid" value="{E6747EDB-F78F-4fa5-8C93-A060C1E3E486}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}" Classifier="{A5C20135-6480-450b-812C-23263BCC8553}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44604"/>
+			<Column name="Name" value="capacitanceSubModule"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Capacitance of the sub-module capacitor. The attribute shall be positive value."/>
+			<Column name="ID" value="164780"/>
+			<Column name="Pos" value="3"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13109"/>
+			<Column name="Type" value="Capacitance"/>
+			<Column name="ea_guid" value="{E7AF6AEB-01BB-4332-B05E-6D539DD3E1BC}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}" Classifier="{B2C696FA-9529-4b58-9D82-4062406AEACF}"/>
+		</Row>
+		<Row>
+			<Column name="Object_ID" value="44604"/>
+			<Column name="Name" value="resistance"/>
+			<Column name="Scope" value="Public"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="Containment" value="Not Specified"/>
+			<Column name="IsStatic" value="0"/>
+			<Column name="IsCollection" value="0"/>
+			<Column name="IsOrdered" value="0"/>
+			<Column name="AllowDuplicates" value="0"/>
+			<Column name="LowerBound" value="0"/>
+			<Column name="UpperBound" value="1"/>
+			<Column name="Notes" value="Resistance of the branch inductor. The attribute shall be positive value."/>
+			<Column name="ID" value="164779"/>
+			<Column name="Pos" value="2"/>
+			<Column name="Const" value="0"/>
+			<Column name="Classifier" value="13129"/>
+			<Column name="Type" value="Resistance"/>
+			<Column name="ea_guid" value="{EC607EBB-0FA8-40e7-86AC-BBAB450A67F2}"/>
+			<Column name="StyleEx" value="volatile=0;union=0;"/>
+			<Extension Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}" Classifier="{EDB281E6-BBB4-438d-953B-7D746CAF55B5}"/>
+		</Row>
+	</Table>
+	<Table name="t_connector">
+		<Row>
+			<Column name="Connector_ID" value="53216"/>
+			<Column name="Direction" value="Source -&gt; Destination"/>
+			<Column name="Connector_Type" value="Generalization"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44617"/>
+			<Column name="End_Object_ID" value="13440"/>
+			<Column name="Start_Edge" value="0"/>
+			<Column name="End_Edge" value="0"/>
+			<Column name="PtStartX" value="0"/>
+			<Column name="PtStartY" value="0"/>
+			<Column name="PtEndX" value="0"/>
+			<Column name="PtEndY" value="0"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{15624A38-142E-43e1-9ED5-653E391D19FA}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="TRUE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Extension Start_Object_ID="{48D8BA1E-C5AE-462c-8017-D31DEDC8CAD1}" End_Object_ID="{76444E94-D4BE-4cbf-9146-CD50D2F87A93}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53222"/>
+			<Column name="Direction" value="Unspecified"/>
+			<Column name="Connector_Type" value="Association"/>
+			<Column name="SourceCard" value="0..*"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestCard" value="1"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceRole" value="SvDCStorage"/>
+			<Column name="SourceRoleNote" value="The state variables of a DC storage. "/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestRole" value="DCStorage"/>
+			<Column name="DestRoleNote" value="The DC storage that has this state variables."/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44617"/>
+			<Column name="End_Object_ID" value="44604"/>
+			<Column name="Btm_Mid_Label" value=" &#xA;«HVDCwise»"/>
+			<Column name="Start_Edge" value="3"/>
+			<Column name="End_Edge" value="1"/>
+			<Column name="PtStartX" value="471"/>
+			<Column name="PtStartY" value="-207"/>
+			<Column name="PtEndX" value="466"/>
+			<Column name="PtEndY" value="-274"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=31;SY=-34;EX=-11;EY=110;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{17EC2D6E-E9D5-42ee-95F0-413EA4406FA1}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="FALSE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Extension Start_Object_ID="{48D8BA1E-C5AE-462c-8017-D31DEDC8CAD1}" End_Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53212"/>
+			<Column name="Direction" value="Source -&gt; Destination"/>
+			<Column name="Connector_Type" value="Generalization"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44615"/>
+			<Column name="End_Object_ID" value="13440"/>
+			<Column name="Start_Edge" value="0"/>
+			<Column name="End_Edge" value="0"/>
+			<Column name="PtStartX" value="0"/>
+			<Column name="PtStartY" value="0"/>
+			<Column name="PtEndX" value="0"/>
+			<Column name="PtEndY" value="0"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{20FF9AF9-9E6B-46a6-A8C1-CF7632241631}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="TRUE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Extension Start_Object_ID="{83F655C9-ECA9-4b99-A691-D56F04657CAE}" End_Object_ID="{76444E94-D4BE-4cbf-9146-CD50D2F87A93}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53211"/>
+			<Column name="Direction" value="Source -&gt; Destination"/>
+			<Column name="Connector_Type" value="Generalization"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="15432"/>
+			<Column name="End_Object_ID" value="44613"/>
+			<Column name="Start_Edge" value="0"/>
+			<Column name="End_Edge" value="0"/>
+			<Column name="PtStartX" value="0"/>
+			<Column name="PtStartY" value="0"/>
+			<Column name="PtEndX" value="0"/>
+			<Column name="PtEndY" value="0"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{315FE7B5-2E45-4245-A07E-1563272EFC11}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="TRUE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Extension Start_Object_ID="{6D3668E7-3378-46de-B0B6-9EB6724C8326}" End_Object_ID="{9CF244D9-E39E-45f9-A5CE-B95AA1F46BDC}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53218"/>
+			<Column name="Direction" value="Source -&gt; Destination"/>
+			<Column name="Connector_Type" value="Generalization"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44618"/>
+			<Column name="End_Object_ID" value="13440"/>
+			<Column name="Start_Edge" value="0"/>
+			<Column name="End_Edge" value="0"/>
+			<Column name="PtStartX" value="0"/>
+			<Column name="PtStartY" value="0"/>
+			<Column name="PtEndX" value="0"/>
+			<Column name="PtEndY" value="0"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{43D4A486-0E11-4a3e-90D2-61BCE3F7BC52}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="TRUE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Extension Start_Object_ID="{30A82433-59FF-4790-8FB4-7B4C33EB626E}" End_Object_ID="{76444E94-D4BE-4cbf-9146-CD50D2F87A93}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53206"/>
+			<Column name="Direction" value="Unspecified"/>
+			<Column name="Connector_Type" value="Association"/>
+			<Column name="SourceCard" value="0..*"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestCard" value="0..1"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceRole" value="DCStorage"/>
+			<Column name="SourceRoleNote" value="The DC storage that has this DC super capacitor submodule."/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestRole" value="DCSuperCapacitorStorageSubModule"/>
+			<Column name="DestRoleNote" value="The DC super capacitor submodule for this DC storage."/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44604"/>
+			<Column name="End_Object_ID" value="44606"/>
+			<Column name="Btm_Mid_Label" value=" &#xA;«HVDCwise»"/>
+			<Column name="Start_Edge" value="2"/>
+			<Column name="End_Edge" value="4"/>
+			<Column name="PtStartX" value="464"/>
+			<Column name="PtStartY" value="-246"/>
+			<Column name="PtEndX" value="597"/>
+			<Column name="PtEndY" value="-266"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{51289E39-BF88-444a-B9EF-99A753CBF7F3}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="FALSE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Extension Start_Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}" End_Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53220"/>
+			<Column name="Direction" value="Unspecified"/>
+			<Column name="Connector_Type" value="Association"/>
+			<Column name="SourceCard" value="0..*"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestCard" value="1"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceRole" value="SvDCSuperCapacitor"/>
+			<Column name="SourceRoleNote" value="The state variavles for this DC super capacitor."/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestRole" value="DCSuperCapscitorStorageSubModule"/>
+			<Column name="DestRoleNote" value="The DC super capacitor submodule that has this state variables."/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44619"/>
+			<Column name="End_Object_ID" value="44606"/>
+			<Column name="Btm_Mid_Label" value=" &#xA;«HVDCwise»"/>
+			<Column name="Start_Edge" value="3"/>
+			<Column name="End_Edge" value="1"/>
+			<Column name="PtStartX" value="993"/>
+			<Column name="PtStartY" value="-148"/>
+			<Column name="PtEndX" value="993"/>
+			<Column name="PtEndY" value="-400"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=-8;SY=-34;EX=101;EY=99;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{5CCA73AD-AF0A-4596-9EBD-3C2246A6642D}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="FALSE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Extension Start_Object_ID="{95F244B1-5A87-4a2a-BDC6-6C29F5CCF018}" End_Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53209"/>
+			<Column name="Direction" value="Unspecified"/>
+			<Column name="Connector_Type" value="Association"/>
+			<Column name="SourceCard" value="0..1"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestCard" value="1"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceRole" value="DCStorageController"/>
+			<Column name="SourceRoleNote" value="The DC storage controller for this DC storage device."/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestRole" value="DCStorage"/>
+			<Column name="DestRoleNote" value="The DC storage device that has this controller."/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44608"/>
+			<Column name="End_Object_ID" value="44604"/>
+			<Column name="Start_Edge" value="0"/>
+			<Column name="End_Edge" value="0"/>
+			<Column name="PtStartX" value="0"/>
+			<Column name="PtStartY" value="0"/>
+			<Column name="PtEndX" value="0"/>
+			<Column name="PtEndY" value="0"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{5E6478E8-BEA1-434f-AB93-470941AD7451}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="FALSE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Extension Start_Object_ID="{9709B1E7-6D9C-437c-8801-BEF65F3B886F}" End_Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53205"/>
+			<Column name="Direction" value="Unspecified"/>
+			<Column name="Connector_Type" value="Association"/>
+			<Column name="SourceCard" value="0..*"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestCard" value="0..1"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceRole" value="DCStorage"/>
+			<Column name="SourceRoleNote" value="The DC storage that has this DC battery storage."/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestRole" value="DCBatteryStorageSubModule"/>
+			<Column name="DestRoleNote" value="The DC battery storage submodule for this DC storage."/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44604"/>
+			<Column name="End_Object_ID" value="44607"/>
+			<Column name="Btm_Mid_Label" value=" &#xA;«HVDCwise»"/>
+			<Column name="Start_Edge" value="2"/>
+			<Column name="End_Edge" value="4"/>
+			<Column name="PtStartX" value="464"/>
+			<Column name="PtStartY" value="-208"/>
+			<Column name="PtEndX" value="608"/>
+			<Column name="PtEndY" value="-183"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{64BC5027-EA86-429c-8371-6619545195F7}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="FALSE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Extension Start_Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}" End_Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53219"/>
+			<Column name="Direction" value="Source -&gt; Destination"/>
+			<Column name="Connector_Type" value="Generalization"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44619"/>
+			<Column name="End_Object_ID" value="13440"/>
+			<Column name="Start_Edge" value="0"/>
+			<Column name="End_Edge" value="0"/>
+			<Column name="PtStartX" value="0"/>
+			<Column name="PtStartY" value="0"/>
+			<Column name="PtEndX" value="0"/>
+			<Column name="PtEndY" value="0"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{6FD67257-804D-4c60-91E7-827DB331984A}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="TRUE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Extension Start_Object_ID="{95F244B1-5A87-4a2a-BDC6-6C29F5CCF018}" End_Object_ID="{76444E94-D4BE-4cbf-9146-CD50D2F87A93}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53221"/>
+			<Column name="Direction" value="Unspecified"/>
+			<Column name="Connector_Type" value="Association"/>
+			<Column name="SourceCard" value="0..*"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestCard" value="1"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceRole" value="SvDCBattery"/>
+			<Column name="SourceRoleNote" value="The state variable of the DC battery submodule."/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestRole" value="DCBatteryStorageSubModule"/>
+			<Column name="DestRoleNote" value="The DC battery submodule that has this state variables."/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44618"/>
+			<Column name="End_Object_ID" value="44607"/>
+			<Column name="Btm_Mid_Label" value=" &#xA;«HVDCwise»"/>
+			<Column name="Start_Edge" value="2"/>
+			<Column name="End_Edge" value="4"/>
+			<Column name="PtStartX" value="634"/>
+			<Column name="PtStartY" value="-189"/>
+			<Column name="PtEndX" value="783"/>
+			<Column name="PtEndY" value="-248"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{78F0A62D-2F05-4508-BFD7-0D6F33C1A533}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="FALSE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Extension Start_Object_ID="{30A82433-59FF-4790-8FB4-7B4C33EB626E}" End_Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53207"/>
+			<Column name="Direction" value="Source -&gt; Destination"/>
+			<Column name="Connector_Type" value="Generalization"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44607"/>
+			<Column name="End_Object_ID" value="13136"/>
+			<Column name="Start_Edge" value="0"/>
+			<Column name="End_Edge" value="0"/>
+			<Column name="PtStartX" value="0"/>
+			<Column name="PtStartY" value="0"/>
+			<Column name="PtEndX" value="0"/>
+			<Column name="PtEndY" value="0"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{8466479F-BEF7-413e-8188-7010AF3B2DDB}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="TRUE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Extension Start_Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}" End_Object_ID="{055C5806-E9D8-4a7a-9307-DAF7C31763C7}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53215"/>
+			<Column name="Direction" value="Unspecified"/>
+			<Column name="Connector_Type" value="Association"/>
+			<Column name="SourceCard" value="0..*"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestCard" value="1"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceRole" value="SvDCVoltage"/>
+			<Column name="SourceRoleNote" value="The state DC voltage associated with the DC topological node."/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestRole" value="DCTopologicalNode"/>
+			<Column name="DestRoleNote" value="The DC topological node associated with the DC voltage state."/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44615"/>
+			<Column name="End_Object_ID" value="21762"/>
+			<Column name="Top_Start_Label" value="+SvVoltageDC"/>
+			<Column name="Top_End_Label" value="+DCTopologicalNode"/>
+			<Column name="Btm_Start_Label" value="0..*"/>
+			<Column name="Btm_Mid_Label" value=" &#xA;«HVDCwise»"/>
+			<Column name="Btm_End_Label" value="1"/>
+			<Column name="Start_Edge" value="3"/>
+			<Column name="End_Edge" value="1"/>
+			<Column name="PtStartX" value="281"/>
+			<Column name="PtStartY" value="-211"/>
+			<Column name="PtEndX" value="281"/>
+			<Column name="PtEndY" value="-282"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=-39;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{8E03FFB5-2132-42a7-A292-5A0D0CC135BE}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="FALSE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Extension Start_Object_ID="{83F655C9-ECA9-4b99-A691-D56F04657CAE}" End_Object_ID="{36E96930-3FAF-4844-91D4-7103E3D68EAA}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53214"/>
+			<Column name="Direction" value="Unspecified"/>
+			<Column name="Connector_Type" value="Association"/>
+			<Column name="SourceCard" value="0..*"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestCard" value="1"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceRole" value="SvDCPowerFlow"/>
+			<Column name="SourceRoleNote" value="The DC power flow state variable associated with the DC terminal."/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestRole" value="DCTerminal"/>
+			<Column name="DestRoleNote" value="The DC power flow state variable associated with the DC terminal."/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44616"/>
+			<Column name="End_Object_ID" value="15432"/>
+			<Column name="Top_Start_Label" value="+SvPowerFlowDC"/>
+			<Column name="Top_End_Label" value="+DCTerminal"/>
+			<Column name="Btm_Start_Label" value="0..*"/>
+			<Column name="Btm_Mid_Label" value=" &#xA;«HVDCwise»"/>
+			<Column name="Btm_End_Label" value="1"/>
+			<Column name="Start_Edge" value="3"/>
+			<Column name="End_Edge" value="1"/>
+			<Column name="PtStartX" value="106"/>
+			<Column name="PtStartY" value="-211"/>
+			<Column name="PtEndX" value="106"/>
+			<Column name="PtEndY" value="-282"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="Stereotype" value="HVDCwise"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{A2843989-249A-48fc-AB4C-9C4E5CAE7B74}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="FALSE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+			<Extension Start_Object_ID="{11305EEF-1B06-4f9a-A459-441660E30F41}" End_Object_ID="{6D3668E7-3378-46de-B0B6-9EB6724C8326}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53210"/>
+			<Column name="Direction" value="Source -&gt; Destination"/>
+			<Column name="Connector_Type" value="NoteLink"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44610"/>
+			<Column name="End_Object_ID" value="44608"/>
+			<Column name="Start_Edge" value="0"/>
+			<Column name="End_Edge" value="0"/>
+			<Column name="PtStartX" value="0"/>
+			<Column name="PtStartY" value="0"/>
+			<Column name="PtEndX" value="0"/>
+			<Column name="PtEndY" value="0"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{BAD16183-DB71-4f64-8480-9A7E8F290560}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="TRUE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Extension Start_Object_ID="{A1300DBB-2124-46d0-942B-6C3C9D21571F}" End_Object_ID="{9709B1E7-6D9C-437c-8801-BEF65F3B886F}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53208"/>
+			<Column name="Direction" value="Source -&gt; Destination"/>
+			<Column name="Connector_Type" value="Generalization"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44606"/>
+			<Column name="End_Object_ID" value="13136"/>
+			<Column name="Start_Edge" value="0"/>
+			<Column name="End_Edge" value="0"/>
+			<Column name="PtStartX" value="0"/>
+			<Column name="PtStartY" value="0"/>
+			<Column name="PtEndX" value="0"/>
+			<Column name="PtEndY" value="0"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{C2FC1B40-70A3-4fd6-A2E7-4E17561B9177}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="TRUE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Extension Start_Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}" End_Object_ID="{055C5806-E9D8-4a7a-9307-DAF7C31763C7}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53213"/>
+			<Column name="Direction" value="Source -&gt; Destination"/>
+			<Column name="Connector_Type" value="Generalization"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44616"/>
+			<Column name="End_Object_ID" value="13440"/>
+			<Column name="Start_Edge" value="0"/>
+			<Column name="End_Edge" value="0"/>
+			<Column name="PtStartX" value="0"/>
+			<Column name="PtStartY" value="0"/>
+			<Column name="PtEndX" value="0"/>
+			<Column name="PtEndY" value="0"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{CC1F3166-F0C3-4c15-AB9E-DDF1EB5F9FBA}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="TRUE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Extension Start_Object_ID="{11305EEF-1B06-4f9a-A459-441660E30F41}" End_Object_ID="{76444E94-D4BE-4cbf-9146-CD50D2F87A93}"/>
+		</Row>
+		<Row>
+			<Column name="Connector_ID" value="53204"/>
+			<Column name="Direction" value="Source -&gt; Destination"/>
+			<Column name="Connector_Type" value="Generalization"/>
+			<Column name="SourceAccess" value="Public"/>
+			<Column name="DestAccess" value="Public"/>
+			<Column name="SourceContainment" value="Unspecified"/>
+			<Column name="SourceIsAggregate" value="0"/>
+			<Column name="SourceIsOrdered" value="0"/>
+			<Column name="DestContainment" value="Unspecified"/>
+			<Column name="DestIsAggregate" value="0"/>
+			<Column name="DestIsOrdered" value="0"/>
+			<Column name="Start_Object_ID" value="44604"/>
+			<Column name="End_Object_ID" value="15423"/>
+			<Column name="Start_Edge" value="0"/>
+			<Column name="End_Edge" value="0"/>
+			<Column name="PtStartX" value="0"/>
+			<Column name="PtStartY" value="0"/>
+			<Column name="PtEndX" value="0"/>
+			<Column name="PtEndY" value="0"/>
+			<Column name="SeqNo" value="0"/>
+			<Column name="HeadStyle" value="0"/>
+			<Column name="LineStyle" value="0"/>
+			<Column name="RouteStyle" value="3"/>
+			<Column name="IsBold" value="0"/>
+			<Column name="LineColor" value="-1"/>
+			<Column name="VirtualInheritance" value="0"/>
+			<Column name="PDATA5" value="SX=0;SY=0;EX=0;EY=0;"/>
+			<Column name="DiagramID" value="0"/>
+			<Column name="ea_guid" value="{D465C77B-DAAD-4a1b-9E17-E07F3E5CDEE8}"/>
+			<Column name="SourceIsNavigable" value="FALSE"/>
+			<Column name="DestIsNavigable" value="TRUE"/>
+			<Column name="IsRoot" value="FALSE"/>
+			<Column name="IsLeaf" value="FALSE"/>
+			<Column name="IsSpec" value="FALSE"/>
+			<Column name="SourceChangeable" value="none"/>
+			<Column name="DestChangeable" value="none"/>
+			<Column name="SourceTS" value="instance"/>
+			<Column name="DestTS" value="instance"/>
+			<Column name="IsSignal" value="FALSE"/>
+			<Column name="IsStimulus" value="FALSE"/>
+			<Column name="Target2" value="0"/>
+			<Column name="SourceStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Column name="DestStyle" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+			<Extension Start_Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}" End_Object_ID="{2D8739A1-0186-49f3-8C35-04EDE046E614}"/>
+		</Row>
+	</Table>
+	<Table name="t_diagram">
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Package_ID" value="2745"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="Diagram_Type" value="Logical"/>
+			<Column name="Name" value="ExtDCStateVariables"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="ShowDetails" value="0"/>
+			<Column name="Notes" value="The diagram shows extensions to the state variables."/>
+			<Column name="AttPub" value="TRUE"/>
+			<Column name="AttPri" value="TRUE"/>
+			<Column name="AttPro" value="TRUE"/>
+			<Column name="Orientation" value="P"/>
+			<Column name="cx" value="795"/>
+			<Column name="cy" value="1134"/>
+			<Column name="Scale" value="100"/>
+			<Column name="CreatedDate" value="2023-10-22 21:05:34"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:56:40"/>
+			<Column name="ShowForeign" value="TRUE"/>
+			<Column name="ShowBorder" value="TRUE"/>
+			<Column name="ShowPackageContents" value="TRUE"/>
+			<Column name="PDATA" value="HideRel=0;ShowTags=0;ShowReqs=0;ShowCons=0;OpParams=1;ShowSN=0;ScalePI=0;PPgs.cx=0;PPgs.cy=0;PSize=9;ShowIcons=1;SuppCN=0;HideProps=0;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideEStereo=0;ShowRec=1;ShowRes=0;ShowShape=1;FormName=;"/>
+			<Column name="Locked" value="FALSE"/>
+			<Column name="ea_guid" value="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}"/>
+			<Column name="Swimlanes" value="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;"/>
+			<Column name="StyleEx" value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=C4F6DDF4;"/>
+			<Extension Package_ID="{7C07A74B-2E3D-433a-A12F-74903A0CF18B}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11918"/>
+			<Column name="Package_ID" value="2744"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="Diagram_Type" value="Logical"/>
+			<Column name="Name" value="ExtDCTerminal"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="ShowDetails" value="0"/>
+			<Column name="Notes" value="The diagram shows extensions related to the DCTerminal."/>
+			<Column name="AttPub" value="TRUE"/>
+			<Column name="AttPri" value="TRUE"/>
+			<Column name="AttPro" value="TRUE"/>
+			<Column name="Orientation" value="P"/>
+			<Column name="cx" value="795"/>
+			<Column name="cy" value="1134"/>
+			<Column name="Scale" value="100"/>
+			<Column name="CreatedDate" value="2023-10-22 21:05:22"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:55:02"/>
+			<Column name="ShowForeign" value="TRUE"/>
+			<Column name="ShowBorder" value="TRUE"/>
+			<Column name="ShowPackageContents" value="TRUE"/>
+			<Column name="PDATA" value="HideRel=0;ShowTags=0;ShowReqs=0;ShowCons=0;OpParams=1;ShowSN=0;ScalePI=0;PPgs.cx=0;PPgs.cy=0;PSize=9;ShowIcons=1;SuppCN=0;HideProps=0;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideEStereo=0;ShowRec=1;ShowRes=0;ShowShape=1;FormName=;"/>
+			<Column name="Locked" value="FALSE"/>
+			<Column name="ea_guid" value="{A9DC84A0-2913-471e-8C63-D3A37D0C3B74}"/>
+			<Column name="Swimlanes" value="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;"/>
+			<Column name="StyleEx" value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=4060113C;"/>
+			<Extension Package_ID="{CEA403D8-8017-4b7f-8F48-487628823543}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11917"/>
+			<Column name="Package_ID" value="2743"/>
+			<Column name="ParentID" value="0"/>
+			<Column name="Diagram_Type" value="Logical"/>
+			<Column name="Name" value="DCStorage"/>
+			<Column name="Version" value="1.0"/>
+			<Column name="Author" value="griddigit"/>
+			<Column name="ShowDetails" value="0"/>
+			<Column name="Notes" value="The diagram shows extensions related to the DC storage."/>
+			<Column name="AttPub" value="TRUE"/>
+			<Column name="AttPri" value="TRUE"/>
+			<Column name="AttPro" value="TRUE"/>
+			<Column name="Orientation" value="P"/>
+			<Column name="cx" value="795"/>
+			<Column name="cy" value="1134"/>
+			<Column name="Scale" value="100"/>
+			<Column name="CreatedDate" value="2023-10-22 18:50:36"/>
+			<Column name="ModifiedDate" value="2024-08-12 07:57:48"/>
+			<Column name="ShowForeign" value="TRUE"/>
+			<Column name="ShowBorder" value="TRUE"/>
+			<Column name="ShowPackageContents" value="TRUE"/>
+			<Column name="PDATA" value="HideRel=0;ShowTags=0;ShowReqs=0;ShowCons=0;OpParams=1;ShowSN=0;ScalePI=0;PPgs.cx=0;PPgs.cy=0;PSize=9;ShowIcons=1;SuppCN=0;HideProps=0;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideEStereo=0;ShowRec=1;ShowRes=0;ShowShape=1;FormName=;"/>
+			<Column name="Locked" value="FALSE"/>
+			<Column name="ea_guid" value="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}"/>
+			<Column name="Swimlanes" value="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;"/>
+			<Column name="StyleEx" value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=14F34AC2;"/>
+			<Extension Package_ID="{1A682D37-4450-46ef-B610-7C2C858E0428}"/>
+		</Row>
+	</Table>
+	<Table name="t_diagramobjects">
+		<Row>
+			<Column name="Diagram_ID" value="11917"/>
+			<Column name="Object_ID" value="15423"/>
+			<Column name="RectTop" value="-10"/>
+			<Column name="RectLeft" value="276"/>
+			<Column name="RectRight" value="423"/>
+			<Column name="RectBottom" value="-100"/>
+			<Column name="Sequence" value="7"/>
+			<Column name="ObjectStyle" value="DUID=F2C6F6BA;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130796"/>
+			<Extension Diagram_ID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" Object_ID="{2D8739A1-0186-49f3-8C35-04EDE046E614}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11917"/>
+			<Column name="Object_ID" value="44604"/>
+			<Column name="RectTop" value="-140"/>
+			<Column name="RectLeft" value="234"/>
+			<Column name="RectRight" value="464"/>
+			<Column name="RectBottom" value="-346"/>
+			<Column name="Sequence" value="8"/>
+			<Column name="ObjectStyle" value="DUID=F45A269B;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130795"/>
+			<Extension Diagram_ID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11917"/>
+			<Column name="Object_ID" value="44605"/>
+			<Column name="RectTop" value="-163"/>
+			<Column name="RectLeft" value="31"/>
+			<Column name="RectRight" value="190"/>
+			<Column name="RectBottom" value="-239"/>
+			<Column name="Sequence" value="6"/>
+			<Column name="ObjectStyle" value="DUID=31E2AA68;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;HideIcon=0;"/>
+			<Column name="Instance_ID" value="130797"/>
+			<Extension Diagram_ID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" Object_ID="{984411BF-DA81-4093-97B7-C29827CC5218}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11917"/>
+			<Column name="Object_ID" value="44606"/>
+			<Column name="RectTop" value="-285"/>
+			<Column name="RectLeft" value="739"/>
+			<Column name="RectRight" value="994"/>
+			<Column name="RectBottom" value="-466"/>
+			<Column name="Sequence" value="4"/>
+			<Column name="ObjectStyle" value="DUID=0B992D38;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130799"/>
+			<Extension Diagram_ID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11917"/>
+			<Column name="Object_ID" value="44607"/>
+			<Column name="RectTop" value="-94"/>
+			<Column name="RectLeft" value="739"/>
+			<Column name="RectRight" value="911"/>
+			<Column name="RectBottom" value="-275"/>
+			<Column name="Sequence" value="5"/>
+			<Column name="ObjectStyle" value="DUID=4143987F;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130798"/>
+			<Extension Diagram_ID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11917"/>
+			<Column name="Object_ID" value="44608"/>
+			<Column name="RectTop" value="-396"/>
+			<Column name="RectLeft" value="135"/>
+			<Column name="RectRight" value="358"/>
+			<Column name="RectBottom" value="-476"/>
+			<Column name="Sequence" value="3"/>
+			<Column name="ObjectStyle" value="DUID=AFAE1136;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130801"/>
+			<Extension Diagram_ID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" Object_ID="{9709B1E7-6D9C-437c-8801-BEF65F3B886F}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11917"/>
+			<Column name="Object_ID" value="44609"/>
+			<Column name="RectTop" value="-401"/>
+			<Column name="RectLeft" value="372"/>
+			<Column name="RectRight" value="540"/>
+			<Column name="RectBottom" value="-477"/>
+			<Column name="Sequence" value="2"/>
+			<Column name="ObjectStyle" value="DUID=0C19E459;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;HideIcon=0;"/>
+			<Column name="Instance_ID" value="130802"/>
+			<Extension Diagram_ID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" Object_ID="{998D2D17-A152-4a9c-8F59-6BDADF2ECDAC}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11917"/>
+			<Column name="Object_ID" value="44610"/>
+			<Column name="RectTop" value="-505"/>
+			<Column name="RectLeft" value="24"/>
+			<Column name="RectRight" value="286"/>
+			<Column name="RectBottom" value="-580"/>
+			<Column name="Sequence" value="1"/>
+			<Column name="ObjectStyle" value="DUID=1C3F15DC;"/>
+			<Column name="Instance_ID" value="130803"/>
+			<Extension Diagram_ID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" Object_ID="{A1300DBB-2124-46d0-942B-6C3C9D21571F}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11918"/>
+			<Column name="Object_ID" value="15414"/>
+			<Column name="RectTop" value="-71"/>
+			<Column name="RectLeft" value="174"/>
+			<Column name="RectRight" value="350"/>
+			<Column name="RectBottom" value="-147"/>
+			<Column name="Sequence" value="6"/>
+			<Column name="ObjectStyle" value="DUID=9AB54CBB;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130804"/>
+			<Extension Diagram_ID="{A9DC84A0-2913-471e-8C63-D3A37D0C3B74}" Object_ID="{D37077B9-3B0C-4c16-8F5F-9A6F2C83A7F2}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11918"/>
+			<Column name="Object_ID" value="15432"/>
+			<Column name="RectTop" value="-290"/>
+			<Column name="RectLeft" value="308"/>
+			<Column name="RectRight" value="398"/>
+			<Column name="RectBottom" value="-360"/>
+			<Column name="Sequence" value="4"/>
+			<Column name="ObjectStyle" value="DUID=DA67174E;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130806"/>
+			<Extension Diagram_ID="{A9DC84A0-2913-471e-8C63-D3A37D0C3B74}" Object_ID="{6D3668E7-3378-46de-B0B6-9EB6724C8326}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11918"/>
+			<Column name="Object_ID" value="23734"/>
+			<Column name="RectTop" value="-290"/>
+			<Column name="RectLeft" value="60"/>
+			<Column name="RectRight" value="236"/>
+			<Column name="RectBottom" value="-360"/>
+			<Column name="Sequence" value="3"/>
+			<Column name="ObjectStyle" value="DUID=05006D3C;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130807"/>
+			<Extension Diagram_ID="{A9DC84A0-2913-471e-8C63-D3A37D0C3B74}" Object_ID="{58B81D5E-10FF-4e21-A564-304AD5297BAE}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11918"/>
+			<Column name="Object_ID" value="23735"/>
+			<Column name="RectTop" value="-195"/>
+			<Column name="RectLeft" value="208"/>
+			<Column name="RectRight" value="308"/>
+			<Column name="RectBottom" value="-265"/>
+			<Column name="Sequence" value="5"/>
+			<Column name="ObjectStyle" value="DUID=8F59D3B7;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130805"/>
+			<Extension Diagram_ID="{A9DC84A0-2913-471e-8C63-D3A37D0C3B74}" Object_ID="{F76397E4-74A4-4178-9434-E33C9EBC5E7C}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11918"/>
+			<Column name="Object_ID" value="44613"/>
+			<Column name="RectTop" value="-168"/>
+			<Column name="RectLeft" value="434"/>
+			<Column name="RectRight" value="652"/>
+			<Column name="RectBottom" value="-248"/>
+			<Column name="Sequence" value="2"/>
+			<Column name="ObjectStyle" value="DUID=2EBEE5B0;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130808"/>
+			<Extension Diagram_ID="{A9DC84A0-2913-471e-8C63-D3A37D0C3B74}" Object_ID="{9CF244D9-E39E-45f9-A5CE-B95AA1F46BDC}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11918"/>
+			<Column name="Object_ID" value="44614"/>
+			<Column name="RectTop" value="-260"/>
+			<Column name="RectLeft" value="505"/>
+			<Column name="RectRight" value="652"/>
+			<Column name="RectBottom" value="-336"/>
+			<Column name="Sequence" value="1"/>
+			<Column name="ObjectStyle" value="DUID=E355AF04;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;HideIcon=0;"/>
+			<Column name="Instance_ID" value="130809"/>
+			<Extension Diagram_ID="{A9DC84A0-2913-471e-8C63-D3A37D0C3B74}" Object_ID="{58DBCC85-975F-419d-B0F6-ACA790FD217C}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Object_ID" value="13440"/>
+			<Column name="RectTop" value="-14"/>
+			<Column name="RectLeft" value="324"/>
+			<Column name="RectRight" value="414"/>
+			<Column name="RectBottom" value="-84"/>
+			<Column name="Sequence" value="11"/>
+			<Column name="ObjectStyle" value="DUID=91F9688E;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130810"/>
+			<Extension Diagram_ID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" Object_ID="{76444E94-D4BE-4cbf-9146-CD50D2F87A93}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Object_ID" value="15432"/>
+			<Column name="RectTop" value="-282"/>
+			<Column name="RectLeft" value="62"/>
+			<Column name="RectRight" value="152"/>
+			<Column name="RectBottom" value="-352"/>
+			<Column name="Sequence" value="8"/>
+			<Column name="ObjectStyle" value="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;DUID=DD685299;"/>
+			<Column name="Instance_ID" value="130813"/>
+			<Extension Diagram_ID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" Object_ID="{6D3668E7-3378-46de-B0B6-9EB6724C8326}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Object_ID" value="21762"/>
+			<Column name="RectTop" value="-282"/>
+			<Column name="RectLeft" value="222"/>
+			<Column name="RectRight" value="341"/>
+			<Column name="RectBottom" value="-352"/>
+			<Column name="Sequence" value="7"/>
+			<Column name="ObjectStyle" value="DUID=032C2D37;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130814"/>
+			<Extension Diagram_ID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" Object_ID="{36E96930-3FAF-4844-91D4-7103E3D68EAA}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Object_ID" value="44604"/>
+			<Column name="RectTop" value="-274"/>
+			<Column name="RectLeft" value="365"/>
+			<Column name="RectRight" value="590"/>
+			<Column name="RectBottom" value="-497"/>
+			<Column name="Sequence" value="3"/>
+			<Column name="ObjectStyle" value="DUID=350CF225;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130818"/>
+			<Extension Diagram_ID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" Object_ID="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Object_ID" value="44606"/>
+			<Column name="RectTop" value="-400"/>
+			<Column name="RectLeft" value="783"/>
+			<Column name="RectRight" value="1001"/>
+			<Column name="RectBottom" value="-599"/>
+			<Column name="Sequence" value="2"/>
+			<Column name="ObjectStyle" value="DUID=73350F76;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130819"/>
+			<Extension Diagram_ID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" Object_ID="{0B7FAB48-C6FC-4179-B374-FCD338530066}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Object_ID" value="44607"/>
+			<Column name="RectTop" value="-184"/>
+			<Column name="RectLeft" value="783"/>
+			<Column name="RectRight" value="955"/>
+			<Column name="RectBottom" value="-383"/>
+			<Column name="Sequence" value="1"/>
+			<Column name="ObjectStyle" value="DUID=C8A14525;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130820"/>
+			<Extension Diagram_ID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" Object_ID="{581AFF77-8A06-4af5-8B40-740130B372B9}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Object_ID" value="44615"/>
+			<Column name="RectTop" value="-131"/>
+			<Column name="RectLeft" value="229"/>
+			<Column name="RectRight" value="334"/>
+			<Column name="RectBottom" value="-211"/>
+			<Column name="Sequence" value="9"/>
+			<Column name="ObjectStyle" value="DUID=80469EA9;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130812"/>
+			<Extension Diagram_ID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" Object_ID="{83F655C9-ECA9-4b99-A691-D56F04657CAE}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Object_ID" value="44616"/>
+			<Column name="RectTop" value="-131"/>
+			<Column name="RectLeft" value="42"/>
+			<Column name="RectRight" value="170"/>
+			<Column name="RectBottom" value="-211"/>
+			<Column name="Sequence" value="10"/>
+			<Column name="ObjectStyle" value="DUID=963545B2;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130811"/>
+			<Extension Diagram_ID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" Object_ID="{11305EEF-1B06-4f9a-A459-441660E30F41}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Object_ID" value="44617"/>
+			<Column name="RectTop" value="-137"/>
+			<Column name="RectLeft" value="350"/>
+			<Column name="RectRight" value="532"/>
+			<Column name="RectBottom" value="-207"/>
+			<Column name="Sequence" value="6"/>
+			<Column name="ObjectStyle" value="DUID=6145982C;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130815"/>
+			<Extension Diagram_ID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" Object_ID="{48D8BA1E-C5AE-462c-8017-D31DEDC8CAD1}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Object_ID" value="44618"/>
+			<Column name="RectTop" value="-137"/>
+			<Column name="RectLeft" value="544"/>
+			<Column name="RectRight" value="692"/>
+			<Column name="RectBottom" value="-217"/>
+			<Column name="Sequence" value="5"/>
+			<Column name="ObjectStyle" value="DUID=D59689B1;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130816"/>
+			<Extension Diagram_ID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" Object_ID="{30A82433-59FF-4790-8FB4-7B4C33EB626E}"/>
+		</Row>
+		<Row>
+			<Column name="Diagram_ID" value="11919"/>
+			<Column name="Object_ID" value="44619"/>
+			<Column name="RectTop" value="-78"/>
+			<Column name="RectLeft" value="938"/>
+			<Column name="RectRight" value="1064"/>
+			<Column name="RectBottom" value="-158"/>
+			<Column name="Sequence" value="4"/>
+			<Column name="ObjectStyle" value="DUID=B8A57699;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;"/>
+			<Column name="Instance_ID" value="130817"/>
+			<Extension Diagram_ID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" Object_ID="{95F244B1-5A87-4a2a-BDC6-6C29F5CCF018}"/>
+		</Row>
+	</Table>
+	<Table name="t_diagramlinks">
+		<Row>
+			<Column name="DiagramID" value="11917"/>
+			<Column name="ConnectorID" value="53204"/>
+			<Column name="Geometry" value="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=F2C6F6BA;SOID=F45A269B;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131934"/>
+			<Extension DiagramID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" ConnectorID="{D465C77B-DAAD-4a1b-9E17-E07F3E5CDEE8}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11917"/>
+			<Column name="ConnectorID" value="53205"/>
+			<Column name="Geometry" value="SX=114;SY=72;EX=-85;EY=13;EDGE=2;$LLB=CX=18:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LLT=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LMT=;LMB=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=CX=148:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=19:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=4143987F;SOID=F45A269B;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131935"/>
+			<Extension DiagramID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" ConnectorID="{64BC5027-EA86-429c-8371-6619545195F7}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11917"/>
+			<Column name="ConnectorID" value="53206"/>
+			<Column name="Geometry" value="SX=114;SY=-62;EX=-126;EY=70;EDGE=2;$LLB=CX=18:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LLT=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LMT=;LMB=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=CX=187:CY=15:OX=-2:OY=36:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=19:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=0B992D38;SOID=F45A269B;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131936"/>
+			<Extension DiagramID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" ConnectorID="{51289E39-BF88-444a-B9EF-99A753CBF7F3}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11917"/>
+			<Column name="ConnectorID" value="53209"/>
+			<Column name="Geometry" value="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=CX=19:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LLT=CX=110:CY=15:OX=-14:OY=-1:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LMT=;LMB=;LRT=CX=60:CY=15:OX=-11:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=7:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=F45A269B;SOID=AFAE1136;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131937"/>
+			<Extension DiagramID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" ConnectorID="{5E6478E8-BEA1-434f-AB93-470941AD7451}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11917"/>
+			<Column name="ConnectorID" value="53210"/>
+			<Column name="Geometry" value="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=AFAE1136;SOID=1C3F15DC;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131938"/>
+			<Extension DiagramID="{D8281DC4-8BD9-4b73-A073-EFC25EF12949}" ConnectorID="{BAD16183-DB71-4f64-8480-9A7E8F290560}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11918"/>
+			<Column name="ConnectorID" value="19115"/>
+			<Column name="Geometry" value="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=8F59D3B7;SOID=DA67174E;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131940"/>
+			<Extension DiagramID="{A9DC84A0-2913-471e-8C63-D3A37D0C3B74}" ConnectorID="{FD552F58-81C1-46b8-8F95-3B6D1DC7DA64}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11918"/>
+			<Column name="ConnectorID" value="28175"/>
+			<Column name="Geometry" value="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=8F59D3B7;SOID=05006D3C;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131941"/>
+			<Extension DiagramID="{A9DC84A0-2913-471e-8C63-D3A37D0C3B74}" ConnectorID="{B1B81DE4-BECF-49a7-9898-1DFD6A39E0DE}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11918"/>
+			<Column name="ConnectorID" value="28177"/>
+			<Column name="Geometry" value="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=9AB54CBB;SOID=8F59D3B7;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131939"/>
+			<Extension DiagramID="{A9DC84A0-2913-471e-8C63-D3A37D0C3B74}" ConnectorID="{11109B01-43FF-4415-B6A2-51B00E244440}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11918"/>
+			<Column name="ConnectorID" value="53211"/>
+			<Column name="Geometry" value="SX=0;SY=0;EX=0;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=2EBEE5B0;SOID=DA67174E;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131942"/>
+			<Extension DiagramID="{A9DC84A0-2913-471e-8C63-D3A37D0C3B74}" ConnectorID="{315FE7B5-2E45-4245-A07E-1563272EFC11}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53205"/>
+			<Column name="Geometry" value="EDGE=2;$LLB=CX=18:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LLT=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LMT=;LMB=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=CX=148:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=19:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=C8A14525;SOID=350CF225;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131951"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{64BC5027-EA86-429c-8371-6619545195F7}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53206"/>
+			<Column name="Geometry" value="EDGE=2;$LLB=CX=18:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LLT=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LMT=;LMB=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=CX=187:CY=15:OX=2:OY=43:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=19:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=73350F76;SOID=350CF225;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131950"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{51289E39-BF88-444a-B9EF-99A753CBF7F3}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53212"/>
+			<Column name="Geometry" value="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=91F9688E;SOID=80469EA9;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131943"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{20FF9AF9-9E6B-46a6-A8C1-CF7632241631}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53213"/>
+			<Column name="Geometry" value="SX=0;SY=0;EX=0;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=91F9688E;SOID=963545B2;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131944"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{CC1F3166-F0C3-4c15-AB9E-DDF1EB5F9FBA}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53214"/>
+			<Column name="Geometry" value="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=CX=18:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LLT=CX=86:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LMT=;LMB=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=CX=65:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=7:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=DD685299;SOID=963545B2;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131945"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{A2843989-249A-48fc-AB4C-9C4E5CAE7B74}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53215"/>
+			<Column name="Geometry" value="SX=0;SY=-39;EX=0;EY=0;EDGE=3;$LLB=CX=18:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LLT=CX=71:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LMT=;LMB=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=CX=103:CY=15:OX=-6:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=7:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=032C2D37;SOID=80469EA9;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131946"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{8E03FFB5-2132-42a7-A292-5A0D0CC135BE}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53216"/>
+			<Column name="Geometry" value="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=91F9688E;SOID=6145982C;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131947"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{15624A38-142E-43e1-9ED5-653E391D19FA}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53218"/>
+			<Column name="Geometry" value="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=91F9688E;SOID=D59689B1;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131948"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{43D4A486-0E11-4a3e-90D2-61BCE3F7BC52}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53219"/>
+			<Column name="Geometry" value="SX=-62;SY=27;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=91F9688E;SOID=B8A57699;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131949"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{6FD67257-804D-4c60-91E7-827DB331984A}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53220"/>
+			<Column name="Geometry" value="SX=-8;SY=-34;EX=101;EY=99;EDGE=3;$LLB=CX=18:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LLT=CX=109:CY=15:OX=74:OY=12:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LMT=;LMB=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=CX=186:CY=15:OX=169:OY=-21:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=7:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=73350F76;SOID=B8A57699;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131952"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{5CCA73AD-AF0A-4596-9EBD-3C2246A6642D}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53221"/>
+			<Column name="Geometry" value="SX=0;SY=0;EX=0;EY=0;EDGE=2;$LLB=CX=18:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LLT=CX=70:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LMT=;LMB=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=CX=148:CY=15:OX=-19:OY=17:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=7:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=C8A14525;SOID=D59689B1;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131953"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{78F0A62D-2F05-4508-BFD7-0D6F33C1A533}"/>
+		</Row>
+		<Row>
+			<Column name="DiagramID" value="11919"/>
+			<Column name="ConnectorID" value="53222"/>
+			<Column name="Geometry" value="SX=25;SY=-34;EX=-11;EY=110;EDGE=3;$LLB=CX=18:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LLT=CX=70:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LMT=;LMB=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRT=CX=60:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=7:CY=15:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;"/>
+			<Column name="Style" value="Mode=3;EOID=350CF225;SOID=6145982C;Color=-1;LWidth=0;"/>
+			<Column name="Hidden" value="FALSE"/>
+			<Column name="Instance_ID" value="131954"/>
+			<Extension DiagramID="{7B494955-52C5-4a94-A8F4-BAC2634D6C4D}" ConnectorID="{17EC2D6E-E9D5-42ee-95F0-413EA4406FA1}"/>
+		</Row>
+	</Table>
+	<Table name="t_xref">
+		<Row>
+			<Column name="XrefID" value="{EA3F77C8-914D-4cf8-BE40-AEA5D18AFEC2}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{0B7FAB48-C6FC-4179-B374-FCD338530066}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{8C0B055B-BD0F-4df8-8260-5E8ABE6D6581}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{11305EEF-1B06-4f9a-A459-441660E30F41}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{10CEBEAF-2EEC-4e9e-A3E9-DF971305D15D}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{16E663E0-767C-4f3b-A5F4-40739D7E409B}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{8A28B5F9-DC69-490a-8268-ED0F02C9AD7D}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="connector property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{17EC2D6E-E9D5-42ee-95F0-413EA4406FA1}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{1C610F59-E61C-487f-80C0-77E0663E14D2}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=enum;GUID={66E21CE2-67ED-417f-AFF5-A0788B700B5A};@ENDSTEREO;"/>
+			<Column name="Client" value="{1E776D67-12CC-4f67-A984-00245E9EB918}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{21FBF69D-4B82-4a0a-9A29-81756536EC6E}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{2794460D-58DD-418c-A8B4-9C55E1AD24FE}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{553D9F32-AF1B-4f99-839E-1633F7572673}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{28B5A5AC-1811-4f74-AD34-50B5A7EBC117}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{939268C6-FE49-4294-8A1A-1F951D589EFD}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{2C8D74E3-5393-438c-A07A-323081BDB570}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{4DF00B5C-53DA-430e-B787-67041895AD48}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{30A82433-59FF-4790-8FB4-7B4C33EB626E}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{A5A4D5E5-CB15-499b-9CBB-75C09711D48C}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{31750316-4153-48e2-975F-A6314EF5D9CA}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{01CCCD29-27A5-40b4-A154-72A6195EF33D}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{424FAED1-AB90-4a2e-A626-7552686CACFF}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{41E24620-71E5-4908-ABCF-0B33D6F9CFE1}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{44E7C291-CB67-4668-9F99-2010CDB441EA}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{57ABFA29-B3C2-4cbc-95D3-FDF7F609F84D}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{48D8BA1E-C5AE-462c-8017-D31DEDC8CAD1}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{9CD35872-076B-4019-B717-C5CAD74B7709}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{4D6D9374-0B24-4115-A3BF-4D6F6AF3408C}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{71DDE8A6-548B-4c18-A73E-84DC89D3F382}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="connector property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{51289E39-BF88-444a-B9EF-99A753CBF7F3}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{783A1C5B-D6D1-40e2-A0AD-9D7B50A85A03}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{52B8549E-4479-45f8-8807-8A96E02F7DC7}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{7A35CFE6-72D6-41bc-B917-1223AE77C09E}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{55519BF3-940B-4d80-8806-2FCEA1B158E3}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{7DEE2047-A5BD-48d1-AACC-4C088402A91E}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{581AFF77-8A06-4af5-8B40-740130B372B9}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{F752171A-2E4E-4985-A446-5842B892DEF6}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=enumeration;GUID={89162AAF-C7E6-4d3c-A102-5516F22896C6};@ENDSTEREO;@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{58DBCC85-975F-419d-B0F6-ACA790FD217C}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{63C68762-17B7-4426-B3BD-0871513F8FFD}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=enum;GUID={66E21CE2-67ED-417f-AFF5-A0788B700B5A};@ENDSTEREO;"/>
+			<Column name="Client" value="{5C770F7A-5A8F-444a-8A08-DC98EF55D94F}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{87AF12FF-636F-430a-A2DD-5B4053130792}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="connector property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{5CCA73AD-AF0A-4596-9EBD-3C2246A6642D}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{D71D372F-911E-4ee9-AABE-A8B20725DAF6}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{5E0A9C1F-0204-4ec5-844E-06A1F47502B9}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{A4A45C62-CE25-4f30-BD88-7D498EB4274D}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{6378785E-F6F1-487a-BA56-5203AE127B74}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{18679DB3-484A-425b-952A-A2EE64ECD6B3}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="connector property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;GUID={332E1EB5-1FC9-469d-823C-D676067EACAB};@ENDSTEREO;"/>
+			<Column name="Client" value="{64BC5027-EA86-429c-8371-6619545195F7}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{C1111069-98F2-460f-891D-319F942C957D}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=enum;GUID={66E21CE2-67ED-417f-AFF5-A0788B700B5A};@ENDSTEREO;"/>
+			<Column name="Client" value="{6759E69E-3AEC-4119-9FE2-D359E799C401}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{60F14678-1E0F-4b5f-AF97-DD928CF1E0FB}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=enum;GUID={66E21CE2-67ED-417f-AFF5-A0788B700B5A};@ENDSTEREO;"/>
+			<Column name="Client" value="{68C9EB24-5B6D-469c-9DC6-78AE6B9BD698}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{4A5A5DF5-A0C2-47d4-985B-7F7F3BB68163}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="connector property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{78F0A62D-2F05-4508-BFD7-0D6F33C1A533}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{DD2AB7B5-9C8B-4704-B37F-F40DFBF31844}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{7CB046DD-3E96-4eda-92CD-651EF4EABF6A}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{F876A00C-408F-4e61-ADA0-30E702F48BBF}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{83F655C9-ECA9-4b99-A691-D56F04657CAE}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{FA9123F7-1FBB-445c-B3FA-657CB1E23911}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="connector property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{8E03FFB5-2132-42a7-A292-5A0D0CC135BE}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{856205BF-45D8-4a4e-B137-43EEA69E03C0}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{92E5DE48-5766-4048-9B89-3B435F26FB22}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{D0D0F6C7-9C0C-429a-99C5-E39510A1AF0D}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{95F244B1-5A87-4a2a-BDC6-6C29F5CCF018}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{CFD17AF1-853F-4f26-89B5-5D5C8098CE4E}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{9709B1E7-6D9C-437c-8801-BEF65F3B886F}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{A5C92F0A-1ABB-40b8-8EB3-CA019BAA4896}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=enumeration;GUID={89162AAF-C7E6-4d3c-A102-5516F22896C6};@ENDSTEREO;@STEREO;Name=HVDCwise;GUID={A0C78E8D-5CF3-4d37-B9E0-8C9E69B83246};@ENDSTEREO;"/>
+			<Column name="Client" value="{984411BF-DA81-4093-97B7-C29827CC5218}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{ED6AC6FD-FCC9-48a2-8B03-D5B3B9B5485A}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=enumeration;GUID={89162AAF-C7E6-4d3c-A102-5516F22896C6};@ENDSTEREO;@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{998D2D17-A152-4a9c-8F59-6BDADF2ECDAC}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{8569299F-F7EF-4a7e-B58A-B2B7615378FF}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{9CF244D9-E39E-45f9-A5CE-B95AA1F46BDC}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{46909191-5A4F-43ff-BAFF-950B4D606A0D}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{9F104419-AD5F-45f3-B376-2D50B52CE7FF}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{93431D5C-F454-4d8e-BEF8-228B7B551289}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="connector property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{A2843989-249A-48fc-AB4C-9C4E5CAE7B74}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{F31769BA-1CA3-4f85-9D59-C7ACA350464A}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{A2FC254A-204C-40b3-9658-6742D7B5BEB7}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{C0DFC301-0A44-4db0-842D-733F0A1550D6}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{A5FDCABC-54FA-4a5c-A038-D851CD1A42A4}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{3E61C811-457E-4816-9184-3E2DEEC11DCA}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{A7AE9FE1-AB49-4880-9110-3A26030715BF}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{29B97627-8022-4bfa-BD28-2DB7ACEA6CB7}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;GUID={2F844ECB-C4B6-4672-9769-F2C586FFC7C8};@ENDSTEREO;"/>
+			<Column name="Client" value="{AC946387-4B4A-41f0-A0E8-00FA96938C06}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{8E7CC9CD-7F24-430a-9824-5584E46F0BBB}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{AE575B87-F6DE-4eee-902E-D268C9CB56B8}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{E8659C9E-BA22-4efc-BEBD-EC9319A608AF}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=enum;GUID={66E21CE2-67ED-417f-AFF5-A0788B700B5A};@ENDSTEREO;"/>
+			<Column name="Client" value="{B29FC6F8-D241-49e9-B05D-632ABA875E11}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{C8BDB1B9-8CA0-4ca2-9B12-3FAAC0F26838}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{B9191BE6-D3BC-4bde-8180-D00C480DB116}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{8CD5135B-D4D9-463a-9120-D8F2DCEC12AE}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{BE2E3530-0FBD-4f73-895E-D8435CC7498F}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{F4961C61-B8BC-43b8-8D7F-87C03BC940EB}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{C2A7D480-9D92-4363-9F36-E71D02C86CC3}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{C64F0E6F-6926-4fec-ADBB-5C45A726D37D}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{D950CC64-B926-4bfe-AF81-9BFA5F10752B}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{EA42E367-C80A-43ec-9870-F5FAC2B48657}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="element property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;GUID={B896E593-2A64-4154-A2C2-EFA66D325A18};@ENDSTEREO;"/>
+			<Column name="Client" value="{DB17E8ED-9F25-4822-85BD-9A37F08D4003}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{FD79610C-5639-4266-9B55-22AF8DDAEFCB}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=enum;GUID={66E21CE2-67ED-417f-AFF5-A0788B700B5A};@ENDSTEREO;"/>
+			<Column name="Client" value="{DD6E793B-8269-4fa7-96F7-E47B0DEF4D04}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{FF7512F1-22F3-45e1-B54A-91EC97B3A5FC}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{E5EDD4AE-5B9A-4309-8213-73B907A89B18}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{85BD5721-BBCF-4d35-B830-F97AAB0D5390}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{E6747EDB-F78F-4fa5-8C93-A060C1E3E486}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{A53CD842-B3A1-4f10-A414-9EFE9A5805D6}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{E7AF6AEB-01BB-4332-B05E-6D539DD3E1BC}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+		<Row>
+			<Column name="XrefID" value="{762FED4B-2E93-4dbf-A958-8978251FBF9D}"/>
+			<Column name="Name" value="Stereotypes"/>
+			<Column name="Type" value="attribute property"/>
+			<Column name="Visibility" value="Public"/>
+			<Column name="Partition" value="0"/>
+			<Column name="Description" value="@STEREO;Name=HVDCwise;@ENDSTEREO;"/>
+			<Column name="Client" value="{EC607EBB-0FA8-40e7-86AC-BBAB450A67F2}"/>
+			<Column name="Supplier" value="&lt;none&gt;"/>
+		</Row>
+	</Table>
+</Package>

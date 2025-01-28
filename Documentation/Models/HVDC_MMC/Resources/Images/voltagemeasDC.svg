@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg baseProfile='full' height='100.000000%' version='1.1' viewBox='0.000000 0.000000 1753.000000 1240.000000' width='100.000000%' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+
+
+  <defs>
+    <clipPath id='clipPath-01'>
+      <polygon points='0.000000 1240.157480, 0.000000 0.000000, 1753.937008 0.000000, 1753.937008 1240.157480' />
+    </clipPath>
+  </defs>
+
+  <g clip-path='url(#clipPath-01)'>
+    <g id='Page Layer'>
+      <polygon fill='#ffffff' points='0.500000 0.500000, 0.500000 1239.500000, 1752.500000 1239.500000, 1752.500000 0.500000' stroke='#808080' stroke-width='1.000000' />
+    </g>
+    <g id='Block definition'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC.BlkDef'>
+        <polyline fill='none' points='125.281215 1115.309412, 1628.655793 1115.309412, 1628.655793 116.524864, 125.281215 116.524864, 125.281215 1115.309412' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='1628.655793' cy='532.688421' fill='#ff0000' rx='7.516873' ry='7.490884' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='1643.035996' y='541.047597'>0</text>
+        <ellipse cx='1628.655793' cy='574.302780' fill='#ff0000' rx='7.516873' ry='7.490884' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='1645.035996' y='582.661955'>1</text>
+        <ellipse cx='1628.655793' cy='615.917138' fill='#ff0000' rx='7.516873' ry='7.490884' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='1643.035996' y='624.276313'>2</text>
+      </g>
+    </g>
+    <g id='Net elements'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\Signal Filter.BlkSlot'>
+        <polyline fill='none' points='918.728909 740.765206, 918.728909 407.837024, 1336.332958 407.837024, 1336.332958 740.765206, 918.728909 740.765206, 918.728909 724.118797, 1315.452756 724.118797, 1336.332958 740.765206, 1315.452756 724.118797, 1315.452756 407.837024' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1336.332958' cy='532.701739' fill='#ff0000' rx='7.516873' ry='7.490884' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='1308.952756' y='541.060914'>0</text>
+        <ellipse cx='1336.332958' cy='574.301115' fill='#ff0000' rx='7.516873' ry='7.490884' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='1310.952756' y='582.660290'>1</text>
+        <ellipse cx='1336.332958' cy='615.933784' fill='#ff0000' rx='7.516873' ry='7.490884' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='1308.952756' y='624.292960'>2</text>
+        <ellipse cx='918.728909' cy='532.701739' fill='#00bf00' rx='7.516873' ry='7.490884' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='933.109111' y='541.060914'>0</text>
+        <ellipse cx='918.728909' cy='574.284469' fill='#00bf00' rx='7.516873' ry='7.490884' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='935.109111' y='582.643644'>1</text>
+        <ellipse cx='918.728909' cy='615.917138' fill='#00bf00' rx='7.516873' ry='7.490884' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='933.109111' y='624.276313'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\Voltage Measurement Device.BlkSlot'>
+        <polyline fill='none' points='167.041620 740.765206, 167.041620 407.837024, 626.406074 407.837024, 626.406074 740.765206, 167.041620 740.765206, 167.041620 724.118797, 603.437852 724.118797, 626.406074 740.765206, 603.437852 724.118797, 603.437852 407.837024' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='626.406074' cy='532.701739' fill='#ff0000' rx='7.516873' ry='7.490884' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='599.025872' y='541.060914'>0</text>
+        <ellipse cx='626.406074' cy='574.301115' fill='#ff0000' rx='7.516873' ry='7.490884' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='601.025872' y='582.660290'>1</text>
+        <ellipse cx='626.406074' cy='615.933784' fill='#ff0000' rx='7.516873' ry='7.490884' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='20.808011' text-anchor='start' x='599.025872' y='624.292960'>2</text>
+      </g>
+    </g>
+    <g id='Signals'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ui.BlkSig'>
+        <polyline fill='none' points='1482.494376 615.921329, 1336.332958 615.925457' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1482.494376 615.921329, 1628.655793 615.917138' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ur.BlkSig'>
+        <polyline fill='none' points='1482.494376 574.298829, 1336.332958 574.294892' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1482.494376 574.298829, 1628.655793 574.301115' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\u.BlkSig'>
+        <polyline fill='none' points='1482.494376 532.696141, 1336.332958 532.703825' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1482.494376 532.696141, 1628.655793 532.685092' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ui_vmea.BlkSig'>
+        <polyline fill='none' points='772.567492 615.922345, 626.406074 615.925457' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='772.567492 615.922345, 918.728909 615.919233' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ur_vmea.BlkSig'>
+        <polyline fill='none' points='772.567492 574.292796, 626.406074 574.296924' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='772.567492 574.292796, 918.728909 574.288605' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\u_vmea.BlkSig'>
+        <polyline fill='none' points='772.567492 532.697602, 626.406074 532.697602' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='772.567492 532.697602, 918.728909 532.697602' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ui.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1628.655793 615.917138, 1586.895628 624.241540, 1586.895148 607.595131' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ur.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1628.655793 574.301115, 1586.895257 582.623666, 1586.895519 565.977257' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\u.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1628.655793 532.685092, 1586.896022 541.011454, 1586.894755 524.365045' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ui_vmea.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='918.728909 615.919233, 876.968682 624.243327, 876.968326 607.596918' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ur_vmea.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='918.728909 574.288605, 876.968744 582.613007, 876.968264 565.966598' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\u_vmea.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='918.728909 532.697602, 876.968504 541.020806, 876.968504 524.374397' stroke='#000000' stroke-width='1.000000' />
+      </g>
+    </g>
+    <g id='Labels'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ui.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.634255' text-anchor='start' x='1472.494375' y='603.861535'>ui</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ur.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.634255' text-anchor='start' x='1469.994375' y='562.239035'>ur</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\u.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.634255' text-anchor='start' x='1475.494375' y='520.636348'>u</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ui_vmea.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.634255' text-anchor='start' x='722.067491' y='603.862551'>ui_vmea</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\ur_vmea.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.634255' text-anchor='start' x='720.567491' y='562.233003'>ur_vmea</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\u_vmea.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.634255' text-anchor='start' x='725.067491' y='520.637808'>u_vmea</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC.BlkDef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='37.454421' text-anchor='start' x='125.281215' y='73.244200'>Frame Voltage Measurement DC: Voltage measurement device (DC) with input filter</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\Signal Filter.BlkSlot::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.634255' text-anchor='start' x='1054.530934' y='571.637690'>Signal Filter</text>
+        <text fill='#000000' font-family='Arial' font-size='26.634255' text-anchor='start' x='1084.030934' y='598.271944'>ElmFil*</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\DC Voltage Measurement\Frame Voltage Measurement DC\Voltage Measurement Device.BlkSlot::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.634255' text-anchor='start' x='217.723847' y='571.637690'>Voltage Measurement Device</text>
+        <text fill='#000000' font-family='Arial' font-size='26.634255' text-anchor='start' x='341.223847' y='598.271944'>StaVmea</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

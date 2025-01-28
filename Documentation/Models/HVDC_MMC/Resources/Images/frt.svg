@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg baseProfile='full' height='100.000000%' version='1.1' viewBox='0.000000 0.000000 1753.000000 1240.000000' width='100.000000%' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+
+
+  <defs>
+    <clipPath id='clipPath-01'>
+      <polygon points='0.000000 1240.157480, 0.000000 0.000000, 1753.937008 0.000000, 1753.937008 1240.157480' />
+    </clipPath>
+  </defs>
+
+  <g clip-path='url(#clipPath-01)'>
+    <g id='Page Layer'>
+      <polygon fill='#ffffff' points='0.500000 0.500000, 0.500000 1239.500000, 1752.500000 1239.500000, 1752.500000 0.500000' stroke='#808080' stroke-width='1.000000' />
+    </g>
+    <g id='Block definition'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf.BlkDef'>
+        <polyline fill='none' points='88.582677 1151.574803, 1653.543307 1151.574803, 1653.543307 88.582677, 88.582677 88.582677, 88.582677 1151.574803' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='88.582677' cy='738.193110' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='744.098622'>2</text>
+        <ellipse cx='88.582677' cy='856.302165' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='862.207677'>6</text>
+        <ellipse cx='1653.543307' cy='354.330709' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1663.807087' y='360.236220'>2</text>
+        <ellipse cx='88.582677' cy='1062.990354' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='1068.895866'>8</text>
+        <ellipse cx='88.582677' cy='1092.520276' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='1098.425787'>9</text>
+        <ellipse cx='1653.543307' cy='738.187795' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1663.807087' y='744.093307'>6</text>
+        <ellipse cx='1653.543307' cy='826.772244' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1663.807087' y='832.677756'>7</text>
+        <ellipse cx='1653.543307' cy='383.860630' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1663.807087' y='389.766142'>3</text>
+        <ellipse cx='88.582677' cy='147.637205' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='153.542717'>0</text>
+        <ellipse cx='1653.543307' cy='177.161811' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1663.807087' y='183.067323'>0</text>
+        <ellipse cx='1653.543307' cy='442.915157' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1663.807087' y='448.820669'>5</text>
+        <ellipse cx='1653.543307' cy='413.390551' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1663.307087' y='419.296063'>4</text>
+        <ellipse cx='88.582677' cy='1003.941142' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='1009.846654'>7</text>
+        <ellipse cx='1653.543307' cy='236.221654' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1665.307087' y='242.127165'>1</text>
+        <ellipse cx='88.582677' cy='177.167126' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='70.818898' y='183.072638'>1</text>
+        <ellipse cx='88.582677' cy='767.717717' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='773.623228'>3</text>
+        <ellipse cx='88.582677' cy='797.242323' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='68.818898' y='803.147835'>4</text>
+        <ellipse cx='88.582677' cy='826.772244' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='69.318898' y='832.677756'>5</text>
+      </g>
+    </g>
+    <g id='Net elements'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Summation Point.BlkSum'>
+        <ellipse cx='236.220472' cy='1003.937008' fill='none' rx='14.763780' ry='14.763780' stroke='#000000' stroke-width='1.181102' />
+        <ellipse cx='221.456693' cy='1003.937008' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='236.220472' cy='1018.700787' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='250.984252' cy='1003.937008' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='236.220472' cy='989.173228' fill='#c0c0c0' rx='5.314961' ry='5.314961' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\K.BlkRef'>
+        <polygon fill='none' points='383.858268 1033.464567, 383.858268 974.409449, 501.968504 974.409449, 501.968504 1033.464567' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='383.858268' cy='1003.937008' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='501.968504' cy='1003.937008' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\iP Reduction.BlkRef'>
+        <polygon fill='none' points='1240.157480 295.275591, 1240.157480 118.110236, 1505.905512 118.110236, 1505.905512 295.275591' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1240.157480' cy='147.634843' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1250.421260' y='153.540354'>0</text>
+        <ellipse cx='1505.905512' cy='177.168307' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1486.641732' y='183.073819'>0</text>
+        <ellipse cx='1240.157480' cy='177.168307' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1251.921260' y='183.073819'>1</text>
+        <ellipse cx='1240.157480' cy='206.692913' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1250.421260' y='212.598425'>2</text>
+        <ellipse cx='1240.157480' cy='236.217520' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1250.421260' y='242.123031'>3</text>
+        <ellipse cx='1240.157480' cy='265.750984' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1249.921260' y='271.656496'>4</text>
+        <ellipse cx='1505.905512' cy='236.217520' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1488.141732' y='242.123031'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Pre-Fault Voltage.BlkRef'>
+        <polygon fill='none' points='324.803150 885.826772, 324.803150 679.133858, 531.496063 679.133858, 531.496063 885.826772' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='324.803150' cy='708.659941' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='335.066929' y='714.565453'>0</text>
+        <ellipse cx='324.803150' cy='738.186024' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='336.566929' y='744.091535'>1</text>
+        <ellipse cx='531.496063' cy='708.659941' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='512.232283' y='714.565453'>0</text>
+        <ellipse cx='531.496063' cy='738.186024' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='513.732283' y='744.091535'>1</text>
+        <ellipse cx='531.496063' cy='767.712106' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='512.232283' y='773.617618'>2</text>
+        <ellipse cx='531.496063' cy='797.248524' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='512.232283' y='803.154035'>3</text>
+        <ellipse cx='531.496063' cy='826.774606' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='511.732283' y='832.680118'>4</text>
+        <ellipse cx='324.803150' cy='767.712106' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='335.066929' y='773.617618'>2</text>
+        <ellipse cx='324.803150' cy='797.248524' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='335.066929' y='803.154035'>3</text>
+        <ellipse cx='324.803150' cy='826.774606' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='334.566929' y='832.680118'>4</text>
+        <ellipse cx='324.803150' cy='856.300689' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='335.066929' y='862.206201'>5</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Additional i2Q.BlkRef'>
+        <polygon fill='none' points='738.188976 1003.937008, 738.188976 885.826772, 1092.519685 885.826772, 1092.519685 1003.937008' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='738.188976' cy='915.354331' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='748.452756' y='921.259843'>0</text>
+        <ellipse cx='738.188976' cy='974.409449' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='749.952756' y='980.314961'>1</text>
+        <ellipse cx='1092.519685' cy='944.881890' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Additional i1Q.BlkRef'>
+        <polygon fill='none' points='738.188976 738.188976, 738.188976 620.078740, 1092.519685 620.078740, 1092.519685 738.188976' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='738.188976' cy='649.606299' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='748.452756' y='655.511811'>0</text>
+        <ellipse cx='738.188976' cy='708.661417' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='749.952756' y='714.566929'>1</text>
+        <ellipse cx='1092.519685' cy='679.133858' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\iQ Freeze Steady-State.BlkRef'>
+        <polygon fill='none' points='1240.157480 1122.028067, 1240.157480 501.964702, 1505.905512 501.964702, 1505.905512 1122.028067' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1240.157480' cy='531.479719' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1250.421260' y='537.385230'>0</text>
+        <ellipse cx='1505.905512' cy='738.177841' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1486.641732' y='744.083353'>0</text>
+        <ellipse cx='1505.905512' cy='826.753893' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1488.141732' y='832.659405'>1</text>
+        <ellipse cx='1240.157480' cy='590.540754' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1251.921260' y='596.446266'>1</text>
+        <ellipse cx='1240.157480' cy='679.116806' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1250.421260' y='685.022318'>2</text>
+        <ellipse cx='1240.157480' cy='944.875964' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1250.421260' y='950.781476'>3</text>
+        <ellipse cx='1240.157480' cy='1033.452016' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1249.921260' y='1039.357527'>4</text>
+        <ellipse cx='1240.157480' cy='1062.967032' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1250.421260' y='1068.872544'>5</text>
+        <ellipse cx='1240.157480' cy='1092.513051' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1250.421260' y='1098.418563'>6</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Fault Detection.BlkRef'>
+        <polygon fill='none' points='738.188976 561.023622, 738.188976 295.275591, 1092.519685 295.275591, 1092.519685 561.023622' stroke='#000000' stroke-width='2.362205' />
+        <ellipse cx='1092.519685' cy='354.324803' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1073.255906' y='360.230315'>0</text>
+        <ellipse cx='1092.519685' cy='383.862697' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1074.755906' y='389.768209'>1</text>
+        <ellipse cx='1092.519685' cy='413.387303' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1073.255906' y='419.292815'>2</text>
+        <ellipse cx='1092.519685' cy='442.911909' fill='#ff0000' rx='5.314961' ry='5.314961' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='1073.255906' y='448.817421'>3</text>
+        <ellipse cx='738.188976' cy='324.800197' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='748.452756' y='330.705709'>0</text>
+        <ellipse cx='738.188976' cy='354.324803' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='749.952756' y='360.230315'>1</text>
+        <ellipse cx='738.188976' cy='383.862697' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='748.452756' y='389.768209'>2</text>
+        <ellipse cx='738.188976' cy='413.387303' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='748.452756' y='419.292815'>3</text>
+        <ellipse cx='738.188976' cy='442.911909' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='747.952756' y='448.817421'>4</text>
+        <ellipse cx='738.188976' cy='472.436516' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='748.452756' y='478.342028'>5</text>
+        <ellipse cx='738.188976' cy='501.974409' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='748.452756' y='507.879921'>6</text>
+        <ellipse cx='738.188976' cy='531.499016' fill='#00bf00' rx='5.314961' ry='5.314961' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='14.763780' text-anchor='start' x='748.452756' y='537.404528'>7</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Summation Point.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='227.952756' y='1008.897638'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Summation Point.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='232.220472' y='1013.622047'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Summation Point.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='239.125984' y='1008.897638'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Summation Point.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='9.448819' text-anchor='start' x='233.220472' y='1002.992126'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Summation Point.BlkSum::TextBox 7'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='245.984252' y='985.039370'>-</text>
+      </g>
+    </g>
+    <g id='Signals'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uca(1).BlkSig'>
+        <polyline fill='none' points='265.748031 605.314961, 265.748031 826.771654, 88.582677 826.771654' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='265.748031 605.314961, 265.748031 383.858268, 738.188976 383.862683' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\ubc(1).BlkSig'>
+        <polyline fill='none' points='487.204724 354.327735, 236.220472 354.330709, 236.220472 797.244094, 88.582677 797.244094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='487.204724 354.327735, 738.188976 354.324761' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uab(1).BlkSig'>
+        <polyline fill='none' points='472.440945 324.801708, 206.692913 324.803150, 206.692913 767.716535, 88.582677 767.716535' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='472.440945 324.801708, 738.188976 324.800176' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uca.BlkSig'>
+        <polyline fill='none' points='206.692913 826.771654, 88.582677 826.771654' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='206.692913 826.771654, 324.803150 826.774627' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1(5).BlkSig'>
+        <polyline fill='none' points='118.110236 826.771654, 118.110236 738.188976, 88.582677 738.188976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='118.110236 826.771654, 118.110236 915.354331, 236.220472 915.354331, 236.220472 989.173228' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\ubc.BlkSig'>
+        <polyline fill='none' points='206.692913 797.244094, 88.582677 797.244094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='206.692913 797.244094, 324.803150 797.248510' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uab.BlkSig'>
+        <polyline fill='none' points='206.692913 767.716535, 88.582677 767.716535' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='206.692913 767.716535, 324.803150 767.712120' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1(4).BlkSig'>
+        <polyline fill='none' points='679.133858 206.692913, 118.110236 206.692913, 118.110236 738.188976, 88.582677 738.188976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='679.133858 206.692913, 1240.157480 206.692913' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u2(1).BlkSig'>
+        <polyline fill='none' points='501.968504 915.354331, 265.748031 915.354331, 265.748031 856.299213, 88.582677 856.299213' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='501.968504 915.354331, 738.188976 915.354331' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1(3).BlkSig'>
+        <polyline fill='none' points='428.149606 413.386548, 118.110236 413.385827, 118.110236 738.188976, 88.582677 738.188976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='428.149606 413.386548, 738.188976 413.387269' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u10(2).BlkSig'>
+        <polyline fill='none' points='944.881890 236.219031, 649.606299 236.220472, 649.606299 797.244094, 531.496063 797.248510' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='944.881890 236.219031, 1240.157480 236.217499' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1(2).BlkSig'>
+        <polyline fill='none' points='679.133858 590.545955, 118.110236 590.551181, 118.110236 738.188976, 88.582677 738.188976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='679.133858 590.545955, 1240.157480 590.540773' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1(1).BlkSig'>
+        <polyline fill='none' points='428.149606 649.606299, 118.110236 649.606299, 118.110236 738.188976, 88.582677 738.188976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='428.149606 649.606299, 738.188976 649.606299' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uca0.BlkSig'>
+        <polyline fill='none' points='620.078740 634.842520, 620.078740 767.716535, 531.496063 767.712120' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='620.078740 634.842520, 620.078740 501.968504, 738.188976 501.974406' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\ubc0.BlkSig'>
+        <polyline fill='none' points='590.551181 605.314961, 590.551181 738.188976, 531.496063 738.186003' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='590.551181 605.314961, 590.551181 472.440945, 738.188976 472.436529' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\UVRT(1).BlkSig'>
+        <polyline fill='none' points='1151.574803 324.803150, 1151.574803 383.858268, 1092.519685 383.862683' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 324.803150, 1151.574803 265.748031, 1240.157480 265.751005' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uab0.BlkSig'>
+        <polyline fill='none' points='561.023622 575.787402, 561.023622 708.661417, 531.496063 708.659930' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='561.023622 575.787402, 561.023622 442.913386, 738.188976 442.911944' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2P_ref.BlkSig'>
+        <polyline fill='none' points='679.133858 177.165354, 88.582677 177.165354' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='679.133858 177.165354, 1240.157480 177.168148' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1Q_uac_ref.BlkSig'>
+        <polyline fill='none' points='871.062992 1033.464522, 561.023622 1033.464567, 561.023622 1003.937008, 501.968504 1003.937008' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='871.062992 1033.464522, 1240.157480 1033.452019' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2P_frt_ref.BlkSig'>
+        <polyline fill='none' points='1579.724409 236.220472, 1505.905512 236.217499' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1579.724409 236.220472, 1653.543307 236.220472' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\du1.BlkSig'>
+        <polyline fill='none' points='317.421260 1003.937008, 250.984252 1003.937008' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='317.421260 1003.937008, 383.858268 1003.937008' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u10(1).BlkSig'>
+        <polyline fill='none' points='649.606299 664.370079, 649.606299 797.244094, 531.496063 797.248510' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='649.606299 664.370079, 649.606299 531.496063, 738.188976 531.499037' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1_ref.BlkSig'>
+        <polyline fill='none' points='155.019685 1003.939080, 88.582677 1003.937008' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='155.019685 1003.939080, 221.456693 1003.937008' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\OVRT.BlkSig'>
+        <polyline fill='none' points='1373.031496 413.388891, 1092.519685 413.387269' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1373.031496 413.388891, 1653.543307 413.385827' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\FRT_active(1).BlkSig'>
+        <polyline fill='none' points='1151.574803 487.204724, 1151.574803 442.913386, 1092.519685 442.911944' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1151.574803 487.204724, 1151.574803 531.496063, 1240.157480 531.479708' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\FRT_active.BlkSig'>
+        <polyline fill='none' points='1373.031496 442.913566, 1092.519685 442.911944' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1373.031496 442.913566, 1653.543307 442.913386' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Delta_i1Q.BlkSig'>
+        <polyline fill='none' points='1166.338583 679.125343, 1092.519685 679.133858' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1166.338583 679.125343, 1240.157480 679.116827' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1P_frt_ref.BlkSig'>
+        <polyline fill='none' points='1579.724409 177.165354, 1505.905512 177.168328' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1579.724409 177.165354, 1653.543307 177.165354' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1P_ref.BlkSig'>
+        <polyline fill='none' points='679.133858 147.638696, 88.582677 147.637795' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='679.133858 147.638696, 1240.157480 147.635002' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2Q_frt_ref.BlkSig'>
+        <polyline fill='none' points='1579.724409 826.765256, 1505.905512 826.753902' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1579.724409 826.765256, 1653.543307 826.771654' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1Q_frt_ref.BlkSig'>
+        <polyline fill='none' points='1579.724409 738.187399, 1505.905512 738.177848' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1579.724409 738.187399, 1653.543307 738.188976' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\UVRT.BlkSig'>
+        <polyline fill='none' points='1373.031496 383.861692, 1092.519685 383.862683' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1373.031496 383.861692, 1653.543307 383.858268' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2Q_ref.BlkSig'>
+        <polyline fill='none' points='664.370079 1092.512690, 88.582677 1092.519685' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='664.370079 1092.512690, 1240.157480 1092.513051' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1Q_ref.BlkSig'>
+        <polyline fill='none' points='664.370079 1062.985728, 88.582677 1062.992126' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='664.370079 1062.985728, 1240.157480 1062.967030' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Delta_i2Q.BlkSig'>
+        <polyline fill='none' points='1166.338583 944.878916, 1092.519685 944.881890' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1166.338583 944.878916, 1240.157480 944.875965' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\fault_detected(1).BlkSig'>
+        <polyline fill='none' points='634.842520 265.748031, 1122.047244 265.748031, 1122.047244 354.330709, 1092.519685 354.324761' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='634.842520 265.748031, 147.637795 265.748031, 147.637795 708.661417, 324.803150 708.659930' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\fault_detected.BlkSig'>
+        <polyline fill='none' points='1373.031496 354.327735, 1092.519685 354.324761' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1373.031496 354.327735, 1653.543307 354.330709' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u20.BlkSig'>
+        <polyline fill='none' points='693.897638 974.409449, 649.606299 974.409449, 649.606299 826.771654, 531.496063 826.774627' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='693.897638 974.409449, 738.188976 974.409449' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u10.BlkSig'>
+        <polyline fill='none' points='649.606299 708.661417, 649.606299 797.244094, 531.496063 797.248510' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='649.606299 708.661417, 738.188976 708.661417' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u2.BlkSig'>
+        <polyline fill='none' points='206.692913 856.298627, 88.582677 856.299213' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='206.692913 856.298627, 324.803150 856.300699' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1.BlkSig'>
+        <polyline fill='none' points='206.692913 738.189877, 88.582677 738.188976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='206.692913 738.189877, 324.803150 738.186003' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uca(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 383.862683, 708.661362 389.767919, 708.661473 377.956895' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\ubc(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 354.324761, 708.661487 360.230623, 708.661347 348.419599' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uab(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 324.800176, 708.661451 330.705858, 708.661383 318.894834' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uca.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='324.803150 826.774627, 295.275442 832.679396, 295.275739 820.868372' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1(5).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='236.220472 989.173228, 230.314961 959.645669, 242.125984 959.645669' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\ubc.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='324.803150 797.248510, 295.275370 803.152918, 295.275811 791.341894' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uab.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='324.803150 767.712120, 295.275811 773.618736, 295.275370 761.807712' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1(4).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 206.692913, 1210.629921 212.598425, 1210.629921 200.787402' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u2(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 915.354331, 708.661417 921.259843, 708.661417 909.448819' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1(3).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 413.387269, 708.661404 419.292712, 708.661431 407.481688' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u10(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 236.217499, 1210.629952 242.123164, 1210.629891 230.312140' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 590.540773, 1210.629976 596.446558, 1210.629867 584.635534' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 649.606299, 708.661417 655.511811, 708.661417 643.700787' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uca0.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 501.974406, 708.661122 507.878442, 708.661712 496.067419' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\ubc0.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 472.436529, 708.661594 478.342924, 708.661241 466.531901' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\UVRT(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 265.751005, 1210.629723 271.655526, 1210.630120 259.844502' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uab0.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 442.911944, 708.661465 448.817696, 708.661369 437.006673' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2P_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 177.168148, 1210.629892 183.073513, 1210.629951 171.262489' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1Q_uac_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 1033.452019, 1210.630121 1039.358531, 1210.629721 1027.547507' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2P_frt_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 236.220472, 1624.015748 242.125984, 1624.015748 230.314961' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\du1.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='383.858268 1003.937008, 354.330709 1009.842520, 354.330709 998.031496' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u10(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 531.499037, 708.661219 537.403557, 708.661616 525.592534' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='221.456693 1003.937008, 191.929318 1009.843441, 191.928950 998.032417' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\OVRT.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 413.385827, 1624.015813 419.291661, 1624.015684 407.480637' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\FRT_active(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 531.479708, 1210.631012 537.390671, 1210.628831 525.579648' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\FRT_active.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 442.913386, 1624.015752 448.818917, 1624.015744 437.007893' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Delta_i1Q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 679.116827, 1210.630603 685.025745, 1210.629240 673.214722' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1P_frt_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 177.165354, 1624.015748 183.070866, 1624.015748 171.259843' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1P_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 147.635002, 1210.629960 153.540708, 1210.629882 141.729684' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2Q_frt_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 826.771654, 1624.015236 832.674606, 1624.016260 820.863583' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1Q_frt_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 738.188976, 1624.015622 744.093857, 1624.015874 732.282834' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\UVRT.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 383.858268, 1624.015820 389.764140, 1624.015676 377.953116' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2Q_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 1092.513051, 1210.629918 1098.418544, 1210.629925 1086.607520' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1Q_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 1062.967030, 1210.630113 1068.873501, 1210.629730 1057.062477' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Delta_i2Q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1240.157480 944.875965, 1210.630157 950.782657, 1210.629685 938.971634' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\fault_detected(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='324.803150 708.659930, 295.275640 714.565690, 295.275541 702.754666' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\fault_detected.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1653.543307 354.330709, 1624.015685 360.235907, 1624.015811 348.424884' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u20.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 974.409449, 708.661417 980.314961, 708.661417 968.503937' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u10.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='738.188976 708.661417, 708.661417 714.566929, 708.661417 702.755906' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u2.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='324.803150 856.300699, 295.275487 862.205693, 295.275694 850.394669' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='324.803150 738.186003, 295.275784 744.092483, 295.275397 732.281460' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='Cross Points'>
+        <g id='Cross Point'>
+          <ellipse cx='265.748031' cy='856.299213' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='118.110236' cy='738.188976' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='649.606299' cy='708.661417' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='1151.574803' cy='442.913386' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='118.110236' cy='649.606299' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='649.606299' cy='531.496063' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='1151.574803' cy='383.858268' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='118.110236' cy='590.551181' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='118.110236' cy='413.385827' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='118.110236' cy='738.188976' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='206.692913' cy='767.716535' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='236.220472' cy='797.244094' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='265.748031' cy='826.771654' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='1122.047244' cy='354.330709' fill='#000000' rx='5.905512' ry='5.905512' stroke='#000000' stroke-width='1.000000' />
+        </g>
+      </g>
+    </g>
+    <g id='Labels'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uca.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='190.692913' y='818.149606'>uca</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\ubc.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='190.692913' y='788.622047'>ubc</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uab.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='190.692913' y='759.094488'>uab</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uca0.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' transform='rotate(270.000000,594.448819,572.273955)' x='594.448819' y='589.281829'>uca0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\ubc0.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' transform='rotate(270.000000,564.921260,559.960109)' x='564.921260' y='576.967983'>ubc0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\uab0.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' transform='rotate(270.000000,533.874262,547.450151)' x='533.874262' y='564.458025'>uab0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2P_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='646.633858' y='168.543307'>i2P_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1Q_uac_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='817.062992' y='1024.842475'>i1Q_uac_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2P_frt_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1533.224409' y='227.598425'>i2P_frt_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\du1.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='302.421259' y='995.314961'>du1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='126.019684' y='995.317033'>u1_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\OVRT.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1345.531495' y='404.766843'>OVRT</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\FRT_active.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1324.031495' y='434.291519'>FRT_active</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Delta_i1Q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1123.838582' y='670.503296'>Delta_i1Q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1P_frt_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1533.224409' y='168.543307'>i1P_frt_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1P_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='646.633858' y='139.016649'>i1P_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2Q_frt_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1532.224409' y='818.143208'>i2Q_frt_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1Q_frt_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1532.224409' y='729.565352'>i1Q_frt_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\UVRT.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1346.531495' y='375.239645'>UVRT</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i2Q_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='630.870078' y='1083.890643'>i2Q_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\i1Q_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='630.870078' y='1054.363681'>i1Q_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Delta_i2Q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1123.838582' y='936.256869'>Delta_i2Q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\fault_detected.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1312.031495' y='345.705688'>fault_detected</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u20.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='664.938243' y='965.787402'>u20</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u10.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='665.318393' y='700.039370'>u10</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u2.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='195.703447' y='847.676584'>u2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\u1.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='197.203447' y='729.567834'>u1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf.BlkDef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='26.574803' text-anchor='start' x='88.582677' y='57.874016'>FRT Control or Continuous Vac Ctrl BlkDf: Controller for Fault-Ride-Through Current Injection with continuous fast voltage control option</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\K.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='435.913386' y='1002.047244'>K</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='431.413386' y='1020.944882'>Kv</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\iP Reduction.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1318.531496' y='204.803150'>iP Reduction</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1252.531496' y='223.700787'>Tipre,u1min,iP_red,db_abs..</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Pre-Fault Voltage.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='354.649606' y='780.590551'>Pre-Fault Voltage</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='402.649606' y='799.488189'>Tupre</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Additional i2Q.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='855.354331' y='942.992126'>Additional i2Q</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='758.354331' y='961.889764'>diroot,u_db_up,u_db_low,db_abs,K2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Additional i1Q.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='855.354331' y='677.244094'>Additional i1Q</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='737.354331' y='696.141732'>diroot,u_db_up,u_db_low,db_abs,u1fix,K1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\iQ Freeze Steady-State.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1273.531496' y='810.106621'>iQ Freeze Steady-State</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='1249.031496' y='829.004259'>Tipre,u1min,iQ_red,Mode_c..</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\FRT Control or Continuous Vac Ctrl BlkDf\Fault Detection.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='851.854331' y='426.259843'>Fault Detection</text>
+        <text fill='#000000' font-family='Arial' font-size='18.897638' text-anchor='start' x='749.354331' y='445.157480'>u_db_up,u_db_low,db_abs,u1fix,Tpost</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

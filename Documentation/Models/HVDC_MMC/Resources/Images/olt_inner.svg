@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg baseProfile='full' height='100.000000%' version='1.1' viewBox='0.000000 0.000000 1753.000000 1240.000000' width='100.000000%' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+
+
+  <defs>
+    <clipPath id='clipPath-01'>
+      <polygon points='0.000000 1240.157480, 0.000000 0.000000, 1753.937008 0.000000, 1753.937008 1240.157480' />
+    </clipPath>
+  </defs>
+
+  <g clip-path='url(#clipPath-01)'>
+    <g id='Page Layer'>
+      <polygon fill='#ffffff' points='0.500000 0.500000, 0.500000 1239.500000, 1752.500000 1239.500000, 1752.500000 0.500000' stroke='#808080' stroke-width='1.000000' />
+    </g>
+    <g id='Block definition'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef.BlkDef'>
+        <polyline fill='none' points='62.640607 1177.523264, 1691.296400 1177.523264, 1691.296400 70.985445, 62.640607 70.985445, 62.640607 1177.523264' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='62.640607' cy='613.814170' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='617.990317'>7</text>
+        <ellipse cx='62.640607' cy='634.694539' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='638.870686'>8</text>
+        <ellipse cx='62.640607' cy='906.106135' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='46.200506' y='910.282282'>11</text>
+        <ellipse cx='62.640607' cy='926.986504' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='931.162651'>12</text>
+        <ellipse cx='62.640607' cy='551.178597' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='555.354744'>5</text>
+        <ellipse cx='62.640607' cy='572.058966' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='576.235113'>6</text>
+        <ellipse cx='62.640607' cy='885.231299' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='889.407446'>10</text>
+        <ellipse cx='62.640607' cy='864.350931' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='868.527078'>9</text>
+        <ellipse cx='62.640607' cy='968.741708' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='972.917855'>13</text>
+        <ellipse cx='62.640607' cy='989.622077' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.200506' y='993.798224'>14</text>
+        <ellipse cx='1691.296400' cy='551.178597' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1697.736502' y='555.354744'>0</text>
+        <ellipse cx='1691.296400' cy='592.939334' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1698.736502' y='597.115481'>1</text>
+        <ellipse cx='1691.296400' cy='947.866872' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1697.736502' y='952.043019'>2</text>
+        <ellipse cx='1691.296400' cy='989.622077' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1697.736502' y='993.798224'>3</text>
+        <ellipse cx='62.640607' cy='467.668188' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='471.844335'>3</text>
+        <ellipse cx='62.640607' cy='488.548556' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='47.700506' y='492.724703'>4</text>
+        <ellipse cx='62.640607' cy='1052.252118' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='1056.428265'>15</text>
+        <ellipse cx='62.640607' cy='1073.132486' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='45.700506' y='1077.308633'>16</text>
+        <ellipse cx='62.640607' cy='321.522205' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='49.200506' y='325.698352'>1</text>
+        <ellipse cx='62.640607' cy='363.277410' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='367.453557'>2</text>
+        <ellipse cx='62.640607' cy='258.886632' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='263.062779'>0</text>
+      </g>
+    </g>
+    <g id='Net elements'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point theta.BlkSum'>
+        <ellipse cx='1252.812148' cy='530.303030' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1242.372047' cy='530.303030' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1252.812148' cy='540.742066' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1263.252250' cy='530.303030' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1252.812148' cy='519.863994' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ui haf.BlkSum'>
+        <ellipse cx='772.567492' cy='592.937246' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='762.127390' cy='592.937246' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='772.567492' cy='603.376283' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='783.007593' cy='592.937246' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='772.567492' cy='582.498210' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ur haf.BlkSum'>
+        <ellipse cx='814.327897' cy='551.181102' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='803.887795' cy='551.181102' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='814.327897' cy='561.620138' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='824.767998' cy='551.181102' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='814.327897' cy='540.742066' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point u2i.BlkSum'>
+        <ellipse cx='647.286277' cy='989.620616' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='636.846175' cy='989.620616' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='647.286277' cy='1000.059652' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='657.726378' cy='989.620616' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='647.286277' cy='979.181580' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point u2r.BlkSum'>
+        <ellipse cx='605.525872' cy='947.864471' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='595.085771' cy='947.864471' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='605.525872' cy='958.303508' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='615.965973' cy='947.864471' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='605.525872' cy='937.425435' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ui.BlkSum'>
+        <ellipse cx='605.525872' cy='592.937246' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='595.085771' cy='592.937246' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='605.525872' cy='603.376283' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='615.965973' cy='592.937246' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='605.525872' cy='582.498210' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ur.BlkSum'>
+        <ellipse cx='647.286277' cy='551.181102' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='636.846175' cy='551.181102' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='647.286277' cy='561.620138' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='657.726378' cy='551.181102' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='647.286277' cy='540.742066' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Feed Forward Selector.BlkRef'>
+        <polygon fill='none' points='250.562430 1094.010976, 250.562430 1031.376760, 417.604049 1031.376760, 417.604049 1094.010976' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='250.562430' cy='1052.255876' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='257.002531' y='1056.432023'>0</text>
+        <ellipse cx='250.562430' cy='1073.131860' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='258.002531' y='1077.308007'>1</text>
+        <ellipse cx='417.604049' cy='1052.255876' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='403.163948' y='1056.432023'>0</text>
+        <ellipse cx='417.604049' cy='1073.131860' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='404.163948' y='1077.308007'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Feed Forward Selector.BlkRef'>
+        <polygon fill='none' points='250.562430 509.424958, 250.562430 446.790742, 417.604049 446.790742, 417.604049 509.424958' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='250.562430' cy='467.669858' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='257.002531' y='471.846005'>0</text>
+        <ellipse cx='250.562430' cy='488.545842' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='258.002531' y='492.721989'>1</text>
+        <ellipse cx='417.604049' cy='467.669858' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='403.163948' y='471.846005'>0</text>
+        <ellipse cx='417.604049' cy='488.545842' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='404.163948' y='492.721989'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Polar to xy neg. seq..BlkRef'>
+        <polygon fill='none' points='1440.734001 1052.259023, 1440.734001 885.226064, 1566.015156 885.226064, 1566.015156 1052.259023' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='1440.734001' cy='926.984304' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1447.174102' y='931.160451'>0</text>
+        <ellipse cx='1566.015156' cy='947.863424' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1551.575054' y='952.039571'>0</text>
+        <ellipse cx='1566.015156' cy='989.621663' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1552.575054' y='993.797810'>1</text>
+        <ellipse cx='1440.734001' cy='1010.500783' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1448.174102' y='1014.676930'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Polar to xy.BlkRef'>
+        <polygon fill='none' points='1461.614203 655.575654, 1461.614203 488.542695, 1566.015156 488.542695, 1566.015156 655.575654' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='1461.614203' cy='530.300935' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1468.054304' y='534.477082'>0</text>
+        <ellipse cx='1566.015156' cy='551.180055' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1551.575054' y='555.356202'>0</text>
+        <ellipse cx='1566.015156' cy='592.938294' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1552.575054' y='597.114441'>1</text>
+        <ellipse cx='1461.614203' cy='613.817414' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1469.054304' y='617.993561'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Limiter Neg. Seq..BlkRef'>
+        <polygon fill='none' points='1231.931946 1052.254832, 1231.931946 968.742544, 1336.332958 968.742544, 1336.332958 1052.254832' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='1231.931946' cy='1010.498688' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1336.332958' cy='1010.498688' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Limiter RMS/EMT.BlkRef'>
+        <polygon fill='none' points='1190.171541 655.571463, 1190.171541 572.059174, 1378.093363 572.059174, 1378.093363 655.571463' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='1190.171541' cy='613.815319' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1378.093363' cy='613.815319' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\xy to polar neg. seq..BlkRef'>
+        <polygon fill='none' points='981.369546 1052.259023, 981.369546 885.226064, 1106.650701 885.226064, 1106.650701 1052.259023' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='1106.650701' cy='926.984304' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1092.210600' y='931.160451'>0</text>
+        <ellipse cx='981.369546' cy='947.863424' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='987.809647' y='952.039571'>0</text>
+        <ellipse cx='981.369546' cy='989.621663' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='988.809647' y='993.797810'>1</text>
+        <ellipse cx='1106.650701' cy='1010.500783' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1093.210600' y='1014.676930'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\xy to polar.BlkRef'>
+        <polygon fill='none' points='960.489344 655.575654, 960.489344 488.542695, 1064.890296 488.542695, 1064.890296 655.575654' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='1064.890296' cy='530.300935' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1050.450195' y='534.477082'>0</text>
+        <ellipse cx='960.489344' cy='551.180055' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='966.929445' y='555.356202'>0</text>
+        <ellipse cx='960.489344' cy='592.938294' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='967.929445' y='597.114441'>1</text>
+        <ellipse cx='1064.890296' cy='613.817414' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='1051.450195' y='617.993561'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\dq-Back Neg. Seq..BlkRef'>
+        <polygon fill='none' points='271.442632 1010.507711, 271.442632 801.717991, 396.723847 801.717991, 396.723847 1010.507711' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='271.442632' cy='822.607402' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.882733' y='826.783549'>0</text>
+        <ellipse cx='271.442632' cy='843.475935' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='278.882733' y='847.652082'>1</text>
+        <ellipse cx='396.723847' cy='947.860356' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='382.283746' y='952.036503'>0</text>
+        <ellipse cx='396.723847' cy='989.618300' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='383.283746' y='993.794447'>1</text>
+        <ellipse cx='271.442632' cy='864.344468' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.882733' y='868.520615'>2</text>
+        <ellipse cx='271.442632' cy='885.244319' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.882733' y='889.420466'>3</text>
+        <ellipse cx='271.442632' cy='906.091972' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.382733' y='910.268119'>4</text>
+        <ellipse cx='271.442632' cy='926.991823' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.882733' y='931.167970'>5</text>
+        <ellipse cx='271.442632' cy='968.739328' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.882733' y='972.915475'>6</text>
+        <ellipse cx='271.442632' cy='989.628739' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.882733' y='993.804886'>7</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\dq-Back.BlkRef'>
+        <polygon fill='none' points='271.442697 697.334201, 271.442697 530.302935, 396.723782 530.302935, 396.723782 697.334201' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='271.442697' cy='551.190195' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.882798' y='555.366342'>0</text>
+        <ellipse cx='271.442697' cy='572.044048' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='278.882798' y='576.220195'>1</text>
+        <ellipse cx='271.442697' cy='613.810216' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.882798' y='617.986363'>2</text>
+        <ellipse cx='271.442697' cy='634.689125' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.882798' y='638.865272'>3</text>
+        <ellipse cx='271.442697' cy='655.568033' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.382798' y='659.744180'>4</text>
+        <ellipse cx='271.442697' cy='676.446941' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='277.882798' y='680.623088'>5</text>
+        <ellipse cx='396.723782' cy='551.181843' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='382.283681' y='555.357990'>0</text>
+        <ellipse cx='396.723782' cy='592.939660' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='383.283681' y='597.115807'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point theta.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1246.965692' y='533.810546'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point theta.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1250.312148' y='537.151038'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point theta.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1254.488189' y='533.810546'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point theta.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1249.812148' y='529.634932'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point theta.BlkSum::TextBox 7'>
+        <text fill='#000000' font-family='Arial' font-size='18.790265' text-anchor='start' x='1259.252250' y='516.941064'>-</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ui haf.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='766.721035' y='596.444763'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ui haf.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='770.067492' y='599.785254'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ui haf.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='774.243532' y='596.444763'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ui haf.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='769.567492' y='592.269148'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ur haf.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='808.481440' y='554.688618'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ur haf.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='811.827897' y='558.029110'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ur haf.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='816.003937' y='554.688618'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ur haf.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='811.327897' y='550.513004'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point u2i.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='641.439820' y='993.128132'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point u2i.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='644.786277' y='996.468623'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point u2i.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='648.962317' y='993.128132'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point u2i.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='644.286277' y='988.952517'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point u2r.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='599.679415' y='951.371988'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point u2r.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='603.025872' y='954.712479'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point u2r.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='607.201912' y='951.371988'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point u2r.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='602.525872' y='947.196373'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ui.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='599.679415' y='596.444763'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ui.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='603.025872' y='599.785254'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ui.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='607.201912' y='596.444763'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ui.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='602.525872' y='592.269148'>3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ur.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='641.439820' y='554.688618'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ur.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='644.786277' y='558.029110'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ur.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='648.962317' y='554.688618'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Summation Point ur.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='644.286277' y='550.513004'>3</text>
+      </g>
+    </g>
+    <g id='Signals'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\phif.BlkSig'>
+        <polyline fill='none' points='657.726378 258.888094, 62.640607 258.888094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='657.726378 258.888094, 1252.812148 258.888094, 1252.812148 519.863994' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\theta_compensated.BlkSig'>
+        <polyline fill='none' points='1351.993110 530.302011, 1263.252250 530.303030' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1351.993110 530.302011, 1461.614173 530.300673' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\theta.BlkSig'>
+        <polyline fill='none' points='1164.071288 530.302011, 1064.890326 530.300673' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1164.071288 530.302011, 1242.372047 530.303030' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\ui_haf_ref.BlkSig'>
+        <polyline fill='none' points='417.604049 363.278454, 62.640607 363.278454' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='417.604049 363.278454, 772.567492 363.278454, 772.567492 582.498210' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\ur_haf_ref.BlkSig'>
+        <polyline fill='none' points='438.484252 321.522310, 62.640607 321.522310' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='438.484252 321.522310, 814.327897 321.522310, 814.327897 540.742066' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_i_haf_unltd.BlkSig'>
+        <polyline fill='none' points='871.748453 592.937756, 783.007593 592.937246' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='871.748453 592.937756, 960.489314 592.938266' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_r_haf_unltd.BlkSig'>
+        <polyline fill='none' points='892.628656 551.180593, 824.767998 551.181102' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='892.628656 551.180593, 960.489314 551.180083' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_haf_unltd.BlkSig'>
+        <polyline fill='none' points='1127.530934 613.816975, 1064.890326 613.817676' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1127.530934 613.816975, 1190.171541 613.816274' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2_ltd.BlkSig'>
+        <polyline fill='none' points='1388.533465 1010.497636, 1336.332958 1010.498688' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1388.533465 1010.497636, 1440.733971 1010.500790' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_ltd.BlkSig'>
+        <polyline fill='none' points='1419.853768 613.816784, 1378.093363 613.815765' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1419.853768 613.816784, 1461.614173 613.817803' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\cosphi21.BlkSig'>
+        <polyline fill='none' points='167.041620 864.348934, 62.640607 864.352183' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='167.041620 864.348934, 271.442632 864.344474' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\sinphi21.BlkSig'>
+        <polyline fill='none' points='167.041620 885.235257, 62.640607 885.230255' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='167.041620 885.235257, 271.442632 885.244304' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2i_unfilt_ff.BlkSig'>
+        <polyline fill='none' points='532.445163 1073.132824, 417.604049 1073.131853' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='532.445163 1073.132824, 647.286277 1073.133780, 647.286277 1000.059652' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2r_unfilt_ff.BlkSig'>
+        <polyline fill='none' points='511.564961 1052.254704, 417.604049 1052.255883' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='511.564961 1052.254704, 605.525872 1052.253526, 605.525872 958.303508' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspi_loc_inst_ff.BlkSig'>
+        <polyline fill='none' points='511.564961 488.547014, 417.604049 488.545867' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='511.564961 488.547014, 605.525872 488.548160, 605.525872 582.498210' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspr_loc_inst_ff.BlkSig'>
+        <polyline fill='none' points='532.445163 467.668878, 417.604049 467.669834' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='532.445163 467.668878, 647.286277 467.667986, 647.286277 540.742066' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2_unltd.BlkSig'>
+        <polyline fill='none' points='1169.291339 1010.497636, 1106.650731 1010.500790' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1169.291339 1010.497636, 1231.931946 1010.498688' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_2r(1).BlkSig'>
+        <polyline fill='none' points='313.203037 759.961823, 438.484252 759.961823, 438.484252 947.864471, 396.723847 947.860362' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='313.203037 759.961823, 187.921822 759.961823, 187.921822 655.571463, 271.442696 655.568022' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_2i(1).BlkSig'>
+        <polyline fill='none' points='459.364454 864.352183, 459.364454 989.622113, 396.723847 989.618306' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='459.364454 864.352183, 459.364454 739.083751, 208.802025 739.083751, 208.802025 676.449535, 271.442696 676.446922' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2d.BlkSig'>
+        <polyline fill='none' points='167.041620 968.741906, 62.640607 968.742544' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='167.041620 968.741906, 271.442632 968.739326' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2i_unfilt.BlkSig'>
+        <polyline fill='none' points='156.601519 1073.133525, 62.640607 1073.132904' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='156.601519 1073.133525, 250.562430 1073.131853' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2r_unfilt.BlkSig'>
+        <polyline fill='none' points='156.601519 1052.255118, 62.640607 1052.254832' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='156.601519 1052.255118, 250.562430 1052.255883' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspi_loc_inst.BlkSig'>
+        <polyline fill='none' points='156.601519 488.546759, 62.640607 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='156.601519 488.546759, 250.562430 488.545867' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspr_loc_inst.BlkSig'>
+        <polyline fill='none' points='156.601519 467.668368, 62.640607 467.668814' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='156.601519 467.668368, 250.562430 467.669834' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2i_unltd.BlkSig'>
+        <polyline fill='none' points='819.547947 989.621141, 657.726378 989.620616' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='819.547947 989.621141, 981.369516 989.621667' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_2i.BlkSig'>
+        <polyline fill='none' points='516.785011 989.619453, 396.723847 989.618306' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='516.785011 989.619453, 636.846175 989.620616' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2r_unltd.BlkSig'>
+        <polyline fill='none' points='798.667745 947.863962, 615.965973 947.864471' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='798.667745 947.863962, 981.369516 947.863420' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_2r.BlkSig'>
+        <polyline fill='none' points='495.904809 947.862401, 396.723847 947.860362' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='495.904809 947.862401, 595.085771 947.864471' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_i_unltd.BlkSig'>
+        <polyline fill='none' points='689.046682 592.937246, 615.965973 592.937246' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='689.046682 592.937246, 762.127390 592.937246' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\sinphi1(1).BlkSig'>
+        <polyline fill='none' points='104.401012 655.571463, 104.401012 634.693391, 62.640607 634.693391' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='104.401012 655.571463, 104.401012 843.474111, 271.442632 843.475927' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_r_unltd.BlkSig'>
+        <polyline fill='none' points='730.807087 551.181102, 657.726378 551.181102' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='730.807087 551.181102, 803.887795 551.181102' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_i.BlkSig'>
+        <polyline fill='none' points='495.904777 592.938457, 396.723783 592.939668' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='495.904777 592.938457, 595.085771 592.937246' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\cosphi1(1).BlkSig'>
+        <polyline fill='none' points='125.281215 718.205679, 125.281215 613.815319, 62.640607 613.815319' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 718.205679, 125.281215 822.596039, 271.442632 822.607412' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_r.BlkSig'>
+        <polyline fill='none' points='516.784979 551.181485, 396.723783 551.181867' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='516.784979 551.181485, 636.846175 551.181102' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2q.BlkSig'>
+        <polyline fill='none' points='167.041620 989.623642, 62.640607 989.620616' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='167.041620 989.623642, 271.442632 989.628739' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2i.BlkSig'>
+        <polyline fill='none' points='1628.655793 989.620265, 1566.015186 989.621667' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1628.655793 989.620265, 1691.296400 989.620616' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2r.BlkSig'>
+        <polyline fill='none' points='1628.655793 947.863516, 1566.015186 947.863420' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1628.655793 947.863516, 1691.296400 947.864471' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_i.BlkSig'>
+        <polyline fill='none' points='1628.655793 592.938839, 1566.015186 592.938266' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1628.655793 592.938839, 1691.296400 592.937246' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_r.BlkSig'>
+        <polyline fill='none' points='1628.655793 551.179318, 1566.015186 551.180083' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1628.655793 551.179318, 1691.296400 551.181102' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\sinphi2.BlkSig'>
+        <polyline fill='none' points='167.041620 926.990445, 62.640607 926.986399' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='167.041620 926.990445, 271.442632 926.991815' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\cosphi2.BlkSig'>
+        <polyline fill='none' points='167.041620 906.100936, 62.640607 906.108327' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='167.041620 906.100936, 271.442632 906.091985' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\sinphi1.BlkSig'>
+        <polyline fill='none' points='167.041652 634.691607, 62.640607 634.693391' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='167.041652 634.691607, 271.442696 634.689122' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\cosphi1.BlkSig'>
+        <polyline fill='none' points='167.041652 613.811878, 62.640607 613.815319' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='167.041652 613.811878, 271.442696 613.810221' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_1q.BlkSig'>
+        <polyline fill='none' points='167.041652 572.051847, 62.640607 572.059174' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='167.041652 572.051847, 271.442696 572.044074' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_1d.BlkSig'>
+        <polyline fill='none' points='167.041652 551.186327, 62.640607 551.181102' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='167.041652 551.186327, 271.442696 551.190214' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\theta2.BlkSig'>
+        <polyline fill='none' points='1273.692351 926.984297, 1106.650731 926.984297' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1273.692351 926.984297, 1440.733971 926.984297' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\phif.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1252.812148 519.863994, 1248.636108 498.985922, 1256.988189 498.985922' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\theta_compensated.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1461.614173 530.300673, 1440.734022 534.476542, 1440.733920 526.125313' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\theta.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1242.372047 530.303030, 1221.491790 534.478373, 1221.491899 526.127144' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\ui_haf_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='772.567492 582.498210, 768.391451 561.620138, 776.743532 561.620138' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\ur_haf_ref.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='814.327897 540.742066, 810.151856 519.863994, 818.503937 519.863994' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_i_haf_unltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='960.489314 592.938266, 939.609087 597.113760, 939.609135 588.762532' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_r_haf_unltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='960.489314 551.180083, 939.609143 555.355854, 939.609080 547.004625' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_haf_unltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1190.171541 613.816274, 1169.291385 617.992122, 1169.291292 609.640893' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2_ltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1440.733971 1010.500790, 1419.853516 1014.675143, 1419.854021 1006.323914' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_ltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1461.614173 613.817803, 1440.733869 617.992908, 1440.734073 609.641679' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\cosphi21.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442632 864.344474, 250.562608 868.520980, 250.562251 860.169751' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\sinphi21.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442632 885.244304, 250.562068 889.418109, 250.562792 881.066881' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2i_unfilt_ff.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='647.286277 1000.059652, 651.462317 1020.937724, 643.110236 1020.937724' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2r_unfilt_ff.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='605.525872 958.303508, 609.701912 979.181580, 601.349831 979.181580' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspi_loc_inst_ff.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='605.525872 582.498210, 601.349831 561.620138, 609.701912 561.620138' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspr_loc_inst_ff.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='647.286277 540.742066, 643.110236 519.863994, 651.462317 519.863994' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2_unltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1231.931946 1010.498688, 1211.051673 1014.673952, 1211.051814 1006.322723' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_2r(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442696 655.568022, 250.562665 659.744497, 250.562321 651.393268' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_2i(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442696 676.446922, 250.562668 680.623408, 250.562319 672.272179' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442632 968.739326, 250.562533 972.915456, 250.562326 964.564228' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2i_unfilt.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='250.562430 1073.131853, 229.682302 1077.307839, 229.682153 1068.956610' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2r_unfilt.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='250.562430 1052.255883, 229.682193 1056.431328, 229.682261 1048.080099' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspi_loc_inst.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='250.562430 488.545867, 229.682267 492.721679, 229.682188 484.370451' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspr_loc_inst.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='250.562430 467.669834, 229.682162 471.845122, 229.682292 463.493893' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2i_unltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='981.369516 989.621667, 960.489300 993.797213, 960.489327 985.445985' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_2i.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='636.846175 989.620616, 615.965933 993.796028, 615.966013 985.444799' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2r_unltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='981.369516 947.863420, 960.489326 952.039096, 960.489301 943.687868' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_2r.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='595.085771 947.864471, 574.205481 952.039650, 574.205655 943.688421' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_i_unltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='762.127390 592.937246, 741.247188 597.112861, 741.247188 588.761632' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\sinphi1(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442632 843.475927, 250.562384 847.651314, 250.562475 839.300086' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_r_unltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='803.887795 551.181102, 783.007593 555.356717, 783.007593 547.005488' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_i.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='595.085771 592.937246, 574.205619 597.113116, 574.205517 588.761887' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\cosphi1(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442632 822.607412, 250.562105 826.781402, 250.562755 818.430173' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_r.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='636.846175 551.181102, 615.965986 555.356783, 615.965960 547.005554' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442632 989.628739, 250.562226 993.803334, 250.562634 985.452105' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2i.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 989.620616, 1670.416175 993.796113, 1670.416221 985.444884' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2r.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 947.864471, 1670.416134 952.039767, 1670.416262 943.688539' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_i.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 592.937246, 1670.416304 597.113392, 1670.416092 588.762163' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_r.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 551.181102, 1670.416079 555.356122, 1670.416317 547.004893' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\sinphi2.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442632 926.991815, 250.562375 931.167156, 250.562484 922.815927' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\cosphi2.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442632 906.091985, 250.562788 910.269389, 250.562072 901.918161' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\sinphi1.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442696 634.689122, 250.562593 638.865233, 250.562394 630.514004' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\cosphi1.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442696 613.810221, 250.562560 617.986167, 250.562427 609.634938' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_1q.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442696 572.044074, 250.562804 576.221243, 250.562183 567.870014' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_1d.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='271.442696 551.190214, 250.562338 555.365051, 250.562649 547.013822' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\theta2.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1440.733971 926.984297, 1419.853768 931.159911, 1419.853768 922.808682' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='Cross Points'>
+        <g id='Cross Point'>
+          <ellipse cx='438.484252' cy='947.864471' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='459.364454' cy='989.622113' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='125.281215' cy='613.815319' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='104.401012' cy='634.693391' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+      </g>
+    </g>
+    <g id='Labels'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\phif.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='646.226378' y='252.793060'>phif</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\theta_compensated.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1293.993110' y='524.206977'>theta_compensated</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\theta.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1148.571288' y='524.206977'>theta</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\ui_haf_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='388.604049' y='357.183420'>ui_haf_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\ur_haf_ref.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='408.984252' y='315.427276'>ur_haf_ref</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_i_haf_unltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='820.248453' y='586.842722'>uconv_i_haf_unltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_r_haf_unltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='840.628655' y='545.085559'>uconv_r_haf_unltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_haf_unltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1081.030933' y='607.721941'>uconv_haf_unltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2_ltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1354.033464' y='1004.402603'>uconv_2_ltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_ltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1392.353768' y='607.721750'>uconv_ltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\cosphi21.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='141.541619' y='858.253900'>cosphi21</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\sinphi21.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='143.541619' y='879.140223'>sinphi21</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2i_unfilt_ff.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='498.945163' y='1067.037790'>u2i_unfilt_ff</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2r_unfilt_ff.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='459.103834' y='1045.432935'>u2r_unfilt_ff</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspi_loc_inst_ff.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='473.279440' y='481.771349'>uspi_loc_inst_ff</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspr_loc_inst_ff.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='485.945163' y='461.573844'>uspr_loc_inst_ff</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2_unltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1127.791338' y='1004.402603'>uconv_2_unltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='139.541619' y='962.646873'>uconv_2d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2i_unfilt.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='130.601518' y='1067.038491'>u2i_unfilt</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\u2r_unfilt.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='130.101518' y='1046.160085'>u2r_unfilt</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspi_loc_inst.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='118.101518' y='482.451725'>uspi_loc_inst</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uspr_loc_inst.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='117.601518' y='461.573334'>uspr_loc_inst</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2i_unltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='776.547947' y='983.526108'>uconv_2i_unltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_2i.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='487.785011' y='983.524419'>duconv_2i</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2r_unltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='755.167744' y='941.768928'>uconv_2r_unltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_2r.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='465.904808' y='941.767367'>duconv_2r</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_i_unltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='649.546681' y='586.842213'>uconv_i_unltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_r_unltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='690.807086' y='545.086069'>uconv_r_unltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_i.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='470.404777' y='586.843423'>duconv_i</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\duconv_r.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='490.284979' y='545.086451'>duconv_r</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='139.541619' y='983.528608'>uconv_2q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2i.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1603.155793' y='983.525231'>uconv_2i</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_2r.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1602.155793' y='941.768482'>uconv_2r</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_i.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1606.655793' y='586.843806'>uconv_i</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_r.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1605.655793' y='545.084285'>uconv_r</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\sinphi2.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='146.041619' y='920.895412'>sinphi2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\cosphi2.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='144.041619' y='900.005903'>cosphi2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\sinphi1.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='147.041651' y='628.596573'>sinphi1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\cosphi1.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='145.041651' y='607.716844'>cosphi1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_1q.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='139.541651' y='565.956814'>uconv_1q</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\uconv_1d.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='139.541651' y='545.091293'>uconv_1d</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\theta2.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1254.692351' y='920.889263'>theta2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef.BlkDef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.790265' text-anchor='start' x='62.640607' y='49.272250'>Output Limiter Transform (Inner V)BlkDef: Converter voltage limitation and dq -&gt; alpha beta transformation</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Feed Forward Selector.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='267.583240' y='1061.357671'>Feed Forward Selector</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='308.583240' y='1074.719637'>Mode_ut</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Feed Forward Selector.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='267.583240' y='476.771654'>Feed Forward Selector</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='308.583240' y='490.133620'>Mode_ut</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Polar to xy neg. seq..BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1442.874578' y='967.406347'>Polar to xy neg. seq.</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Polar to xy.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1481.814679' y='570.722978'>Polar to xy</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Limiter Neg. Seq..BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1238.632452' y='1009.162491'>Limiter Neg. S..</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1238.132452' y='1022.524457'>0,uconv_2_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\Limiter RMS/EMT.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1231.632452' y='612.479122'>Limiter RMS/EMT</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1203.632452' y='625.841088'>0,uconv_max,uconv_1_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\xy to polar neg. seq..BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='984.510124' y='967.406347'>xy to polar neg. seq.</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\xy to polar.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='981.189820' y='570.722978'>xy to polar</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\dq-Back Neg. Seq..BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='279.083240' y='904.776655'>dq-Back Neg. Seq.</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\Output Limiter Transform (Inner V)BlkDef\dq-Back.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='309.583240' y='612.482371'>dq-Back</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

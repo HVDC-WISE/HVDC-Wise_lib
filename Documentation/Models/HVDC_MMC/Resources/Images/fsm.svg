@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg baseProfile='full' height='100.000000%' version='1.1' viewBox='0.000000 0.000000 1753.000000 1240.000000' width='100.000000%' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+
+
+  <defs>
+    <clipPath id='clipPath-01'>
+      <polygon points='0.000000 1240.157480, 0.000000 0.000000, 1753.937008 0.000000, 1753.937008 1240.157480' />
+    </clipPath>
+  </defs>
+
+  <g clip-path='url(#clipPath-01)'>
+    <g id='Page Layer'>
+      <polygon fill='#ffffff' points='0.500000 0.500000, 0.500000 1239.500000, 1752.500000 1239.500000, 1752.500000 0.500000' stroke='#808080' stroke-width='1.000000' />
+    </g>
+    <g id='Block definition'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef.BlkDef'>
+        <polyline fill='none' points='62.640607 1177.523264, 1691.296400 1177.523264, 1691.296400 70.985445, 62.640607 70.985445, 62.640607 1177.523264' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1691.296400' cy='488.554089' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <ellipse cx='62.640607' cy='467.668188' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='471.844335'>0</text>
+        <ellipse cx='62.640607' cy='509.423392' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='49.200506' y='513.599539'>1</text>
+        <ellipse cx='62.640607' cy='572.058966' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='576.235113'>2</text>
+        <ellipse cx='62.640607' cy='989.622077' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='993.798224'>3</text>
+        <ellipse cx='62.640607' cy='1031.377282' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='47.700506' y='1035.553429'>4</text>
+        <ellipse cx='62.640607' cy='1094.012855' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='48.200506' y='1098.189002'>5</text>
+      </g>
+    </g>
+    <g id='Net elements'>
+      <g id='AnnotationElem 0'>
+        <polygon fill='none' points='313.203037 175.375805, 313.203037 342.400382, 1440.733971 342.400382, 1440.733971 175.375805' stroke='#0000ff' stroke-dasharray='14.352081 14.352081' stroke-width='2.088020' />
+      </g>
+      <g id='AnnotationElem 1'>
+        <polygon fill='none' points='313.203037 634.693391, 313.203037 801.717967, 1440.733971 801.717967, 1440.733971 634.693391' stroke='#0000ff' stroke-dasharray='14.352081 14.352081' stroke-width='2.088020' />
+      </g>
+      <g id='AnnotationElem 2'>
+        <text fill='#0000ff' font-family='Arial' font-size='17.537581' font-weight='bold' text-anchor='start' x='326.669984' y='203.557540'>LFSM-O</text>
+      </g>
+      <g id='AnnotationElem 3'>
+        <text fill='#0000ff' font-family='Arial' font-size='17.537581' font-weight='bold' text-anchor='start' x='327.169984' y='662.875126'>LFSM-U</text>
+      </g>
+      <g id='AnnotationElem 4'>
+        <text fill='#0000ff' font-family='Arial' font-size='17.537581' font-weight='bold' text-anchor='start' x='342.169984' y='433.216333'>FSM</text>
+      </g>
+      <g id='AnnotationElem 5'>
+        <polygon fill='none' points='313.203037 405.034598, 313.203037 572.059174, 1440.733971 572.059174, 1440.733971 405.034598' stroke='#0000ff' stroke-dasharray='14.352081 14.352081' stroke-width='2.088020' />
+      </g>
+      <g id='AnnotationElem 6'>
+        <polygon fill='none' points='313.203037 885.230255, 313.203037 1114.889048, 1440.733971 1114.889048, 1440.733971 885.230255' stroke='#0000ff' stroke-dasharray='14.352081 14.352081' stroke-width='2.088020' />
+      </g>
+      <g id='AnnotationElem 7'>
+        <text fill='#0000ff' font-family='Arial' font-size='17.537581' font-weight='bold' text-anchor='start' x='1083.617678' y='982.895109'>Activation Logic</text>
+        <text fill='#0000ff' font-family='Arial' font-size='17.537581' font-weight='bold' text-anchor='start' x='1027.617678' y='1003.940206'>for Embedded HVDC System</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\1/(1+sT).BlkRef'>
+        <polygon fill='none' points='1545.134983 530.303030, 1545.134983 446.790742, 1628.655793 446.790742, 1628.655793 530.303030' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='1545.134983' cy='488.546886' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1628.655793' cy='488.546886' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Activate.BlkRef'>
+        <polygon fill='none' points='626.406074 759.961823, 626.406074 676.449535, 751.687289 676.449535, 751.687289 759.961823' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='626.406074' cy='718.205679' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='632.846175' y='722.381826'>0</text>
+        <ellipse cx='626.406074' cy='739.083751' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='633.846175' y='743.259898'>1</text>
+        <ellipse cx='751.687289' cy='718.205679' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Activate.BlkRef'>
+        <polygon fill='none' points='626.406074 300.644238, 626.406074 217.131949, 751.687289 217.131949, 751.687289 300.644238' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='626.406074' cy='258.888094' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='632.846175' y='263.064240'>0</text>
+        <ellipse cx='626.406074' cy='279.766166' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='633.846175' y='283.942313'>1</text>
+        <ellipse cx='751.687289' cy='258.888094' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Activate.BlkRef'>
+        <polygon fill='none' points='626.406074 530.303030, 626.406074 446.790742, 751.687289 446.790742, 751.687289 530.303030' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='626.406074' cy='488.546886' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='632.846175' y='492.723033'>0</text>
+        <ellipse cx='626.406074' cy='509.424958' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='633.846175' y='513.601105'>1</text>
+        <ellipse cx='751.687289' cy='488.546886' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Logic Embbeded HVDC.BlkRef'>
+        <polygon fill='none' points='668.166479 1052.254832, 668.166479 968.742544, 876.968504 968.742544, 876.968504 1052.254832' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='668.166479' cy='989.620616' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='674.606580' y='993.796763'>0</text>
+        <ellipse cx='668.166479' cy='1010.498688' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='675.606580' y='1014.674835'>1</text>
+        <ellipse cx='876.968504' cy='1010.498688' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef'>
+        <polygon fill='none' points='1273.692351 759.961823, 1273.692351 676.449535, 1378.093363 676.449535, 1378.093363 759.961823' stroke='#000000' stroke-width='1.670416' />
+        <polyline fill='none' points='1263.252250 770.400859, 1289.352503 770.400859, 1299.792604 759.961823' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1388.533465 666.010499, 1362.433211 666.010499, 1351.993110 676.449535' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1273.692351' cy='718.205679' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1378.093363' cy='718.205679' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef'>
+        <polygon fill='none' points='1273.692351 300.644238, 1273.692351 217.131949, 1378.093363 217.131949, 1378.093363 300.644238' stroke='#000000' stroke-width='1.670416' />
+        <polyline fill='none' points='1263.252250 311.083274, 1289.352503 311.083274, 1299.792604 300.644238' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1388.533465 206.692913, 1362.433211 206.692913, 1351.993110 217.131949' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1273.692351' cy='258.888094' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1378.093363' cy='258.888094' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef'>
+        <polygon fill='none' points='1273.692351 530.303030, 1273.692351 446.790742, 1378.093363 446.790742, 1378.093363 530.303030' stroke='#000000' stroke-width='1.670416' />
+        <polyline fill='none' points='1263.252250 540.742066, 1289.352503 540.742066, 1299.792604 530.303030' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1388.533465 436.351706, 1362.433211 436.351706, 1351.993110 446.790742' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1273.692351' cy='488.546886' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1378.093363' cy='488.546886' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef'>
+        <polygon fill='none' points='1106.650731 759.961823, 1106.650731 676.449535, 1190.171541 676.449535, 1190.171541 759.961823' stroke='#000000' stroke-width='1.670416' />
+        <polyline fill='none' points='1098.298650 770.400859, 1119.178853 770.400859, 1127.530934 759.961823' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1198.523622 666.010499, 1177.643420 666.010499, 1169.291339 676.449535' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1106.650731' cy='718.205679' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1190.171541' cy='718.205679' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef'>
+        <polygon fill='none' points='1106.650731 300.644238, 1106.650731 217.131949, 1190.171541 217.131949, 1190.171541 300.644238' stroke='#000000' stroke-width='1.670416' />
+        <polyline fill='none' points='1098.298650 311.083274, 1119.178853 311.083274, 1127.530934 300.644238' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1198.523622 206.692913, 1177.643420 206.692913, 1169.291339 217.131949' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1106.650731' cy='258.888094' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1190.171541' cy='258.888094' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef'>
+        <polygon fill='none' points='1106.650731 530.303030, 1106.650731 446.790742, 1190.171541 446.790742, 1190.171541 530.303030' stroke='#000000' stroke-width='1.670416' />
+        <polyline fill='none' points='1098.298650 540.742066, 1119.178853 540.742066, 1127.530934 530.303030' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1198.523622 436.351706, 1177.643420 436.351706, 1169.291339 446.790742' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1106.650731' cy='488.546886' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1190.171541' cy='488.546886' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Frequency Response.BlkRef'>
+        <polygon fill='none' points='835.208099 530.303030, 835.208099 446.790742, 1002.249719 446.790742, 1002.249719 530.303030' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='835.208099' cy='488.546886' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1002.249719' cy='488.546886' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Summation Point.BlkSum'>
+        <ellipse cx='1482.494376' cy='488.546886' fill='none' rx='10.440101' ry='10.439036' stroke='#000000' stroke-width='1.000000' />
+        <ellipse cx='1472.054274' cy='488.546886' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1482.494376' cy='498.985922' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1492.934477' cy='488.546886' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+        <ellipse cx='1482.494376' cy='478.107850' fill='#c0c0c0' rx='3.758436' ry='3.758053' stroke='#c0c0c0' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Input Selector.BlkRef'>
+        <polygon fill='none' points='187.921822 1052.254832, 187.921822 968.742544, 292.322835 968.742544, 292.322835 1052.254832' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='187.921822' cy='989.620616' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='194.361924' y='993.796763'>0</text>
+        <ellipse cx='187.921822' cy='1031.376760' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='195.361924' y='1035.552907'>1</text>
+        <ellipse cx='292.322835' cy='1010.498688' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Input Selector.BlkRef'>
+        <polygon fill='none' points='125.281215 530.303030, 125.281215 446.790742, 229.682227 446.790742, 229.682227 530.303030' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='125.281215' cy='467.668814' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='131.721316' y='471.844961'>0</text>
+        <ellipse cx='125.281215' cy='509.424958' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='132.721316' y='513.601105'>1</text>
+        <ellipse cx='229.682227' cy='488.546886' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Frequency Response Underfrequency.BlkRef'>
+        <polygon fill='none' points='835.208099 759.961823, 835.208099 676.449535, 1002.249719 676.449535, 1002.249719 759.961823' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='835.208099' cy='718.205679' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1002.249719' cy='718.205679' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\LFSM-U Activation.BlkRef'>
+        <polygon fill='none' points='354.963442 759.961823, 354.963442 676.449535, 522.005062 676.449535, 522.005062 759.961823' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='354.963442' cy='718.205679' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='361.403543' y='722.381826'>0</text>
+        <ellipse cx='354.963442' cy='739.083751' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='362.403543' y='743.259898'>1</text>
+        <ellipse cx='522.005062' cy='718.205679' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Frequency Response Overfrequency.BlkRef'>
+        <polygon fill='none' points='835.208099 300.644238, 835.208099 217.131949, 1002.249719 217.131949, 1002.249719 300.644238' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='835.208099' cy='258.888094' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <ellipse cx='1002.249719' cy='258.888094' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\LFSM-O Activation.BlkRef'>
+        <polygon fill='none' points='354.963442 300.644238, 354.963442 217.131949, 522.005062 217.131949, 522.005062 300.644238' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='354.963442' cy='258.888094' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='361.403543' y='263.064240'>0</text>
+        <ellipse cx='354.963442' cy='279.766166' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='362.403543' y='283.942313'>1</text>
+        <ellipse cx='522.005062' cy='258.888094' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Deadband.BlkRef'>
+        <polygon fill='none' points='396.723847 1052.254832, 396.723847 968.742544, 522.005062 968.742544, 522.005062 1052.254832' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='396.723847' cy='1010.498688' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='403.163948' y='1014.674835'>0</text>
+        <ellipse cx='396.723847' cy='1031.376760' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='404.163948' y='1035.552907'>1</text>
+        <ellipse cx='522.005062' cy='1010.498688' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Deadband.BlkRef'>
+        <polygon fill='none' points='354.963442 530.303030, 354.963442 446.790742, 480.244657 446.790742, 480.244657 530.303030' stroke='#000000' stroke-width='1.670416' />
+        <ellipse cx='354.963442' cy='488.546886' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='361.403543' y='492.723033'>0</text>
+        <ellipse cx='480.244657' cy='488.546886' fill='#ff0000' rx='3.758436' ry='3.758053' stroke='#ff0000' stroke-width='1.000000' />
+        <ellipse cx='354.963442' cy='509.424958' fill='#00bf00' rx='3.758436' ry='3.758053' stroke='#00bf00' stroke-width='1.000000' />
+        <text fill='#000000' font-family='Arial' font-size='10.439036' text-anchor='start' x='362.403543' y='513.601105'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Summation Point.BlkSum::TextBox 0'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1476.647919' y='492.054402'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Summation Point.BlkSum::TextBox 1'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1479.994376' y='495.394894'>1</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Summation Point.BlkSum::TextBox 2'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1484.170416' y='492.054402'>2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Summation Point.BlkSum::TextBox 3'>
+        <text fill='#000000' font-family='Courier New' font-size='6.680983' text-anchor='start' x='1479.494376' y='487.878788'>3</text>
+      </g>
+    </g>
+    <g id='Signals'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_fsm_unltd.BlkSig'>
+        <polyline fill='none' points='1054.450225 488.546886, 1002.249719 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1054.450225 488.546886, 1106.650731 488.546886' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f.BlkSig'>
+        <polyline fill='none' points='292.322835 488.546886, 229.682227 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='292.322835 488.546886, 354.963442 488.546886' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_sum.BlkSig'>
+        <polyline fill='none' points='1519.034730 488.546886, 1492.934477 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1519.034730 488.546886, 1545.134983 488.546886' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_slow.BlkSig'>
+        <polyline fill='none' points='93.960911 509.424640, 62.640607 509.424958' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='93.960911 509.424640, 125.281215 509.424958' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmu_ltd.BlkSig'>
+        <polyline fill='none' points='1231.931946 718.205679, 1190.171541 718.205679' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1231.931946 718.205679, 1273.692351 718.205679' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmo_ltd.BlkSig'>
+        <polyline fill='none' points='1231.931946 258.888094, 1190.171541 258.888094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1231.931946 258.888094, 1273.692351 258.888094' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\activate(2).BlkSig'>
+        <polyline fill='none' points='584.645669 843.474111, 584.645669 947.864471, 918.728909 947.864471, 918.728909 1010.498688, 876.968504 1010.498688' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='584.645669 843.474111, 584.645669 739.083751, 626.406074 739.083751' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\activate(1).BlkSig'>
+        <polyline fill='none' points='584.645669 613.815319, 584.645669 947.864471, 918.728909 947.864471, 918.728909 1010.498688, 876.968504 1010.498688' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='584.645669 613.815319, 584.645669 279.766166, 626.406074 279.766166' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_fsm(1).BlkSig'>
+        <polyline fill='none' points='542.885264 739.083751, 542.885264 488.546886, 480.244657 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='542.885264 739.083751, 542.885264 989.620616, 668.166479 989.620616' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_fast.BlkSig'>
+        <polyline fill='none' points='93.960911 467.668432, 62.640607 467.668814' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='93.960911 467.668432, 125.281215 467.668814' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\activate.BlkSig'>
+        <polyline fill='none' points='751.687289 947.864471, 918.728909 947.864471, 918.728909 1010.498688, 876.968504 1010.498688' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='751.687289 947.864471, 584.645669 947.864471, 584.645669 509.424958, 626.406074 509.424958' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmu_act.BlkSig'>
+        <polyline fill='none' points='793.447694 718.205679, 751.687289 718.205679' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='793.447694 718.205679, 835.208099 718.205679' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmo_act.BlkSig'>
+        <polyline fill='none' points='793.447694 258.888094, 751.687289 258.888094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='793.447694 258.888094, 835.208099 258.888094' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_fsm_act.BlkSig'>
+        <polyline fill='none' points='793.447694 488.546886, 751.687289 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='793.447694 488.546886, 835.208099 488.546886' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_remote.BlkSig'>
+        <polyline fill='none' points='595.085771 1010.498688, 522.005062 1010.498688' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='595.085771 1010.498688, 668.166479 1010.498688' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP.BlkSig'>
+        <polyline fill='none' points='1659.976097 488.549690, 1628.655793 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1659.976097 488.549690, 1691.296400 488.546886' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\fn_remote.BlkSig'>
+        <polyline fill='none' points='198.361924 1094.011916, 62.640607 1094.010976' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='198.361924 1094.011916, 334.083240 1094.010976, 334.083240 1031.376760, 396.723847 1031.376760' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\fn(2).BlkSig'>
+        <polyline fill='none' points='313.203037 739.083751, 271.442632 739.083751, 271.442632 572.059174, 62.640607 572.059174' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='313.203037 739.083751, 354.963442 739.083751' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_remote.BlkSig'>
+        <polyline fill='none' points='344.523341 1010.498688, 292.322835 1010.498688' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='344.523341 1010.498688, 396.723847 1010.498688' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\fn(1).BlkSig'>
+        <polyline fill='none' points='271.442632 425.912670, 271.442632 572.059174, 62.640607 572.059174' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='271.442632 425.912670, 271.442632 279.766166, 354.963442 279.766166' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_slow_remote.BlkSig'>
+        <polyline fill='none' points='125.281215 1031.377015, 62.640607 1031.376760' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 1031.377015, 187.921822 1031.376760' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_fast_remote.BlkSig'>
+        <polyline fill='none' points='125.281215 989.621348, 62.640607 989.620616' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='125.281215 989.621348, 187.921822 989.620616' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmu.BlkSig'>
+        <polyline fill='none' points='574.205568 718.205679, 522.005062 718.205679' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='574.205568 718.205679, 626.406074 718.205679' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmo.BlkSig'>
+        <polyline fill='none' points='574.205568 258.888094, 522.005062 258.888094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='574.205568 258.888094, 626.406074 258.888094' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f(2).BlkSig'>
+        <polyline fill='none' points='250.562430 603.376283, 250.562430 488.546886, 229.682227 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='250.562430 603.376283, 250.562430 718.205679, 354.963442 718.205679' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_fsm_ltd.BlkSig'>
+        <polyline fill='none' points='1231.931946 488.546886, 1190.171541 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1231.931946 488.546886, 1273.692351 488.546886' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f(1).BlkSig'>
+        <polyline fill='none' points='250.562430 373.717490, 250.562430 488.546886, 229.682227 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='250.562430 373.717490, 250.562430 258.888094, 354.963442 258.888094' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\fn.BlkSig'>
+        <polyline fill='none' points='167.041620 572.059302, 62.640607 572.059174' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='167.041620 572.059302, 271.442632 572.059174, 271.442632 509.424958, 354.963442 509.424958' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmu_unltd.BlkSig'>
+        <polyline fill='none' points='1054.450225 718.205679, 1002.249719 718.205679' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1054.450225 718.205679, 1106.650731 718.205679' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmo_unltd.BlkSig'>
+        <polyline fill='none' points='1054.450225 258.888094, 1002.249719 258.888094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1054.450225 258.888094, 1106.650731 258.888094' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmu.BlkSig'>
+        <polyline fill='none' points='1482.494376 608.595801, 1482.494376 718.205679, 1378.093363 718.205679' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1482.494376 608.595801, 1482.494376 498.985922' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmo.BlkSig'>
+        <polyline fill='none' points='1482.494376 368.497972, 1482.494376 258.888094, 1378.093363 258.888094' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1482.494376 368.497972, 1482.494376 478.107850' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_fsm.BlkSig'>
+        <polyline fill='none' points='1425.073819 488.546886, 1378.093363 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='1425.073819 488.546886, 1472.054274 488.546886' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_fsm.BlkSig'>
+        <polyline fill='none' points='553.325366 488.546886, 480.244657 488.546886' stroke='#000000' stroke-width='1.000000' />
+        <polyline fill='none' points='553.325366 488.546886, 626.406074 488.546886' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_fsm_unltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1106.650731 488.546886, 1085.770529 492.722501, 1085.770529 484.371272' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.963442 488.546886, 334.083240 492.722501, 334.083240 484.371272' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_sum.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1545.134983 488.546886, 1524.254781 492.722501, 1524.254781 484.371272' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_slow.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='125.281215 509.424958, 104.400970 513.600360, 104.401055 505.249131' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmu_ltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1273.692351 718.205679, 1252.812148 722.381293, 1252.812148 714.030064' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmo_ltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1273.692351 258.888094, 1252.812148 263.063708, 1252.812148 254.712479' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\activate(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='626.406074 739.083751, 605.525872 743.259365, 605.525872 734.908136' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\activate(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='626.406074 279.766166, 605.525872 283.941780, 605.525872 275.590551' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_fsm(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='668.166479 989.620616, 647.286277 993.796230, 647.286277 985.445001' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_fast.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='125.281215 467.668814, 104.400961 471.844174, 104.401063 463.492945' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\activate.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='626.406074 509.424958, 605.525872 513.600573, 605.525872 505.249344' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmu_act.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='835.208099 718.205679, 814.327897 722.381293, 814.327897 714.030064' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmo_act.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='835.208099 258.888094, 814.327897 263.063708, 814.327897 254.712479' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_fsm_act.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='835.208099 488.546886, 814.327897 492.722501, 814.327897 484.371272' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_remote.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='668.166479 1010.498688, 647.286277 1014.674302, 647.286277 1006.323073' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1691.296400 488.546886, 1670.416572 492.724370, 1670.415824 484.373141' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\fn_remote.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='396.723847 1031.376760, 375.843645 1035.552374, 375.843645 1027.201145' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\fn(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.963442 739.083751, 334.083240 743.259365, 334.083240 734.908136' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_remote.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='396.723847 1010.498688, 375.843645 1014.674302, 375.843645 1006.323073' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\fn(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.963442 279.766166, 334.083240 283.941780, 334.083240 275.590551' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_slow_remote.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 1031.376760, 167.041637 1035.552459, 167.041603 1027.201230' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_fast_remote.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='187.921822 989.620616, 167.041669 993.796474, 167.041571 985.445245' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmu.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='626.406074 718.205679, 605.525872 722.381293, 605.525872 714.030064' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmo.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='626.406074 258.888094, 605.525872 263.063708, 605.525872 254.712479' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f(2).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.963442 718.205679, 334.083240 722.381293, 334.083240 714.030064' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_fsm_ltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1273.692351 488.546886, 1252.812148 492.722501, 1252.812148 484.371272' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f(1).BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.963442 258.888094, 334.083240 263.063708, 334.083240 254.712479' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\fn.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='354.963442 509.424958, 334.083240 513.600573, 334.083240 505.249344' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmu_unltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1106.650731 718.205679, 1085.770529 722.381293, 1085.770529 714.030064' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmo_unltd.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1106.650731 258.888094, 1085.770529 263.063708, 1085.770529 254.712479' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmu.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1482.494376 498.985922, 1486.670416 519.863994, 1478.318335 519.863994' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmo.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1482.494376 478.107850, 1478.318335 457.229778, 1486.670416 457.229778' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_fsm.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='1472.054274 488.546886, 1451.174072 492.722501, 1451.174072 484.371272' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_fsm.BlkSig::LineAttribs'>
+        <polygon fill='#000000' points='626.406074 488.546886, 605.525872 492.722501, 605.525872 484.371272' stroke='#000000' stroke-width='1.000000' />
+      </g>
+      <g id='Cross Points'>
+        <g id='Cross Point'>
+          <ellipse cx='250.562430' cy='488.546886' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='271.442632' cy='509.424958' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='271.442632' cy='572.059174' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='542.885264' cy='488.546886' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='584.645669' cy='509.424958' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='584.645669' cy='739.083751' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+        <g id='Cross Point'>
+          <ellipse cx='250.562430' cy='488.546886' fill='#000000' rx='4.176040' ry='4.175614' stroke='#000000' stroke-width='1.000000' />
+        </g>
+      </g>
+    </g>
+    <g id='Labels'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_fsm_unltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1014.450225' y='482.451852'>dP_fsm_unltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='288.822834' y='482.451852'>f</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_sum.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1494.534730' y='482.451852'>dP_sum</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_slow.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='74.460911' y='503.329606'>f_slow</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmu_ltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1193.931946' y='712.110645'>dP_lfsmu_ltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmo_ltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1193.931946' y='252.793060'>dP_lfsmo_ltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_fast.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='77.460911' y='461.573398'>f_fast</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\activate.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='729.187289' y='941.768074'>activate</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmu_act.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='756.447694' y='712.110645'>df_lfsmu_act</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmo_act.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='756.447694' y='252.793060'>df_lfsmo_act</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_fsm_act.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='761.447694' y='482.451852'>df_fsm_act</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_remote.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='566.085770' y='1004.403654'>df_remote</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1651.476096' y='482.454656'>dP</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\fn_remote.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='168.861923' y='1087.916882'>fn_remote</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_remote.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='318.523340' y='1004.403654'>f_remote</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_slow_remote.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='82.781214' y='1025.281981'>f_slow_remote</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\f_fast_remote.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='85.281214' y='983.526315'>f_fast_remote</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmu.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='549.705568' y='712.110645'>df_lfsmu</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_lfsmo.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='549.705568' y='252.793060'>df_lfsmo</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_fsm_ltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1198.931946' y='482.451852'>dP_fsm_ltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\fn.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='161.041619' y='565.964268'>fn</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmu_unltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1009.450225' y='712.110645'>dP_lfsmu_unltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmo_unltd.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1009.450225' y='252.793060'>dP_lfsmo_unltd</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmu.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' transform='rotate(270.000000,1464.371723,636.092995)' x='1464.371723' y='648.118765'>dP_lfsmu</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_lfsmo.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' transform='rotate(270.000000,1464.370360,395.995166)' x='1464.370360' y='408.020936'>dP_lfsmo</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\dP_fsm.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1402.573818' y='482.451852'>dP_fsm</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\df_fsm.BlkSig::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='533.825365' y='482.451852'>df_fsm</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef.BlkDef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='18.790265' text-anchor='start' x='62.640607' y='49.272250'>fsm_Freq Sensitive Mode TenneT BlkDef: Frequency sensitive mode (FSM, LFSM-O, LFSM-U) with enhancement for embedded HVDC system</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\1/(1+sT).BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1562.395388' y='487.210690'>1/(1+sT)</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1557.395388' y='500.572656'>T_smooth</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Activate.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='649.546682' y='716.869482'>FSM Activate</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Activate.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='649.546682' y='257.551897'>FSM Activate</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Activate.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='649.546682' y='487.210690'>FSM Activate</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Logic Embbeded HVDC.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='687.567492' y='1009.162491'>FSM Logic Embbeded HVDC</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='722.567492' y='1022.524457'>Mode_embedded</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1278.892857' y='716.869482'>Gradient Limiter</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1278.892857' y='257.551897'>Gradient Limiter</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1278.892857' y='487.210690'>Gradient Limiter</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1127.911136' y='716.869482'>Limiter</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1127.911136' y='257.551897'>Limiter</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1127.911136' y='487.210690'>Limiter</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Frequency Response.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='856.728909' y='487.210690'>Frequency Response</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='902.228909' y='500.572656'>s1,s2</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Input Selector.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='199.122328' y='1009.162491'>Input Selector</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='215.122328' y='1022.524457'>Mode_in</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Input Selector.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='136.481721' y='487.210690'>Input Selector</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='152.481721' y='500.572656'>Mode_in</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Frequency Response Underfrequency.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='839.728909' y='716.869482'>Frequency Response Und..</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='911.228909' y='730.231448'>s4</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\LFSM-U Activation.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='383.984252' y='716.869482'>LFSM-U Activation</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='358.484252' y='730.231448'>LFSMU_on,f2_lfsmu,delay..</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Frequency Response Overfrequency.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='840.228909' y='257.551897'>Frequency Response Ove..</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='911.228909' y='270.913863'>s3</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\LFSM-O Activation.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='383.484252' y='257.551897'>LFSM-O Activation</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='357.984252' y='270.913863'>LFSMO_on,f1_lfsmo,delay..</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Deadband.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='413.864454' y='1009.162491'>FSM Deadband</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='397.864454' y='1022.524457'>FSM_on,Mode_Db,f..</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\FSM Deadband.BlkRef::TextBox 0'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='372.104049' y='487.210690'>FSM Deadband</text>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='356.104049' y='500.572656'>FSM_on,Mode_Db,f..</text>
+      </g>
+    </g>
+    <g id='Device data'>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1331.093363' y='663.004056'>ddP_lfsmu_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef::TextBox 2'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1228.692351' y='784.096874'>ddP_lfsmu_min</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1331.093363' y='203.686471'>ddP_lfsmo_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef::TextBox 2'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1228.692351' y='324.779289'>ddP_lfsmo_min</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1336.093363' y='433.345264'>ddP_fsm_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Gradient Limiter.BlkRef::TextBox 2'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1233.692351' y='554.438082'>ddP_fsm_min</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1146.671541' y='663.004056'>dP_lfsmu_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef::TextBox 2'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1102.150731' y='784.096874'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1185.671541' y='203.686471'>0</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef::TextBox 2'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1065.150731' y='324.779289'>dP_lfsmo_min</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef::TextBox 1'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1151.671541' y='433.345264'>dP_fsm_max</text>
+      </g>
+      <g id='TenneTDE\HVDCWISE\P1952-TenneT-MTHVDC-PFD1-R44-V09\Library\User Defined Models\HVDC MMC Control\fsm_Freq Sensitive Mode TenneT BlkDef\Limiter.BlkRef::TextBox 2'>
+        <text fill='#000000' font-family='Arial' font-size='13.361966' text-anchor='start' x='1070.150731' y='554.438082'>dP_fsm_min</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

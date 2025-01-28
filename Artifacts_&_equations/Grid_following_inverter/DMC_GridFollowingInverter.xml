@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_ef4abd1f-8d39-4fda-9776-8313c115675c">
+    <cim:IdentifiedObject.description>Grid-following inverter control</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ef4abd1f-8d39-4fda-9776-8313c115675c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>PQInverterControl</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_24c11678-5c2f-4a55-a56a-948008be7d7e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_808b9fa1-cf20-449d-813a-923ce474dccb"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>f_dq = ModPowerSystems.EmtThreePhase.Transforms.Functions.ABCtoDQ_Park(f_abc, theta);
+function ModPowerSystems.EmtThreePhase.Transforms.Functions.ABCtoDQ_Park
+  input Real[3] f_abc;
+  input Real theta;
+  output Real[2] f_dq;
+  protected constant Real[2, 3] K_mat = {{0.6666666666666666 * sin(theta), 0.6666666666666666 * sin(theta - 2.094395102393195), 0.6666666666666666 * sin(theta + 2.094395102393195)}, {0.6666666666666666 * cos(theta), 0.6666666666666666 * cos(theta - 2.094395102393195), 0.6666666666666666 * cos(theta + 2.094395102393195)}};
+algorithm
+  f_dq[:] := {K_mat[1,1] * f_abc[1] + K_mat[1,2] * f_abc[2] + K_mat[1,3] * f_abc[3], K_mat[2,1] * f_abc[1] + K_mat[2,2] * f_abc[2] + K_mat[2,3] * f_abc[3]};
+end ModPowerSystems.EmtThreePhase.Transforms.Functions.ABCtoDQ_Park;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Current ABC to DQ Park transformation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6d30b66c-57ba-4591-89b0-8e8f5c586c7d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Park</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_d1e54a29-659e-4395-a0e7-8289c935656d"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>I_d = I_dq[1];
+  I_q = I_dq[2];
+  der(gamma_d) = I_inv_d_con - I_d;
+  der(gamma_q) = I_inv_q_con - I_q;
+  V_dq_con[1] = Ki_cd * gamma_d + Kp_cd * der(gamma_d);
+  V_dq_con[2] = Ki_cq * gamma_q + Kp_cq * der(gamma_q);</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Current controller</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7ba012e7-b94e-4f6e-847d-2ea2992b1cd6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ModPowerSystems.EmtThreePhase.Control.CurrentCtrl</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_b012f709-5306-4315-a33e-a39d2c2de632">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_165c3aca-ef4a-4bd1-b8d3-9eda47768313"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>V_d = V_dq[1];
+  V_q = V_dq[2];
+  I_d = I_dq[1];
+  I_q = I_dq[2];
+  der(P) = (-P * omega_nom) + 1.5 * omega_nom * (V_d * I_d + V_q * I_q);
+  der(Q) = (-Q * omega_nom) + 1.5 * omega_nom * (V_q * I_d - V_d * I_q);
+  der(phi_d) = P_ref - P;
+  der(phi_q) = (-Q_ref) + Q;
+  I_inv_d_con = Ki_vd * phi_d + Kp_vd * der(phi_d);
+  I_inv_q_con = Ki_vq * phi_q + Kp_vq * der(phi_q);</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Power controller</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b012f709-5306-4315-a33e-a39d2c2de632</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ModPowerSystems.EmtThreePhase.Control.PowerCtrl</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_9a80822b-8eb9-4d1b-a77f-26e5e6beba8e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_8eaded27-7dd1-483b-8ac2-52b9a9a646f8"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>v_abc = ModPowerSystems.EmtThreePhase.Transforms.Functions.DQtoABC_Park(v_dq, theta);
+function ModPowerSystems.EmtThreePhase.Transforms.Functions.DQtoABC_Park
+  input Real[2] f_dq;
+  input Real theta;
+  output Real[3] f_abc;
+  protected constant Real[3, 2] K_mat = {{sin(theta), cos(theta)}, {sin(theta - 2.094395102393195), cos(theta - 2.094395102393195)}, {sin(theta + 2.094395102393195), cos(theta + 2.094395102393195)}};
+algorithm
+  f_abc[:] := {K_mat[1,1] * f_dq[1] + K_mat[1,2] * f_dq[2], K_mat[2,1] * f_dq[1] + K_mat[2,2] * f_dq[2], K_mat[3,1] * f_dq[1] + K_mat[3,2] * f_dq[2]};
+end ModPowerSystems.EmtThreePhase.Transforms.Functions.DQtoABC_Park;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>DQ to ABC Park transformation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9a80822b-8eb9-4d1b-a77f-26e5e6beba8e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ModPowerSystems.EmtThreePhase.Transforms.DQtoABC_Park</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_6d30b66c-57ba-4591-89b0-8e8f5c586c7d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_8bdc059b-cf65-4de8-a130-98879579d66b"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>f_dq = ModPowerSystems.EmtThreePhase.Transforms.Functions.ABCtoDQ_Park(f_abc, theta);
+function ModPowerSystems.EmtThreePhase.Transforms.Functions.ABCtoDQ_Park
+  input Real[3] f_abc;
+  input Real theta;
+  output Real[2] f_dq;
+  protected constant Real[2, 3] K_mat = {{0.6666666666666666 * sin(theta), 0.6666666666666666 * sin(theta - 2.094395102393195), 0.6666666666666666 * sin(theta + 2.094395102393195)}, {0.6666666666666666 * cos(theta), 0.6666666666666666 * cos(theta - 2.094395102393195), 0.6666666666666666 * cos(theta + 2.094395102393195)}};
+algorithm
+  f_dq[:] := {K_mat[1,1] * f_abc[1] + K_mat[1,2] * f_abc[2] + K_mat[1,3] * f_abc[3], K_mat[2,1] * f_abc[1] + K_mat[2,2] * f_abc[2] + K_mat[2,3] * f_abc[3]};
+end ModPowerSystems.EmtThreePhase.Transforms.Functions.ABCtoDQ_Park;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Voltage ABC to DQ Park transformation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6d30b66c-57ba-4591-89b0-8e8f5c586c7d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Park</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_41c77d68-cf6a-462a-8194-956d697dc3a2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_659d3958-31aa-45bc-bb68-889135e32789"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>  V_dq = ModPowerSystems.EmtThreePhase.Transforms.Functions.ABCtoDQ_Park(V_abc, theta);
+  der(theta) = omega;
+  omega = omega_nom + Kp_pll * der(phi_pll) + Ki_pll * phi_pll + Kd_pll * der(V_dq[2]);
+  der(phi_pll) = V_dq[2];
+  freq = omega / 6.283185307179586;
+ function ModPowerSystems.EmtThreePhase.Transforms.Functions.ABCtoDQ_Park
+  input Real[3] f_abc;
+  input Real theta;
+  output Real[2] f_dq;
+  protected constant Real[2, 3] K_mat = {{0.6666666666666666 * sin(theta), 0.6666666666666666 * sin(theta - 2.094395102393195), 0.6666666666666666 * sin(theta + 2.094395102393195)}, {0.6666666666666666 * cos(theta), 0.6666666666666666 * cos(theta - 2.094395102393195), 0.6666666666666666 * cos(theta + 2.094395102393195)}};
+algorithm
+  f_dq[:] := {K_mat[1,1] * f_abc[1] + K_mat[1,2] * f_abc[2] + K_mat[1,3] * f_abc[3], K_mat[2,1] * f_abc[1] + K_mat[2,2] * f_abc[2] + K_mat[2,3] * f_abc[3]};
+end ModPowerSystems.EmtThreePhase.Transforms.Functions.ABCtoDQ_Park;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>  theta=0;
+  omega=omega_nom;</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Phase locked loop</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>41c77d68-cf6a-462a-8194-956d697dc3a2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ModPowerSystems.EmtThreePhase.Measurements.PLL</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_8eaded27-7dd1-483b-8ac2-52b9a9a646f8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for ModPowerSystems.EmtThreePhase.Transforms.DQtoABC_Park</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8eaded27-7dd1-483b-8ac2-52b9a9a646f8</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b459837e-e7ad-46c6-b3b3-75a5c7acbe48"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d53cc6ce-1d7a-4aab-9570-449aa8053d88"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_94956da9-7dc3-4a23-867b-2258705a1652"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_b8eb8c0a-a77e-426e-9d5a-eaa8dc4e2436"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_bce65de8-a13f-4988-9946-8d66a786d60f"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_2299c4d7-b67d-40c6-9556-2f2b3e4563a4"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_d1e54a29-659e-4395-a0e7-8289c935656d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for ModPowerSystems.EmtThreePhase.Control.CurrentCtrl</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d1e54a29-659e-4395-a0e7-8289c935656d</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_927c3874-d110-42ca-a6aa-e01e6a84de5d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_500c817b-f9ea-4c41-bd32-90798bc288be"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_59c373f7-ed71-4623-a375-a917ecbe48fb"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1bd352ba-aab7-4571-a49a-b8193dc9fc9d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_b459837e-e7ad-46c6-b3b3-75a5c7acbe48"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_d53cc6ce-1d7a-4aab-9570-449aa8053d88"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_165c3aca-ef4a-4bd1-b8d3-9eda47768313">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for ModPowerSystems.EmtThreePhase.Control.PowerCtrl</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>165c3aca-ef4a-4bd1-b8d3-9eda47768313</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b835556d-f2be-4e45-93bf-d834a348726d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_22a5a67e-7a8e-4d4b-91e3-8c3f29812b23"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_500c817b-f9ea-4c41-bd32-90798bc288be"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1bd352ba-aab7-4571-a49a-b8193dc9fc9d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_59c373f7-ed71-4623-a375-a917ecbe48fb"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_927c3874-d110-42ca-a6aa-e01e6a84de5d"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_808b9fa1-cf20-449d-813a-923ce474dccb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Park</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>808b9fa1-cf20-449d-813a-923ce474dccb</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_7dfc6554-6135-4a33-9453-a3cc639648b6"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_94956da9-7dc3-4a23-867b-2258705a1652"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_92481718-d5d1-4e5f-9256-59e35680e782"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_eaa35928-29e2-4edb-8173-676aff6691b4"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_1bd352ba-aab7-4571-a49a-b8193dc9fc9d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_500c817b-f9ea-4c41-bd32-90798bc288be"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_8bdc059b-cf65-4de8-a130-98879579d66b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Park</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8bdc059b-cf65-4de8-a130-98879579d66b</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0bd05dc2-efd5-4d76-8d41-d2500cc47b49"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_4b1410e4-3958-4a8c-8289-b3d6b57cfc65"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_657203b4-f466-44b4-b984-a759c773e7d2"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_94956da9-7dc3-4a23-867b-2258705a1652"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_22a5a67e-7a8e-4d4b-91e3-8c3f29812b23"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_b835556d-f2be-4e45-93bf-d834a348726d"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_659d3958-31aa-45bc-bb68-889135e32789">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for ModPowerSystems.EmtThreePhase.Measurements.PLL block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>659d3958-31aa-45bc-bb68-889135e32789</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_657203b4-f466-44b4-b984-a759c773e7d2"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_4b1410e4-3958-4a8c-8289-b3d6b57cfc65"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0bd05dc2-efd5-4d76-8d41-d2500cc47b49"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_94956da9-7dc3-4a23-867b-2258705a1652"/>
+  </cim:InputOutputDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b104d054-4cc7-45be-8f04-73ae33969b06">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter v_abc[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b104d054-4cc7-45be-8f04-73ae33969b06</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>v_abc[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9a80822b-8eb9-4d1b-a77f-26e5e6beba8e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>63.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4d2fe6d2-5358-42d8-831d-9c47de3ef9f8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter v_abc[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4d2fe6d2-5358-42d8-831d-9c47de3ef9f8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>v_abc[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9a80822b-8eb9-4d1b-a77f-26e5e6beba8e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>64.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ed6d597d-edc7-4e3d-98b0-bc7e77fa4cbb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter v_dq[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ed6d597d-edc7-4e3d-98b0-bc7e77fa4cbb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>v_dq[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9a80822b-8eb9-4d1b-a77f-26e5e6beba8e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>61.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_22879945-2e6f-4c27-8054-7bcbfaa7c832">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_d</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>22879945-2e6f-4c27-8054-7bcbfaa7c832</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>59.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ad9d4d06-089c-4a80-8b78-9b6a9a7425a7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Kp_cd</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ad9d4d06-089c-4a80-8b78-9b6a9a7425a7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kp_cd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>54.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_1a1af48c-7477-4a0a-a12e-8b988cb2d0c8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_inv_d_con</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1a1af48c-7477-4a0a-a12e-8b988cb2d0c8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_inv_d_con</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>47.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_cb15587f-7c4f-4f52-bed0-a99ea166d6e7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Q_ref</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cb15587f-7c4f-4f52-bed0-a99ea166d6e7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Q_ref</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>38.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c1333efb-4bd1-4603-9394-903409751b02">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter f_abc[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c1333efb-4bd1-4603-9394-903409751b02</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_abc[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_24c11678-5c2f-4a55-a56a-948008be7d7e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>22.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3adb3ffd-125e-4ae8-824e-60c02cd4abc2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Ki_cd</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3adb3ffd-125e-4ae8-824e-60c02cd4abc2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Ki_cd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>53.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4defc5c1-b140-4c73-a6a1-4698eea972c1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter V_dq[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4defc5c1-b140-4c73-a6a1-4698eea972c1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_dq[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>13.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_85e295da-beb5-41ba-9423-bfd1c04d661a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter V_abc[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>85e295da-beb5-41ba-9423-bfd1c04d661a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_abc[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_648c964b-ef8e-47f5-84cd-05729abcadff">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_dq[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>648c964b-ef8e-47f5-84cd-05729abcadff</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_dq[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>52.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_413fa222-f35e-439c-9ffb-ed2671405a70">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_dq[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>413fa222-f35e-439c-9ffb-ed2671405a70</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_dq[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>28.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4c0f4223-161d-4be2-b8cd-95e565a707b1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter f_abc[3]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4c0f4223-161d-4be2-b8cd-95e565a707b1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_abc[3]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_6d30b66c-57ba-4591-89b0-8e8f5c586c7d"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>18.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_776971e2-55f0-4a35-aa41-7e122d3390b1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter f_abc[3]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>776971e2-55f0-4a35-aa41-7e122d3390b1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_abc[3]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_24c11678-5c2f-4a55-a56a-948008be7d7e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>24.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e01a514b-2d82-4bd0-a1c7-01d720989fd1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_q</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e01a514b-2d82-4bd0-a1c7-01d720989fd1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>60.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d7b6a695-7ef6-48d5-aa88-c85cb58f799e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Kp_pll</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d7b6a695-7ef6-48d5-aa88-c85cb58f799e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kp_pll</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>7.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_36035654-5f56-4f50-8824-359b95c80098">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter f_dq[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>36035654-5f56-4f50-8824-359b95c80098</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_dq[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_6d30b66c-57ba-4591-89b0-8e8f5c586c7d"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>14.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d4c53574-4709-409d-b761-9a77197b1e98">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Kp_vd</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d4c53574-4709-409d-b761-9a77197b1e98</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kp_vd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>39.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9ac3f3df-79d6-43c1-9688-a3174b9014b9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter V_dq_con[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9ac3f3df-79d6-43c1-9688-a3174b9014b9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_dq_con[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>49.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ce80fae2-f9c5-4dfc-bb78-8f49384636c9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Kp_cq</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ce80fae2-f9c5-4dfc-bb78-8f49384636c9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kp_cq</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>56.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_478e2e9d-3394-4919-95c6-65067f524795">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Ki_vq</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>478e2e9d-3394-4919-95c6-65067f524795</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Ki_vq</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>42.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_66643f8d-5be2-47b6-9354-a4440bddde3e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Kp_vq</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>66643f8d-5be2-47b6-9354-a4440bddde3e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kp_vq</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>41.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_773ceb1f-007c-4725-a71a-7dd364ac98c3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_q</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>773ceb1f-007c-4725-a71a-7dd364ac98c3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>44.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0d56d413-eee4-427c-bd4d-63d252484360">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter f_dq[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0d56d413-eee4-427c-bd4d-63d252484360</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_dq[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_24c11678-5c2f-4a55-a56a-948008be7d7e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>20.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d9f8a11a-a8cf-43eb-b1d2-42c0f9d1219a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Kd_pll</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d9f8a11a-a8cf-43eb-b1d2-42c0f9d1219a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kd_pll</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>9.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_32304f4c-f84e-4469-8875-55a735f345d3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter omega_nom</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>32304f4c-f84e-4469-8875-55a735f345d3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>omega_nom</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>6.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8f14f9aa-8f7e-4358-9aa1-2e8a0b352b3f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_dq[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8f14f9aa-8f7e-4358-9aa1-2e8a0b352b3f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_dq[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>29.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_35364459-b7ca-4bbb-8784-9f7a6b6215cb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter V_dq[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>35364459-b7ca-4bbb-8784-9f7a6b6215cb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_dq[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>26.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d3f34555-4645-4934-bb1a-792fc6821891">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter v_abc[3]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d3f34555-4645-4934-bb1a-792fc6821891</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>v_abc[3]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9a80822b-8eb9-4d1b-a77f-26e5e6beba8e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>65.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b31abeb0-bf25-4ed5-af40-5260f410fca6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter f_dq[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b31abeb0-bf25-4ed5-af40-5260f410fca6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_dq[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_24c11678-5c2f-4a55-a56a-948008be7d7e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>21.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8d0f4fed-e3e7-4f3e-937d-358cb0f4811b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter V_dq[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8d0f4fed-e3e7-4f3e-937d-358cb0f4811b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_dq[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>12.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e2317567-521a-41e6-a6be-7dca391fef69">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter theta</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e2317567-521a-41e6-a6be-7dca391fef69</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9a80822b-8eb9-4d1b-a77f-26e5e6beba8e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>66.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_28f548e5-abe2-47a5-a926-326e44703cba">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter P</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>28f548e5-abe2-47a5-a926-326e44703cba</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>P</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>33.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ca4f3ebd-2ae1-46b9-9ab4-9c6b55088f90">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter f_dq[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ca4f3ebd-2ae1-46b9-9ab4-9c6b55088f90</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_dq[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_6d30b66c-57ba-4591-89b0-8e8f5c586c7d"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>15.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_86ed52d4-dd89-44b9-8e99-ff489e2669f2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter f_abc[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>86ed52d4-dd89-44b9-8e99-ff489e2669f2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_abc[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_24c11678-5c2f-4a55-a56a-948008be7d7e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>23.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_25795b4e-106a-4fab-a100-9a6eed9c740d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter phi_d</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>25795b4e-106a-4fab-a100-9a6eed9c740d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>phi_d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>35.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c74505a5-9073-49f5-93d2-636f0304e883">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_inv_q_con</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c74505a5-9073-49f5-93d2-636f0304e883</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_inv_q_con</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>48.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_caf5317c-67ca-4181-b446-efb2532bbb38">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Ki_vd</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>caf5317c-67ca-4181-b446-efb2532bbb38</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Ki_vd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>40.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e1750afa-7477-4b2f-a12c-371a925bc5e4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter gamma_d</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e1750afa-7477-4b2f-a12c-371a925bc5e4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>gamma_d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>57.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4d6069cf-0467-4419-ad3a-69c15d56ccc2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter omega_nom</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4d6069cf-0467-4419-ad3a-69c15d56ccc2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>omega_nom</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>32.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a4626790-a5cc-49e7-ae71-f62ef9e09539">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter v_dq[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a4626790-a5cc-49e7-ae71-f62ef9e09539</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>v_dq[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9a80822b-8eb9-4d1b-a77f-26e5e6beba8e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>62.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_061032a0-a66c-4709-96ab-c5e5b399fdeb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter V_dq_con[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>061032a0-a66c-4709-96ab-c5e5b399fdeb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_dq_con[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>50.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_2a8a85fe-656f-444f-8c14-a6206dd2a678">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter gamma_q</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2a8a85fe-656f-444f-8c14-a6206dd2a678</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>gamma_q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>58.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d5453cea-3b0a-4a9e-8f16-7ab103a654e4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter theta</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d5453cea-3b0a-4a9e-8f16-7ab103a654e4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_6d30b66c-57ba-4591-89b0-8e8f5c586c7d"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>19.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_6ba6c487-ee54-42f0-ac28-93eb72225a1d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter theta</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6ba6c487-ee54-42f0-ac28-93eb72225a1d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_24c11678-5c2f-4a55-a56a-948008be7d7e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>25.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e9dab326-320d-42b1-b920-429f6824a093">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter P_ref</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e9dab326-320d-42b1-b920-429f6824a093</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>P_ref</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>37.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d669c975-d0f6-4bed-b1e4-326132c52b17">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter freq</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d669c975-d0f6-4bed-b1e4-326132c52b17</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>freq</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>11.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_36a463de-40cf-46d3-97b9-2f63be9ebf63">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter f_abc[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>36a463de-40cf-46d3-97b9-2f63be9ebf63</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_abc[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_6d30b66c-57ba-4591-89b0-8e8f5c586c7d"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>17.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a57a8ef8-78d7-4a22-b6c5-77ca86fd1907">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Ki_cq</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a57a8ef8-78d7-4a22-b6c5-77ca86fd1907</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Ki_cq</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>55.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e14d21a6-4140-4c07-9719-77a4ed00891a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter omega</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e14d21a6-4140-4c07-9719-77a4ed00891a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>omega</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>5.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9709315c-610e-473b-8bab-e57a943d0e3b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_inv_d_con</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9709315c-610e-473b-8bab-e57a943d0e3b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_inv_d_con</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>30.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7b20a231-ca59-4112-a740-8efc9af97b0f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter phi_q</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7b20a231-ca59-4112-a740-8efc9af97b0f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>phi_q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>36.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_93d7ba5f-d0e0-4235-94dd-0bcab20d6689">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter V_dq[2]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>93d7ba5f-d0e0-4235-94dd-0bcab20d6689</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_dq[2]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>27.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d832ff1f-cbe7-48c6-bffa-b29d675162f3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter V_q</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d832ff1f-cbe7-48c6-bffa-b29d675162f3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>46.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e9be3d3d-7ffb-4a84-9f84-9ab7d0f585eb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_d</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e9be3d3d-7ffb-4a84-9f84-9ab7d0f585eb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>43.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_07f42442-44ff-46a0-8e3b-d453fb83ec1f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Ki_pll</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>07f42442-44ff-46a0-8e3b-d453fb83ec1f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Ki_pll</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>8.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ebf6cede-7102-4aeb-a4f5-c6e5b7a93712">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter V_d</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ebf6cede-7102-4aeb-a4f5-c6e5b7a93712</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>45.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b0a6e849-1029-4feb-85ce-30cbf0ce18ed">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter f_abc[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b0a6e849-1029-4feb-85ce-30cbf0ce18ed</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_abc[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_6d30b66c-57ba-4591-89b0-8e8f5c586c7d"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>16.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_810831db-074d-4b27-92b8-4f9ae52b6da2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_inv_q_con</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>810831db-074d-4b27-92b8-4f9ae52b6da2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_inv_q_con</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>31.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_81fc0682-6d1b-45ff-ab52-2778147b12fd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter phi_pll</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>81fc0682-6d1b-45ff-ab52-2778147b12fd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>phi_pll</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>10.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d3acd636-8096-40ad-a20d-b0d470790e8e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter Q</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d3acd636-8096-40ad-a20d-b0d470790e8e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b012f709-5306-4315-a33e-a39d2c2de632"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>34.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f6293570-2b62-49ab-abe7-4124d0484a96">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter theta</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f6293570-2b62-49ab-abe7-4124d0484a96</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>4.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a170f465-bc79-4c51-810b-0c9a97dd28c6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter I_dq[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a170f465-bc79-4c51-810b-0c9a97dd28c6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_dq[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7ba012e7-b94e-4f6e-847d-2ea2992b1cd6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>51.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5e31cecc-dba4-4ee7-ad14-cbf23149e46d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter V_abc[3]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5e31cecc-dba4-4ee7-ad14-cbf23149e46d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_abc[3]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5fbcc5f6-3a83-4209-bd92-44e7e004ee4c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Parameter V_abc[1]</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5fbcc5f6-3a83-4209-bd92-44e7e004ee4c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_abc[1]</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41c77d68-cf6a-462a-8194-956d697dc3a2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b459837e-e7ad-46c6-b3b3-75a5c7acbe48">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal V_dq_con[2] for ModPowerSystems.EmtThreePhase.Control.CurrentCtrlblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b459837e-e7ad-46c6-b3b3-75a5c7acbe48</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_dq_con[2]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_22a5a67e-7a8e-4d4b-91e3-8c3f29812b23">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal v_dq[1] for Voltage ABC to DQ Park transformationblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>22a5a67e-7a8e-4d4b-91e3-8c3f29812b23</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>v_dq[1]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_59c373f7-ed71-4623-a375-a917ecbe48fb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal I_inv_q_con for ModPowerSystems.EmtThreePhase.Control.PowerCtrlblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>59c373f7-ed71-4623-a375-a917ecbe48fb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_inv_q_con</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b835556d-f2be-4e45-93bf-d834a348726d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal v_dq[2] for Voltage ABC to DQ Park transformationblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b835556d-f2be-4e45-93bf-d834a348726d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>v_dq[2]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_657203b4-f466-44b4-b984-a759c773e7d2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Input signal V_abc[3] for ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>657203b4-f466-44b4-b984-a759c773e7d2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_abc[3]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_94956da9-7dc3-4a23-867b-2258705a1652">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal theta for ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>94956da9-7dc3-4a23-867b-2258705a1652</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_500c817b-f9ea-4c41-bd32-90798bc288be">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal i_dq[2] for ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>500c817b-f9ea-4c41-bd32-90798bc288be</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i_dq[2]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1bd352ba-aab7-4571-a49a-b8193dc9fc9d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal i_dq[1] for ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1bd352ba-aab7-4571-a49a-b8193dc9fc9d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i_dq[1]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_4b1410e4-3958-4a8c-8289-b3d6b57cfc65">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Input signal V_abc[2] for ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4b1410e4-3958-4a8c-8289-b3d6b57cfc65</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_abc[2]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_bce65de8-a13f-4988-9946-8d66a786d60f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal v_abc[1] for ModPowerSystems.EmtThreePhase.Transforms.DQtoABC_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bce65de8-a13f-4988-9946-8d66a786d60f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>v_abc[1]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_92481718-d5d1-4e5f-9256-59e35680e782">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Input signal I_abc[1] for ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>92481718-d5d1-4e5f-9256-59e35680e782</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_abc[1]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_eaa35928-29e2-4edb-8173-676aff6691b4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Input signal I_abc[3] for ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>eaa35928-29e2-4edb-8173-676aff6691b4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_abc[3]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_0bd05dc2-efd5-4d76-8d41-d2500cc47b49">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Input signal V_abc[1] for ModPowerSystems.EmtThreePhase.Measurements.PLLblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0bd05dc2-efd5-4d76-8d41-d2500cc47b49</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_abc[1]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_d53cc6ce-1d7a-4aab-9570-449aa8053d88">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal V_dq_con[1] for ModPowerSystems.EmtThreePhase.Control.CurrentCtrlblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d53cc6ce-1d7a-4aab-9570-449aa8053d88</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>V_dq_con[1]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_beeefb9b-488d-4eec-9972-cc3cd25bfb70">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal omega for ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>beeefb9b-488d-4eec-9972-cc3cd25bfb70</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>omega</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_2299c4d7-b67d-40c6-9556-2f2b3e4563a4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal v_abc[3] for ModPowerSystems.EmtThreePhase.Transforms.DQtoABC_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2299c4d7-b67d-40c6-9556-2f2b3e4563a4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>v_abc[3]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_927c3874-d110-42ca-a6aa-e01e6a84de5d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal I_inv_d_con for ModPowerSystems.EmtThreePhase.Transforms.DQtoABC_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>927c3874-d110-42ca-a6aa-e01e6a84de5d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_inv_d_con</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b8eb8c0a-a77e-426e-9d5a-eaa8dc4e2436">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Output signal v_abc[2] for ModPowerSystems.EmtThreePhase.Transforms.DQtoABC_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b8eb8c0a-a77e-426e-9d5a-eaa8dc4e2436</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>v_abc[2]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_7dfc6554-6135-4a33-9453-a3cc639648b6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_ef4abd1f-8d39-4fda-9776-8313c115675c"/>
+    <cim:IdentifiedObject.description>Input signal I_abc[2] for ModPowerSystems.EmtThreePhase.Transforms.ABCtoDQ0_Parkblock</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7dfc6554-6135-4a33-9453-a3cc639648b6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>I_abc[2]</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+</rdf:RDF>
