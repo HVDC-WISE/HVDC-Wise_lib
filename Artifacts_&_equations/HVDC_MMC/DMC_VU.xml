@@ -1,0 +1,1140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_e7eb2061-25b7-4840-abfd-be2cde9c1d2c">
+    <cim:IdentifiedObject.description>HVDC MMC control frame for balanced and unbalanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7eb2061-25b7-4840-abfd-be2cde9c1d2c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>HVDC MMC Control (TenneT)</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_fe5941dd-dbed-49ea-9878-bf787e30a909">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_2abda570-8a4a-49c6-9eea-43297e366b8b"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Voltage_Unbalance_Control_Gain_4
+
+equation
+	yo = Selfix(Balanced(), 0.0, K*yi);
+	
+end Voltage_Unbalance_Control_Gain_4;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Gain in unbalanced simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fe5941dd-dbed-49ea-9878-bf787e30a909</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Gain 4</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_8b2a3e08-0036-4af1-a7dd-0e62d1294c37">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_b78dcd73-8468-4384-bc14-c74fa31ac409"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Voltage_Unbalance_Control_First_order_lag_block
+
+equation
+	// First order lag block with time constant T
+	der(x)=Selfix(Balanced(), 0.0, ((yi-x)/max(0.000001,T)));
+	yo=Selfix(Balanced(), 0.0, x);
+
+end Voltage_Unbalance_Control_First_order_lag_block;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>First order lag block (PT1) in unbalanced RMS/EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8b2a3e08-0036-4af1-a7dd-0e62d1294c37</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control First order lag block</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_65a608fb-0e33-448f-a4c4-709694dd34e4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_04436dac-117e-4b1f-97c4-6fc2c79f30a6"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Voltage_Unbalance_Control_Gain_1
+
+equation
+	yo = Selfix(Balanced(), 0.0, K*yi);
+	
+end Voltage_Unbalance_Control_Gain_1;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Gain in unbalanced simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>65a608fb-0e33-448f-a4c4-709694dd34e4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Gain 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_94f067fe-b742-4581-b554-e5ade88f37ce">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_9b1a4145-e151-4e50-9c91-cb882fb7e6ab"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Voltage_Unbalance_Control_Gain_5
+
+equation
+	yo = Selfix(Balanced(), 0.0, K*yi);
+	
+end Voltage_Unbalance_Control_Gain_5;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Gain in unbalanced simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>94f067fe-b742-4581-b554-e5ade88f37ce</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Gain 5</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_e041a02b-6d69-4a6e-b9be-bd83db334377">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_818d63f6-031f-46a3-9126-d3984842b2f7"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Voltage_Unbalance_Control_Gain_3
+
+equation
+	yo = Selfix(Balanced(), 0.0, K*yi);
+	
+end Voltage_Unbalance_Control_Gain_3;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Gain in unbalanced simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e041a02b-6d69-4a6e-b9be-bd83db334377</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Gain 3</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_574ef869-d3bf-42a0-97e2-f7c425dad56a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_eb784fbe-f543-4e01-b7a6-2ed76db96e60"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Voltage_Unbalance_Control_Output_Selector_2
+
+equation
+	yo = Select(block, 0.0, (Selfix((Mode&gt;1.5), yi2, (Selfix((Mode&gt;0.5), yi1, yi0)))));
+	
+end Voltage_Unbalance_Control_Output_Selector_2;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Output Selector</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>574ef869-d3bf-42a0-97e2-f7c425dad56a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Output Selector 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_38043fce-6873-4467-b455-cffb57d394d2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_0bc45871-2841-4ee0-8239-bdcefda2a467"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Voltage_Unbalance_Control_Output_Selector_1
+
+equation
+	yo = Select(block, 0.0, (Selfix((Mode&gt;1.5), yi2, (Selfix((Mode&gt;0.5), yi1, yi0)))));
+	
+end Voltage_Unbalance_Control_Output_Selector_1;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Output Selector</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>38043fce-6873-4467-b455-cffb57d394d2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Output Selector 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_eb03fd30-3594-456c-b085-dfbb9d553bf7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_ae327984-c519-44e9-b130-dca68f50fe00"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Voltage_Unbalance_Control_PI_controller
+
+equation
+	freeze_xi = Flipflop(block or FRT or i2Q_in_limit, (not block) and (not i2Q_in_limit) and (not FRT));
+	der(xi)  = Selfix(Balanced(), 0.0, Select(freeze_xi, 0.0, Ki*yin));
+	yout = Selfix(Balanced(), 0.0, PIcontrol(xi,-ymax,ymax,Kp*yin));
+
+end Voltage_Unbalance_Control_PI_controller;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;
+
+function Flipflop
+	input  Boolean boolset;
+	input  Boolean boolreset;
+	output Boolean state;
+algorithm
+	if (boolset = true) and (boolreset = false) then
+		state := true;
+	end if;
+	if (boolset = false) and (boolreset = true) then
+		state := false;
+	end if;	
+end Flipflop;
+
+function PIcontrol
+	input Real state;
+	input Real min;
+	input Real max;
+	input Real prop_input;
+	output Real yo;
+algorithm
+	if (prop_input + state &lt; min) then
+		yo = min;
+	end if;
+	else if (prop_input + state &gt; max) then
+		yo = max;
+	else
+		yo = prop_input + state;
+	end if;	
+end PIcontrol;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Boolean freeze_xi (start = Selfix (block or FRT or i2Q_in_limit, 1, 0));</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>PI controller in unbalanced RMS/EMT simulation with anti-windup limit and integrator freeze mode</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>eb03fd30-3594-456c-b085-dfbb9d553bf7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control PI controller</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_76d5cc57-8be5-4117-8153-f8b7462cc6d6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_2f2ffadc-ef8d-4fb2-8856-4300e72461e6"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real i2P_ref;
+    if noEvent(abs(i2P_ref))) &lt; 1e-6 then
+    i2P_ref = 0;
+end if;
+Real i2Q_ref;
+    if noEvent(abs(i2Q_ref))) &lt; 1e-6 then
+    i2Q_ref = 0;
+end if;
+Real u2d;
+    if noEvent(abs(u2d))) &lt; 1e-6 then
+    u2d = 0;
+end if;
+Real u2q;
+    if noEvent(abs(u2q))) &lt; 1e-6 then
+    u2q = 0;
+end if;
+Boolean block;
+    if noEvent(abs(block))) &lt; 1e-6 then
+    block = 0;
+end if;
+Boolean FRT;
+    if noEvent(abs(FRT))) &lt; 1e-6 then
+    FRT = 0;
+end if;
+Boolean i2Q_in_limit;
+    if noEvent(abs(i2Q_in_limit))) &lt; 1e-6 then
+    i2Q_in_limit = 0;
+end if;
+Real xi (start =  i2Q_ref);
+Real xdroop (start =  X2*i2Q_ref);
+Real u2d_ref (start = Selfix(Balanced(), 0.0, Selfix(Mode&gt;1.5, u2d+X2*i2Q_ref, Selfix(Mode&gt;0.5, Selfix(abs(B2)&gt;0.000001, u2d + i2Q_ref/B2,    Selfix(abs(G2)&gt;0.000001, u2d + i2P_ref/G2, 0.0)), 0.0))));
+Real u2q_ref (start = Selfix(Balanced(), 0.0, u2q));</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Voltage Unbalance Control</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>76d5cc57-8be5-4117-8153-f8b7462cc6d6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_5155bd9d-c4e8-4b04-9164-20137e8e0de8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_7d066bbb-4300-4cd8-a57c-c2fa3e64926d"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Voltage_Unbalance_Control_Gain_2
+
+equation
+	yo = Selfix(Balanced(), 0.0, K*yi);
+	
+end Voltage_Unbalance_Control_Gain_2;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Gain in unbalanced simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5155bd9d-c4e8-4b04-9164-20137e8e0de8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Gain 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_9541b5aa-48c5-49e4-8871-6e7a4c48a149">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_53b52e2a-5728-49e0-bc07-5001824aeeba"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Voltage_Unbalance_Control_Input_Selector
+
+equation
+	yo = Selfix((Mode&gt;1.5), yi2, Selfix((Mode&gt;0.5), yi1, yi0));
+	
+end Voltage_Unbalance_Control_Input_Selector;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Input Selector</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9541b5aa-48c5-49e4-8871-6e7a4c48a149</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Input Selector</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_04436dac-117e-4b1f-97c4-6fc2c79f30a6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Gain 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>04436dac-117e-4b1f-97c4-6fc2c79f30a6</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1548c323-5211-4bff-8923-d8f2660cfc98"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ec2ebd2b-fa51-4d57-b7cd-7689f27fdfdb"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_2f2ffadc-ef8d-4fb2-8856-4300e72461e6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2f2ffadc-ef8d-4fb2-8856-4300e72461e6</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c7b4feb4-52de-45eb-b507-43ab86b82638"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ea687411-a876-49c0-b3b5-23000091d1a3"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_be74f48f-918d-413f-80bc-2b6731fc8226"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_2e4ce431-4f8a-408a-b4c5-b00d9932b1fd"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_cfaf5e67-075b-4e71-ba97-aa5d25f6c349"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f91c7972-619d-46f8-8fe9-b8d9f3d32043"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ad41f841-c263-4145-99e8-3075173d6f34"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e0fe68a4-20b5-463b-881b-30dfe093945c"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ac3497c6-31d1-4465-9dad-91aa8dbc7af1"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_b37bf308-cd2c-4230-becf-9f1537037bb3"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_ae327984-c519-44e9-b130-dca68f50fe00">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control PI controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ae327984-c519-44e9-b130-dca68f50fe00</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_27d8e2db-53f3-4510-8a7d-1eab1a456952"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_be74f48f-918d-413f-80bc-2b6731fc8226"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f91c7972-619d-46f8-8fe9-b8d9f3d32043"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c7b4feb4-52de-45eb-b507-43ab86b82638"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_1548c323-5211-4bff-8923-d8f2660cfc98"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_53b52e2a-5728-49e0-bc07-5001824aeeba">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Input Selector block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>53b52e2a-5728-49e0-bc07-5001824aeeba</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1ba1ace0-335f-4df2-a2ef-2150bcbe06e0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ebaeafd2-4c85-4325-8e7d-e3451458108e"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c8843862-1d24-495a-8ef5-41f2c462bc7f"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_01e61cd0-aa3c-4ba9-a6ee-dd38945be6b2"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_818d63f6-031f-46a3-9126-d3984842b2f7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Gain 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>818d63f6-031f-46a3-9126-d3984842b2f7</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1ba1ace0-335f-4df2-a2ef-2150bcbe06e0"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_53c51921-1b9a-4f32-ab0b-78738376268d"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_2abda570-8a4a-49c6-9eea-43297e366b8b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Gain 4 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2abda570-8a4a-49c6-9eea-43297e366b8b</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0a292986-4383-4cab-8201-876d0606d398"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_bb8bddbb-a895-4ca9-91a8-105b89b1431b"/>
+  </cim:InputOutputDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_ae8e4feb-ff33-4799-8fde-3b72907e001e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Summation Operator 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ae8e4feb-ff33-4799-8fde-3b72907e001e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Summation Operator 1</cim:IdentifiedObject.name>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_2e4ce431-4f8a-408a-b4c5-b00d9932b1fd"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ad41f841-c263-4145-99e8-3075173d6f34"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_1ba1ace0-335f-4df2-a2ef-2150bcbe06e0"/>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_088fb446-f6c4-46ae-b191-f7eff01a1d4a"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+    <rdf:type rdf:resource="#http://cim.ucaiug.io/ns#InputOutputDescriptor"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_deae793f-ffa9-4a7b-af0c-027e32f40570">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Summation Operator 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.description>Summation Point(3)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>deae793f-ffa9-4a7b-af0c-027e32f40570</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Summation Operator 5</cim:IdentifiedObject.name>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ab0c16a7-d033-4181-8240-08aa698d4ab2"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_53c51921-1b9a-4f32-ab0b-78738376268d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_d7138093-09a8-48bb-97de-ce44081cc295"/>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_7c1f548c-5151-4a64-9a58-a713fda2a3a5"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+    <rdf:type rdf:resource="#http://cim.ucaiug.io/ns#InputOutputDescriptor"/>
+  </cim:OperatorDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_7d066bbb-4300-4cd8-a57c-c2fa3e64926d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Gain 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7d066bbb-4300-4cd8-a57c-c2fa3e64926d</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1ba1ace0-335f-4df2-a2ef-2150bcbe06e0"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_f7544db5-eb97-4ea1-ae92-ee0eb70b5756"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_9b1a4145-e151-4e50-9c91-cb882fb7e6ab">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Gain 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9b1a4145-e151-4e50-9c91-cb882fb7e6ab</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0a292986-4383-4cab-8201-876d0606d398"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ab0c16a7-d033-4181-8240-08aa698d4ab2"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_b3683909-4637-4cc7-b68d-c04b9a4812cb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(1)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Summation Operator 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b3683909-4637-4cc7-b68d-c04b9a4812cb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Summation Operator 2</cim:IdentifiedObject.name>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ea687411-a876-49c0-b3b5-23000091d1a3"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e0fe68a4-20b5-463b-881b-30dfe093945c"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_0a292986-4383-4cab-8201-876d0606d398"/>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_f786c290-844b-4ca5-bce6-adec5061ed69"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+    <rdf:type rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptor"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_b78dcd73-8468-4384-bc14-c74fa31ac409">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control First order lag block block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b78dcd73-8468-4384-bc14-c74fa31ac409</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ec2ebd2b-fa51-4d57-b7cd-7689f27fdfdb"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_08567bb6-9fad-4702-a7e1-ae3b17298423"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_0bc45871-2841-4ee0-8239-bdcefda2a467">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Output Selector 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0bc45871-2841-4ee0-8239-bdcefda2a467</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f31910f3-df1a-4b90-b14d-94fdaf474592"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e41b9b9e-ac20-42e8-b63a-b4ce97bd057e"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1fc29226-bb07-4c2c-9a34-596f723c1891"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c7b4feb4-52de-45eb-b507-43ab86b82638"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_b37bf308-cd2c-4230-becf-9f1537037bb3"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_eb784fbe-f543-4e01-b7a6-2ed76db96e60">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Output Selector 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>eb784fbe-f543-4e01-b7a6-2ed76db96e60</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1548c323-5211-4bff-8923-d8f2660cfc98"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d7138093-09a8-48bb-97de-ce44081cc295"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e41b9b9e-ac20-42e8-b63a-b4ce97bd057e"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c7b4feb4-52de-45eb-b507-43ab86b82638"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ac3497c6-31d1-4465-9dad-91aa8dbc7af1"/>
+  </cim:InputOutputDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_73040c1c-75d3-44e3-a7db-83ab33e9e790">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Summation Operator 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.description>Summation Point(4)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>73040c1c-75d3-44e3-a7db-83ab33e9e790</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Summation Operator 3</cim:IdentifiedObject.name>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_01e61cd0-aa3c-4ba9-a6ee-dd38945be6b2"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_08567bb6-9fad-4702-a7e1-ae3b17298423"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_27d8e2db-53f3-4510-8a7d-1eab1a456952"/>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_d15cda1f-8852-42d6-80e0-ce67f37bb45d"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+    <rdf:type rdf:resource="#http://cim.ucaiug.io/ns#InputOutputDescriptor"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_d54eb6ab-d465-4a8c-a695-221c4661c1c4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Voltage Unbalance Control Summation Operator 4 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.description>Summation Point(2)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d54eb6ab-d465-4a8c-a695-221c4661c1c4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Voltage Unbalance Control Summation Operator 4</cim:IdentifiedObject.name>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_bb8bddbb-a895-4ca9-91a8-105b89b1431b"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f7544db5-eb97-4ea1-ae92-ee0eb70b5756"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_1fc29226-bb07-4c2c-9a34-596f723c1891"/>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_4edc730e-121a-4c92-8d37-9762536ea5a4"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+    <rdf:type rdf:resource="#http://cim.ucaiug.io/ns#InputOutputDescriptor"/>
+  </cim:OperatorDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0cfb9d35-95fe-43e4-b750-a426f10cb039">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2P_ref_imp for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0cfb9d35-95fe-43e4-b750-a426f10cb039</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2P_ref_imp</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>17.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_de9b77cc-7f7d-48c8-adaf-7b2ce3b40a46">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xi</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>de9b77cc-7f7d-48c8-adaf-7b2ce3b40a46</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xi</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_eb03fd30-3594-456c-b085-dfbb9d553bf7"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_32c7e5a4-3ccf-4060-9fe3-21abea0847a9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable droop for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>32c7e5a4-3ccf-4060-9fe3-21abea0847a9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>droop</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>15.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c62df953-b0cb-4cdc-8942-90b764c6e998">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Droop gain (negative sequence reactance)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c62df953-b0cb-4cdc-8942-90b764c6e998</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>X2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_65a608fb-0e33-448f-a4c4-709694dd34e4"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>8.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ee5da15c-9af3-4b0d-805e-4b0ab4afc68c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable zero_out for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ee5da15c-9af3-4b0d-805e-4b0ab4afc68c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>zero_out</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>26.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ae7a8e73-659e-4c75-8efb-2b38b9126b44">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2Qd_ref for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ae7a8e73-659e-4c75-8efb-2b38b9126b44</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Qd_ref</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>22.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3eea7937-2749-48f7-b2b9-7b88ecfa2b1c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Emulated negative sequence susceptance</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3eea7937-2749-48f7-b2b9-7b88ecfa2b1c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>B2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e041a02b-6d69-4a6e-b9be-bd83db334377"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fe5941dd-dbed-49ea-9878-bf787e30a909"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>5.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c2019fcf-3abd-4bd5-a693-0b057e83952c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable delta_u2d_pictrl for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c2019fcf-3abd-4bd5-a693-0b057e83952c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>delta_u2d_pictrl</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>13.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c5b767fd-cefe-416e-b100-d0933c7ea395">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2Pq_ref for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c5b767fd-cefe-416e-b100-d0933c7ea395</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Pq_ref</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>19.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_80168848-352a-43a3-98f9-b955066836eb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>PI controller proportional gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>80168848-352a-43a3-98f9-b955066836eb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kp</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_eb03fd30-3594-456c-b085-dfbb9d553bf7"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>6.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0686d91f-cf56-4acf-ad92-65219a4a871e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum negative sequence current (PI ctrl.)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0686d91f-cf56-4acf-ad92-65219a4a871e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_eb03fd30-3594-456c-b085-dfbb9d553bf7"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>10.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_750b4e10-9e74-4ff7-b065-b5b98aa0c840">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Droop time constant</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>750b4e10-9e74-4ff7-b065-b5b98aa0c840</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Tdroop</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_8b2a3e08-0036-4af1-a7dd-0e62d1294c37"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>9.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b8f795fc-bb21-4505-b30a-db6191a46b56">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable droop_pt1 for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b8f795fc-bb21-4505-b30a-db6191a46b56</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>droop_pt1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>16.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b71f5b1e-5047-4de1-a2cc-82e9ab21b556">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xdroop</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b71f5b1e-5047-4de1-a2cc-82e9ab21b556</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xdroop</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_8b2a3e08-0036-4af1-a7dd-0e62d1294c37"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7083d2bd-e0a9-4768-ad6e-faa229db5bf3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2Pd_ref for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7083d2bd-e0a9-4768-ad6e-faa229db5bf3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Pd_ref</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>18.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_91fd8977-34ce-4bba-b593-9754371c020f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>POD mode: 0 = Derivative, 1 = Lead-lag</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>91fd8977-34ce-4bba-b593-9754371c020f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Mode</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_38043fce-6873-4467-b455-cffb57d394d2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_574ef869-d3bf-42a0-97e2-f7c425dad56a"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9541b5aa-48c5-49e4-8871-6e7a4c48a149"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ff109bf2-d9a4-4a6a-bb12-2e87a6102e56">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2Q_ref_pictrl for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ff109bf2-d9a4-4a6a-bb12-2e87a6102e56</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_ref_pictrl</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>21.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3f90392c-ae46-43e4-b818-627eade80ac9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2Q_ref_imp for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3f90392c-ae46-43e4-b818-627eade80ac9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_ref_imp</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>20.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9b2f3d39-de00-42fa-920a-620efd0d2968">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Emulated negative sequence conductance</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9b2f3d39-de00-42fa-920a-620efd0d2968</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>G2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_94f067fe-b742-4581-b554-e5ade88f37ce"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5155bd9d-c4e8-4b04-9164-20137e8e0de8"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>4.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_935b9dbb-5ffb-4b5a-908c-d1d805d55be3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable freeze_xi for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>935b9dbb-5ffb-4b5a-908c-d1d805d55be3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>freeze_xi</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_eb03fd30-3594-456c-b085-dfbb9d553bf7"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>11.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a8ebece1-3fa4-4b7a-8c4c-7cb636262461">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable delta_u2q for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a8ebece1-3fa4-4b7a-8c4c-7cb636262461</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>delta_u2q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>14.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3de4e1e8-9ea1-479a-b366-85e446c12c2e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2Qq_ref for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3de4e1e8-9ea1-479a-b366-85e446c12c2e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Qq_ref</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>23.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4938e2a7-0128-4188-aae3-18ab2f54229d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable zero_in for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4938e2a7-0128-4188-aae3-18ab2f54229d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>zero_in</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>25.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d3e0692e-9bb1-4abe-946c-b4a1bad89da7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable pictrl_error for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d3e0692e-9bb1-4abe-946c-b4a1bad89da7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>pictrl_error</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>24.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_1ebb896f-ea87-48e9-ae9d-f4bfaeeb5e91">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>PI controller integrator gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1ebb896f-ea87-48e9-ae9d-f4bfaeeb5e91</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Ki</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_eb03fd30-3594-456c-b085-dfbb9d553bf7"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>7.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9be96ac5-8e04-4671-add7-8fabf0aa368a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable delta_u2d for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9be96ac5-8e04-4671-add7-8fabf0aa368a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>delta_u2d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_76d5cc57-8be5-4117-8153-f8b7462cc6d6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>12.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ad41f841-c263-4145-99e8-3075173d6f34">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ad41f841-c263-4145-99e8-3075173d6f34</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_0a292986-4383-4cab-8201-876d0606d398">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Gain 4 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0a292986-4383-4cab-8201-876d0606d398</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>delta_u2q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ec2ebd2b-fa51-4d57-b7cd-7689f27fdfdb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control First order lag block block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ec2ebd2b-fa51-4d57-b7cd-7689f27fdfdb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>droop</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_e0fe68a4-20b5-463b-881b-30dfe093945c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e0fe68a4-20b5-463b-881b-30dfe093945c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2q_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_08567bb6-9fad-4702-a7e1-ae3b17298423">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Summation Operator 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>08567bb6-9fad-4702-a7e1-ae3b17298423</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>droop_pt1</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>true</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1548c323-5211-4bff-8923-d8f2660cfc98">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Gain 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1548c323-5211-4bff-8923-d8f2660cfc98</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_ref_pictrl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ac3497c6-31d1-4465-9dad-91aa8dbc7af1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ac3497c6-31d1-4465-9dad-91aa8dbc7af1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1ba1ace0-335f-4df2-a2ef-2150bcbe06e0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Input Selector block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1ba1ace0-335f-4df2-a2ef-2150bcbe06e0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>delta_u2d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1fc29226-bb07-4c2c-9a34-596f723c1891">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Output Selector 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1fc29226-bb07-4c2c-9a34-596f723c1891</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2P_ref_imp</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_01e61cd0-aa3c-4ba9-a6ee-dd38945be6b2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Summation Operator 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>01e61cd0-aa3c-4ba9-a6ee-dd38945be6b2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>delta_u2d_pictrl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f31910f3-df1a-4b90-b14d-94fdaf474592">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Output Selector 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f31910f3-df1a-4b90-b14d-94fdaf474592</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>zero_out</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ab0c16a7-d033-4181-8240-08aa698d4ab2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Summation Operator 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ab0c16a7-d033-4181-8240-08aa698d4ab2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Qq_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c8843862-1d24-495a-8ef5-41f2c462bc7f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Input Selector block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c8843862-1d24-495a-8ef5-41f2c462bc7f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>zero_in</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c7b4feb4-52de-45eb-b507-43ab86b82638">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c7b4feb4-52de-45eb-b507-43ab86b82638</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>block</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_e41b9b9e-ac20-42e8-b63a-b4ce97bd057e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Output Selector 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e41b9b9e-ac20-42e8-b63a-b4ce97bd057e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>zero_out</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_d7138093-09a8-48bb-97de-ce44081cc295">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Output Selector 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d7138093-09a8-48bb-97de-ce44081cc295</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_ref_imp</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_53c51921-1b9a-4f32-ab0b-78738376268d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Summation Operator 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>53c51921-1b9a-4f32-ab0b-78738376268d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Qd_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ea687411-a876-49c0-b3b5-23000091d1a3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ea687411-a876-49c0-b3b5-23000091d1a3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_cfaf5e67-075b-4e71-ba97-aa5d25f6c349">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cfaf5e67-075b-4e71-ba97-aa5d25f6c349</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2P_in_limit</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_be74f48f-918d-413f-80bc-2b6731fc8226">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>be74f48f-918d-413f-80bc-2b6731fc8226</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT_active</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_27d8e2db-53f3-4510-8a7d-1eab1a456952">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control PI controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>27d8e2db-53f3-4510-8a7d-1eab1a456952</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>pictrl_error</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ebaeafd2-4c85-4325-8e7d-e3451458108e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Input Selector block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ebaeafd2-4c85-4325-8e7d-e3451458108e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>zero_in(1)</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_bb8bddbb-a895-4ca9-91a8-105b89b1431b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Summation Operator 4 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bb8bddbb-a895-4ca9-91a8-105b89b1431b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Pq_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>true</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f91c7972-619d-46f8-8fe9-b8d9f3d32043">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f91c7972-619d-46f8-8fe9-b8d9f3d32043</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_in_limit</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f7544db5-eb97-4ea1-ae92-ee0eb70b5756">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control Summation Operator 4 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f7544db5-eb97-4ea1-ae92-ee0eb70b5756</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Pd_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b37bf308-cd2c-4230-becf-9f1537037bb3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b37bf308-cd2c-4230-becf-9f1537037bb3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2P_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_2e4ce431-4f8a-408a-b4c5-b00d9932b1fd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Voltage Unbalance Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2e4ce431-4f8a-408a-b4c5-b00d9932b1fd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+</rdf:RDF>

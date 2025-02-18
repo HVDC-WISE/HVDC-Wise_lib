@@ -1,0 +1,1674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_e7eb2061-25b7-4840-abfd-be2cde9c1d2c">
+    <cim:IdentifiedObject.description>HVDC MMC control frame for balanced and unbalanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7eb2061-25b7-4840-abfd-be2cde9c1d2c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>HVDC MMC Control (TenneT)</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_d0449b20-74ac-47e1-9a39-79f71d20a83f"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real xu10 (start =  u1);
+Real xu20 (start =  u2);
+Real xuab0 (start =  uab);
+Real xubc0 (start =  ubc);
+Real xuca0 (start =  uca);
+Real xi1P_ref_slow (start =  i1P_ref);
+Real xi1Q_ref_slow (start =  i1Q_ref);
+Real xi2P_ref_slow (start =  i2P_ref);
+Real xi2Q_ref_slow (start =  i2Q_ref);
+Boolean fault_detected (start = 0);
+Boolean UVRT (start = 0);
+Boolean OVRT (start = 0);
+Boolean FRT_active (start = 0);
+Real i1P_ref (start =  i1P_frt_ref);
+Real i1Q_ref (start =  Selfix(Mode_cont, 0.0, i1Q_frt_ref));
+Real u1_ref (start =  Selfix(Mode_cont, i1Q_frt_ref/Kv+u1, 1.0));
+Real i2P_ref (start =  i2P_frt_ref);
+Real i2Q_ref (start =  i2Q_frt_ref);
+Real i2P_frt_ref;
+if noEvent(abs(i2P_frt_ref))) &lt; 1e-6 then
+    i2P_frt_ref = 0;
+end if;
+Real i2Q_frt_ref;
+if noEvent(abs(i2Q_frt_ref))) &lt; 1e-6 then
+    i2Q_frt_ref = 0;
+end if;
+Real u2;
+if noEvent(abs(u2))) &lt; 1e-6 then
+    u2 = 0;
+end if;
+Real uab;
+if noEvent(abs(uab))) &lt; 1e-6 then
+    uab =  u1;
+end if;
+Real ubc;
+if noEvent(abs(ubc))) &lt; 1e-6 then
+    ubc =  u1;
+end if;
+Real uca;
+if noEvent(abs(uca))) &lt; 1e-6 then
+    uca =  u1;
+end if;</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Controller for Fault-Ride-Through Current Injection with continuous fast voltage control option</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5ec1e879-e7f9-4925-a5a1-52ff8efbf16e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Fault Ride Through (FRT)</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_26ec79d2-b62d-4192-8feb-983a226b6dac">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_58b60131-b45e-44fc-83e8-c57f8f157460"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FRT_iQ_Freeze_Steady-State
+
+equation
+	// Positive sequence
+
+	u1min_iQ = Picdro(((u1min-0.000001)-max(0.0,u1))+0.5, 0.0, 0.0);
+
+	// Freeze input signal in case of FRT, PT1 for a slower signal to freeze
+	der(xi1Q_ref_slow) = Select(FRT_active, 0.0, Selfix(Tipre&gt;0, (i1Q_ref-xi1Q_ref_slow)/Tipre, 0));
+	i1Q_ref_slow   = xi1Q_ref_slow;
+	i1Q_ref_freeze = Select(FRT_active, r(i1Q_ref_freeze), Selfix(Tipre&gt;0, i1Q_ref_slow, i1Q_ref));
+
+	// Output signal depends on FRT settings
+	i1Q_frt_ref = Selfix(Mode_cont, Select(u1min_iQ, 0.0, i1Q_uac_ref), Select(FRT_active, Select(u1min_iQ, 0.0, Selfix(iQ_red, 0.0, i1Q_ref_freeze + Delta_i1Q)), i1Q_ref));
+
+	// Negative sequence
+	// Freeze input signal in case of FRT, PT1 for a slower signal to freeze
+	der(xi2Q_ref_slow) = Selfix(Balanced(), 0.0, Select(FRT_active, 0.0, Selfix(Tipre&gt;0, (i2Q_ref-xi2Q_ref_slow)/Tipre, 0)));
+	i2Q_ref_slow   = Selfix(Balanced(), 0.0, xi2Q_ref_slow);
+	i2Q_ref_freeze = Selfix(Balanced(), 0.0, Select(FRT_active, pre(i2Q_ref_freeze), Selfix(Tipre&gt;0, i2Q_ref_slow, i2Q_ref)));
+	// Output signal depends on FRT settings
+	i2Q_frt_ref = Selfix(Balanced(), 0.0, Selfix(Mode_cont, Select(u1min_iQ, 0.0, i2Q_ref), Select(FRT_active, Select(u1min_iQ, 0.0, Selfix(iQ_red, 0.0, i2Q_ref_freeze + Delta_i2Q)), i2Q_ref)));
+	
+end FRT_iQ_Freeze_Steady-State;
+
+function Picdro
+	input Boolean boolexpr;
+	input Real Tpick;
+	input Real Tdrop;
+	output Boolean varA;
+algorithm
+	if boolexpr = true then
+		varA = delay(1,Tpick);
+	else if boolexpr = false then
+		varA = delay(0,Tdrop);
+	else
+		varA = pre(varA)
+	end if;
+end Picdro;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for Balanced RMS, 2 for unBalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Freeze steady-state and reduction of reactive current</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>26ec79d2-b62d-4192-8feb-983a226b6dac</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT iQ Freeze Steady-State</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_ca77e174-3624-4d44-92a2-2c023b0b81da">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_f03d4bb0-18c5-4e3e-a89e-a156d0328317"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FRT_iP_Reduction
+
+equation
+	// Positive sequence
+	u1min_iP = Picdro(((u1min-0.000001)-max(0.0,u1))+0.5, 0.0, 0.0);
+	// Freeze input signal in case of UVRT, PT1 for a slower signal to freeze
+	der(xi1P_ref_slow) = Select(UVRT, 0.0, Selfix(Tipre&gt;0, (i1P_ref-xi1P_ref_slow)/Tipre, 0.0));
+	i1P_ref_slow   = xi1P_ref_slow;
+	i1P_ref_freeze = Select(UVRT, pre(i1P_ref_freeze), Selfix(Tipre&gt;0, i1P_ref_slow, i1P_ref));
+	// Output signal depends on FRT settings
+	i1P_frt_ref = Select(UVRT, Select(u1min_iP, 0.0, Selfix(iP_red&gt;1.5, Selfix(iP_red_frz,i1P_ref_freeze,i1P_ref)*(1.0-max(0.0,min(1.0,KiPred*Selfix(db_abs,(1.0+u_db_low-u1)/(1.0+u_db_low),(u10+u_db_low-u1)/(u10+u_db_low))))), Selfix(iP_red, 0.0, i1P_ref))), i1P_ref);
+	// Negative sequence
+	// Freeze input signal in case of UVRT, PT1 for a slower signal to freeze
+	der(xi2P_ref_slow) = Selfix(Balanced(), 0.0, Select(UVRT, 0, Selfix(Tipre&gt;0, (i2P_ref-xi2P_ref_slow)/Tipre, 0)));
+	i2P_ref_slow   = Selfix(Balanced(), 0.0, xi2P_ref_slow);
+	i2P_ref_freeze = Selfix(Balanced(), 0.0, Select(UVRT, pre(i2P_ref_freeze), Selfix(Tipre&gt;0, i2P_ref_slow, i2P_ref)));
+	// Output signal depends on FRT settings
+	i2P_frt_ref = Selfix(Balanced(), 0.0, Selfix(Mode_cont, Select(u1min_iP, 0.0, i2P_ref), Select(UVRT, Select(u1min_iP, 0.0, Selfix(iP_red&gt;1.5, Selfix(iP_red_frz,i2P_ref_freeze,i2P_ref)*u1/u10, Selfix(iP_red, 0.0, i2P_ref))), i2P_ref)));
+
+	// Parameter "iQ_red" is not used in this block, but listed just for more beautiful order of parameters in parameter list of ElmDsl.
+	
+end FRT_iP_Reduction;
+
+function Picdro
+	input Boolean boolexpr;
+	input Real Tpick;
+	input Real Tdrop;
+	output Boolean varA;
+algorithm
+	if boolexpr = true then
+		varA = delay(1,Tpick);
+	else if boolexpr = false then
+		varA = delay(0,Tdrop);
+	else
+		varA = pre(varA)
+	end if;
+end Picdro;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for Balanced RMS, 2 for unBalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Active current reduction during UVRT</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ca77e174-3624-4d44-92a2-2c023b0b81da</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT iP Reduction</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_bcec4adc-195a-4626-a161-cc9449d3de5a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_a1a4c1df-e964-442f-a5bf-4f0a6f071bde"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FRT_Additional_i2Q
+
+equation
+	Delta_u2 = Selfix(Balanced(), 0, Selfix(diroot&gt;1.5, u2-0.0, Selfix(diroot&gt;0.5, Selfix(db_abs, Select(u2&lt;(0.0+u_db_low),u2-(0.0+u_db_low),Select(u2&gt;(0.0+u_db_up),u2-(0.0+u_db_up),0)), Select(u2&lt;(u20+u_db_low),u2-(u20+u_db_low),Select(u2&gt;(u20+u_db_up),u2-(u20+u_db_up),0))), u2-u20)));
+	Delta_i2Q = Selfix(Balanced(), 0, -Delta_u2*K2);
+	
+end FRT_Additional_i2Q;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Additional reactive current in negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bcec4adc-195a-4626-a161-cc9449d3de5a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT Additional i2Q</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_89a6ece9-8b46-49ca-a92a-d2a5c744691e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_1f9bb7d0-7296-4ed4-a435-070f4ec30aa6"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FRT_Additional_i1Q
+
+equation
+	// Voltage deviation
+	Delta_u1 = Selfix(diroot&gt;2.5, u1-u1fix, Selfix(diroot&gt;1.5, u1-1.0, Selfix(diroot&gt;0.5, Selfix(db_abs&gt;1.5, Select(u1&lt;(u1fix+u_db_low),u1-(u1fix+u_db_low),Select(u1&gt;(u1fix+u_db_up),u1-(u1fix+u_db_up),0)), Selfix(db_abs, Select(u1&lt;(1.0+u_db_low),u1-(1.0+u_db_low),Select(u1&gt;(1.0+u_db_up),u1-(1.0+u_db_up),0)), Select(u1&lt;(u10+u_db_low),u1-(u10+u_db_low),Select(u1&gt;(u10+u_db_up),u1-(u10+u_db_up),0)))), u1-u10)));
+	Delta_i1Q = -Delta_u1*K1;
+	
+end FRT_Additional_i1Q;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Additional reactive current in positive sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>89a6ece9-8b46-49ca-a92a-d2a5c744691e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT Additional i1Q</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_fb08ee19-fe9a-43be-914a-526604bc93c2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_c7df2e77-ca30-48c1-8018-aa7f6455a9e9"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FRT_Fault_Detection
+
+equation
+	UV1  = Selfix(db_abs&gt;1.5, ((u1fix+u_db_low)-u1) +0.5, Selfix(db_abs, ((1.0+u_db_low)-u1) +0.5, ((u10 +u_db_low)-u1) +0.5));
+	UVab = Selfix(db_abs&gt;1.5, ((u1fix+u_db_low)-uab)+0.5, Selfix(db_abs, ((1.0+u_db_low)-uab)+0.5, ((uab0+u_db_low)-uab)+0.5));
+	UVbc = Selfix(db_abs&gt;1.5, ((u1fix+u_db_low)-ubc)+0.5, Selfix(db_abs, ((1.0+u_db_low)-ubc)+0.5, ((ubc0+u_db_low)-ubc)+0.5));
+	UVca = Selfix(db_abs&gt;1.5, ((u1fix+u_db_low)-uca)+0.5, Selfix(db_abs, ((1.0+u_db_low)-uca)+0.5, ((uca0+u_db_low)-uca)+0.5));
+	OV1  = Selfix(db_abs&gt;1.5, (u1 -(u1fix+u_db_up))+0.5, Selfix(db_abs, (u1 -(1.0+u_db_up))+0.5, (u1 -(u10 +u_db_up))+0.5));
+	OVab = Selfix(db_abs&gt;1.5, (uab-(u1fix+u_db_up))+0.5, Selfix(db_abs, (uab-(1.0+u_db_up))+0.5, (uab-(uab0+u_db_up))+0.5));
+	OVbc = Selfix(db_abs&gt;1.5, (ubc-(u1fix+u_db_up))+0.5, Selfix(db_abs, (ubc-(1.0+u_db_up))+0.5, (ubc-(ubc0+u_db_up))+0.5));
+	OVca = Selfix(db_abs&gt;1.5, (uca-(u1fix+u_db_up))+0.5, Selfix(db_abs, (uca-(1.0+u_db_up))+0.5, (uca-(uca0+u_db_up))+0.5));
+	fault_UV1  = Picdro(UV1,0.001,0.001);
+	fault_UVab = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,UVab),0.001,0.001));
+	fault_UVbc = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,UVbc),0.001,0.001));
+	fault_UVca = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,UVca),0.001,0.001));
+	fault_OV1  = Picdro(OV1,0.001,0.001);
+	fault_OVab = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,OVab),0.001,0.001));
+	fault_OVbc = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,OVbc),0.001,0.001));
+	fault_OVca = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,OVca),0.001,0.001));
+	fault_UV = fault_UV1 + fault_UVab + fault_UVbc + fault_UVca;
+	fault_OV = fault_OV1 + fault_OVab + fault_OVbc + fault_OVca;
+	fault_detected = Select(fault_UV or fault_OV, 1, 0);
+	UVRT = fault_UV;
+	OVRT = fault_OV
+	frt_UV1  = Picdro(UV1,0.001, Selfix(Tpost&gt;0.001,Tpost,0.001));
+	frt_UVab = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,UVab),0.001,Selfix(Tpost&gt;0.001,Tpost,0.001)));
+	frt_UVbc = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,UVbc),0.001,Selfix(Tpost&gt;0.001,Tpost,0.001)));
+	frt_UVca = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,UVca),0.001,Selfix(Tpost&gt;0.001,Tpost,0.001)));
+	frt_OV1  = Picdro(OV1,0.001,Selfix(Tpost&gt;0.001,Tpost,0.001));
+	frt_OVab = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,OVab),0.001,Selfix(Tpost&gt;0.001,Tpost,0.001)));
+	frt_OVbc = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,OVbc),0.001,Selfix(Tpost&gt;0.001,Tpost,0.001)));
+	frt_OVca = Selfix(Balanced(), 0, Picdro(Selfix(Balanced(),0,OVca),0.001,Selfix(Tpost&gt;0.001,Tpost,0.001)));
+	frt_UV = frt_UV1 + frt_UVab + frt_UVbc + frt_UVca;
+	frt_OV = frt_OV1 + frt_OVab + frt_OVbc + frt_OVca;
+	FRT_active = Select(frt_UV or frt_OV, 1, 0);
+	
+end FRT_Fault_Detection;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Picdro
+	input Boolean boolexpr;
+	input Real Tpick;
+	input Real Tdrop;
+	output Boolean varA;
+algorithm
+	if boolexpr = true then
+		varA = delay(1,Tpick);
+	else if boolexpr = false then
+		varA = delay(0,Tdrop);
+	else
+		varA = pre(varA)
+	end if;
+end Picdro;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for Balanced RMS, 2 for unBalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Boolean fault_UV1 (start = 0);
+Boolean fault_UVab (start = 0);
+Boolean fault_UVbc (start = 0);
+Boolean fault_UVca (start = 0);
+Boolean fault_OV1 (start = 0);
+Boolean fault_OVab (start = 0);
+Boolean fault_OVbc (start = 0);
+Boolean fault_OVca (start = 0);
+Boolean frt_UV1 (start = 0);
+Boolean frt_UVab (start = 0);
+Boolean frt_UVbc (start = 0);
+Boolean frt_UVca (start = 0);
+Boolean frt_OV1 (start = 0);
+Boolean frt_OVab (start = 0);
+Boolean frt_OVbc (start = 0);
+Boolean frt_OVca (start = 0);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Fault Detection</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fb08ee19-fe9a-43be-914a-526604bc93c2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT Fault Detection</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_a4b0aa77-1cf4-4d98-8488-1c30adcdb089">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_d12a96a8-4463-43cb-a1ef-35f0934cb323"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FRT_Gain_K
+
+equation
+	yo=K*yi;
+	
+end FRT_Gain_K;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a4b0aa77-1cf4-4d98-8488-1c30adcdb089</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT Gain K</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_b92a53a3-58fe-43e6-aa22-3947ababb5d5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_60cf7d55-3258-43c2-90c2-bd7ef4088a52"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FRT_Pre-Fault_Voltage
+
+equation
+	//Slow PT1 tracking of the voltage (normal operation)
+	der(xu10) = Selfix(Tupre&gt;0, Select(fault_detected, 0.0, (u1-xu10)/Tupre), 0.0);
+	der(xu20) = Selfix(Balanced(), 0.0, Selfix(Tupre&gt;0, Select(fault_detected, 0.0, (u2-xu20)/Tupre),0));
+	der(xuab0) = Selfix(Balanced(), 0.0, Selfix(Tupre&gt;0, Select(fault_detected, 0.0, (uab-xuab0)/Tupre), 0.0));
+	der(xubc0) = Selfix(Balanced(), 0.0, Selfix(Tupre&gt;0, Select(fault_detected, 0.0, (ubc-xubc0)/Tupre), 0.0));
+	der(xuca0) = Selfix(Balanced(), 0.0, Selfix(Tupre&gt;0, Select(fault_detected, 0.0, (uca-xuca0)/Tupre), 0.0));
+	u10 = xu10;
+	u20 = xu20;
+	uab0 = xuab0;
+	ubc0 = xubc0;
+	uca0 = xuca0;
+	i2Q_frt_ref = Selfix(Balanced(), 0.0, Selfix(Mode_cont, Select(u1min_iQ, 0.0, i2Q_ref), Select(FRT_active, Select(u1min_iQ, 0.0, Selfix(iQ_red, 0.0, i2Q_ref_freeze + Delta_i2Q)), i2Q_ref)));
+	
+end FRT_Pre-Fault_Voltage;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for Balanced RMS, 2 for unBalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Pre-Fault Voltage Calculation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b92a53a3-58fe-43e6-aa22-3947ababb5d5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT Pre-Fault Voltage</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_58b60131-b45e-44fc-83e8-c57f8f157460">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FRT iQ Freeze Steady-State block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>58b60131-b45e-44fc-83e8-c57f8f157460</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c0a834c0-a9f7-432d-b96e-a02ee6bfae8a"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_de0b4732-f361-4540-984b-2b6d514dfe3d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f97d43f4-32ab-4418-9094-b99dd4f6e7ba"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1f677fbd-2d79-4a92-bfb4-5f8fcc8c801c"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a91a9865-03ba-4136-9f7c-322cd3aace58"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ba348520-34aa-4a3a-96a0-244c3a339577"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_be74f48f-918d-413f-80bc-2b6731fc8226"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_575880bd-214a-4ea7-9412-615b7e40d44a"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_e5e90400-f98f-4f94-bed8-8c49fd53085d"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_f03d4bb0-18c5-4e3e-a89e-a156d0328317">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FRT iP Reduction block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f03d4bb0-18c5-4e3e-a89e-a156d0328317</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f97d43f4-32ab-4418-9094-b99dd4f6e7ba"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_789d158b-5e33-4e42-90a3-97b4abe63922"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a9898314-eadd-4c35-b61d-e1f3b7ff0e8a"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_6908d608-427a-4790-b08e-a82ea06710f4"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_22fbb4ab-4394-45ff-8071-24e9ce6319b9"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_40865bb5-69ec-4897-a833-7ea6c6c202ee"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_4ddc4a6c-f0d6-415e-ab04-4eeed2987a90"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_a1a4c1df-e964-442f-a5bf-4f0a6f071bde">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FRT Additional i2Q block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a1a4c1df-e964-442f-a5bf-4f0a6f071bde</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_922e4649-7ef8-4818-8345-e2e554b18d1a"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ad41f841-c263-4145-99e8-3075173d6f34"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a91a9865-03ba-4136-9f7c-322cd3aace58"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_1f9bb7d0-7296-4ed4-a435-070f4ec30aa6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FRT Additional i1Q block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1f9bb7d0-7296-4ed4-a435-070f4ec30aa6</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_6908d608-427a-4790-b08e-a82ea06710f4"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f97d43f4-32ab-4418-9094-b99dd4f6e7ba"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_de0b4732-f361-4540-984b-2b6d514dfe3d"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_c7df2e77-ca30-48c1-8018-aa7f6455a9e9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FRT Fault Detection block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c7df2e77-ca30-48c1-8018-aa7f6455a9e9</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_42efe7e6-e1f0-4409-be9e-c27c086ba5e0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_17cc91ed-cbf8-4e21-a42f-6e059afe3178"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f97d43f4-32ab-4418-9094-b99dd4f6e7ba"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_86a5a40d-2590-4703-abb4-31230cfdbaf0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_6908d608-427a-4790-b08e-a82ea06710f4"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_7cd172e3-58de-406d-8482-401f55f849b3"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ad9166b9-2241-4dc9-8c2c-806f0540d3b8"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_576eb492-a5bb-480d-83a8-4260acfeb897"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_22fbb4ab-4394-45ff-8071-24e9ce6319b9"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_be74f48f-918d-413f-80bc-2b6731fc8226"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_c2f996df-7848-42d6-8e08-39745e83bc54"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_8176d4fc-0faa-4e12-af7f-16bd75a81342"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_d12a96a8-4463-43cb-a1ef-35f0934cb323">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FRT Gain K block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d12a96a8-4463-43cb-a1ef-35f0934cb323</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_eaf092d7-43f1-4b6f-b9c0-eed84c19a6f9"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_c0a834c0-a9f7-432d-b96e-a02ee6bfae8a"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_efac8583-a908-4b44-9e50-32cf119dac92">
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FRT Summation Operator 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>efac8583-a908-4b44-9e50-32cf119dac92</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f97d43f4-32ab-4418-9094-b99dd4f6e7ba"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_fb77a2dc-8914-4e6e-b6b1-74c77ef38d06"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_eaf092d7-43f1-4b6f-b9c0-eed84c19a6f9"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_60cf7d55-3258-43c2-90c2-bd7ef4088a52">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FRT Pre-Fault Voltage block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>60cf7d55-3258-43c2-90c2-bd7ef4088a52</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f97d43f4-32ab-4418-9094-b99dd4f6e7ba"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ad9166b9-2241-4dc9-8c2c-806f0540d3b8"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_42efe7e6-e1f0-4409-be9e-c27c086ba5e0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_8176d4fc-0faa-4e12-af7f-16bd75a81342"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ad41f841-c263-4145-99e8-3075173d6f34"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_86a5a40d-2590-4703-abb4-31230cfdbaf0"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_576eb492-a5bb-480d-83a8-4260acfeb897"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_6908d608-427a-4790-b08e-a82ea06710f4"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_7cd172e3-58de-406d-8482-401f55f849b3"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_922e4649-7ef8-4818-8345-e2e554b18d1a"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_17cc91ed-cbf8-4e21-a42f-6e059afe3178"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_d0449b20-74ac-47e1-9a39-79f71d20a83f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d0449b20-74ac-47e1-9a39-79f71d20a83f</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_789d158b-5e33-4e42-90a3-97b4abe63922"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ad9166b9-2241-4dc9-8c2c-806f0540d3b8"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ad41f841-c263-4145-99e8-3075173d6f34"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f97d43f4-32ab-4418-9094-b99dd4f6e7ba"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1f677fbd-2d79-4a92-bfb4-5f8fcc8c801c"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_fb77a2dc-8914-4e6e-b6b1-74c77ef38d06"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ba348520-34aa-4a3a-96a0-244c3a339577"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_86a5a40d-2590-4703-abb4-31230cfdbaf0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_42efe7e6-e1f0-4409-be9e-c27c086ba5e0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a9898314-eadd-4c35-b61d-e1f3b7ff0e8a"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_be74f48f-918d-413f-80bc-2b6731fc8226"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_40865bb5-69ec-4897-a833-7ea6c6c202ee"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_22fbb4ab-4394-45ff-8071-24e9ce6319b9"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_4ddc4a6c-f0d6-415e-ab04-4eeed2987a90"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_c2f996df-7848-42d6-8e08-39745e83bc54"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_e5e90400-f98f-4f94-bed8-8c49fd53085d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_8176d4fc-0faa-4e12-af7f-16bd75a81342"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_575880bd-214a-4ea7-9412-615b7e40d44a"/>
+  </cim:InputOutputDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_c860829b-236e-475e-b0cc-25b38de51a65">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c860829b-236e-475e-b0cc-25b38de51a65</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT Summation Operator 1</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_efac8583-a908-4b44-9e50-32cf119dac92"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_11339d86-0052-4c36-ae1b-21fac306a69b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable u20 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>11339d86-0052-4c36-ae1b-21fac306a69b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u20</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>72.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a834637a-7ac5-4548-a01d-858a5c799791">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable fault_OV1 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a834637a-7ac5-4548-a01d-858a5c799791</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fault_OV1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>41.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_bf5dd12d-cd73-4994-b30d-895af3c4d19c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable fault_OV for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bf5dd12d-cd73-4994-b30d-895af3c4d19c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fault_OV</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>40.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0f3d2fd9-0e8f-44bc-b0a6-c86723f32736">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xu10</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0f3d2fd9-0e8f-44bc-b0a6-c86723f32736</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xu10</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>18.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9e94a443-55cf-46a2-b2fe-a12a7a201443">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xuca0</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9e94a443-55cf-46a2-b2fe-a12a7a201443</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xuca0</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>22.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e6712c21-e0fd-4d16-9f49-40eeaab2afad">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Individually fixed pos.seq. voltage deadb. root</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e6712c21-e0fd-4d16-9f49-40eeaab2afad</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1fix</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89a6ece9-8b46-49ca-a92a-d2a5c744691e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>4.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c939ed26-cde0-4b54-ad7f-ce98511bbed4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1P_ref_slow for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c939ed26-cde0-4b54-ad7f-ce98511bbed4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1P_ref_slow</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>57.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b0f3922c-13ae-42cb-926b-0f8bee14f77a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xu20</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b0f3922c-13ae-42cb-926b-0f8bee14f77a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xu20</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>19.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c788b487-dfca-4cd4-982f-74adf0bd2828">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Freeze iP reference during linear reduction: 0=no, 1=yes</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c788b487-dfca-4cd4-982f-74adf0bd2828</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>iP_red_frz</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>14.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3ed9b626-c749-4a81-9eab-13806f31291f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable UVab for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3ed9b626-c749-4a81-9eab-13806f31291f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>UVab</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>28.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7458babf-c528-442e-aa73-edc42ab3a671">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2P_ref_slow for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7458babf-c528-442e-aa73-edc42ab3a671</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2P_ref_slow</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>59.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a3b07d4f-88b7-4391-8d7c-6fb546b21d8a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xi1P_ref_slow</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a3b07d4f-88b7-4391-8d7c-6fb546b21d8a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xi1P_ref_slow</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>23.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0e3722b0-b102-45f7-b799-f01eaa9e435b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable fault_UV for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0e3722b0-b102-45f7-b799-f01eaa9e435b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fault_UV</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>35.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_27f08ad3-127e-4b16-9ae5-d378c8198a52">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable frt_OVca for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>27f08ad3-127e-4b16-9ae5-d378c8198a52</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>frt_OVca</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>54.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7b2fc74f-5255-486a-aa6b-86600779f438">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable fault_OVbc for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7b2fc74f-5255-486a-aa6b-86600779f438</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fault_OVbc</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>43.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4a91e164-f437-482f-87a1-2c060df63874">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable fault_OVca for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4a91e164-f437-482f-87a1-2c060df63874</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fault_OVca</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>44.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_96ebbcd9-f65c-4f15-98b1-c9c369d482aa">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable OVab for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>96ebbcd9-f65c-4f15-98b1-c9c369d482aa</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>OVab</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>32.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_07225cb2-7ba6-42d4-8dda-55a5b02afc09">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xi1Q_ref_slow</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>07225cb2-7ba6-42d4-8dda-55a5b02afc09</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xi1Q_ref_slow</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_26ec79d2-b62d-4192-8feb-983a226b6dac"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>25.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_764b2602-4372-4f98-a6ff-b64505d8c2b7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable frt_OVbc for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>764b2602-4372-4f98-a6ff-b64505d8c2b7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>frt_OVbc</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>53.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b046f9f9-037a-49b3-93e0-0ba5298e3409">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Delta_u1 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b046f9f9-037a-49b3-93e0-0ba5298e3409</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Delta_u1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89a6ece9-8b46-49ca-a92a-d2a5c744691e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>55.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a1d8c830-a47c-4256-8b04-c93ba0f6db81">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Deadband around: 0 = U pre-fault, 1 = U nominal, 2 = U individually fixed</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a1d8c830-a47c-4256-8b04-c93ba0f6db81</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>db_abs</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89a6ece9-8b46-49ca-a92a-d2a5c744691e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bcec4adc-195a-4626-a161-cc9449d3de5a"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8e87bf28-e734-4b7e-a275-3fecc42fde32">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Delta_i1Q for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8e87bf28-e734-4b7e-a275-3fecc42fde32</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Delta_i1Q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>67.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_bfa06ed2-0c1e-44d5-9e8e-61d078b93930">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable frt_UVca for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bfa06ed2-0c1e-44d5-9e8e-61d078b93930</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>frt_UVca</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>49.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_46da4d47-01d9-4d4b-be93-4c885c5a4038">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xi2Q_ref_slow</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>46da4d47-01d9-4d4b-be93-4c885c5a4038</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xi2Q_ref_slow</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_26ec79d2-b62d-4192-8feb-983a226b6dac"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>26.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_07d4eb1d-7e39-4063-8165-14cd414bdc38">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable frt_UV for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>07d4eb1d-7e39-4063-8165-14cd414bdc38</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>frt_UV</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>45.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_265fa2af-d922-4157-8f38-c3ed9b8b53bc">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Time constant for pre-fault current</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>265fa2af-d922-4157-8f38-c3ed9b8b53bc</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Tipre</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_26ec79d2-b62d-4192-8feb-983a226b6dac"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>10.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_1608307b-1440-435d-8575-6615303c298b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1Q_uac_ref for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1608307b-1440-435d-8575-6615303c298b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1Q_uac_ref</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>70.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_158d68e1-bbaa-4f03-833f-4dd53daee751">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2Q_ref_slow for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>158d68e1-bbaa-4f03-833f-4dd53daee751</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_ref_slow</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_26ec79d2-b62d-4192-8feb-983a226b6dac"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>64.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_22dd832d-d741-4ba3-9d79-1e3646c30866">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable OVca for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>22dd832d-d741-4ba3-9d79-1e3646c30866</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>OVca</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>34.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8763073d-d6fa-47d0-bb8d-93dedee3c7ff">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xubc0</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8763073d-d6fa-47d0-bb8d-93dedee3c7ff</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xubc0</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>21.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_762b6c53-bd1a-461a-aaa6-20ead41e2352">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Continuous fast voltage control: 0=no, 1=yes </cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>762b6c53-bd1a-461a-aaa6-20ead41e2352</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Mode_cont</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_26ec79d2-b62d-4192-8feb-983a226b6dac"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>16.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9125649f-27e3-4daa-a46d-2e06a447b24e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Reduce active current: 0 = no, 1 = zero, 2 = linear</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9125649f-27e3-4daa-a46d-2e06a447b24e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>iP_red</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>12.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_2db3a772-17bd-4c61-b4ab-bf8e642575bf">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Time for keeping FRT mode active after fault</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2db3a772-17bd-4c61-b4ab-bf8e642575bf</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Tpost</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>5.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8c8fcfad-6700-48e3-a3d9-16600b75d29f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable fault_UVca for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8c8fcfad-6700-48e3-a3d9-16600b75d29f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fault_UVca</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>39.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_30779d0d-ef2d-470b-8fd9-235ca928b1b7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Fault detection lower voltage deadband</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>30779d0d-ef2d-470b-8fd9-235ca928b1b7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u_db_low</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bcec4adc-195a-4626-a161-cc9449d3de5a"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89a6ece9-8b46-49ca-a92a-d2a5c744691e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_53a8505b-0c87-4994-8946-bd7c2104b71e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable u1min_iQ for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>53a8505b-0c87-4994-8946-bd7c2104b71e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1min_iQ</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_26ec79d2-b62d-4192-8feb-983a226b6dac"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>66.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_da3c0624-48b8-4995-a4ff-35dfaa898882">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable frt_OV1 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>da3c0624-48b8-4995-a4ff-35dfaa898882</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>frt_OV1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>51.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b368d6fc-de8f-4645-bd67-cc65abe704dd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Fault detection upper voltage deadband</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b368d6fc-de8f-4645-bd67-cc65abe704dd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u_db_up</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89a6ece9-8b46-49ca-a92a-d2a5c744691e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bcec4adc-195a-4626-a161-cc9449d3de5a"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7b1e6eed-c7bd-42d1-b02d-0b4b62c855e7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable fault_OVab for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7b1e6eed-c7bd-42d1-b02d-0b4b62c855e7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fault_OVab</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>42.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f7971dc8-44be-4b52-ae72-06243f9ce1f8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable fault_UVab for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f7971dc8-44be-4b52-ae72-06243f9ce1f8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fault_UVab</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>37.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ed2e5766-b8d4-40b7-ae60-34c6af309ac3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2P_ref_freeze for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ed2e5766-b8d4-40b7-ae60-34c6af309ac3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2P_ref_freeze</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>60.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e2ae4ce8-a206-4df3-88d9-5cddcad333bb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Gain for continuous fast voltage control (pos. seq.)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e2ae4ce8-a206-4df3-88d9-5cddcad333bb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kv</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a4b0aa77-1cf4-4d98-8488-1c30adcdb089"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>17.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_010e8151-c2a3-4feb-918f-68c412d2ad01">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Minimum voltage for any current injection</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>010e8151-c2a3-4feb-918f-68c412d2ad01</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1min</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_26ec79d2-b62d-4192-8feb-983a226b6dac"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>11.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_065962b8-a0f4-4422-be90-3670c7519915">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1Q_ref_slow for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>065962b8-a0f4-4422-be90-3670c7519915</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1Q_ref_slow</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_26ec79d2-b62d-4192-8feb-983a226b6dac"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>62.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d704b43a-5535-4f7b-ab0f-92298029b663">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable UV1 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d704b43a-5535-4f7b-ab0f-92298029b663</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>UV1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>27.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_57ef32a0-0d80-4634-afc3-5b3a870daca8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du1 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>57ef32a0-0d80-4634-afc3-5b3a870daca8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>69.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9a27f1f5-4a85-4b90-85c3-2f31c45c042a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable frt_OV for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9a27f1f5-4a85-4b90-85c3-2f31c45c042a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>frt_OV</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>50.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8cf31902-3b91-4646-b11f-ddcfcaa01263">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Time constant for pre-fault voltage</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8cf31902-3b91-4646-b11f-ddcfcaa01263</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Tupre</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>9.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3b139c5e-e641-4337-ac3f-51304847d6b3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable OVbc for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3b139c5e-e641-4337-ac3f-51304847d6b3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>OVbc</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>33.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9d286ed3-6b14-4914-936b-6f57c20d798c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Gain for additional current in negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9d286ed3-6b14-4914-936b-6f57c20d798c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>K2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bcec4adc-195a-4626-a161-cc9449d3de5a"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>8.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d6c834a8-9863-4a45-8432-c4a452393c46">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xuab0</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d6c834a8-9863-4a45-8432-c4a452393c46</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xuab0</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>20.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0f9959b1-6aee-461b-a563-f201105d8bf2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable fault_UV1 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0f9959b1-6aee-461b-a563-f201105d8bf2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fault_UV1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>36.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ab2a36cd-574b-4bff-af28-52948714776d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable frt_OVab for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ab2a36cd-574b-4bff-af28-52948714776d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>frt_OVab</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>52.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_740e0ab3-755b-4fa3-8af0-f611ae635d0d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2Q_ref_freeze for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>740e0ab3-755b-4fa3-8af0-f611ae635d0d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_ref_freeze</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_26ec79d2-b62d-4192-8feb-983a226b6dac"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>65.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7a707b60-f69f-41be-b0c8-af18ebdd2a9a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable u1min_iP for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7a707b60-f69f-41be-b0c8-af18ebdd2a9a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1min_iP</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>61.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_2083443f-f5e3-4107-a4c6-bd87b7b0397c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable frt_UVab for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2083443f-f5e3-4107-a4c6-bd87b7b0397c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>frt_UVab</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>47.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_dbb1ec86-759b-4815-bf67-38647fed2ab5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Gain for additional current in positive sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>dbb1ec86-759b-4815-bf67-38647fed2ab5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>K1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89a6ece9-8b46-49ca-a92a-d2a5c744691e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>7.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7b37b788-f400-4059-92a5-4e8277c4c3ec">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable UVbc for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7b37b788-f400-4059-92a5-4e8277c4c3ec</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>UVbc</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>29.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_49e51e20-d8da-4a37-877b-a4950c98c6c9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Delta_i2Q for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>49e51e20-d8da-4a37-877b-a4950c98c6c9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Delta_i2Q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>68.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_912a3eb0-93ac-48fc-9a25-7b5fd686c3eb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable u10 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>912a3eb0-93ac-48fc-9a25-7b5fd686c3eb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u10</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>71.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7d7eae6e-8ccc-4ec8-a8bd-e186989f3c8a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable frt_UVbc for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7d7eae6e-8ccc-4ec8-a8bd-e186989f3c8a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>frt_UVbc</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>48.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ef4a8731-5a1d-4160-a235-874c4dd74784">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable ubc0 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ef4a8731-5a1d-4160-a235-874c4dd74784</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ubc0</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>74.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c952f023-53cc-4e26-a134-36c25e003fd8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable fault_UVbc for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c952f023-53cc-4e26-a134-36c25e003fd8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fault_UVbc</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>38.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_480c5f03-9ff8-44c8-a10f-0107ac1070d6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xi2P_ref_slow</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>480c5f03-9ff8-44c8-a10f-0107ac1070d6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xi2P_ref_slow</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>24.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_51857668-c022-4370-a2e2-4a83b917040a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable UVca for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>51857668-c022-4370-a2e2-4a83b917040a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>UVca</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>30.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4a68cb8f-1a5a-48ec-b295-0f8b361b7ca3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1P_ref_freeze for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4a68cb8f-1a5a-48ec-b295-0f8b361b7ca3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1P_ref_freeze</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>58.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_22384ffd-dd35-4e3a-89da-5fd49187770c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable OV1 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>22384ffd-dd35-4e3a-89da-5fd49187770c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>OV1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>31.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0bbffc31-13f1-442e-8a64-af6f64e493d7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uab0 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0bbffc31-13f1-442e-8a64-af6f64e493d7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uab0</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>73.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ac4d7102-7250-423d-88e6-54aff1706eb2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Delta_u2 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ac4d7102-7250-423d-88e6-54aff1706eb2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Delta_u2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bcec4adc-195a-4626-a161-cc9449d3de5a"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>56.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8b6f7ca6-e495-4e32-94b3-f9fce132698a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Add. current around: 0 = U pre-fault, 1 = U deadband, 2 = U nominal, 3 = U individually fixed</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8b6f7ca6-e495-4e32-94b3-f9fce132698a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>diroot</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bcec4adc-195a-4626-a161-cc9449d3de5a"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89a6ece9-8b46-49ca-a92a-d2a5c744691e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>6.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c347b9b6-8e08-4bf2-a2f2-cd808db269a7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Factor for linear active current reduction</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c347b9b6-8e08-4bf2-a2f2-cd808db269a7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>KiPred</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>13.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_fc18c236-66a1-4f13-afbd-4d4e8faed65d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable frt_UV1 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fc18c236-66a1-4f13-afbd-4d4e8faed65d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>frt_UV1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_fb08ee19-fe9a-43be-914a-526604bc93c2"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>46.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_afaa4c7d-fe6d-4190-b66b-f4a43e829f4a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uca0 for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>afaa4c7d-fe6d-4190-b66b-f4a43e829f4a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uca0</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>75.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_2f234746-b28e-4dc3-b763-fb9dc65d8015">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Reduce reactive current to zero: 0 = no, 1 = yes</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2f234746-b28e-4dc3-b763-fb9dc65d8015</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>iQ_red</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ca77e174-3624-4d44-92a2-2c023b0b81da"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_26ec79d2-b62d-4192-8feb-983a226b6dac"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>15.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_013de26b-8cc7-4b1f-b536-bf1106b0ea22">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1Q_ref_freeze for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>013de26b-8cc7-4b1f-b536-bf1106b0ea22</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1Q_ref_freeze</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_26ec79d2-b62d-4192-8feb-983a226b6dac"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5ec1e879-e7f9-4925-a5a1-52ff8efbf16e"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>63.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ad41f841-c263-4145-99e8-3075173d6f34">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ad41f841-c263-4145-99e8-3075173d6f34</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_4ddc4a6c-f0d6-415e-ab04-4eeed2987a90">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4ddc4a6c-f0d6-415e-ab04-4eeed2987a90</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1P_frt_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_42efe7e6-e1f0-4409-be9e-c27c086ba5e0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>42efe7e6-e1f0-4409-be9e-c27c086ba5e0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uab</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_576eb492-a5bb-480d-83a8-4260acfeb897">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT Fault Detection block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>576eb492-a5bb-480d-83a8-4260acfeb897</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ubc0</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_eaf092d7-43f1-4b6f-b9c0-eed84c19a6f9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT Gain K block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>eaf092d7-43f1-4b6f-b9c0-eed84c19a6f9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du1</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_fb77a2dc-8914-4e6e-b6b1-74c77ef38d06">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fb77a2dc-8914-4e6e-b6b1-74c77ef38d06</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_de0b4732-f361-4540-984b-2b6d514dfe3d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT iQ Freeze Steady-State block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>de0b4732-f361-4540-984b-2b6d514dfe3d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Delta_i1Q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c2f996df-7848-42d6-8e08-39745e83bc54">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c2f996df-7848-42d6-8e08-39745e83bc54</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>OVRT</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f97d43f4-32ab-4418-9094-b99dd4f6e7ba">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f97d43f4-32ab-4418-9094-b99dd4f6e7ba</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_40865bb5-69ec-4897-a833-7ea6c6c202ee">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>40865bb5-69ec-4897-a833-7ea6c6c202ee</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2P_frt_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1f677fbd-2d79-4a92-bfb4-5f8fcc8c801c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1f677fbd-2d79-4a92-bfb4-5f8fcc8c801c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ad9166b9-2241-4dc9-8c2c-806f0540d3b8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ad9166b9-2241-4dc9-8c2c-806f0540d3b8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ubc</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_6908d608-427a-4790-b08e-a82ea06710f4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT Fault Detection block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6908d608-427a-4790-b08e-a82ea06710f4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u10</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a9898314-eadd-4c35-b61d-e1f3b7ff0e8a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a9898314-eadd-4c35-b61d-e1f3b7ff0e8a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2P_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_17cc91ed-cbf8-4e21-a42f-6e059afe3178">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT Fault Detection block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>17cc91ed-cbf8-4e21-a42f-6e059afe3178</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uab0</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_7cd172e3-58de-406d-8482-401f55f849b3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT Fault Detection block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7cd172e3-58de-406d-8482-401f55f849b3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uca0</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_922e4649-7ef8-4818-8345-e2e554b18d1a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT Additional i2Q block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>922e4649-7ef8-4818-8345-e2e554b18d1a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u20</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_575880bd-214a-4ea7-9412-615b7e40d44a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>575880bd-214a-4ea7-9412-615b7e40d44a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_frt_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_be74f48f-918d-413f-80bc-2b6731fc8226">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT iQ Freeze Steady-State block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>be74f48f-918d-413f-80bc-2b6731fc8226</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT_active</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_86a5a40d-2590-4703-abb4-31230cfdbaf0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>86a5a40d-2590-4703-abb4-31230cfdbaf0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uca</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_e5e90400-f98f-4f94-bed8-8c49fd53085d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e5e90400-f98f-4f94-bed8-8c49fd53085d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1Q_frt_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_789d158b-5e33-4e42-90a3-97b4abe63922">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>789d158b-5e33-4e42-90a3-97b4abe63922</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1P_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c0a834c0-a9f7-432d-b96e-a02ee6bfae8a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT iQ Freeze Steady-State block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c0a834c0-a9f7-432d-b96e-a02ee6bfae8a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1Q_uac_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a91a9865-03ba-4136-9f7c-322cd3aace58">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT iQ Freeze Steady-State block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a91a9865-03ba-4136-9f7c-322cd3aace58</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Delta_i2Q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_8176d4fc-0faa-4e12-af7f-16bd75a81342">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT Pre-Fault Voltage block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8176d4fc-0faa-4e12-af7f-16bd75a81342</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fault_detected</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ba348520-34aa-4a3a-96a0-244c3a339577">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Fault Ride Through (FRT) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ba348520-34aa-4a3a-96a0-244c3a339577</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1Q_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_22fbb4ab-4394-45ff-8071-24e9ce6319b9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FRT iP Reduction block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>22fbb4ab-4394-45ff-8071-24e9ce6319b9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>UVRT</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+</rdf:RDF>

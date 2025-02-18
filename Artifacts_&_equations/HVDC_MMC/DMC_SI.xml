@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_e7eb2061-25b7-4840-abfd-be2cde9c1d2c">
+    <cim:IdentifiedObject.description>HVDC MMC control frame for balanced and unbalanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7eb2061-25b7-4840-abfd-be2cde9c1d2c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>HVDC MMC Control (TenneT)</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_83d05c4d-46c3-4466-8aaa-e09b8c1ebec1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_51d45ea7-aeaa-4efc-b788-b0d3786ca3c8"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model SI
+equation
+df  = selfix((Tf&gt;0), ((f-xf)/Tf), 0);
+der(xf) = df;
+dP = -2*H * df/fn;
+
+end SI;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real xf (start = f);
+Real dP (start = 0);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Synthetic Inertia</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>83d05c4d-46c3-4466-8aaa-e09b8c1ebec1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Synthetic Inertia (SI)</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_51d45ea7-aeaa-4efc-b788-b0d3786ca3c8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Synthetic Inertia (SI) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>51d45ea7-aeaa-4efc-b788-b0d3786ca3c8</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b07107f5-8ecc-4004-9856-679c5f22abd6"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_409bc51e-2250-4d48-9fb2-c42824a75dee"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_d355040d-bbd8-40bd-a23c-71514003a9fa"/>
+  </cim:InputOutputDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7ec20b19-35b3-45e5-a999-d5992f13aff0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Derivative of frequency</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7ec20b19-35b3-45e5-a999-d5992f13aff0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_83d05c4d-46c3-4466-8aaa-e09b8c1ebec1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>4.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e3c19400-2976-4d40-a6fd-54717acbd5c5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency (state variable)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e3c19400-2976-4d40-a6fd-54717acbd5c5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xf</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_83d05c4d-46c3-4466-8aaa-e09b8c1ebec1"/>
+    <cim:ParameterDescriptor.engineeringUnit>Hz</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_bf6fc48b-da1b-4d93-9520-b3d5a33dd9d9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Time constant for frequency derivative</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bf6fc48b-da1b-4d93-9520-b3d5a33dd9d9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Tf</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_83d05c4d-46c3-4466-8aaa-e09b8c1ebec1"/>
+    <cim:ParameterDescriptor.engineeringUnit>s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_6d4f9c21-53bc-497b-ac41-57bbb610fa5f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Inertia constant  =Ta/2 (acceleration time constant / 2)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6d4f9c21-53bc-497b-ac41-57bbb610fa5f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>H</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_83d05c4d-46c3-4466-8aaa-e09b8c1ebec1"/>
+    <cim:ParameterDescriptor.engineeringUnit>s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_d355040d-bbd8-40bd-a23c-71514003a9fa">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Synthetic Inertia (SI) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d355040d-bbd8-40bd-a23c-71514003a9fa</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_si</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b07107f5-8ecc-4004-9856-679c5f22abd6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Nominal frequency</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b07107f5-8ecc-4004-9856-679c5f22abd6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fn</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_409bc51e-2250-4d48-9fb2-c42824a75dee">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Fast frequency input signal</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>409bc51e-2250-4d48-9fb2-c42824a75dee</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_fast</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+</rdf:RDF>

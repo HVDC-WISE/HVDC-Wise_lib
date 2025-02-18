@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_e7eb2061-25b7-4840-abfd-be2cde9c1d2c">
+    <cim:IdentifiedObject.description>HVDC MMC control frame for balanced and unbalanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7eb2061-25b7-4840-abfd-be2cde9c1d2c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>HVDC MMC Control (TenneT)</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_4ca5583a-f402-4c6d-86c5-b0b302673e67">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_d23bd6b3-b566-40e0-a729-cfb7c049a0d0"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model POD_Divider
+
+equation
+	yo1 = Selfix(Mode, 0, yi);
+	yo2 = Selfix(Mode, yi, 0);
+	
+end POD_Divider;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Divider with 2 output signals</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4ca5583a-f402-4c6d-86c5-b0b302673e67</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>POD Divider</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_638fa29e-ce7a-495c-a52c-86de585b69e0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_af0814f3-a203-4c2b-b23a-27b2ee4534ef"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model POD_Selector_5
+
+equation
+	yo = Selfix((Input&gt;4.5), yi5, Selfix(Input&gt;3.5,yi4,Selfix((Input&gt;2.5),yi3,Selfix((Input&gt;1.5),yi2,Selfix((Input&gt;0.5),yi1,0.0)))));
+	
+end POD_Selector_5;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Selector with 5 input signals</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>638fa29e-ce7a-495c-a52c-86de585b69e0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>POD Selector 5</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_5bfb424d-33ef-4019-a456-e65186b47e5b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_a56a6607-285a-408a-b652-59b985b9b13c"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model POD_Washout_filter
+
+equation
+	dx=Select((Tw&gt;0),((yi-x)/Tw),0);
+	der(x)=dx;
+	yo=Select((Tw&gt;0),(Tw*dx),yi);
+ 
+	
+end POD_Washout_filter;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Washout filter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5bfb424d-33ef-4019-a456-e65186b47e5b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>POD Washout filter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_c2c30035-c0c4-435f-95cc-8d514b04a3ef">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_09cf3c11-22e8-432f-90ad-48ae9a7d20dd"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model POD_Divider_Output
+
+equation
+	yo1 = Selfix(Mode, 0, yi);
+	yo2 = Selfix(Mode, yi, 0);
+	
+end POD_Divider_Output;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Divider with 2 output signals</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c2c30035-c0c4-435f-95cc-8d514b04a3ef</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>POD Divider Output</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_a7aba095-6fd5-4c33-b41c-672416e39405">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_497d693a-c656-4390-8967-d630382bbc36"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model POD_Gain_K
+
+equation
+	yo=K*yi;
+	
+end POD_Gain_K;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a7aba095-6fd5-4c33-b41c-672416e39405</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>POD Gain K</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_9c27b60e-ee85-4a89-8024-9b22ff87b8d3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_abe17e4b-c930-416a-a203-c73f5b15ca25"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model POD_Limiter_with_constant_limits
+
+equation
+	yo = LimConst(yi, ymin, ymax);
+	
+end POD_Limiter_with_constant_limits;
+
+function LimConst
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end LimConst;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Limiter with constant limits</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9c27b60e-ee85-4a89-8024-9b22ff87b8d3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>POD Limiter with constant limits</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_88ce4274-e5db-430c-b64b-0f34268130c5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_6e571232-dbc6-4ee1-8c32-fbf94188f5a9"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model POD_Selector_2
+
+equation
+	yo = Selfix(Mode, yi2, yi1);
+	
+end POD_Selector_2;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Selector with 2 input signals</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>88ce4274-e5db-430c-b64b-0f34268130c5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>POD Selector 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_57059b88-f7be-421a-b1d7-7ced98b3d026">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_1fa0b14d-88b8-45e1-ae2c-e41849f93119"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model POD_Lead-lag_2
+
+equation
+	der(x)=Select((T1&gt;0),((yo-x)/T1),(Select((T2&gt;0),((yi-yo)/T2),0)));
+	yoint=Select((T1&gt;0 and T2&gt;0),((T1/T2-1)*(yi*Kint-x)),(Select(T2&gt;0,(LimState(x,MIN,MAX)),yi)));
+	yo=lim(Select((T1-T2&lt;&gt;0 and T2&lt;&gt;0),yoint,yi),MIN,MAX);
+	
+end POD_Lead-lag_2;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function LimState
+	input Real x1 (stateSelect=StateSelect.always);
+	input Real xmin;
+	input Real xmax;
+	output Real yo;
+algorithm
+	domainType = 1; // 1 for RMS, 0 for EMT simulation
+	if x &lt; xmin then
+		yo = xmin;
+	else if x &gt; xmax then
+		yo = xmax;
+	else
+		yo = x1;
+	end if;
+end LimState;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Lead-lag block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>57059b88-f7be-421a-b1d7-7ced98b3d026</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>POD Lead-lag 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_4df98fb4-e0a3-4dbb-bccd-693d96016959">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_fe7f392b-5b90-4c14-aabc-57f4dac670eb"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model POD_Derivative_with_gain
+
+equation
+	dx=Kd*(yi-x);
+	der(x)=dx;
+	yo=dx;
+
+end POD_Derivative_with_gain;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Derivative with gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4df98fb4-e0a3-4dbb-bccd-693d96016959</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>POD Derivative with gain</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_dd43ffbe-3eac-4e4d-9e6d-fd58339e7a4c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:IdentifiedObject.description>Power Oscillation Damping</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>dd43ffbe-3eac-4e4d-9e6d-fd58339e7a4c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Power Oscillation Damping (POD)</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_a23f5d9e-879d-4daa-9f43-56561fff5d09">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_975685a9-5de5-45e7-822f-4cce019bccb3"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model POD_Invert_Signal
+
+equation
+	yo = -yi;
+	
+end POD_Invert_Signal;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Invert Signal</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a23f5d9e-879d-4daa-9f43-56561fff5d09</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>POD Invert Signal</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_c7e7f046-d1d2-4d37-a94c-630f6c64994f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_370b4e8a-4ed4-49bf-839c-88e6d699c690"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model POD_Lead-lag_1
+
+equation
+	der(x)=Select((T1&gt;0),((yo-x)/T1),(Select((T2&gt;0),((yi-yo)/T2),0)));
+	yoint=Select((T1&gt;0 and T2&gt;0),((T1/T2-1)*(yi*Kint-x)),(Select(T2&gt;0,(LimState(x,MIN,MAX)),yi)));
+	yo=lim(Select((T1-T2&lt;&gt;0 and T2&lt;&gt;0),yoint,yi),MIN,MAX);
+	
+end POD_Lead-lag_1;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function LimState
+	input Real x1 (stateSelect=StateSelect.always);
+	input Real xmin;
+	input Real xmax;
+	output Real yo;
+algorithm
+	domainType = 1; // 1 for RMS, 0 for EMT simulation
+	if x &lt; xmin then
+		yo = xmin;
+	else if x &gt; xmax then
+		yo = xmax;
+	else
+		yo = x1;
+	end if;
+end LimState;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Lead-lag block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c7e7f046-d1d2-4d37-a94c-630f6c64994f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>POD Lead-lag 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_a56a6607-285a-408a-b652-59b985b9b13c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for POD Washout filter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a56a6607-285a-408a-b652-59b985b9b13c</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b4983f6c-070d-47c2-8d4b-f9cd4cba597f"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a9961755-a1db-4ab4-bc08-8e08b376fbd6"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_6e571232-dbc6-4ee1-8c32-fbf94188f5a9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for POD Selector 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6e571232-dbc6-4ee1-8c32-fbf94188f5a9</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f3baeb76-f530-48d7-b286-af1eecd3fbe6"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e01b3f3e-b0cd-47c1-bc88-5fd1a0cc4556"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_6176ba3f-31c4-4bd6-8ea7-78b843a1f893"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_abe17e4b-c930-416a-a203-c73f5b15ca25">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for POD Limiter with constant limits block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>abe17e4b-c930-416a-a203-c73f5b15ca25</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_3596d87f-e7bf-4df9-80ce-7fdd8137ecf8"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_f3baeb76-f530-48d7-b286-af1eecd3fbe6"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_370b4e8a-4ed4-49bf-839c-88e6d699c690">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for POD Lead-lag 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>370b4e8a-4ed4-49bf-839c-88e6d699c690</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_2654fb3e-23b2-484d-a8d7-9e145b1a0a4c"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a165fa27-d85c-47d0-aec5-98c66b610404"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_af0814f3-a203-4c2b-b23a-27b2ee4534ef">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for POD Selector 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>af0814f3-a203-4c2b-b23a-27b2ee4534ef</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_62dda81c-5feb-4186-a024-487f1e8a4c73"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_409bc51e-2250-4d48-9fb2-c42824a75dee"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b71ea0fc-8cb2-40bd-8f4d-6c2a29f05d2f"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ac10b613-4d36-40c0-9ced-a257e3482311"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d634b11e-ff51-4a3e-aff5-6bf0d71edd19"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_b4983f6c-070d-47c2-8d4b-f9cd4cba597f"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_fe7f392b-5b90-4c14-aabc-57f4dac670eb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for POD Derivative with gain block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fe7f392b-5b90-4c14-aabc-57f4dac670eb</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_2a93a86c-b892-4c60-afdb-7e6dc1596f76"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_3596d87f-e7bf-4df9-80ce-7fdd8137ecf8"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_09cf3c11-22e8-432f-90ad-48ae9a7d20dd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for POD Divider Output block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>09cf3c11-22e8-432f-90ad-48ae9a7d20dd</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_6176ba3f-31c4-4bd6-8ea7-78b843a1f893"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_94448492-f2ca-49ac-a096-6ddfac87fbbb"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a6c133d6-d8ed-433f-90e9-9c70aa0436d0"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_497d693a-c656-4390-8967-d630382bbc36">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for POD Gain K block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>497d693a-c656-4390-8967-d630382bbc36</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a9961755-a1db-4ab4-bc08-8e08b376fbd6"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_301547f7-a9d4-4012-bbd1-50b51a6fff83"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_1fa0b14d-88b8-45e1-ae2c-e41849f93119">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for POD Lead-lag 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1fa0b14d-88b8-45e1-ae2c-e41849f93119</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a165fa27-d85c-47d0-aec5-98c66b610404"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_e01b3f3e-b0cd-47c1-bc88-5fd1a0cc4556"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_d23bd6b3-b566-40e0-a729-cfb7c049a0d0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for POD Divider block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d23bd6b3-b566-40e0-a729-cfb7c049a0d0</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_301547f7-a9d4-4012-bbd1-50b51a6fff83"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_2654fb3e-23b2-484d-a8d7-9e145b1a0a4c"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_971e14b6-f68e-4e76-8c06-d744f78aece3"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_975685a9-5de5-45e7-822f-4cce019bccb3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for POD Invert Signal block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>975685a9-5de5-45e7-822f-4cce019bccb3</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_971e14b6-f68e-4e76-8c06-d744f78aece3"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_2a93a86c-b892-4c60-afdb-7e6dc1596f76"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_c77bb257-62be-4bf1-b61a-8402382ce784">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Power Oscillation Damping (POD) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c77bb257-62be-4bf1-b61a-8402382ce784</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_62dda81c-5feb-4186-a024-487f1e8a4c73"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b07107f5-8ecc-4004-9856-679c5f22abd6"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b71ea0fc-8cb2-40bd-8f4d-6c2a29f05d2f"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d634b11e-ff51-4a3e-aff5-6bf0d71edd19"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ac10b613-4d36-40c0-9ced-a257e3482311"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_409bc51e-2250-4d48-9fb2-c42824a75dee"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_94448492-f2ca-49ac-a096-6ddfac87fbbb"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a6c133d6-d8ed-433f-90e9-9c70aa0436d0"/>
+  </cim:InputOutputDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d53f468c-226a-4f19-9cb5-e500565e325a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>stateVariable</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d53f468c-226a-4f19-9cb5-e500565e325a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xw</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5bfb424d-33ef-4019-a456-e65186b47e5b"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_1e9a339a-80a2-4f4c-85ad-97902922f6d2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Lead time constant 2</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1e9a339a-80a2-4f4c-85ad-97902922f6d2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>T3</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_57059b88-f7be-421a-b1d7-7ced98b3d026"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>13.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9e8f0473-9c1a-4833-a369-c8745047e6ce">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Lead time constant 1</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9e8f0473-9c1a-4833-a369-c8745047e6ce</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>T1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c7e7f046-d1d2-4d37-a94c-630f6c64994f"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>11.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d42aacaa-a87a-4f8f-bcb0-5b864b24a685">
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_57059b88-f7be-421a-b1d7-7ced98b3d026"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c7e7f046-d1d2-4d37-a94c-630f6c64994f"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9fdf88c6-6de0-43d8-aef8-592a20bb17d0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Regulator input gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9fdf88c6-6de0-43d8-aef8-592a20bb17d0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kin</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a7aba095-6fd5-4c33-b41c-672416e39405"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>9.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e3fb1fea-92ff-4306-ae29-2f4f455da476">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Washout time constant</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e3fb1fea-92ff-4306-ae29-2f4f455da476</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Tw</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5bfb424d-33ef-4019-a456-e65186b47e5b"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>8.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4559718b-1719-444c-ae56-108ea3b1800f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Derivate gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4559718b-1719-444c-ae56-108ea3b1800f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4df98fb4-e0a3-4dbb-bccd-693d96016959"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>10.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_14d0c919-1054-43c1-a3de-861149869446">
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_57059b88-f7be-421a-b1d7-7ced98b3d026"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c7e7f046-d1d2-4d37-a94c-630f6c64994f"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a117d465-af07-43f8-a6fa-5f585b103540">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>stateVariable</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a117d465-af07-43f8-a6fa-5f585b103540</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>x4</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_57059b88-f7be-421a-b1d7-7ced98b3d026"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>4.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_45385b75-e124-4606-8906-ec71beb2dd7c">
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4df98fb4-e0a3-4dbb-bccd-693d96016959"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a6009803-52ee-4c5f-914b-d370c3841b8c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Damping control maximum output</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a6009803-52ee-4c5f-914b-d370c3841b8c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_57059b88-f7be-421a-b1d7-7ced98b3d026"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c7e7f046-d1d2-4d37-a94c-630f6c64994f"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9c27b60e-ee85-4a89-8024-9b22ff87b8d3"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>15.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9b5a02d8-a68e-46e6-baa5-d869c571e4b6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Lag time constant 1</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9b5a02d8-a68e-46e6-baa5-d869c571e4b6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>T2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c7e7f046-d1d2-4d37-a94c-630f6c64994f"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>12.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_89d48d37-7a2b-4713-b246-872fc7aa3af0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>POD input: 1=P, 2=Q, 3=Vac, 4=f, 5= external signal, 0=none</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>89d48d37-7a2b-4713-b246-872fc7aa3af0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Input</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_638fa29e-ce7a-495c-a52c-86de585b69e0"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>5.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9fc5d8c1-4524-4882-9ab5-49b714be0452">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>POD output</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9fc5d8c1-4524-4882-9ab5-49b714be0452</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c2c30035-c0c4-435f-95cc-8d514b04a3ef"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>6.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a946d725-8934-48b6-bb43-d86574fa787b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>stateVariable</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a946d725-8934-48b6-bb43-d86574fa787b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>x2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c7e7f046-d1d2-4d37-a94c-630f6c64994f"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_2f159b2c-2852-4f9b-8b2b-cd01beb5c527">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Damping control minimum output</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2f159b2c-2852-4f9b-8b2b-cd01beb5c527</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_min</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_57059b88-f7be-421a-b1d7-7ced98b3d026"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9c27b60e-ee85-4a89-8024-9b22ff87b8d3"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c7e7f046-d1d2-4d37-a94c-630f6c64994f"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>16.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d35df610-b2de-471e-98a5-e83441aa58b6">
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_5bfb424d-33ef-4019-a456-e65186b47e5b"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_415d6283-2174-4a4f-87f6-9737f1b85444">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Lag time constant 2</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>415d6283-2174-4a4f-87f6-9737f1b85444</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>T4</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_57059b88-f7be-421a-b1d7-7ced98b3d026"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>14.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d42a7f72-fe4e-4062-8937-031f3efc1311">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>POD mode: 0 = Derivative, 1 = Lead-lag</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d42a7f72-fe4e-4062-8937-031f3efc1311</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Mode</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_88ce4274-e5db-430c-b64b-0f34268130c5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4ca5583a-f402-4c6d-86c5-b0b302673e67"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>7.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_edadca1b-8aaa-473f-8b12-1d3ba4a0063b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>stateVariable</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>edadca1b-8aaa-473f-8b12-1d3ba4a0063b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4df98fb4-e0a3-4dbb-bccd-693d96016959"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c77bb257-62be-4bf1-b61a-8402382ce784"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a9961755-a1db-4ab4-bc08-8e08b376fbd6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Gain K block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a9961755-a1db-4ab4-bc08-8e08b376fbd6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>y_washout</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b71ea0fc-8cb2-40bd-8f4d-6c2a29f05d2f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Selector 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b71ea0fc-8cb2-40bd-8f4d-6c2a29f05d2f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uac</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_971e14b6-f68e-4e76-8c06-d744f78aece3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Invert Signal block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>971e14b6-f68e-4e76-8c06-d744f78aece3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>yi_derivative</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a165fa27-d85c-47d0-aec5-98c66b610404">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Lead-lag 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a165fa27-d85c-47d0-aec5-98c66b610404</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>y_2</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_6176ba3f-31c4-4bd6-8ea7-78b843a1f893">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Divider Output block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6176ba3f-31c4-4bd6-8ea7-78b843a1f893</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dy_out</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f7d87390-485a-4c18-bc3f-6e476cc97391">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for POD Divider Output block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f7d87390-485a-4c18-bc3f-6e476cc97391</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_409bc51e-2250-4d48-9fb2-c42824a75dee">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Selector 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>409bc51e-2250-4d48-9fb2-c42824a75dee</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b07107f5-8ecc-4004-9856-679c5f22abd6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Power Oscillation Damping (POD) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b07107f5-8ecc-4004-9856-679c5f22abd6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fn</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_0005e84f-2ada-48e7-91d5-2d803e3de23d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for POD Divider Output block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0005e84f-2ada-48e7-91d5-2d803e3de23d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dQ</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_2654fb3e-23b2-484d-a8d7-9e145b1a0a4c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Lead-lag 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2654fb3e-23b2-484d-a8d7-9e145b1a0a4c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>yi_lead_lag</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_e01b3f3e-b0cd-47c1-bc88-5fd1a0cc4556">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Selector 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e01b3f3e-b0cd-47c1-bc88-5fd1a0cc4556</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lead_lag</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ac10b613-4d36-40c0-9ced-a257e3482311">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Selector 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ac10b613-4d36-40c0-9ced-a257e3482311</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_301547f7-a9d4-4012-bbd1-50b51a6fff83">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Divider block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>301547f7-a9d4-4012-bbd1-50b51a6fff83</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>y_K</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f3baeb76-f530-48d7-b286-af1eecd3fbe6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Selector 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f3baeb76-f530-48d7-b286-af1eecd3fbe6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_derivative</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b4983f6c-070d-47c2-8d4b-f9cd4cba597f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Washout filter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b4983f6c-070d-47c2-8d4b-f9cd4cba597f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>y_signal</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_d634b11e-ff51-4a3e-aff5-6bf0d71edd19">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Selector 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d634b11e-ff51-4a3e-aff5-6bf0d71edd19</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>yin_ext</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_62dda81c-5feb-4186-a024-487f1e8a4c73">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Selector 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>62dda81c-5feb-4186-a024-487f1e8a4c73</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>P</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_2a93a86c-b892-4c60-afdb-7e6dc1596f76">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Derivative with gain block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2a93a86c-b892-4c60-afdb-7e6dc1596f76</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>yi_invert</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_3596d87f-e7bf-4df9-80ce-7fdd8137ecf8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for POD Limiter with constant limits block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3596d87f-e7bf-4df9-80ce-7fdd8137ecf8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>y_1</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+</rdf:RDF>

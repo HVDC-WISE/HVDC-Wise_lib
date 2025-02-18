@@ -113,7 +113,7 @@ The Mode_embedded parameter is used to designate if the HVDC system connects two
 
 ## Model exchange
 
-The dynamic model is serialized in [CIM xml file](https://supergridinstitute.sharepoint.com/:f:/r/sites/HVDC-WISE/Documents%20partages/WP4%20-%20Enabling%20technologies/D4.3/HVDC-Wise_lib_internal/Artifacts_%26_equations/HVDC_MMC/DMC_FSM.xml) using DetailedModelConfigurationProfile of IEC 61970-457:2024 ([[1]](#1)), as well as Modelica code.
+The dynamic model is serialized in [CIM xml file](../../../Artifacts_&_equations/HVDC_MMC/DMC_FSM.xml) using DetailedModelConfigurationProfile of IEC 61970-457:2024 ([[1]](#1)), as well as Modelica code.
 The CIM model includes classes needed to exchange the dynamic model configuration, i.e. the structure and connectivity of a detailed model, whereas the Modelica model includes equations which explicitly describe the model dynamics.
 
 

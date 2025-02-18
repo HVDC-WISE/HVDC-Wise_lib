@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_e7eb2061-25b7-4840-abfd-be2cde9c1d2c">
+    <cim:IdentifiedObject.description>HVDC MMC control frame for balanced and unbalanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7eb2061-25b7-4840-abfd-be2cde9c1d2c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>HVDC MMC Control (TenneT)</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_71cea38f-0841-44b1-b5e9-f267d753c260">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_a6436dc5-4f5c-48f2-84c6-b3a4bda4ec09"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Current_Limiter_Iref_Limiter
+
+equation
+	// Limits
+	Prio2act = Selfix(Balanced(), 0, Select(FRT_active, Prio2_FRT, Prio2));
+	i1_max   = Selfix(Balanced(), i_max,  max(0.0, Select(Prio2act, i_max  * abs(i1_ref_in) / max(0.00000001, abs(i1_ref_in) + abs(i2_ref_in)), i_max)));
+	i1P_max  = Selfix(Balanced(), iP_max, max(0.0, Select(Prio2act, iP_max * abs(i1P_ref)   / max(0.00000001, abs(i1P_ref)   + abs(i2P_ref))  , iP_max)));
+	i1Q_max  = Selfix(Balanced(), iQ_max, max(0.0, Select(Prio2act, iQ_max * abs(i1Q_ref)   / max(0.00000001, abs(i1Q_ref)   + abs(i2Q_ref))  , iQ_max)));
+	i2_max   = Selfix(Balanced(), i_max,  max(0.0, Select(Prio2act, i_max  * abs(i2_ref_in) / max(0.00000001, abs(i1_ref_in) + abs(i2_ref_in)), i_max  - abs(i1_ref_out))));
+	i2P_max  = Selfix(Balanced(), iP_max, max(0.0, Select(Prio2act, iP_max * abs(i2P_ref)   / max(0.00000001, abs(i1P_ref)   + abs(i2P_ref))  , iP_max - abs(i1d_ref))));
+	i2Q_max  = Selfix(Balanced(), iQ_max, max(0.0, Select(Prio2act, iQ_max * abs(i2Q_ref)   / max(0.00000001, abs(i1Q_ref)   + abs(i2Q_ref))  , iQ_max - abs(i1q_ref))));
+
+	// FRT flag for active and post FRT
+	FRT_post = Picdro(Flipflop(FRT_active and (not pre(FRT_active)),  not FRT_active)-0.499, 0.0, 100/max(0.000001, diP_max_frt));
+
+	// Soft start flag
+	soft_flagP = Picdro(Flipflop((soft_auto or soft_manually) and ( not pre(soft_auto or soft_manually)),  not (soft_auto or soft_manually))-0.499, 0.0, 100/max(0.000001, diP_max_soft));
+	soft_flagQ = Picdro(Flipflop((soft_auto or soft_manually) and ( not pre(soft_auto or soft_manually)),  not (soft_auto or soft_manually))-0.499, 0.0, 100/max(0.000001, diQ_max_soft));
+
+	// Positive sequence
+	i1_ref_in  = sqrt((i1P_ref)^2+(i1Q_ref)^2);
+	i1_ref_ltd = min(i1_ref_in, i1_max);
+	// Priority on active current iP:
+	i1d_prioP = max(-i1P_max,min(i1P_max,i1P_ref));
+	i1q_prioP = max(-sqrt(max(0.0,Sqr(i1_max)-Sqr(i1d_prioP))),min(sqrt(max(0.0,Sqr(i1_max)-Sqr(i1d_prioP))),i1q_prioQ));
+	// Priority on reactive current iQ:
+	i1d_prioQ = max(-sqrt(max(0.0,Sqr(i1_max)-Sqr(i1q_prioQ))),min(sqrt(max(0.0,Sqr(i1_max)-Sqr(i1q_prioQ))),i1d_prioP));
+	i1q_prioQ = max(-i1Q_max,min(i1Q_max,-i1Q_ref));
+	// Priority on ratio iP/iQ:
+	i1d_prioRatio =  i1P_ref*max(0.00000001,i1_ref_ltd)/max(0.00000001,i1_ref_in);
+	i1q_prioRatio = -i1Q_ref*max(0.00000001,i1_ref_ltd)/max(0.00000001,i1_ref_in);
+	// Output:
+	i1d_ref = Select(i1P_ref&gt;0.000001, Select(blocked, 0.0, Select(FRT_active, GradLim(Select(i1P_ref&gt;0.000001,Selfix(PrioQ_FRT&gt;1.5,i1d_prioRatio,Selfix(PrioQ_FRT,i1d_prioQ,i1d_prioP)),0.0),-99999,diP_max_frt/100), Select(FRT_post, GradLim(Select(i1P_ref&gt;0.000001,Selfix(PrioQ&gt;1.5,i1d_prioRatio,Selfix(PrioQ,i1d_prioQ,i1d_prioP)),0.0),-99999,diP_max_frt/100), Select(soft_flagP, GradLim(Select(i1P_ref&gt;0.000001,Selfix(PrioQ&gt;1.5,i1d_prioRatio,Selfix(PrioQ,i1d_prioQ,i1d_prioP)),0.0),-99999,diP_max_soft/100), GradLim(Select(i1P_ref&gt;0.000001,Selfix(PrioQ&gt;1.5,i1d_prioRatio,Selfix(PrioQ,i1d_prioQ,i1d_prioP)),0.0),-99999,diP_max/100))))),Select(i1P_ref&lt;-0.000001,  Select(blocked, 0.0,   Select(FRT_active, GradLim(Select(i1P_ref&lt;-0.000001,Selfix(PrioQ_FRT&gt;1.5,i1d_prioRatio,Selfix(PrioQ_FRT,i1d_prioQ,i1d_prioP)),0.0),-diP_max_frt/100,99999), Select(FRT_post,GradLim(Select(i1P_ref&lt;-0.000001,Selfix(PrioQ&gt;1.5,i1d_prioRatio,Selfix(PrioQ,i1d_prioQ,i1d_prioP)),0.0),-diP_max_frt/100,99999), Select(soft_flagP,GradLim(Select(i1P_ref&lt;-0.000001,Selfix(PrioQ&gt;1.5,i1d_prioRatio,Selfix(PrioQ,i1d_prioQ,i1d_prioP)),0.0),-diP_max_soft/100,99999),GradLim(Select(i1P_ref&lt;-0.000001,Selfix(PrioQ&gt;1.5,i1d_prioRatio,Selfix(PrioQ,i1d_prioQ,i1d_prioP)),0.0),-diP_max/100,99999))))),Select(blocked, 0.0, Select(FRT_active,Selfix(PrioQ_FRT&gt;1.5, i1d_prioRatio, Selfix(PrioQ_FRT, i1d_prioQ, i1d_prioP)),Selfix(PrioQ&gt;1.5, i1d_prioRatio, Selfix(PrioQ, i1d_prioQ, i1d_prioP))))));
+
+	i1q_ref = Select(blocked, 0.0, Select(FRT_active, Selfix(PrioQ_FRT&gt;1.5, i1q_prioRatio, Selfix(PrioQ_FRT, i1q_prioQ, i1q_prioP)), Select(soft_flagQ, Select(i1Q_ref&lt;-0.000001, GradLim(Select(i1Q_ref&lt;-0.000001,Selfix(PrioQ&gt;1.5,i1q_prioRatio,Selfix(PrioQ,i1q_prioQ,i1q_prioP)),0.0),-99999,diQ_max_soft/100), Select(i1Q_ref&gt;0.000001, GradLim(Select(i1Q_ref&gt;0.000001,Selfix(PrioQ&gt;1.5,i1q_prioRatio,Selfix(PrioQ,i1q_prioQ,i1q_prioP)),0.0),-diQ_max_soft/100,99999), Selfix(PrioQ&gt;1.5, i1q_prioRatio, Selfix(PrioQ, i1q_prioQ, i1q_prioP)))), Selfix(PrioQ&gt;1.5, i1q_prioRatio, Selfix(PrioQ, i1q_prioQ, i1q_prioP)))));
+
+	i1_ref_out = sqrt(max(0.0,Sqr(i1d_ref)+Sqr(i1q_ref)));
+
+	i_ref_out = Selfix(Balanced(), i1_ref_out, i1_ref_out+i2_ref_out);
+	if (i_ref_out&gt;i_max+0.00001) then
+		print("Current reference output exceeds maximum limit: i_ref_out=i_ref_out &gt; i_max=i_max");
+	end if;"
+
+	// Negative sequence
+	i2_ref_in  = Selfix(Balanced(), 0.0, sqrt(Sqr(i2P_ref)+Sqr(i2Q_ref)));
+	i2_ref_ltd = Selfix(Balanced(), 0.0, min(i2_ref_in, i2_max));
+	// Priority on active current iP:
+	i2d_prioP = Selfix(Balanced(), 0.0, max(-i2P_max,min(i2P_max,i2P_ref)));
+	i2q_prioP = Selfix(Balanced(), 0.0, max(-sqrt(max(0.0,Sqr(i2_max)-Sqr(i2d_prioP))),min(sqrt(max(0.0,Sqr(i2_max)-Sqr(i2d_prioP))),i2q_prioQ)));
+	// Priority on reactive current iQ:
+	i2d_prioQ = Selfix(Balanced(), 0.0, max(-sqrt(max(0.0,Sqr(i2_max)-Sqr(i2q_prioQ))),min(sqrt(max(0.0,Sqr(i2_max)-Sqr(i2q_prioQ))),i2d_prioP)));
+	i2q_prioQ = Selfix(Balanced(), 0.0, max(-i2Q_max,min(i2Q_max,-i2Q_ref)));
+	// Priority on ratio iP/iQ:
+	i2d_prioRatio = Selfix(Balanced(), 0.0,  i2P_ref*max(0.00000001,i2_ref_ltd)/max(0.00000001,i2_ref_in));
+	i2q_prioRatio = Selfix(Balanced(), 0.0, -i2Q_ref*max(0.00000001,i2_ref_ltd)/max(0.00000001,i2_ref_in));
+	// Output:
+i2d_ref = Selfix(Balanced(), 0.0, Select(i2P_ref&gt;0.000001, Select(blocked, 0.0, Select(FRT_active, GradLim(Select(i2P_ref&gt;0.000001,Selfix(PrioQ_FRT&gt;1.5,i2d_prioRatio,Selfix(PrioQ_FRT,i2d_prioQ,i2d_prioP)),0.0),-99999,diP_max_frt/100), Select(FRT_post, GradLim(Select(i2P_ref&gt;0.000001,Selfix(PrioQ&gt;1.5,i2d_prioRatio,Selfix(PrioQ,i2d_prioQ,i2d_prioP)),0.0),-99999,diP_max_frt/100), Select(soft_flagP, GradLim(Select(i2P_ref&gt;0.000001,Selfix(PrioQ&gt;1.5,i2d_prioRatio,Selfix(PrioQ,i2d_prioQ,i2d_prioP)),0.0),-99999,diP_max_soft/100), GradLim(Select(i2P_ref&gt;0.000001,Selfix(PrioQ&gt;1.5,i2d_prioRatio,Selfix(PrioQ,i2d_prioQ,i2d_prioP)),0.0),-99999,diP_max/100))))), Select(i2P_ref&lt;-0.000001, Select(blocked, 0.0,  Select(FRT_active, GradLim(Select(i2P_ref&lt;-0.000001,Selfix(PrioQ_FRT&gt;1.5,i2d_prioRatio,Selfix(PrioQ_FRT,i2d_prioQ,i2d_prioP)),0.0),-diP_max_frt/100,99999), Select(FRT_post, GradLim(Select(i2P_ref&lt;-0.000001,Selfix(PrioQ&gt;1.5,i2d_prioRatio,Selfix(PrioQ,i2d_prioQ,i2d_prioP)),0.0),-diP_max_frt/100,99999), Select(soft_flagP, GradLim(Select(i2P_ref&lt;-0.000001,Selfix(PrioQ&gt;1.5,i2d_prioRatio,Selfix(PrioQ,i2d_prioQ,i2d_prioP)),0.0),-diP_max_soft/100,99999), GradLim(Select(i2P_ref&lt;-0.000001,Selfix(PrioQ&gt;1.5,i2d_prioRatio,Selfix(PrioQ,i2d_prioQ,i2d_prioP)),0.0),-diP_max/100,99999))))), Select(blocked, 0.0,  Select(FRT_active, Selfix(PrioQ_FRT&gt;1.5, i2d_prioRatio, Selfix(PrioQ_FRT, i2d_prioQ, i2d_prioP)), Selfix(PrioQ&gt;1.5, i2d_prioRatio, Selfix(PrioQ, i2d_prioQ, i2d_prioP)))))));
+i2q_ref = Selfix(Balanced(), 0.0, Select(blocked, 0.0, Select(FRT_active, Selfix(PrioQ_FRT&gt;1.5, i2q_prioRatio, Selfix(PrioQ_FRT, i2q_prioQ, i2q_prioP)), Select(soft_flagQ, Select(i2Q_ref&lt;-0.000001, GradLim(Select(i2Q_ref&lt;-0.000001,Selfix(PrioQ&gt;1.5,i2q_prioRatio,Selfix(PrioQ,i2q_prioQ,i2q_prioP)),0.0),-99999,diQ_max_soft/100), Select(i2Q_ref&gt;0.000001, GradLim(Select(i2Q_ref&gt;0.000001,Selfix(PrioQ&gt;1.5,i2q_prioRatio,Selfix(PrioQ,i2q_prioQ,i2q_prioP)),0.0),-diQ_max_soft/100,99999), Selfix(PrioQ&gt;1.5, i2q_prioRatio, Selfix(PrioQ, i2q_prioQ, i2q_prioP)))), Selfix(PrioQ&gt;1.5, i2q_prioRatio, Selfix(PrioQ, i2q_prioQ, i2q_prioP))))));
+
+	i2_ref_out = Selfix(Balanced(), 0.0, sqrt(max(0.0,Sqr(i2d_ref)+Sqr(i2q_ref))));
+
+	// Additional flags:
+	blocked = Picdro(block-0.4999, 0.000, 0.001);
+
+	i1P_in_limit = Picdro(abs(i1P_ref)-abs(i1d_ref)+0.499, 0.005, 0.001);
+	i1Q_in_limit = Picdro(abs(i1Q_ref)-abs(i1q_ref)+0.499, 0.005, 0.001);
+	i2P_in_limit = Selfix(Balanced(),0,Picdro(Selfix(Balanced(),0,abs(i1P_ref)-abs(i1d_ref)+0.499), 0.005, 0.001));
+	i2Q_in_limit = Selfix(Balanced(),0,Picdro(Selfix(Balanced(),0,abs(i1Q_ref)-abs(i1q_ref)+0.499), 0.005, 0.001));
+	
+end Current_Limiter_Iref_Limiter;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;
+
+function Picdro
+	input Boolean boolexpr;
+	input Real Tpick;
+	input Real Tdrop;
+	output Boolean varA;
+algorithm
+	if boolexpr = true then
+		varA = delay(1,Tpick);
+	else if boolexpr = false then
+		varA = delay(0,Tdrop);
+	else
+		varA = pre(varA)
+	end if;
+end Picdro;
+
+function Flipflop
+	input  Boolean boolset;
+	input  Boolean boolreset;
+	output Boolean state;
+algorithm
+	if (boolset = true) and (boolreset = false) then
+		state := true;
+	end if;
+	if (boolset = false) and (boolreset = true) then
+		state := false;
+	end if;	
+end Flipflop;
+
+function Sqr
+	input Real x;
+	output Real y;
+algorithm
+	y = x*x;
+end Selfix;
+
+function GradLim
+	input Real inputSignal;
+	input Real minGradient;
+	input Real maxGradient;
+	output Real outputSignal;
+algorithm
+	if der(inputSignal) &gt; maxGradient then
+		outputSignal = maxGradient+inputSignal;
+	else if der(inputSignal) &lt; minGradient then
+		outputSignal = minGradient+inputSignal;
+	else
+		outputSignal = inputSignal+der(inputSignal);
+	end if;
+end GradLim;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Current limiter in positive and negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>71cea38f-0841-44b1-b5e9-f267d753c260</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Current Limiter Iref Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_4290fcea-4634-47b5-8646-9071ea581a01">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_2345ae60-976a-466e-9c2b-c0c9ab12400a"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.initialConditionsEquation>Boolean FRT_active (start = 0);
+Boolean block;
+if noEvent(abs(block))) &lt; 1e-6 then
+    block = 0;
+end if;
+Boolean soft;
+if noEvent(abs(soft))) &lt; 1e-6 then
+    soft = 0;
+end if;
+Boolean soft_manually (start = 0);
+Boolean blocked (start =  block);
+Real i1P_ref (start = Selfix(block, 0.0,  i1d_ref));
+Real i1Q_ref (start =  Selfix(block, 0.0, -i1q_ref);
+Real i2P_ref (start = Selfix(Balanced(),0, Selfix(block, 0.0,  i2d_ref)));
+Real i2Q_ref (start = Selfix(Balanced(),0, Selfix(block, 0.0, -i2q_ref)));
+Real i2d_ref;
+if noEvent(abs(i2d_ref))) &lt; 1e-6 then
+    i2d_ref = 0;
+end if;
+Real i2q_ref;
+if noEvent(abs(i2q_ref))) &lt; 1e-6 then
+    i2q_ref = 0;
+end if;
+Real i1P_in_limit (start = 0);
+Real i1Q_in_limit (start = 0);
+Real i2P_in_limit (start = 0);
+Real i2Q_in_limit (start = 0);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Current limiter in positive and negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4290fcea-4634-47b5-8646-9071ea581a01</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Current Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_a6436dc5-4f5c-48f2-84c6-b3a4bda4ec09">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Current Limiter Iref Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a6436dc5-4f5c-48f2-84c6-b3a4bda4ec09</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_029518d3-8d53-4503-b62e-b17469751b65"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_575880bd-214a-4ea7-9412-615b7e40d44a"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_4ddc4a6c-f0d6-415e-ab04-4eeed2987a90"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_574b9a81-aaf0-4c8b-82a9-bdcc6f674e82"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_40865bb5-69ec-4897-a833-7ea6c6c202ee"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c7b4feb4-52de-45eb-b507-43ab86b82638"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_be74f48f-918d-413f-80bc-2b6731fc8226"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e5e90400-f98f-4f94-bed8-8c49fd53085d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_b6ce7ad2-8f94-4c9c-bc09-d8a3a61b3299"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_2854fc51-86c1-4b5f-adc6-3ac185fff06b"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_964589ca-77a0-4265-89b7-4ff19f975297"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a388d1b3-af58-408d-a939-4e5734134a03"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_cfaf5e67-075b-4e71-ba97-aa5d25f6c349"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a83d7e15-1018-4289-b1dd-53cfa3e89f2e"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_f91c7972-619d-46f8-8fe9-b8d9f3d32043"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_659cbbe8-70a4-45a3-9a2a-e651ae364a47"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_2345ae60-976a-466e-9c2b-c0c9ab12400a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2345ae60-976a-466e-9c2b-c0c9ab12400a</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_be74f48f-918d-413f-80bc-2b6731fc8226"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c7b4feb4-52de-45eb-b507-43ab86b82638"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_40865bb5-69ec-4897-a833-7ea6c6c202ee"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e5e90400-f98f-4f94-bed8-8c49fd53085d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_029518d3-8d53-4503-b62e-b17469751b65"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_4ddc4a6c-f0d6-415e-ab04-4eeed2987a90"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_574b9a81-aaf0-4c8b-82a9-bdcc6f674e82"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_575880bd-214a-4ea7-9412-615b7e40d44a"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_964589ca-77a0-4265-89b7-4ff19f975297"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_659cbbe8-70a4-45a3-9a2a-e651ae364a47"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_b6ce7ad2-8f94-4c9c-bc09-d8a3a61b3299"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a83d7e15-1018-4289-b1dd-53cfa3e89f2e"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_cfaf5e67-075b-4e71-ba97-aa5d25f6c349"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_f91c7972-619d-46f8-8fe9-b8d9f3d32043"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a388d1b3-af58-408d-a939-4e5734134a03"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_2854fc51-86c1-4b5f-adc6-3ac185fff06b"/>
+  </cim:InputOutputDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9b19bd64-0e72-4750-a1b5-27d0cfb7df01">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Priority unbalanced FRT: 0 = pos. seq., 1 = ratio pos./neg. seq.</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9b19bd64-0e72-4750-a1b5-27d0cfb7df01</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Prio2_FRT</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>4.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_61fc6380-8d48-4105-a7b3-148835cf9d8b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2P_max for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>61fc6380-8d48-4105-a7b3-148835cf9d8b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2P_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>36.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0695bb52-b3c3-4ec9-949a-1f2d1b335d5f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Priority unbalanced operation: 0 = pos. seq., 1 = ratio pos./neg. seq.</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0695bb52-b3c3-4ec9-949a-1f2d1b335d5f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Prio2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_71610833-51c8-4e8b-ba06-33d89d639d6d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2q_prioP for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>71610833-51c8-4e8b-ba06-33d89d639d6d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2q_prioP</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>28.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_569a2612-b475-4de5-a2bf-13922b7b77f5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable soft_flagP for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>569a2612-b475-4de5-a2bf-13922b7b77f5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>soft_flagP</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>39.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_33603237-28bb-4169-a4f5-230ca8abe50d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Priority during FRT: 0 = iP, 1 = iQ, 2=ratio iP/iQ</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>33603237-28bb-4169-a4f5-230ca8abe50d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>PrioQ_FRT</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8e5e1654-be71-4f26-a7e5-c457f72b23b6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1_max for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8e5e1654-be71-4f26-a7e5-c457f72b23b6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>17.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7842bac0-9bf7-46d7-9ca7-813b6a213f89">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2Q_max for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7842bac0-9bf7-46d7-9ca7-813b6a213f89</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>37.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e73ad390-7c68-4c27-ab0a-724f3fc09573">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum current</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e73ad390-7c68-4c27-ab0a-724f3fc09573</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>5.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_54446342-9c1c-47cc-802a-233072b43b10">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i_ref_out for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>54446342-9c1c-47cc-802a-233072b43b10</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i_ref_out</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>25.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_defe59ea-77fe-4d69-a1b3-dc742ca677f5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1_ref_in for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>defe59ea-77fe-4d69-a1b3-dc742ca677f5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1_ref_in</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>20.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a483e87e-1ec1-4506-9d86-da44daccfd9f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1_ref_ltd for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a483e87e-1ec1-4506-9d86-da44daccfd9f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1_ref_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>21.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_fee94f80-9125-4d37-90b5-86dcaed16b4a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. reactive current gradient at soft restart</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fee94f80-9125-4d37-90b5-86dcaed16b4a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>diQ_max_soft</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>11.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_fd8bdffe-edf4-44c3-9247-cbca050b25a7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum positive active current gradient</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fd8bdffe-edf4-44c3-9247-cbca050b25a7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>diP_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>8.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_58cb7951-1a49-4ff3-a9ed-f1605cf2a091">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1P_max for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>58cb7951-1a49-4ff3-a9ed-f1605cf2a091</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1P_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>18.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4f5694f9-14d5-4f2a-b9ae-e5f920e97b4f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2d_prioRatio for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4f5694f9-14d5-4f2a-b9ae-e5f920e97b4f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2d_prioRatio</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>32.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_092d2ca9-f906-4899-904b-37ed76ce61e3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2_ref_in for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>092d2ca9-f906-4899-904b-37ed76ce61e3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2_ref_in</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>30.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4e18977d-e519-4a98-8733-bb4071c9abde">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1Q_max for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4e18977d-e519-4a98-8733-bb4071c9abde</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1Q_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>19.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f58482d6-72b4-4c1f-a983-a5e57927fa8b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1d_prioQ for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f58482d6-72b4-4c1f-a983-a5e57927fa8b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1d_prioQ</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>14.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e58fc815-b758-4926-bd8a-a29745b49e42">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2q_prioRatio for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e58fc815-b758-4926-bd8a-a29745b49e42</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2q_prioRatio</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>33.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a90886eb-efbc-43f3-be19-5deacea98a79">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2d_prioP for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a90886eb-efbc-43f3-be19-5deacea98a79</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2d_prioP</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>26.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9a182071-db7f-4bf2-8e0d-60f2a36878ae">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1q_prioRatio for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9a182071-db7f-4bf2-8e0d-60f2a36878ae</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1q_prioRatio</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>23.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e0e14f25-a3b0-4841-922c-7eff5f1c43e5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum reactive current (Vac control)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e0e14f25-a3b0-4841-922c-7eff5f1c43e5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>iQ_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>7.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_329c02c9-c7ce-4f85-bfad-4c456f7220ba">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1d_prioRatio for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>329c02c9-c7ce-4f85-bfad-4c456f7220ba</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1d_prioRatio</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>22.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_eee1d5de-67a2-482d-8797-ff0980a9e7c0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1q_prioP for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>eee1d5de-67a2-482d-8797-ff0980a9e7c0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1q_prioP</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>15.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5180cf23-da10-4bd8-b37d-96e7d99c2971">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1d_prioP for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5180cf23-da10-4bd8-b37d-96e7d99c2971</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1d_prioP</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>13.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9854d48d-dc2c-47ac-8733-1fcd7bf3fcd1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2d_prioQ for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9854d48d-dc2c-47ac-8733-1fcd7bf3fcd1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2d_prioQ</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>27.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d0c4ea44-2a70-48a4-826d-012314256152">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable blocked for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d0c4ea44-2a70-48a4-826d-012314256152</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>blocked</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>12.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_35e78fcc-303b-4ebd-aa37-7d1837ed3f79">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum active current (max. ref. output)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>35e78fcc-303b-4ebd-aa37-7d1837ed3f79</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>iP_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>6.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_49566db2-2ce8-4c52-9904-c1af52e9c91f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. active current gradient at soft restart</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>49566db2-2ce8-4c52-9904-c1af52e9c91f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>diP_max_soft</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>10.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_816cf065-ad1c-49cb-9b7f-a2684f291ae6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1q_prioQ for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>816cf065-ad1c-49cb-9b7f-a2684f291ae6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1q_prioQ</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>16.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e5a1ab38-5e69-4f56-b6fb-79db4ea7d676">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2_max for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e5a1ab38-5e69-4f56-b6fb-79db4ea7d676</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>35.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c4f5ba84-491a-4796-bfcd-2356f5a7f246">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. active current gradient at/post FRT</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c4f5ba84-491a-4796-bfcd-2356f5a7f246</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>diP_max_frt</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>9.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_11fdd513-7490-467a-8d24-5ea5076efeb2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i1_ref_out for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>11fdd513-7490-467a-8d24-5ea5076efeb2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1_ref_out</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>24.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3cde2a97-7a6e-47ee-84cc-20fe54efae9b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Priority during normal operation: 0=iP, 1=iQ, 2=ratio iP/iQ</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3cde2a97-7a6e-47ee-84cc-20fe54efae9b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>PrioQ</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="# http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4b69056d-f788-451b-9466-780ed5e70dc2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable soft_flagQ for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4b69056d-f788-451b-9466-780ed5e70dc2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>soft_flagQ</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>40.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a07b237a-f8fa-4b53-9fba-354f8c133ae8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2_ref_out for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a07b237a-f8fa-4b53-9fba-354f8c133ae8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2_ref_out</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>34.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_6b24563f-8c6d-4f15-9654-4a6d74598f82">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2_ref_ltd for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6b24563f-8c6d-4f15-9654-4a6d74598f82</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2_ref_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>31.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_efc4c974-d5fa-4598-8b18-bc1ce73a9cc8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable i2q_prioQ for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>efc4c974-d5fa-4598-8b18-bc1ce73a9cc8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2q_prioQ</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>29.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_480a1c55-40ae-4c15-96d2-7b3ee1298ba2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable FRT_post for  block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>480a1c55-40ae-4c15-96d2-7b3ee1298ba2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT_post</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4290fcea-4634-47b5-8646-9071ea581a01"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_71cea38f-0841-44b1-b5e9-f267d753c260"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>38.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_4ddc4a6c-f0d6-415e-ab04-4eeed2987a90">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4ddc4a6c-f0d6-415e-ab04-4eeed2987a90</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1P_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_964589ca-77a0-4265-89b7-4ff19f975297">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>964589ca-77a0-4265-89b7-4ff19f975297</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1q_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_574b9a81-aaf0-4c8b-82a9-bdcc6f674e82">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>574b9a81-aaf0-4c8b-82a9-bdcc6f674e82</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>soft_manually</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_029518d3-8d53-4503-b62e-b17469751b65">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>029518d3-8d53-4503-b62e-b17469751b65</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>soft</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c7b4feb4-52de-45eb-b507-43ab86b82638">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c7b4feb4-52de-45eb-b507-43ab86b82638</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>block</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_40865bb5-69ec-4897-a833-7ea6c6c202ee">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>40865bb5-69ec-4897-a833-7ea6c6c202ee</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2P_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a388d1b3-af58-408d-a939-4e5734134a03">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a388d1b3-af58-408d-a939-4e5734134a03</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2q_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_575880bd-214a-4ea7-9412-615b7e40d44a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>575880bd-214a-4ea7-9412-615b7e40d44a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_cfaf5e67-075b-4e71-ba97-aa5d25f6c349">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cfaf5e67-075b-4e71-ba97-aa5d25f6c349</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2P_in_limit</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_be74f48f-918d-413f-80bc-2b6731fc8226">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>be74f48f-918d-413f-80bc-2b6731fc8226</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FRT_active</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_e5e90400-f98f-4f94-bed8-8c49fd53085d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e5e90400-f98f-4f94-bed8-8c49fd53085d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1Q_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a83d7e15-1018-4289-b1dd-53cfa3e89f2e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a83d7e15-1018-4289-b1dd-53cfa3e89f2e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2d_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b6ce7ad2-8f94-4c9c-bc09-d8a3a61b3299">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b6ce7ad2-8f94-4c9c-bc09-d8a3a61b3299</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1Q_in_limit</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f91c7972-619d-46f8-8fe9-b8d9f3d32043">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f91c7972-619d-46f8-8fe9-b8d9f3d32043</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2Q_in_limit</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_659cbbe8-70a4-45a3-9a2a-e651ae364a47">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>659cbbe8-70a4-45a3-9a2a-e651ae364a47</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1P_in_limit</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_2854fc51-86c1-4b5f-adc6-3ac185fff06b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2854fc51-86c1-4b5f-adc6-3ac185fff06b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1d_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+</rdf:RDF>

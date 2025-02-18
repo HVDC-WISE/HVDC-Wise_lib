@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_e7eb2061-25b7-4840-abfd-be2cde9c1d2c">
+    <cim:IdentifiedObject.description>HVDC MMC control frame for balanced and unbalanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7eb2061-25b7-4840-abfd-be2cde9c1d2c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>HVDC MMC Control (TenneT)</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_8d9be973-8060-4766-9a29-7ee9758d9f59">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_f0db5003-36ca-4947-972c-0daf1306d02a"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Operating_Mode_Output_Selector_2
+
+equation
+	
+	uconv_2r = Selfix(Balanced(), 0.0, Selfix(BoolRMS(), Select(mode_isl, uconv_2r_isl, uconv_2r_nonisl), 0.0));
+	uconv_2i = Selfix(Balanced(), 0.0, Selfix(BoolRMS(), Select(mode_isl, uconv_2i_isl, uconv_2i_nonisl), 0.0));
+	uconv_2  = Selfix(Balanced(), 0.0, Selfix(BoolRMS(), sqrt(max(0.0,Sqr(uconv_2r)+Sqr(uconv_2i))), 0.0));
+	
+end Operating_Mode_Output_Selector_2;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function Sqr
+	input Real x;
+	output Real y;
+algorithm
+	y = x*x;
+end Sqr;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for Balanced RMS, 2 for unBalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;
+
+function BoolRMS
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for RMS, 0 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end BoolRMS;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Output selector in the negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8d9be973-8060-4766-9a29-7ee9758d9f59</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Operating Mode Output Selector 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_580a778e-8aad-4e26-9353-bcd5b088cc5c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_80053b9f-d8ca-42a0-bb4b-961f6f426981"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Operating_Mode_Output_Selector_1
+
+equation
+	
+	uconv_r = Select(mode_isl, uconv_r_isl, uconv_r_nonisl);
+	uconv_i = Select(mode_isl, uconv_i_isl, uconv_i_nonisl);
+	uconv = sqrt(max(0.0,Sqr(uconv_r)+Sqr(uconv_i)));
+	
+end Operating_Mode_Output_Selector_1;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function Sqr
+	input Real x;
+	output Real y;
+algorithm
+	y = x*x;
+end Sqr;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Output selector in the positive sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>580a778e-8aad-4e26-9353-bcd5b088cc5c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Operating Mode Output Selector 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_d7bd12bf-8589-4b15-a4cb-cfde63c9ba48">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_e1b412eb-b819-4742-aaee-cef7628619ea"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Operating_Mode_Mode_Selector
+
+equation
+	
+	mode = mode_cmd;
+	
+end Operating_Mode_Mode_Selector;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Integer mode_cmd (start =  Selfix(Mode, 1, 0));</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Mode Selector</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d7bd12bf-8589-4b15-a4cb-cfde63c9ba48</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Operating Mode Mode Selector</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_9c178f24-f89a-4ab2-afc5-78b4f10bb93b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_830b408a-a7cf-49af-ab9e-a073a8059ad8"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real uconv_2r;
+if noEvent(abs(uconv_2r))) &lt; 1e-6 then
+    uconv_2r = 0;
+end if;
+Real uconv_2i;
+if noEvent(abs(uconv_2i))) &lt; 1e-6 then
+    uconv_2i = 0;
+end if;
+Real uconv_r_nonisl (start =  uconv_r);
+Real uconv_i_nonisl (start =  uconv_i);
+Real uconv_r_isl (start =  uconv_r);
+Real uconv_i_isl (start =  uconv_i);
+Real uconv_2r_nonisl (start =  uconv_2r);
+Real uconv_2i_nonisl (start =  uconv_2i);
+Real uconv_2r_isl (start =  uconv_2r);
+Real uconv_2i_isl (start =  uconv_2i);
+Real uconv (start =  sqrt(max(0.0,Sqr(uconv_r)+Sqr(uconv_i))));
+Real uconv_2 (start = sqrt(max(0.0,Sqr(uconv_2r)+Sqr(uconv_2i))));</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Output selector for islanded or non-islanded (grid parallel) operating mode</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9c178f24-f89a-4ab2-afc5-78b4f10bb93b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Operating Mode</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_f0db5003-36ca-4947-972c-0daf1306d02a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Operating Mode Output Selector 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>_f0db5003-36ca-4947-972c-0daf1306d02a</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_11fed01c-2a8a-4189-a397-5d7c640c9aba"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c9a0ff2a-92e5-4fb0-9911-22d33dcffc36"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ca3ba820-97ad-4253-87a9-a1c7122e0d8d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_31927214-099f-48b9-8dd6-9001adb8a5e1"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ae3f865c-242e-4a3f-8e7a-0e333b99e4d6"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_55dd3eae-d9f2-4496-a870-f095a46c6247"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_68ebbed6-f94b-4a63-8249-600c9cfccf03"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_80053b9f-d8ca-42a0-bb4b-961f6f426981">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Operating Mode Output Selector 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>_80053b9f-d8ca-42a0-bb4b-961f6f426981</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_444ec81f-494c-4c46-be4d-6393805ca503"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c9a0ff2a-92e5-4fb0-9911-22d33dcffc36"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_36b36df5-b7e9-429c-b6f6-1fea64a72144"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5cec7569-e1f3-4b1a-9c0d-cc3a2e8d7f0d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c867ac29-d404-477c-b7fa-77d369dbfcfc"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_aa90b68e-0fb0-4f9e-a14d-7a0ae4f19334"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_95162cae-641a-4eae-9429-4c6130eca640"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_e1b412eb-b819-4742-aaee-cef7628619ea">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Operating Mode Mode Selector block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>_e1b412eb-b819-4742-aaee-cef7628619ea</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d7209d6f-fae9-4353-ab5d-ba13b44d99d7"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_c9a0ff2a-92e5-4fb0-9911-22d33dcffc36"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_830b408a-a7cf-49af-ab9e-a073a8059ad8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Operating Mode block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>_830b408a-a7cf-49af-ab9e-a073a8059ad8</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ca3ba820-97ad-4253-87a9-a1c7122e0d8d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_444ec81f-494c-4c46-be4d-6393805ca503"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ae3f865c-242e-4a3f-8e7a-0e333b99e4d6"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_31927214-099f-48b9-8dd6-9001adb8a5e1"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_11fed01c-2a8a-4189-a397-5d7c640c9aba"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d7209d6f-fae9-4353-ab5d-ba13b44d99d7"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_36b36df5-b7e9-429c-b6f6-1fea64a72144"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c867ac29-d404-477c-b7fa-77d369dbfcfc"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5cec7569-e1f3-4b1a-9c0d-cc3a2e8d7f0d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_55dd3eae-d9f2-4496-a870-f095a46c6247"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_68ebbed6-f94b-4a63-8249-600c9cfccf03"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_aa90b68e-0fb0-4f9e-a14d-7a0ae4f19334"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_95162cae-641a-4eae-9429-4c6130eca640"/>
+  </cim:InputOutputDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f58b7918-dab3-4796-b334-a9f2c56f7fec">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_2 for Operating Mode Output Selector 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f58b7918-dab3-4796-b334-a9f2c56f7fec</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_8d9be973-8060-4766-9a29-7ee9758d9f59"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_de5ddf43-ae7e-4c36-b194-c6cb76244ccf">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv for Operating Mode Output Selector 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>de5ddf43-ae7e-4c36-b194-c6cb76244ccf</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_580a778e-8aad-4e26-9353-bcd5b088cc5c"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_dc280dd2-0582-4bcd-be31-824ca3711bab">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Operating mode: 0 = grid parallel, 1 = island</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>dc280dd2-0582-4bcd-be31-824ca3711bab</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Mode_isl</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9c178f24-f89a-4ab2-afc5-78b4f10bb93b"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_d7bd12bf-8589-4b15-a4cb-cfde63c9ba48"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_55dd3eae-d9f2-4496-a870-f095a46c6247">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Operating Mode block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>55dd3eae-d9f2-4496-a870-f095a46c6247</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2i</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c9a0ff2a-92e5-4fb0-9911-22d33dcffc36">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Operating mode: 0 = grid parallel, 1 = island</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c9a0ff2a-92e5-4fb0-9911-22d33dcffc36</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>mode_isl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_444ec81f-494c-4c46-be4d-6393805ca503">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference for islanded operation, imaginary part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>444ec81f-494c-4c46-be4d-6393805ca503</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_i_isl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_aa90b68e-0fb0-4f9e-a14d-7a0ae4f19334">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Operating Mode block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>aa90b68e-0fb0-4f9e-a14d-7a0ae4f19334</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_i</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_36b36df5-b7e9-429c-b6f6-1fea64a72144">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference for islanded operation, real part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>36b36df5-b7e9-429c-b6f6-1fea64a72144</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_r_isl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_11fed01c-2a8a-4189-a397-5d7c640c9aba">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference for non-islanded (grid parallel) operation, negative sequence, real part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>11fed01c-2a8a-4189-a397-5d7c640c9aba</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2r_nonisl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ae3f865c-242e-4a3f-8e7a-0e333b99e4d6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference for non-islanded (grid parallel) operation, negative sequence, imaginary part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ae3f865c-242e-4a3f-8e7a-0e333b99e4d6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2i_nonisl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_d7209d6f-fae9-4353-ab5d-ba13b44d99d7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Operating mode command signal: 0 = grid parallel, 1 = island</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d7209d6f-fae9-4353-ab5d-ba13b44d99d7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>mode_isl_cmd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_68ebbed6-f94b-4a63-8249-600c9cfccf03">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Operating Mode block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>68ebbed6-f94b-4a63-8249-600c9cfccf03</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2r</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_95162cae-641a-4eae-9429-4c6130eca640">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Operating Mode block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>95162cae-641a-4eae-9429-4c6130eca640</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_r</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_31927214-099f-48b9-8dd6-9001adb8a5e1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference for islanded operation, negative sequence, real part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>31927214-099f-48b9-8dd6-9001adb8a5e1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2r_isl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ca3ba820-97ad-4253-87a9-a1c7122e0d8d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference for islanded operation, negative sequence, imaginary part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ca3ba820-97ad-4253-87a9-a1c7122e0d8d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2i_isl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_5cec7569-e1f3-4b1a-9c0d-cc3a2e8d7f0d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference for non-islanded (grid-parallel) operation, imaginary part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5cec7569-e1f3-4b1a-9c0d-cc3a2e8d7f0d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_i_nonisl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c867ac29-d404-477c-b7fa-77d369dbfcfc">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference for non-islanded (grid-parallel) operation, real part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c867ac29-d404-477c-b7fa-77d369dbfcfc</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_r_nonisl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+</rdf:RDF>

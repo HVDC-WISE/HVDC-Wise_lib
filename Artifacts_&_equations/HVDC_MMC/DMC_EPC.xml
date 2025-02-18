@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_e7eb2061-25b7-4840-abfd-be2cde9c1d2c">
+    <cim:IdentifiedObject.description>HVDC VSC/MMC terminal control frame for balanced and unbalanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7eb2061-25b7-4840-abfd-be2cde9c1d2c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Frame HVDC Terminal (Static Gen. TenneT)</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_41bfb87e-7d79-475f-915f-578269a1cc90">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_ea7f51eb-7fbc-4f9c-be88-84fa50e6d4f0"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>equation
+	if EPC_Blocking_A then
+		P_incA = pre(P_incA);
+	else
+		P_incA = P;
+	end if;
+	
+	if EPC_Blocking_B then
+		P_incB = pre(P_incB);
+	else
+		P_incB = P;
+	end if;
+	
+	if EPC_Blocking_A and ((ori_block_A and P_incA&gt;0) or (not(ori_block_A) and P_incA&lt;=0)) then
+		surpress_A = 1;
+	else
+		surpress_A = 0;
+	end if;
+	
+	if (Flipflop(EPC2 and (not(EPC4)),EPC4) = true then
+		epc2_start = delay(1,0.1);
+	else if (Flipflop(EPC2 and (not(EPC4)),EPC4) = false then
+		epc2_start = delay(0,0.0);
+	else
+		epc2_start = pre(epc2_start)
+	end if;	
+	
+	if (Flipflop(EPC3 and (not(EPC4)),EPC4) = true then
+		epc3_start = delay(1,0.1);
+	else if (Flipflop(EPC3 and (not(EPC4)),EPC4) = false then
+		epc3_start = delay(0,0.0);
+	else
+		epc3_start = pre(epc3_start)
+	end if;	
+	
+	if (Flipflop(EPC5 and (not(EPC8)) and (not (epc6_active or epc7_active)) and (not (surpress_A))),EPC8) then
+		epc5_start = delay(1,T_delay);
+	else
+		epc5_start = delay(0,0.0);
+	end if;	
+
+	if (Flipflop(EPC6 and (not(EPC8)) and (not (epc5_active or epc7_active)) and (not (surpress_A))),EPC8) then
+		epc6_start = delay(1,T_delay);
+	else
+		epc6_start = delay(0,0.0);
+	end if;	
+
+	if (Flipflop(EPC7 and (not(EPC8)) and (not (epc5_active or epc6_active)) and (not (surpress_A))),EPC8) then
+		epc7_start = delay(1,T_delay);
+	else
+		epc7_start = delay(0,0.0);
+	end if;	
+	
+
+epc1_active = Flipflop(EPC1 and (not(Picdro(Flipflop(EPC1, not(EPC1))),0.01,0.0)),(Picdro(Flipflop(EPC1,not(Pickdro(EPC1,0.0,2.0))),1.005,0.0));
+
+	if epc1_active then
+		 print("EPC Function 1 activated.");
+	end if;
+	if epc2_start then
+		 print("EPC Function 2 activated.");
+	end if;
+	if epc3_start then
+		 print("EPC Function 3 activated.");
+	end if;
+	if EPC4 then
+		 print("EPC Function 4 activated.");
+	end if;
+	if epc5_start then
+		 print("EPC Function 5 activated.");
+	end if;
+	if epc6_start then
+		 print("EPC Function 6 activated.");
+	end if;
+	if epc7_start then
+		 print("EPC Function 7 activated.");
+	end if;
+	if EPC8 then
+		 print("EPC Function 8 activated.");
+	end if;
+	if (EPC_Blocking_A and surpress_A) then
+		 print("EPC Function Blocking A activated.");
+	end if;
+	if (EPC_Blocking_A and (not(surpress_A))) then
+		 print("EPC Function Blocking A activated, but ignored because of power flow direction.");
+	end if;
+	if EPC_Blocking_B then
+		 print("EPC Function Blocking B activated.");
+	end if;
+	
+epc2_active = epc2_start or Pmax_epc2&lt;Pmax_inc or Pmax_epc2&gt;Pmax_inc;
+epc3_active = epc3_start or Pmax_epc3&lt;Pmax_inc or Pmax_epc3&gt;Pmax_inc;
+
+epc5_active = Picdro((epc5_start and (dP_epc5&lt;P_EPC5/Sr or dP_epc5&gt;P_EPC5/Sr)), 0.0, T_hold);
+epc6_active = Picdro((epc6_start and (dP_epc6&lt;P_EPC6/Sr or dP_epc6&gt;P_EPC6/Sr)), 0.0, T_hold);
+epc7_active = Picdro((epc7_start and (dP_epc7&lt;P_EPC7/Sr or dP_epc7&gt;P_EPC7/Sr)), 0.0, T_hold);
+
+EPC_flag = Picdro(epc1_active,0.0,1.0) or epc2_active or epc3_active or EPC4 or epc5_start or epc6_start or epc7_start or epc5_active or epc6_active or epc7_active or EPC8 or (Flipflop((dP_epc&lt;-0.0001  or  dP_epc&gt;0.0001), (dP_epc&gt;-0.0001  and  dP_epc&lt;0.0001)));
+
+Pmax_epc1 = GradLim(Select(epc1_active, 0.0, Pmax_inc), -250, 1);
+Pmin_epc1 = -Pmax_epc1;
+Pmax_epc2 = GradLim(Select(epc2_start, 0.50, Pmax_inc), -dP_EPC2/Sr, 0.1/60);
+Pmin_epc2 = -Pmax_epc2;
+Pmax_epc3 = GradLim(Select(epc3_start, 0.25, Pmax_inc), -dP_EPC3/Sr, 0.1/60);
+Pmin_epc3 = -Pmax_epc3;
+dP_epc5 = GradLim(Select(epc5_start, P_EPC5/Sr, 0), -dP_EPC5/Sr, dP_EPC5/Sr);
+dP_epc6 = GradLim(Select(epc6_start, P_EPC6/Sr, 0), -dP_EPC6/Sr, dP_EPC6/Sr);
+dP_epc7 = GradLim(Select(epc7_start, P_EPC7/Sr, 0), -dP_EPC7/Sr, dP_EPC7/Sr);
+
+dP_epc = dP_epc5+dP_epc6+dP_epc7;
+
+Pmin_epc = Select(EPC_Blocking_B  and  P_incB&gt;0  and  (epc5_start or epc6_start or epc7_start or EPC8), 0.0, max(Pmin_inc,max(Pmin_epc1,max(Pmin_epc2,Pmin_epc3))));
+Pmax_epc = Select(EPC_Blocking_B  and  P_incB&lt;=0  and  {epc5_start or epc6_start or epc7_start or EPC8}, 0.0, min(Pmax_inc,min(Pmax_epc1,min(Pmax_epc2,Pmax_epc3))));
+
+function Flipflop
+	input  Boolean set;
+	input  Boolean reset;
+	output Boolean state;
+algorithm
+	if (set = true) and (reset = false) then
+		state := true;
+	end if;
+	if (set = false) and (reset = true) then
+		state := false;
+	end if;	
+end Flipflop;
+
+function Picdro
+	input Boolean boolexpr;
+	input Real Tpick;
+	input Real Tdrop;
+	output Boolean varA;
+algorithm
+	if boolexpr = true then
+		varA = delay(1,Tpick);
+	else if boolexpr = false then
+		varA = delay(0,Tdrop);
+	else
+		varA = pre(varA)
+	end if;
+end Picdro;
+
+function GradLim
+	input Real inputSignal;
+	input Real minGradient;
+	input Real maxGradient;
+	output Real outputSignal;
+algorithm
+	if der(inputSignal) &gt; maxGradient then
+		outputSignal = maxGradient+inputSignal;
+	else if der(inputSignal) &lt; minGradient then
+		outputSignal = minGradient+inputSignal;
+	else
+		outputSignal = inputSignal+der(inputSignal);
+	end if;
+end GradLim;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+algorithm
+	if boolexpr then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Boolean EPC1 (start = 0);
+Boolean EPC2 (start = 0);
+Boolean EPC3 (start = 0);
+Boolean EPC4 (start = 0);
+Boolean EPC5 (start = 0);
+Boolean EPC6 (start = 0);
+Boolean EPC7 (start = 0);
+Boolean EPC8 (start = 0);
+Boolean EPC_Blocking_A (start = 0);
+Boolean EPC_Blocking_B (start = 0);
+Boolean EPC_flag (start = 0);
+Real dP_epc5 (start = 0);
+Real dP_epc6 (start = 0);
+Real dP_epc7 (start = 0);
+Real dP_epc (start = 0);
+Real Pmin_epc;
+    if noEvent(abs(Pmin_epc))) &lt; 1e-6 then
+    Pmin_epc = -1;
+end if;
+Real Pmax_epc;
+    if noEvent(abs(Pmax_epc))) &lt; 1e-6 then
+    Pmax_epc = 1;
+end if;
+Real Pmin_inc (start =  Pmin_epc);
+Real Pmax_inc (start =  Pmax_epc);
+Real P_incA (start =  P);
+Real P_incB (start =  P);
+Real epc5_start (start = 0);
+Real epc6_start (start = 0);
+Real epc7_start (start = 0);
+Boolean epc1_active (start = 0);
+Boolean epc2_active (start = 0);
+Boolean epc3_active (start = 0);
+Boolean epc5_active (start = 0);
+Boolean epc6_active (start = 0);
+Boolean epc7_active (start = 0);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Emergency Power Control according to TenneT specification</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>41bfb87e-7d79-475f-915f-578269a1cc90</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Emergency Power Control (EPC)</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_ea7f51eb-7fbc-4f9c-be88-84fa50e6d4f0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ea7f51eb-7fbc-4f9c-be88-84fa50e6d4f0</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a9aec2ac-6222-4708-8a60-904814ea0d85"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_eed782f7-e067-4845-84b3-ddbc1011e011"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c1995769-ffd2-49ab-8e6e-54b70cc9a024"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b7783283-f053-48f2-9288-b05d214d0ddf"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_3c79cb81-d452-4c28-aff4-4d8488de82fe"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_aa22502e-801e-4a39-b0b1-efba4fac82fb"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b00b865e-bac3-47f4-a1ca-7ab24e70028e"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0b4f173e-aafb-462f-8204-cc65354414e3"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_9e76ee0a-d2bb-46ae-b792-13d98f37db26"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a2daf424-8510-42d6-82ff-f41034a4190b"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_11884104-3b40-45bd-8ff2-11298e17f7d4"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_33378b75-5aba-4ad4-9e67-2a698a4953b0"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_9506329e-eb8e-4314-bdcb-013319e85685"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_fd27d6f2-d366-449a-af01-9c99632064d5"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_824f27de-7587-4cde-86af-a40c8cda4ef9"/>
+  </cim:InputOutputDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_65986a36-1739-4bb2-a4e6-9b323684f50a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Pmax_epc1 for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>65986a36-1739-4bb2-a4e6-9b323684f50a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Pmax_epc1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>13.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0062219f-bc68-45ce-86a4-310ae55ee8ec">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable epc5_active for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0062219f-bc68-45ce-86a4-310ae55ee8ec</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>epc5_active</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>30.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f9719d01-c549-497d-8bd7-340473872462">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable dP_epc6 for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f9719d01-c549-497d-8bd7-340473872462</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_epc6</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>20.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_639120cc-2e85-4ad5-bf7d-1aafb17309e8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum power gradient (EPC6)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>639120cc-2e85-4ad5-bf7d-1aafb17309e8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_EPC6</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.engineeringUnit>MW/s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>7.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_11024f25-058a-46c6-a7b9-ffe110233d7d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable surpress_A for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>11024f25-058a-46c6-a7b9-ffe110233d7d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>surpress_A</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>37.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_49407491-cfc8-482e-9c8c-6c572390e76b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Pmin_inc for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>49407491-cfc8-482e-9c8c-6c572390e76b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Pmin_inc</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>33.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_66658ca2-6e0c-4057-9c4d-24eb8967f0bd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Rated power of converter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>66658ca2-6e0c-4057-9c4d-24eb8967f0bd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Sr</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.engineeringUnit>MVA</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_34bb1bc5-0761-4c19-a5d1-97b8d09af3c4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Additional active power (EPC5)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>34bb1bc5-0761-4c19-a5d1-97b8d09af3c4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>P_EPC5</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.engineeringUnit>MW</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>4.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_098aeb63-c382-4a67-b133-4204db3281b1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Pmin_epc3 for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>098aeb63-c382-4a67-b133-4204db3281b1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Pmin_epc3</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>18.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4afb9440-158f-4edf-ab85-19b300353f12">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Additional active power (EPC7)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4afb9440-158f-4edf-ab85-19b300353f12</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>P_EPC7</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.engineeringUnit>MW</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>8.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d2dfc2bb-31a2-4673-a7f3-2ad4b5a7170b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable epc7_active for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d2dfc2bb-31a2-4673-a7f3-2ad4b5a7170b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>epc7_active</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>32.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0ce0f0b1-5c8b-4071-b9a2-e3d9b1cd990d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable epc7_start for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0ce0f0b1-5c8b-4071-b9a2-e3d9b1cd990d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>epc7_start</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>26.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_dd131fca-f788-4f43-a184-f0dd55eb607a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable dP_epc7 for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>dd131fca-f788-4f43-a184-f0dd55eb607a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_epc7</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>21.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_1d6f3670-d744-4c9b-833a-17769eb1ee4e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable epc6_start for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1d6f3670-d744-4c9b-833a-17769eb1ee4e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>epc6_start</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>25.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f9507961-f700-4a1c-b6e0-8afc3de30fc6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. power limitation gradient (EPC3)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f9507961-f700-4a1c-b6e0-8afc3de30fc6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_EPC3</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.engineeringUnit>MW/s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a4040c27-0659-4e94-a149-7773a50c1fc1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Minimum time delay between EPC5 - EPC7</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a4040c27-0659-4e94-a149-7773a50c1fc1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>T_hold</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.engineeringUnit>s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>11.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_345b311b-bdd6-4091-b449-0f9583a9499a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Pmax_inc for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>345b311b-bdd6-4091-b449-0f9583a9499a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Pmax_inc</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>34.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d756e6be-17d1-4775-bf14-980f255371df">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Additional active power (EPC6)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d756e6be-17d1-4775-bf14-980f255371df</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>P_EPC6</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.engineeringUnit>MW</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>6.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_59419f8a-f458-41af-b9a5-26fa872da150">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable epc3_start for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>59419f8a-f458-41af-b9a5-26fa872da150</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>epc3_start</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>23.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9503e7ab-bb89-414f-9140-b5409cf05b1f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Pmax_epc3 for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9503e7ab-bb89-414f-9140-b5409cf05b1f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Pmax_epc3</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>17.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8b10a039-8bd0-4076-9cca-8508bed7e6f5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Pmin_epc1 for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8b10a039-8bd0-4076-9cca-8508bed7e6f5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Pmin_epc1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>14.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_566cf627-7105-4074-9e36-18707c9c2b2a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Pmin_epc2 for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>566cf627-7105-4074-9e36-18707c9c2b2a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Pmin_epc2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>16.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_dc0dbdf6-3006-4ff2-98b4-fd61c7fb3d38">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable epc3_active for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>dc0dbdf6-3006-4ff2-98b4-fd61c7fb3d38</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>epc3_active</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>29.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_24c526c8-9bb4-4d76-9e6f-0473199b7825">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. power limitation gradient (EPC2)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>24c526c8-9bb4-4d76-9e6f-0473199b7825</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_EPC2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.engineeringUnit>MW/s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_2601e699-f31e-42d6-8b20-03d30c429a81">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Orientation Blocking A: 0=rectifier, 1=inverter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2601e699-f31e-42d6-8b20-03d30c429a81</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ori_block_A</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>12.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d9702a3b-8369-407a-a0cd-75daeee67fb9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable epc2_start for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d9702a3b-8369-407a-a0cd-75daeee67fb9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>epc2_start</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>22.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_6582cb7e-df1e-49ce-a040-96aa33d10df1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Pmax_epc2 for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6582cb7e-df1e-49ce-a040-96aa33d10df1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Pmax_epc2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>15.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_dbdf5e55-b279-42d1-ab8a-ca8341c4bba0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum power gradient (EPC7)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>dbdf5e55-b279-42d1-ab8a-ca8341c4bba0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_EPC7</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.engineeringUnit>MW/s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>9.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f0e18ba2-d217-4d0a-a64a-5eb651cccec3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable epc5_start for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f0e18ba2-d217-4d0a-a64a-5eb651cccec3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>epc5_start</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>24.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d05f5c6a-7029-4c0c-adce-afa662ea7a6d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable epc1_active for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d05f5c6a-7029-4c0c-adce-afa662ea7a6d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>epc1_active</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>27.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0facd77c-a54a-4d7a-8127-6d2eb498c507">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Time delay for starting EPC functions 5 - 7</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0facd77c-a54a-4d7a-8127-6d2eb498c507</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>T_delay</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.engineeringUnit>s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>10.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f1b06bdb-750d-42da-805d-2ff8ffbc7dcb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable dP_epc5 for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f1b06bdb-750d-42da-805d-2ff8ffbc7dcb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_epc5</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>19.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_fb90e707-cf64-419c-8861-516c684678dc">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable epc2_active for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fb90e707-cf64-419c-8861-516c684678dc</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>epc2_active</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>28.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8f8d077c-8291-4135-9f31-b2fecef956db">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum power gradient (EPC5)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8f8d077c-8291-4135-9f31-b2fecef956db</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_EPC5</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.engineeringUnit>MW/s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>5.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_63c90bec-2ea7-47c2-8b7d-08315e29c908">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable epc6_active for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>63c90bec-2ea7-47c2-8b7d-08315e29c908</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>epc6_active</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>31.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_be914079-ca67-4279-ada1-6ffd95ca392f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable P_incA for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>be914079-ca67-4279-ada1-6ffd95ca392f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>P_incA</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>35.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_26d6798a-c9cd-4d3d-b40b-7cf506696140">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable P_incB for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>26d6798a-c9cd-4d3d-b40b-7cf506696140</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>P_incB</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_41bfb87e-7d79-475f-915f-578269a1cc90"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>36.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_9506329e-eb8e-4314-bdcb-013319e85685">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9506329e-eb8e-4314-bdcb-013319e85685</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_epc</cim:IdentifiedObject.name>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_33378b75-5aba-4ad4-9e67-2a698a4953b0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>33378b75-5aba-4ad4-9e67-2a698a4953b0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>P_min_epc</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>_824f27de-7587-4cde-86af-a40c8cda4ef9</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_aa22502e-801e-4a39-b0b1-efba4fac82fb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Emergency Power Control Blocking Signal B</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>aa22502e-801e-4a39-b0b1-efba4fac82fb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>EPC_Blocking_B</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>_a2daf424-8510-42d6-82ff-f41034a4190b</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_824f27de-7587-4cde-86af-a40c8cda4ef9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>824f27de-7587-4cde-86af-a40c8cda4ef9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>P_max_epc</cim:IdentifiedObject.name>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a9aec2ac-6222-4708-8a60-904814ea0d85">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Trigger Emergency Power Control Function 6</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a9aec2ac-6222-4708-8a60-904814ea0d85</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>EPC6</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>_11884104-3b40-45bd-8ff2-11298e17f7d4</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_3c79cb81-d452-4c28-aff4-4d8488de82fe">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Trigger Emergency Power Control Function 5</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3c79cb81-d452-4c28-aff4-4d8488de82fe</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>EPC5</cim:IdentifiedObject.name>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_0b4f173e-aafb-462f-8204-cc65354414e3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Emergency Power Control Blocking Signal A</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0b4f173e-aafb-462f-8204-cc65354414e3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>EPC_Blocking_A</cim:IdentifiedObject.name>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c1995769-ffd2-49ab-8e6e-54b70cc9a024">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Trigger Emergency Power Control Function 4</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c1995769-ffd2-49ab-8e6e-54b70cc9a024</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>EPC4</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>_3c79cb81-d452-4c28-aff4-4d8488de82fe</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_eed782f7-e067-4845-84b3-ddbc1011e011">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Trigger Emergency Power Control Function 1</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>eed782f7-e067-4845-84b3-ddbc1011e011</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>EPC1</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_fd27d6f2-d366-449a-af01-9c99632064d5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Emergency Power Control (EPC) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fd27d6f2-d366-449a-af01-9c99632064d5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>EPC</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>_9506329e-eb8e-4314-bdcb-013319e85685</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_11884104-3b40-45bd-8ff2-11298e17f7d4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Trigger Emergency Power Control Function 7</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>11884104-3b40-45bd-8ff2-11298e17f7d4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>EPC7</cim:IdentifiedObject.name>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b7783283-f053-48f2-9288-b05d214d0ddf">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Trigger Emergency Power Control Function 3</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b7783283-f053-48f2-9288-b05d214d0ddf</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>EPC3</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_9e76ee0a-d2bb-46ae-b792-13d98f37db26">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Trigger Emergency Power Control Function 8</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9e76ee0a-d2bb-46ae-b792-13d98f37db26</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>EPC8</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>_0b4f173e-aafb-462f-8204-cc65354414e3</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b00b865e-bac3-47f4-a1ca-7ab24e70028e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Trigger Emergency Power Control Function 2</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b00b865e-bac3-47f4-a1ca-7ab24e70028e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>EPC2</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a2daf424-8510-42d6-82ff-f41034a4190b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Active power</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a2daf424-8510-42d6-82ff-f41034a4190b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Pac_loc</cim:IdentifiedObject.name>
+  </cim:SignalDescriptor>
+</rdf:RDF>

@@ -1,0 +1,1789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_e7eb2061-25b7-4840-abfd-be2cde9c1d2c">
+    <cim:IdentifiedObject.description>HVDC MMC control frame for balanced and unbalanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7eb2061-25b7-4840-abfd-be2cde9c1d2c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>HVDC MMC Control (TenneT)</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_c15994c5-9553-4e64-8752-6900c0165c30">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_fc00cfa0-0ba8-41df-b3cf-6ba4cfc27acc"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_Frequency_Response
+
+equation
+	dP = Select((df&lt;0), (-100/s1*df), (Select((df&gt;0), (-100/s2*df), 0)));
+end FSM_Frequency_Response;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Frequency Response</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c15994c5-9553-4e64-8752-6900c0165c30</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM Frequency Response</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_30317001-b16b-4faa-ad2a-cca6809507ec">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_d7b4cff3-2189-4f0d-a12e-3b5b3738c97b"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_Limiter
+
+equation
+	yout = Lim(yin,(ymin/100),(ymax/100));
+	
+end FSM_Limiter;
+
+function Lim
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end Lim;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Maximum and minimum limitation in percent</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>30317001-b16b-4faa-ad2a-cca6809507ec</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_b2dbabd8-551f-4add-ae03-bec9098a9cab">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_d4ccb461-2b9a-44f9-97a2-86595d521159"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_LFSM-O_Activate
+
+equation
+	df_out = Select(activate,df_in,0.0);
+	
+end FSM_LFSM-O_Activate;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>FSM activation for embedded HVDC system (LFSM-O)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b2dbabd8-551f-4add-ae03-bec9098a9cab</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM LFSM-O Activate</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_46c4df53-d447-42e6-a37a-135505e95283">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_71b34bfa-9cb2-42fa-9f0c-88258ec2cefb"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_LFSM-O_Gradient_Limiter
+
+equation
+	yo = GradLim(yi, (dy_min/100), (dy_max/100));
+end FSM_LFSM-O_Gradient_Limiter;
+
+function GradLim
+	input Real inputSignal;
+	input Real minGradient;
+	input Real maxGradient;
+	output Real outputSignal;
+algorithm
+	if der(inputSignal) &gt; maxGradient then
+		outputSignal = maxGradient+inputSignal;
+	else if der(inputSignal) &lt; minGradient then
+		outputSignal = minGradient+inputSignal;
+	else
+		outputSignal = inputSignal+der(inputSignal);
+	end if;
+end GradLim;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Gradient Limiter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>46c4df53-d447-42e6-a37a-135505e95283</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM LFSM-O Gradient Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_a815ff56-2a8a-4c0a-92a2-96593d575682">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_473b86aa-2acf-4d03-8820-be29c55c9615"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_LFSM-O_Frequency_Response
+
+equation
+	dP = Select((df&gt;0), (-100/s3*df), 0);
+end FSM_LFSM-O_Frequency_Response;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Limited Frequency Response Overfrequency</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a815ff56-2a8a-4c0a-92a2-96593d575682</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM LFSM-O Frequency Response</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_d25e48f8-773d-46a4-bd0e-cdc22fe94cb5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_7e56bb11-d3a9-453e-979e-5f02c3e960e4"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_LFSM-U_Gradient_Limiter
+
+equation
+	yo = GradLim(yi, (dy_min/100), (dy_max/100));
+end FSM_LFSM-U_Gradient_Limiter;
+
+function GradLim
+	input Real inputSignal;
+	input Real minGradient;
+	input Real maxGradient;
+	output Real outputSignal;
+algorithm
+	if der(inputSignal) &gt; maxGradient then
+		outputSignal = maxGradient+inputSignal;
+	else if der(inputSignal) &lt; minGradient then
+		outputSignal = minGradient+inputSignal;
+	else
+		outputSignal = inputSignal+der(inputSignal);
+	end if;
+end GradLim;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Gradient Limiter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d25e48f8-773d-46a4-bd0e-cdc22fe94cb5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM LFSM-U Gradient Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_bb64731c-9f44-49b6-b929-ebebc6615372">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_d1a800fe-c1e6-4348-a56c-c2438ac83249"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real dP (start = 0);
+if noEvent(abs(f_fast_remote))) &lt; 1e-6 then
+    f_fast_remote = fn;
+end if;
+if noEvent(abs(f_slow_remote))) &lt; 1e-6 then
+    f_slow_remote = fn_remote;
+end if;
+if noEvent(abs(fn_remote))) &lt; 1e-6 then
+    fn_remote = f_fast_remote;
+end if;
+Real x_smooth (start = 0);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Frequency sensitive mode (FSM, LFSM-O, LFSM-U) with enhancement for embedded HVDC system</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bb64731c-9f44-49b6-b929-ebebc6615372</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Frequency Sensitive Mode (FSM)</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_cabed759-cd95-4348-88f6-e50bfad4436f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_cf8869d6-0ce8-4f68-ab20-7c7db225758a"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_LFSM-U_Activate
+
+equation
+	df_out = Select(activate,df_in,0.0);
+	
+end FSM_LFSM-U_Activate;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>FSM activation for embedded HVDC system (LFSM-U)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cabed759-cd95-4348-88f6-e50bfad4436f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM LFSM-U Activate</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_266aa1ac-5937-4b7a-ad55-f72958b3c404">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_6c8b88c9-96f3-405e-8698-0a5ac245d39d"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_Logic_Embbeded_HVDC
+
+equation
+	logic = Select(Mode_embedded  and ((df&gt;0  and df_remote&lt;=0  and abs(df)&gt;abs(df_remote)) or  (df&lt;0  and df_remote&gt;=0  and abs(df)&gt;abs(df_remote))), 1,0);
+	activate = Selfix(Mode_embedded, Picdro(logic-0.499, 0.001, 0.001), 1);
+end FSM_Logic_Embbeded_HVDC;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Picdro
+	input Boolean boolexpr;
+	input Real Tpick;
+	input Real Tdrop;
+	output Boolean varA;
+algorithm
+	if boolexpr = true then
+		varA = delay(1,Tpick);
+	else if boolexpr = false then
+		varA = delay(0,Tdrop);
+	else
+		varA = pre(varA)
+	end if;
+end Picdro;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Frequency sensitive mode activation logic for embedded HVDC system</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>266aa1ac-5937-4b7a-ad55-f72958b3c404</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM Logic Embbeded HVDC</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_1423e117-daa0-443d-9411-991163ecb619">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_2dd87535-9be8-4664-aa68-3e2b140e10b6"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_LFSM-O_Limiter
+
+equation
+	yout = Lim(yin,(ymin/100),(ymax/100));
+	
+end FSM_LFSM-O_Limiter;
+
+function Lim
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end Lim;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Maximum and minimum limitation in percent</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1423e117-daa0-443d-9411-991163ecb619</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM LFSM-O Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_1db90675-537f-4050-b6a8-08549d60ed92">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_e6901329-d6a5-4c79-bc4e-2b0a3fadb5ac"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_First_order_lag_(PT1)
+
+equation
+	// First order lag block with time constant T
+	// if T=0, block is bypassed (yo=yi)
+
+	der(x) = Selfix((T&gt;0), ((yi-x)/T), 0.0);
+	yo = Selfix((T&gt;0), x, yi);
+end FSM_First_order_lag_(PT1);
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>1/(1+sT) First order lag block (PT1)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1db90675-537f-4050-b6a8-08549d60ed92</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM First order lag (PT1)</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_4d57f864-a5a0-41df-878d-4c50259b749b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_b11be82c-5d1b-4811-a9ca-55bbe13b807b"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_Deadband
+
+equation
+	f_in = Selfix(FSM_on, f, fn);
+	f_under = Picdro((fn+(f_db1/1000))-f_in+0.5, Selfix(Mode_Db, delay_init, 999999), 0.0) // f&lt;(fn-f_db)
+	f_over  = Picdro(f_in-(fn+(f_db2/1000))+0.5, Selfix(Mode_Db, delay_init, 999999), 0.0) // f&gt;(fn+f_db)
+	df = Selfix(FSM_on, Selfix(Mode_Db, Select(f_under, ((f_in-(fn+(f_db1/1000)))/fn), (Select(f_over, (f_in-(fn+(f_db2/1000)))/fn, 0))), Select((f_in-fn)&lt;-0.0000001, (f_in-fn+0.0000001)/fn, Select((f_in-fn)&gt;0.0000001, (f_in-fn-0.0000001)/fn,0))), 0);                                  
+
+end FSM_Deadband;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Picdro
+	input Boolean boolexpr;
+	input Real Tpick;
+	input Real Tdrop;
+	output Boolean varA;
+algorithm
+	if boolexpr = true then
+		varA = delay(1,Tpick);
+	else if boolexpr = false then
+		varA = delay(0,Tdrop);
+	else
+		varA = pre(varA)
+	end if;
+end Picdro;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real f_under (start = 0);
+Real f_over (start = 0);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Deadband for frequency sensitive mode</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4d57f864-a5a0-41df-878d-4c50259b749b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM Deadband</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_f7ad7987-262f-4ffe-a63d-7614f3edc353">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_bb6ea51b-3755-47e2-834a-48f1b0d193b1"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_LFSM-U_Activation
+
+equation
+	f_in = Selfix(LFSMU_on, f, fn);
+	f_under  = Picdro(f2-f_in+0.5, delay_init, 0.1);    // f&lt;f2
+	df = Selfix(LFSMU_on, Select(f_under, min((f_in-f2)/fn, 0.0), 0), 0); 
+
+end FSM_LFSM-U_Activation;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function Picdro
+	input Boolean boolexpr;
+	input Real Tpick;
+	input Real Tdrop;
+	output Boolean varA;
+algorithm
+	if boolexpr = true then
+		varA = delay(1,Tpick);
+	else if boolexpr = false then
+		varA = delay(0,Tdrop);
+	else
+		varA = pre(varA)
+	end if;
+end Picdro;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real f_under (start = 0);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Limited frequency sensitive mode underfrequency (LFSM-U) activation and frequency deviation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f7ad7987-262f-4ffe-a63d-7614f3edc353</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM LFSM-U Activation</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_c8f8850c-a9f2-4b3f-b3ff-61de113892dc">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_9d924342-66ac-47aa-b989-167ce691585d"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_LFSM-U_Frequency_Response
+
+equation
+	dP = select((df&lt;0), (-100/s4*df), 0); 
+	
+end FSM_LFSM-U_Frequency_Response;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Limited Frequency Response Underfrequency</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c8f8850c-a9f2-4b3f-b3ff-61de113892dc</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM LFSM-U Frequency Response</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_6136f90f-1a72-4708-9b6f-a745041624cd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_2ec2b311-93c7-4164-8ba0-fb524f468a2c"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_Gradient_Limiter
+
+equation
+	yo = GradLim(yi, (dy_min/100), (dy_max/100));
+end FSM_Gradient_Limiter;
+
+function GradLim
+	input Real inputSignal;
+	input Real minGradient;
+	input Real maxGradient;
+	output Real outputSignal;
+algorithm
+	if der(inputSignal) &gt; maxGradient then
+		outputSignal = maxGradient+inputSignal;
+	else if der(inputSignal) &lt; minGradient then
+		outputSignal = minGradient+inputSignal;
+	else
+		outputSignal = inputSignal+der(inputSignal);
+	end if;
+end GradLim;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Gradient Limiter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6136f90f-1a72-4708-9b6f-a745041624cd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM Gradient Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_971c1932-f72e-4520-989f-9f79a9a01b56">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_9a35c540-834f-4026-bbc9-9b40e20d2ed6"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_Input_Selector
+equation
+	f = Selfix(Mode, f_fast, f_slow);
+end FSM_Input_Selector;
+
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Input selector for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>971c1932-f72e-4520-989f-9f79a9a01b56</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM Input Selector</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_a21fcf53-f279-4913-812c-05777ec678c6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_e6e2f6e7-93b1-4b51-badb-d0bcb0769781"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_Input_Selector_for_Embedded_HVDC_System_Activation_Logic
+
+equation
+	f = Selfix(Mode, f_fast, f_slow);
+end FSM_Input_Selector_for_Embedded_HVDC_System_Activation_Logic;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Input selector</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a21fcf53-f279-4913-812c-05777ec678c6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM Input Selector for Embedded HVDC System Activation Logic</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_9f797af9-724f-45d3-9b3d-610a31258abd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_87434757-942b-43ad-afe8-ea7f2b7d75f4"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_LFSM-O_Activation
+
+equation
+	f_in = Selfix(LFSMO_on, f, fn);
+	f_over  = picdro_const(f_in-f1+0.5, delay_init, 0.1);    // f&gt;f1
+	df = Selfix(LFSMO_on, (Select(f_over, (max((f_in-f1)/fn), 0.0), 0)), 0);
+end FSM_LFSM-O_Activation;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Picdro
+	input Boolean boolexpr;
+	input Real Tpick;
+	input Real Tdrop;
+	output Boolean varA;
+algorithm
+	if boolexpr = true then
+		varA = delay(1,Tpick);
+	else if boolexpr = false then
+		varA = delay(0,Tdrop);
+	else
+		varA = pre(varA)
+	end if;
+end Picdro;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real f_over (start = 0);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Limited frequency sensitive mode overfrequency (LFSM-O) activation and frequency deviation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9f797af9-724f-45d3-9b3d-610a31258abd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM LFSM-O Activation</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_ce85803d-dbc5-4646-94c2-02ead7b588dd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_cb18e51a-b278-4f5b-a585-fd99e5323513"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_LFSM-U_Limiter
+
+equation
+	yout = Lim(yin,(ymin/100),(ymax/100));
+	
+end FSM_LFSM-U_Limiter;
+
+function Lim
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end Lim;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Maximum and minimum limitation in percent</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ce85803d-dbc5-4646-94c2-02ead7b588dd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM LFSM-U Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_159c27d7-d258-4622-9524-2253d22fd2af">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_4e39213e-cca4-4251-bca4-a0ad21b4c5fe"/>
+    <cim:IdentifiedObject.description>Summation Point</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>159c27d7-d258-4622-9524-2253d22fd2af</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM Summation Operator</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_4e39213e-cca4-4251-bca4-a0ad21b4c5fe"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+    <rdf:type rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptor"/>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_89524efe-f8e5-4908-9290-146b68dc0973">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_f1a9ac17-b422-47b8-ade1-f1b872b0dec0"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_Deadband_for_Embedded_HVDC_System_Activation_Logic
+
+equation
+	f_in = Selfix(FSM_on, f, fn);
+	f_under = Picdro(((fn+(f_db1/1000))-f_in+0.5), (Selfix(Mode_Db, delay_init, 999999)), 0.0); // f&lt;(fn-f_db)
+	f_over  = Picdro((f_in-(fn+(f_db2/1000))+0.5), (Selfix(Mode_Db, delay_init, 999999)), 0.0); // f&gt;(fn+f_db)
+	df = Selfix(FSM_on, Selfix(Mode_Db, Select(f_under, (f_in-(fn+(f_db1/1000)))/fn, Select(f_over, (f_in-(fn+(f_db2/1000)))/fn, 0)), Select((f_in-fn)&lt;-0.0000001, (f_in-fn+0.0000001)/fn, Select((f_in-fn)&gt;0.0000001, (f_in-fn-0.0000001)/fn, 0))), 0);                         
+
+end FSM_Deadband_for_Embedded_HVDC_System_Activation_Logic;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Picdro
+	input Boolean boolexpr;
+	input Real Tpick;
+	input Real Tdrop;
+	output Boolean varA;
+algorithm
+	if boolexpr = true then
+		varA = delay(1,Tpick);
+	else if boolexpr = false then
+		varA = delay(0,Tdrop);
+	else
+		varA = pre(varA)
+	end if;
+end Picdro;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real f_under (start = 0);
+Real f_over (start = 0);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Deadband for frequency sensitive mode</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>89524efe-f8e5-4908-9290-146b68dc0973</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM Deadband for Embedded HVDC System Activation Logic</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_0308990f-1afb-4056-9d67-1b736d614923">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_ccbcbd8a-04ac-4635-9ed2-db79adf5299a"/>
+    <cim:FunctionDescriptor.describedByArtifact>False</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model FSM_Activate
+equation
+	if activate then
+		df_out = df_in;
+	else
+		df_out = 0.0;
+	end if;
+
+end FSM_Activate;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>FSM activation for embedded HVDC system</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0308990f-1afb-4056-9d67-1b736d614923</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM Activate</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_7e56bb11-d3a9-453e-979e-5f02c3e960e4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM LFSM-U Gradient Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7e56bb11-d3a9-453e-979e-5f02c3e960e4</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_fd2de077-4990-488b-b354-55ec604a637f"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_d656c716-2b61-46cc-bd57-4718ffb1004d"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_473b86aa-2acf-4d03-8820-be29c55c9615">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM LFSM-O Frequency Response block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>473b86aa-2acf-4d03-8820-be29c55c9615</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d68399dc-75d2-42f1-a61a-881539e5e640"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ad06541d-1bc3-464d-86e3-9ffdc70a378f"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_e6e2f6e7-93b1-4b51-badb-d0bcb0769781">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM Input Selector for Embedded HVDC System Activation Logic block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e6e2f6e7-93b1-4b51-badb-d0bcb0769781</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_7c9121f7-c237-49f3-9755-4e57a53010af"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_41423eb4-4940-49f0-aa18-725340ceaa21"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_80131b21-5c63-4b90-82b7-ffaf9eb5b178"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_bb6ea51b-3755-47e2-834a-48f1b0d193b1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM LFSM-U Activation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bb6ea51b-3755-47e2-834a-48f1b0d193b1</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b07107f5-8ecc-4004-9856-679c5f22abd6"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5c12e613-f164-4202-9ef3-289dcd666d28"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_aaf5b6f4-915f-4511-adae-6201bfb1ef38"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_2dd87535-9be8-4664-aa68-3e2b140e10b6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM LFSM-O Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2dd87535-9be8-4664-aa68-3e2b140e10b6</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ad06541d-1bc3-464d-86e3-9ffdc70a378f"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_e7741790-70dc-4cf3-ab68-3f5c2912e49c"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_9a35c540-834f-4026-bbc9-9b40e20d2ed6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM Input Selector block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9a35c540-834f-4026-bbc9-9b40e20d2ed6</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_4aa3ad84-f329-42f7-b375-420c726ffbed"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_409bc51e-2250-4d48-9fb2-c42824a75dee"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_5c12e613-f164-4202-9ef3-289dcd666d28"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_2ec2b311-93c7-4164-8ba0-fb524f468a2c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM Gradient Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2ec2b311-93c7-4164-8ba0-fb524f468a2c</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_2840efa4-4701-4c7c-8732-be378c3773c3"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_8d564160-f083-4d12-b818-54dd923ce93c"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_9d924342-66ac-47aa-b989-167ce691585d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM LFSM-U Frequency Response block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9d924342-66ac-47aa-b989-167ce691585d</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ab9922d5-e455-417b-8288-ef1884a3f1c5"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_5d21224c-2294-4410-bae4-4f989ad0d7b3"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_f1a9ac17-b422-47b8-ade1-f1b872b0dec0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM Deadband for Embedded HVDC System Activation Logic block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f1a9ac17-b422-47b8-ade1-f1b872b0dec0</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a33964a6-3131-451e-bf0d-8d4a9c181f42"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_80131b21-5c63-4b90-82b7-ffaf9eb5b178"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_9338bb3d-590e-4578-98e5-1d6474baa530"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_d7b4cff3-2189-4f0d-a12e-3b5b3738c97b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d7b4cff3-2189-4f0d-a12e-3b5b3738c97b</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b063711f-78a2-42e7-bac5-c8f274f23112"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_2840efa4-4701-4c7c-8732-be378c3773c3"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_d4ccb461-2b9a-44f9-97a2-86595d521159">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM LFSM-O Activate block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d4ccb461-2b9a-44f9-97a2-86595d521159</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_213f769c-4726-426c-bea1-994204546c1a"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d4c1628f-99b9-4540-a3e8-d67a72ee3559"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_d68399dc-75d2-42f1-a61a-881539e5e640"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_e6901329-d6a5-4c79-bc4e-2b0a3fadb5ac">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM First order lag (PT1) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e6901329-d6a5-4c79-bc4e-2b0a3fadb5ac</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_8f61d06f-8ece-40b1-9479-2951eb87287a"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_fa9910fd-c66a-40d3-94c9-db4be4f3bb63"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_b11be82c-5d1b-4811-a9ca-55bbe13b807b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM Deadband block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b11be82c-5d1b-4811-a9ca-55bbe13b807b</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b07107f5-8ecc-4004-9856-679c5f22abd6"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5c12e613-f164-4202-9ef3-289dcd666d28"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_0cc9bb2e-1502-4dbc-8708-3a035b50ae14"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_6c8b88c9-96f3-405e-8698-0a5ac245d39d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM Logic Embbeded HVDC block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6c8b88c9-96f3-405e-8698-0a5ac245d39d</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_9338bb3d-590e-4578-98e5-1d6474baa530"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0cc9bb2e-1502-4dbc-8708-3a035b50ae14"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_213f769c-4726-426c-bea1-994204546c1a"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_71b34bfa-9cb2-42fa-9f0c-88258ec2cefb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM LFSM-O Gradient Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>71b34bfa-9cb2-42fa-9f0c-88258ec2cefb</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e7741790-70dc-4cf3-ab68-3f5c2912e49c"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_48e6ab81-aa68-499a-b87d-5a5f6495371f"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_87434757-942b-43ad-afe8-ea7f2b7d75f4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM LFSM-O Activation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>87434757-942b-43ad-afe8-ea7f2b7d75f4</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b07107f5-8ecc-4004-9856-679c5f22abd6"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5c12e613-f164-4202-9ef3-289dcd666d28"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_d4c1628f-99b9-4540-a3e8-d67a72ee3559"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_4e39213e-cca4-4251-bca4-a0ad21b4c5fe">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM Summation Operator block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4e39213e-cca4-4251-bca4-a0ad21b4c5fe</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d656c716-2b61-46cc-bd57-4718ffb1004d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_48e6ab81-aa68-499a-b87d-5a5f6495371f"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_8d564160-f083-4d12-b818-54dd923ce93c"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_8f61d06f-8ece-40b1-9479-2951eb87287a"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_fc00cfa0-0ba8-41df-b3cf-6ba4cfc27acc">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM Frequency Response block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fc00cfa0-0ba8-41df-b3cf-6ba4cfc27acc</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_aca78abc-64e9-4d9f-8160-804a3f5087d9"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_b063711f-78a2-42e7-bac5-c8f274f23112"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_cf8869d6-0ce8-4f68-ab20-7c7db225758a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM LFSM-U Activate block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cf8869d6-0ce8-4f68-ab20-7c7db225758a</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_213f769c-4726-426c-bea1-994204546c1a"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_aaf5b6f4-915f-4511-adae-6201bfb1ef38"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ab9922d5-e455-417b-8288-ef1884a3f1c5"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_d1a800fe-c1e6-4348-a56c-c2438ac83249">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d1a800fe-c1e6-4348-a56c-c2438ac83249</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_41423eb4-4940-49f0-aa18-725340ceaa21"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b07107f5-8ecc-4004-9856-679c5f22abd6"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_409bc51e-2250-4d48-9fb2-c42824a75dee"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_4aa3ad84-f329-42f7-b375-420c726ffbed"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_7c9121f7-c237-49f3-9755-4e57a53010af"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a33964a6-3131-451e-bf0d-8d4a9c181f42"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_fa9910fd-c66a-40d3-94c9-db4be4f3bb63"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_cb18e51a-b278-4f5b-a585-fd99e5323513">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM LFSM-U Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cb18e51a-b278-4f5b-a585-fd99e5323513</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5d21224c-2294-4410-bae4-4f989ad0d7b3"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_fd2de077-4990-488b-b354-55ec604a637f"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_ccbcbd8a-04ac-4635-9ed2-db79adf5299a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for FSM Activate block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ccbcbd8a-04ac-4635-9ed2-db79adf5299a</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_213f769c-4726-426c-bea1-994204546c1a"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0cc9bb2e-1502-4dbc-8708-3a035b50ae14"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_aca78abc-64e9-4d9f-8160-804a3f5087d9"/>
+  </cim:InputOutputDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_83db86bb-3af3-447c-807f-2e60869b63e4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Initial response delay FSM (deadband)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>83db86bb-3af3-447c-807f-2e60869b63e4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>delay_init_fsm</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89524efe-f8e5-4908-9290-146b68dc0973"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d57f864-a5a0-41df-878d-4c50259b749b"/>
+    <cim:ParameterDescriptor.engineeringUnit>s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>7.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_386c48c5-7698-494c-8a0d-184ed8b51b09">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Activation signal for FSM/LFSM of embedded HVDC system</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>386c48c5-7698-494c-8a0d-184ed8b51b09</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>activate</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>41.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f06bf140-ce26-4967-b170-fb32b24ba9e5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable f_in_remote for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f06bf140-ce26-4967-b170-fb32b24ba9e5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_in_remote</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89524efe-f8e5-4908-9290-146b68dc0973"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>38.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_fe68fdd8-2553-4694-bcb5-1c394d9a227b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. rate of change of dP FSM (pos.)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fe68fdd8-2553-4694-bcb5-1c394d9a227b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ddP_fsm_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_6136f90f-1a72-4708-9b6f-a745041624cd"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.engineeringUnit>%/s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>21.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_091802a5-c884-45cb-af1f-8ff4b30b2e80">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable dP_lfsmo_ltd for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>091802a5-c884-45cb-af1f-8ff4b30b2e80</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmo_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>46.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5fd87544-2bf4-401c-8f7e-c7d183bad6e1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Unlimited additional active power by FSM</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5fd87544-2bf4-401c-8f7e-c7d183bad6e1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_fsm_unltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>44.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_fa5775d9-0947-4b7f-9c53-be5afc1cac7e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Unlimited additional active power by LFSM-U</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fa5775d9-0947-4b7f-9c53-be5afc1cac7e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmu_unltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>50.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_efd73d75-55b0-4669-8d7f-652fd9fc82f0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency input signal from remote</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>efd73d75-55b0-4669-8d7f-652fd9fc82f0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_remote</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>60.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ba49394f-fd0a-44d7-830f-0e89f69cd139">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>: 0 = inter-system, 1 = embedded HVDC</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ba49394f-fd0a-44d7-830f-0e89f69cd139</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Mode_embedded</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_266aa1ac-5937-4b7a-ad55-f72958b3c404"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_de3a15b9-2f5b-4f16-af9a-0244841e3d4b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output smoothing time constant (PT1 filter)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>de3a15b9-2f5b-4f16-af9a-0244841e3d4b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>T_smooth</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_1db90675-537f-4050-b6a8-08549d60ed92"/>
+    <cim:ParameterDescriptor.engineeringUnit>s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>18.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_57a57e35-4644-484f-97b4-c53446ddf97b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Additional active power by LFSM-U</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>57a57e35-4644-484f-97b4-c53446ddf97b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmu</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>48.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3b18a585-a2ca-4cb2-bbb7-8fe4feef09b5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable f_in_fsm for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3b18a585-a2ca-4cb2-bbb7-8fe4feef09b5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_in_fsm</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d57f864-a5a0-41df-878d-4c50259b749b"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>31.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_265f0822-1f75-499d-8c3a-43a56235aa95">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency deviation relevant for FSM</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>265f0822-1f75-499d-8c3a-43a56235aa95</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_fsm</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>52.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f74be4b9-2a42-4c71-a700-a0d3cf9a89a7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Limited FSM-U (underfrequency): 0=off, 1=on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f74be4b9-2a42-4c71-a700-a0d3cf9a89a7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>LFSMU_on</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_f7ad7987-262f-4ffe-a63d-7614f3edc353"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>14.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_dd9af333-6180-4311-a7fb-ed4cd9e27c0a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Droop 2 (FSM downward regulation, for f &gt; fn)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>dd9af333-6180-4311-a7fb-ed4cd9e27c0a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>s2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c15994c5-9553-4e64-8752-6900c0165c30"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.engineeringUnit>%</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>9.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0b3203b6-4d41-4ef3-b049-5828428b65d6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency deviation from remote (outside deadband)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0b3203b6-4d41-4ef3-b049-5828428b65d6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_remote</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>58.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ef16bce5-d4e6-4854-987d-fc02530b6b8a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Flag over-frequency FSM (frequency above deadband)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ef16bce5-d4e6-4854-987d-fc02530b6b8a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_over_fsm</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d57f864-a5a0-41df-878d-4c50259b749b"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>33.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ab8fdc49-1356-46ba-a432-95f119d7b1a9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Additional active power by FSM</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ab8fdc49-1356-46ba-a432-95f119d7b1a9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_fsm</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>42.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0fde2b03-6a67-428b-a655-7f182190aee9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency threshold for LFSM-U (&lt; fn)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0fde2b03-6a67-428b-a655-7f182190aee9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f2_lfsmu</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_f7ad7987-262f-4ffe-a63d-7614f3edc353"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.engineeringUnit>Hz</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>15.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_79915fd9-0438-477c-8d4a-99e13d9c2531">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable f_in_lfsmo for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>79915fd9-0438-477c-8d4a-99e13d9c2531</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_in_lfsmo</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9f797af9-724f-45d3-9b3d-610a31258abd"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>34.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_004125b1-8b00-44d3-adfb-643aad452fa6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency deviation relevant for LFSM-O of embedded HVDC system</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>004125b1-8b00-44d3-adfb-643aad452fa6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_lfsmo_act</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>55.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8942d69c-1ae3-4213-8e69-17266fa42ba5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency threshold for LFSM-O (&gt; fn)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8942d69c-1ae3-4213-8e69-17266fa42ba5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f1_lfsmo</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9f797af9-724f-45d3-9b3d-610a31258abd"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.engineeringUnit>Hz</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>11.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b33fcabd-4687-4957-ab7b-95fcaaae5199">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Flag under-frequency FSM (frequency below deadband)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b33fcabd-4687-4957-ab7b-95fcaaae5199</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_under_fsm</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d57f864-a5a0-41df-878d-4c50259b749b"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>32.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4793c808-7801-44b4-b750-dfa3a2685bd8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency deviation relevant for LFSM-U</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4793c808-7801-44b4-b750-dfa3a2685bd8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_lfsmu</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>56.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8a334814-a52e-4fb4-a22b-8551dc6aa3a3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable dP_fsm_ltd for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8a334814-a52e-4fb4-a22b-8551dc6aa3a3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_fsm_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>43.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3518cde2-0f5b-4cd7-a0c9-2f923aa74942">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. power reduction LFSM-O (dP &lt; 0)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3518cde2-0f5b-4cd7-a0c9-2f923aa74942</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmo_min</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_1423e117-daa0-443d-9411-991163ecb619"/>
+    <cim:ParameterDescriptor.engineeringUnit>%</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>27.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7fb3adae-0d5a-412d-a503-6a9261b300b6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. rate of change of dP LFSM-O</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7fb3adae-0d5a-412d-a503-6a9261b300b6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ddP_lfsmo_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_46c4df53-d447-42e6-a37a-135505e95283"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.engineeringUnit>%/s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>22.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_fb4cd5df-d0d0-409b-884f-1d2039bcd28e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Min. rate of change of dP FSM (neg.)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fb4cd5df-d0d0-409b-884f-1d2039bcd28e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ddP_fsm_min</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_6136f90f-1a72-4708-9b6f-a745041624cd"/>
+    <cim:ParameterDescriptor.engineeringUnit>%/s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>26.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_2adddcad-443a-481c-af52-242d803dd706">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Upper frequency deadband FSM (pos. value)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2adddcad-443a-481c-af52-242d803dd706</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_db2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89524efe-f8e5-4908-9290-146b68dc0973"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d57f864-a5a0-41df-878d-4c50259b749b"/>
+    <cim:ParameterDescriptor.engineeringUnit>mHz</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>6.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_653adbd0-f01e-42a1-94c5-a1d6b521296a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable logic_act for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>653adbd0-f01e-42a1-94c5-a1d6b521296a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>logic_act</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_266aa1ac-5937-4b7a-ad55-f72958b3c404"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>30.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9c54cbd5-975f-45b2-9a20-cbef75ad8210">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency deadband FSM: 0 = without, 1 = with</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9c54cbd5-975f-45b2-9a20-cbef75ad8210</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Mode_Db</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d57f864-a5a0-41df-878d-4c50259b749b"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89524efe-f8e5-4908-9290-146b68dc0973"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>4.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3c612bb1-f913-4d85-86c4-7e6397f40026">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable dP_lfsmu_ltd for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3c612bb1-f913-4d85-86c4-7e6397f40026</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmu_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>49.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_800efcab-d457-4004-a79c-af532e5ed666">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Initial response delay LFSM-U</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>800efcab-d457-4004-a79c-af532e5ed666</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>delay_init_lfsmu</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_f7ad7987-262f-4ffe-a63d-7614f3edc353"/>
+    <cim:ParameterDescriptor.engineeringUnit>s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>16.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_107ceb1f-2b54-4157-bab9-79160836e07e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Minimum additional power FSM (dP &lt; 0)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>107ceb1f-2b54-4157-bab9-79160836e07e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_fsm_min</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_30317001-b16b-4faa-ad2a-cca6809507ec"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.engineeringUnit>%</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>25.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a962ad22-951e-4ec0-84b6-1932798717fe">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency deviation relevant for FSM of embedded HVDC system</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a962ad22-951e-4ec0-84b6-1932798717fe</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_fsm_act</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>53.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_eb292e11-f0c0-4093-86a9-3d4629cd724e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>State variable</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>eb292e11-f0c0-4093-86a9-3d4629cd724e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>x_smooth</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_1db90675-537f-4050-b6a8-08549d60ed92"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>19.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_bdb95062-04f3-4730-9be9-2c040fbbafc5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Limited FSM-O (overfrequency): 0=off, 1=on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bdb95062-04f3-4730-9be9-2c040fbbafc5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>LFSMO_on</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9f797af9-724f-45d3-9b3d-610a31258abd"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>10.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5983177a-ffb6-49d4-b324-d8ea791a7c3e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency Sensitive Mode (FSM): 0 = off, 1 = on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5983177a-ffb6-49d4-b324-d8ea791a7c3e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>FSM_on</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d57f864-a5a0-41df-878d-4c50259b749b"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89524efe-f8e5-4908-9290-146b68dc0973"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_dbc4f50d-df00-4ff6-b21e-8126ee57e19a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Droop 1 (FSM upward regulation, for f &lt; fn)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>dbc4f50d-df00-4ff6-b21e-8126ee57e19a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>s1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c15994c5-9553-4e64-8752-6900c0165c30"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.engineeringUnit>%</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>8.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_22dc141e-5616-48ca-bab5-a1d25a56b5f1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency deviation relevant for LFSM-O</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>22dc141e-5616-48ca-bab5-a1d25a56b5f1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_lfsmo</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>54.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_784c1686-9edf-48aa-9462-cae8cda417a1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Lower frequency deadband FSM (neg. value)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>784c1686-9edf-48aa-9462-cae8cda417a1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_db1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89524efe-f8e5-4908-9290-146b68dc0973"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d57f864-a5a0-41df-878d-4c50259b749b"/>
+    <cim:ParameterDescriptor.engineeringUnit>mHz</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>5.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_49f4a936-2519-425e-a4d5-36fe02b16fd1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable dP_sum for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>49f4a936-2519-425e-a4d5-36fe02b16fd1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_sum</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>51.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4b13da25-d665-4ebe-8d46-b23a23fa8454">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Unlimited additional active power by LFSM-O</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4b13da25-d665-4ebe-8d46-b23a23fa8454</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmo_unltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>47.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7f039009-0168-45c5-bd10-61f9240b8086">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Min. rate of change of dP LFSM-U</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7f039009-0168-45c5-bd10-61f9240b8086</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ddP_lfsmu_min</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_d25e48f8-773d-46a4-bd0e-cdc22fe94cb5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.engineeringUnit>%/s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>29.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_85eac9b0-4090-403e-91cb-053395c16902">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Min. rate of change of dP LFSM-O</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>85eac9b0-4090-403e-91cb-053395c16902</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ddP_lfsmo_min</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_46c4df53-d447-42e6-a37a-135505e95283"/>
+    <cim:ParameterDescriptor.engineeringUnit>%/s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>28.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_68b390e3-f1a5-4316-b429-90cd46f18319">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency deviation relevant for LFSM-U of embedded HVDC system</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>68b390e3-f1a5-4316-b429-90cd46f18319</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_lfsmu_act</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>57.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ecda2234-bdad-4f5a-91ac-dcc5fb51fff4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Flag under-frequency LFSM-U</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ecda2234-bdad-4f5a-91ac-dcc5fb51fff4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_under_lfsmu</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_f7ad7987-262f-4ffe-a63d-7614f3edc353"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>37.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_987965f4-fce3-4b21-b2e2-7fa0732e9e0e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Additional active power by LFSM-O</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>987965f4-fce3-4b21-b2e2-7fa0732e9e0e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmo</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>45.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4dd0e867-ab70-4d2d-9879-dbb17852dff0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable f_in_lfsmu for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4dd0e867-ab70-4d2d-9879-dbb17852dff0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_in_lfsmu</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_f7ad7987-262f-4ffe-a63d-7614f3edc353"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>36.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_79dfd774-0304-4384-84f9-fa434205aea5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. rate of change of dP LFSM-U</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>79dfd774-0304-4384-84f9-fa434205aea5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ddP_lfsmu_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_d25e48f8-773d-46a4-bd0e-cdc22fe94cb5"/>
+    <cim:ParameterDescriptor.engineeringUnit>%/s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>24.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_05db06a0-8ec5-48ce-8ec3-94c18fefd4d5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Droop 3 (LFSM-O downward regulation, for f &gt; f1)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>05db06a0-8ec5-48ce-8ec3-94c18fefd4d5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>s3</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a815ff56-2a8a-4c0a-92a2-96593d575682"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.engineeringUnit>%</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>13.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_92d028fb-46e5-4490-87b4-15e65a771870">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>92d028fb-46e5-4490-87b4-15e65a771870</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>59.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_40153d61-9571-46e5-a78f-af4ea5b52586">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Droop 4 (LFSM-U upward regulation, for f &lt; f2)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>40153d61-9571-46e5-a78f-af4ea5b52586</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>s4</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c8f8850c-a9f2-4b3f-b3ff-61de113892dc"/>
+    <cim:ParameterDescriptor.engineeringUnit>%</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>17.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_48a3f5fd-bf1d-4f69-a3da-0593aa684f66">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Flag over-frequency LFSM-O</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>48a3f5fd-bf1d-4f69-a3da-0593aa684f66</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_over_lfsmo</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9f797af9-724f-45d3-9b3d-610a31258abd"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>35.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5335376c-8055-4389-98a5-655ad4cbd2d4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. additional power LFSM-U (dP &gt; 0)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5335376c-8055-4389-98a5-655ad4cbd2d4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmu_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_ce85803d-dbc5-4646-94c2-02ead7b588dd"/>
+    <cim:ParameterDescriptor.engineeringUnit>%</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>23.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_eb8f44e1-47a8-4349-841f-85c0bc294105">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum additional power FSM (dP &gt; 0)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>eb8f44e1-47a8-4349-841f-85c0bc294105</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_fsm_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_30317001-b16b-4faa-ad2a-cca6809507ec"/>
+    <cim:ParameterDescriptor.engineeringUnit>%</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>20.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5f40434b-8f81-4d2e-bbfb-30ce96425379">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input: 0 = slow (precise), 1 = fast f signal</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5f40434b-8f81-4d2e-bbfb-30ce96425379</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Mode_in</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_971c1932-f72e-4520-989f-9f79a9a01b56"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a21fcf53-f279-4913-812c-05777ec678c6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_83792730-57e6-427a-9f4b-b022664ac268">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable f_over_remote for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>83792730-57e6-427a-9f4b-b022664ac268</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_over_remote</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89524efe-f8e5-4908-9290-146b68dc0973"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>40.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8751b70b-7fb8-45c5-b6d8-a301507d9543">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Initial response delay LFSM-O</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8751b70b-7fb8-45c5-b6d8-a301507d9543</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>delay_init_lfsmo</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9f797af9-724f-45d3-9b3d-610a31258abd"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.engineeringUnit>s</cim:ParameterDescriptor.engineeringUnit>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>12.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e41f2d79-4b18-49d6-863f-792832599c29">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable f_under_remote for Frequency Sensitive Mode (FSM) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e41f2d79-4b18-49d6-863f-792832599c29</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_under_remote</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_bb64731c-9f44-49b6-b929-ebebc6615372"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_89524efe-f8e5-4908-9290-146b68dc0973"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>39.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ab9922d5-e455-417b-8288-ef1884a3f1c5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM LFSM-U Frequency Response block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ab9922d5-e455-417b-8288-ef1884a3f1c5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_lfsmu_act</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_213f769c-4726-426c-bea1-994204546c1a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM Activate block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>213f769c-4726-426c-bea1-994204546c1a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>activate</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_5d21224c-2294-4410-bae4-4f989ad0d7b3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM LFSM-U Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5d21224c-2294-4410-bae4-4f989ad0d7b3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmu_unltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_d656c716-2b61-46cc-bd57-4718ffb1004d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM Summation Operator block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d656c716-2b61-46cc-bd57-4718ffb1004d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmu</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_7c9121f7-c237-49f3-9755-4e57a53010af">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Slow frequency input signal from remote</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7c9121f7-c237-49f3-9755-4e57a53010af</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_slow_remote</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_aca78abc-64e9-4d9f-8160-804a3f5087d9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM Frequency Response block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>aca78abc-64e9-4d9f-8160-804a3f5087d9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_fsm_act</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_8d564160-f083-4d12-b818-54dd923ce93c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM Summation Operator block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8d564160-f083-4d12-b818-54dd923ce93c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_fsm</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_8f61d06f-8ece-40b1-9479-2951eb87287a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM First order lag (PT1) block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8f61d06f-8ece-40b1-9479-2951eb87287a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_sum</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_80131b21-5c63-4b90-82b7-ffaf9eb5b178">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM Deadband for Embedded HVDC System Activation Logic block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>80131b21-5c63-4b90-82b7-ffaf9eb5b178</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_remote</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a33964a6-3131-451e-bf0d-8d4a9c181f42">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Nominal frequency of remote system</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a33964a6-3131-451e-bf0d-8d4a9c181f42</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fn_remote</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b063711f-78a2-42e7-bac5-c8f274f23112">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b063711f-78a2-42e7-bac5-c8f274f23112</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_fsm_unltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_409bc51e-2250-4d48-9fb2-c42824a75dee">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Fast frequency input signal</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>409bc51e-2250-4d48-9fb2-c42824a75dee</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_fast</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b07107f5-8ecc-4004-9856-679c5f22abd6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Nominal frequency</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b07107f5-8ecc-4004-9856-679c5f22abd6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fn</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_fd2de077-4990-488b-b354-55ec604a637f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM LFSM-U Gradient Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fd2de077-4990-488b-b354-55ec604a637f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmu_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_fa9910fd-c66a-40d3-94c9-db4be4f3bb63">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Additional active power by FSM</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fa9910fd-c66a-40d3-94c9-db4be4f3bb63</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_fsm</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_5c12e613-f164-4202-9ef3-289dcd666d28">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM Deadband block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5c12e613-f164-4202-9ef3-289dcd666d28</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_41423eb4-4940-49f0-aa18-725340ceaa21">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Fast frequency input signal from remote</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>41423eb4-4940-49f0-aa18-725340ceaa21</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_fast_remote</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_2840efa4-4701-4c7c-8732-be378c3773c3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM Gradient Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2840efa4-4701-4c7c-8732-be378c3773c3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_fsm_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_9338bb3d-590e-4578-98e5-1d6474baa530">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM Logic Embbeded HVDC block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9338bb3d-590e-4578-98e5-1d6474baa530</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_remote</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_0cc9bb2e-1502-4dbc-8708-3a035b50ae14">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM Activate block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0cc9bb2e-1502-4dbc-8708-3a035b50ae14</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_fsm</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_aaf5b6f4-915f-4511-adae-6201bfb1ef38">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM LFSM-U Activate block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>aaf5b6f4-915f-4511-adae-6201bfb1ef38</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_lfsmu</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_e7741790-70dc-4cf3-ab68-3f5c2912e49c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM LFSM-O Gradient Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7741790-70dc-4cf3-ab68-3f5c2912e49c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmo_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_4aa3ad84-f329-42f7-b375-420c726ffbed">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Slow frequency input signal</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4aa3ad84-f329-42f7-b375-420c726ffbed</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_slow</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_d4c1628f-99b9-4540-a3e8-d67a72ee3559">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM LFSM-O Activate block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d4c1628f-99b9-4540-a3e8-d67a72ee3559</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_lfsmo</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_48e6ab81-aa68-499a-b87d-5a5f6495371f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM Summation Operator block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>48e6ab81-aa68-499a-b87d-5a5f6495371f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmo</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_d68399dc-75d2-42f1-a61a-881539e5e640">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM LFSM-O Frequency Response block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d68399dc-75d2-42f1-a61a-881539e5e640</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_lfsmo_act</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ad06541d-1bc3-464d-86e3-9ffdc70a378f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for FSM LFSM-O Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ad06541d-1bc3-464d-86e3-9ffdc70a378f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP_lfsmo_unltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>False</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+</rdf:RDF>

@@ -1,0 +1,1721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_e7eb2061-25b7-4840-abfd-be2cde9c1d2c">
+    <cim:IdentifiedObject.description>HVDC MMC control frame for balanced and unbalanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7eb2061-25b7-4840-abfd-be2cde9c1d2c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>HVDC MMC Control (TenneT)</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_02a33eeb-deea-4ff3-90a3-e04cecbb6505">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_37120989-594d-4f93-9866-abecba892aed"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_PI_controller_1
+
+equation
+	freeze_xi = Flipflop(((pre(xi)&gt;=ymax) and (yin*Ki&gt;0)) or ((pre(xi)&lt;=-ymax) and (yin*Ki&lt;0)), ((pre(xi)&lt;ymax) or ((pre(xi)&gt;=ymax) and (yin*Ki&lt;0))) and ((pre(xi)&gt;-ymax) or ((pre(xi)&lt;=-ymax) and (yin*Ki&gt;0))));
+	der(xi) = Select(freeze_xi, 0.0, yin*Ki);            // Freeze integrator if outside limits
+	yout = Kp*yin+LimConst(xi,-ymax,ymax);
+	
+end Inner_Loop_Controller_PI_controller_1;
+
+function Flipflop
+	input  Boolean set;
+	input  Boolean reset;
+	output Boolean state;
+algorithm
+	if (set = true) and (reset = false) then
+		state := true;
+	end if;
+	if (set = false) and (reset = true) then
+		state := false;
+	end if;	
+end Flipflop;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function LimConst
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end LimConst;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>PI controller with anti-windup limit for integrator</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>02a33eeb-deea-4ff3-90a3-e04cecbb6505</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller PI controller 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_09880d39-712d-4a1a-ba23-1d0be41b58b3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_900f618c-39d6-4a69-bcf4-ec17e4f377dd"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_Activate_Gain_2
+
+equation
+	yo = Selfix(Enable,(K*yi),0);
+	
+end Inner_Loop_Controller_Activate_Gain_2;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Activate signal with gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>09880d39-712d-4a1a-ba23-1d0be41b58b3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Activate Gain 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_45a6062a-053d-44d8-a33b-50e873abe1cc">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_e19f14c6-1be9-49b7-b6ae-4bc31f9a3945"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_PI_controller_3
+
+equation
+	freeze_xi = Selfix(Balanced(), 1, Flipflop(Selfix(Balanced(), 1, ((pre(xi)&gt;=ymax) and (yin*Ki&gt;0)) or ((pre(xi)&lt;=-ymax) and (yin*Ki&lt;0))), Selfix(Balanced(), 0, ((pre(xi)&lt;ymax) or ((pre(xi)&gt;=ymax) and (yin*Ki&lt;0))) and ((pre(xi)&gt;-ymax) or ((pre(xi)&lt;=-ymax) and (yin*Ki&gt;0))))));
+	der(xi)  = Selfix(Balanced(), 0.0, Select(freeze_xi, 0.0, yin*Ki));          // Freeze integrator if outside limits
+	yout = Selfix(Balanced(), 0.0, Kp*yin+LimConst(xi,-ymax,ymax));
+	
+end Inner_Loop_Controller_PI_controller_3;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Flipflop
+	input  Boolean boolset;
+	input  Boolean boolreset;
+	output Boolean state;
+algorithm
+	if (boolset = true) and (boolreset = false) then
+		state := true;
+	end if;
+	if (boolset = false) and (boolreset = true) then
+		state := false;
+	end if;	
+end Flipflop;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for Balanced RMS, 2 for unBalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function LimConst
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end LimConst;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>PI controller in unbalanced RMS/EMT simulation with anti-windup limit for integrator</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>45a6062a-053d-44d8-a33b-50e873abe1cc</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller PI controller 3</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_e1430a7b-8aef-4f24-a659-47ab7e10dff1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_2d2eaf28-b69c-40c0-a550-02637e630de3"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real xi1d (start = uconv_1d-Selfix(Enable_iFF,i1d*(Rseries/100)-i1q*(Xseries/100),0)-Selfix(Enable_uFF,KuFF1*u1d,0));
+Real xi1q (start = uconv_1q-Selfix(Enable_iFF,i1q*(Rseries/100)+i1d*(Xseries/100),0)-Selfix(Enable_uFF,KuFF1*u1q,0));
+Real freeze_xi1d (start = 0);
+Real freeze_xi1q (start = 0);
+Real xi2d (start = Selfix(Balanced(), 0.0, uconv_2d-Selfix(Enable_iFF2,i2d*(Rseries/100)-i2q*(Xseries/100),0)-Selfix(Enable_uFF2,KuFF2*u2d,0)));
+Real xi2q (start = Selfix(Balanced(), 0.0, uconv_2q-Selfix(Enable_iFF2,i2q*(Rseries/100)+i2d*(Xseries/100),0)-Selfix(Enable_uFF2,KuFF2*u2q,0)));
+Real freeze_xi2d (start = Selfix(Balanced(), 1, 0));
+Real freeze_xi2q (start = Selfix(Balanced(), 1, 0));
+Real i1d_ref (start =  i1d);
+Real i1q_ref (start =  i1q);
+Real i2d_ref (start =  i2d);
+Real i2q_ref (start =  i2q);
+Real i2d;
+if noEvent(abs(i2d))) &lt; 1e-6 then
+    i2d = 0;
+end if;
+Real i2q;
+if noEvent(abs(i2q))) &lt; 1e-6 then
+    i2q = 0;
+end if;
+Real u2d;
+if noEvent(abs(u2d))) &lt; 1e-6 then
+    u2d = 0;
+end if;
+Real u2q;
+if noEvent(abs(u2q))) &lt; 1e-6 then
+    u2q = 0;
+end if;
+Real uconv_2d;
+if noEvent(abs(uconv_2d))) &lt; 1e-6 then
+    uconv_2d = 0;
+end if;
+Real uconv_2q;
+if noEvent(abs(uconv_2q))) &lt; 1e-6 then
+    uconv_2q = 0;
+end if;</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Current controller in dq components for positive and negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e1430a7b-8aef-4f24-a659-47ab7e10dff1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_e6f0cfc0-619c-4de1-b1bd-a9789a17b95f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_04f55478-c7af-4123-9d59-1733cf3383ae"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_Activate_Gain_3
+
+equation
+	yo = Selfix(Enable,(K*yi),0);
+	
+end Inner_Loop_Controller_Activate_Gain_3;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Activate signal with gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e6f0cfc0-619c-4de1-b1bd-a9789a17b95f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Activate Gain 3</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_2d76386e-a9e5-488f-b283-867a656717ce">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_a4bfc0a4-4e8e-4906-8779-39d5b7c4ff07"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_Voltage_Drop_Compensation_3
+
+equation
+	yor = Selfix(Balanced(),0,Selfix(Enable,yi*(Rseries/100),0));
+	yox = Selfix(Balanced(),0,Selfix(Enable,yi*(Xseries/100),0));
+	
+end Inner_Loop_Controller_Voltage_Drop_Compensation_3;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Voltage drop (cross coupling) compensation for current controller in unbalanced RMS/EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2d76386e-a9e5-488f-b283-867a656717ce</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Voltage Drop Compensation 3</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_c62571cb-fbcd-4d18-8c99-459f36198b1e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_fa079d2f-a631-4fd3-a10b-4a171ff3f664"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_Voltage_Drop_Compensation_1
+
+equation
+	yor = Selfix(Enable,(yi*(Rseries/100)),0);
+	yox = Selfix(Enable,(yi*(Xseries/100)),0);
+	
+end Inner_Loop_Controller_Voltage_Drop_Compensation_1;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Voltage drop (cross coupling) compensation for current controller</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c62571cb-fbcd-4d18-8c99-459f36198b1e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Voltage Drop Compensation 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_39a0a7b6-aca8-44c3-9be4-5aeaf0f64ee5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_d82a5476-133f-4499-b75a-9592f2ed0e53"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_PI_controller_2
+
+equation
+	freeze_xi = Flipflop(((pre(xi)&gt;=ymax) and (yin*Ki&gt;0)) or ((pre(xi)&lt;=-ymax) and (yin*Ki&lt;0)), ((pre(xi)&lt;ymax) or ((pre(xi)&gt;=ymax) and (yin*Ki&lt;0))) and ((pre(xi)&gt;-ymax) or ((pre(xi)&lt;=-ymax) and (yin*Ki&gt;0))));
+	der(xi) = Select(freeze_xi, 0.0, yin*Ki);            // Freeze integrator if outside limits
+	yout = Kp*yin+LimConst(xi,-ymax,ymax);
+	
+end Inner_Loop_Controller_PI_controller_2;
+
+function Flipflop
+	input  Boolean set;
+	input  Boolean reset;
+	output Boolean state;
+algorithm
+	if (set = true) and (reset = false) then
+		state := true;
+	end if;
+	if (set = false) and (reset = true) then
+		state := false;
+	end if;	
+end Flipflop;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function LimConst
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end LimConst;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>PI controller with anti-windup limit for integrator</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>39a0a7b6-aca8-44c3-9be4-5aeaf0f64ee5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller PI controller 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_4d834a3c-03dd-4e8c-8b75-acc2e0d6a5f4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_be4daab9-d877-4f65-b837-fe26245471ca"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_PI_controller_4
+
+equation
+	freeze_xi = Selfix(Balanced(), 1, Flipflop(Selfix(Balanced(), 1, ((pre(xi)&gt;=ymax) and (yin*Ki&gt;0)) or ((pre(xi)&lt;=-ymax) and (yin*Ki&lt;0))), Selfix(Balanced(), 0, ((pre(xi)&lt;ymax) or ((pre(xi)&gt;=ymax) and (yin*Ki&lt;0))) and ((pre(xi)&gt;-ymax) or ((pre(xi)&lt;=-ymax) and (yin*Ki&gt;0))))));
+	der(xi)  = Selfix(Balanced(), 0.0, Select(freeze_xi, 0.0, yin*Ki));          // Freeze integrator if outside limits
+	yout = Selfix(Balanced(), 0.0, Kp*yin+LimConst(xi,-ymax,ymax));
+	
+end Inner_Loop_Controller_PI_controller_4;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Flipflop
+	input  Boolean boolset;
+	input  Boolean boolreset;
+	output Boolean state;
+algorithm
+	if (boolset = true) and (boolreset = false) then
+		state := true;
+	end if;
+	if (boolset = false) and (boolreset = true) then
+		state := false;
+	end if;	
+end Flipflop;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for Balanced RMS, 2 for unBalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function LimConst
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end LimConst;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>PI controller in unbalanced RMS/EMT simulation with anti-windup limit for integrator</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4d834a3c-03dd-4e8c-8b75-acc2e0d6a5f4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller PI controller 4</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_82e482ed-0685-4a02-ad9c-f35c5ebee993">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_067cc9aa-3c2b-474f-8942-142d714ee779"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_Activate_Gain_4
+
+equation
+	yo = Selfix(Enable,(K*yi),0);
+	
+end Inner_Loop_Controller_Activate_Gain_4;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Activate signal with gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>82e482ed-0685-4a02-ad9c-f35c5ebee993</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Activate Gain 4</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_8b2ba6e0-e403-4ca6-9b97-ec1f48df93dd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_a0f13dec-1c04-424c-a70a-fa0d1b0a36c5"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_Voltage_Drop_Compensation_4
+
+equation
+	yor = Selfix(Balanced(),0,Selfix(Enable,yi*(Rseries/100),0));
+	yox = Selfix(Balanced(),0,Selfix(Enable,yi*(Xseries/100),0));
+	
+end Inner_Loop_Controller_Voltage_Drop_Compensation_4;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Voltage drop (cross coupling) compensation for current controller in unbalanced RMS/EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8b2ba6e0-e403-4ca6-9b97-ec1f48df93dd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Voltage Drop Compensation 4</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_7aa63b22-65b0-4955-a0f2-cbf6abb25ac1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_7f0be73b-4af4-42ab-8bcf-67d8d146587f"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_Voltage_Drop_Compensation_2
+
+equation
+	yor = Selfix(Enable,(yi*(Rseries/100)),0);
+	yox = Selfix(Enable,(yi*(Xseries/100)),0);
+	
+end Inner_Loop_Controller_Voltage_Drop_Compensation_2;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Voltage drop (cross coupling) compensation for current controller</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7aa63b22-65b0-4955-a0f2-cbf6abb25ac1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Voltage Drop Compensation 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_0aa19374-f98c-4521-9970-2d2380dccb3d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_50a06ce8-a5ca-4931-85cd-c1cede447b8c"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Inner_Loop_Controller_Activate_Gain_1
+
+equation
+	yo = Selfix(Enable,(K*yi),0);
+	
+end Inner_Loop_Controller_Activate_Gain_1;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Activate signal with gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0aa19374-f98c-4521-9970-2d2380dccb3d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Activate Gain 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_be4daab9-d877-4f65-b837-fe26245471ca">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller PI controller 4 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>be4daab9-d877-4f65-b837-fe26245471ca</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1ca3828e-da30-41bd-931a-bf8469b501f5"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_6fbef9aa-6f00-42f2-9f08-94429ab84534"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_4b513ddb-c397-4516-9bc1-55a93ac62767">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 9 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4b513ddb-c397-4516-9bc1-55a93ac62767</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_98517359-877a-4f8c-9f36-a0ec95801707"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_77a43532-299d-4f91-ae29-db251a2260b1"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_7adbb13c-df34-4753-a107-fc8e70ddd82a"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_3dd57930-f77c-45de-b3b9-d0ae6446f1bf"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_a4bfc0a4-4e8e-4906-8779-39d5b7c4ff07">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Voltage Drop Compensation 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a4bfc0a4-4e8e-4906-8779-39d5b7c4ff07</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_90ef3904-981c-4ae5-bdbf-86d91f70bbcb"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a0aa5338-3e33-4ae7-bcaf-ac52773cecc0"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_dc2c987d-5dc3-47fd-bcb4-caeb6cead990"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_04f55478-c7af-4123-9d59-1733cf3383ae">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Activate Gain 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>04f55478-c7af-4123-9d59-1733cf3383ae</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_2e4ce431-4f8a-408a-b4c5-b00d9932b1fd"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_98517359-877a-4f8c-9f36-a0ec95801707"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_9c69da44-03ca-4bac-a73e-98b9a813a110">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 6 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9c69da44-03ca-4bac-a73e-98b9a813a110</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_4281c882-77b1-438f-b4c2-c140e91c5b68"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_08eeb0c8-85a0-42ad-81d7-b8f6cdde3b2f"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_666b1158-5d9b-4447-baa4-7a6c790b739d"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_2d2eaf28-b69c-40c0-a550-02637e630de3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.description>Summation Point(6)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2d2eaf28-b69c-40c0-a550-02637e630de3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 12</cim:IdentifiedObject.name>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d9f53b88-96a6-41cb-8b2d-e50d633f59e0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e3545874-4520-4bdb-a7d8-e995ac6ed13c"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_092b8488-4594-4700-ad6d-55f32e99d288"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0c745bf1-e4e5-4a78-beac-33da77ed3c84"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5c96265f-2272-4917-ae56-e9ce216d3bc0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_90ef3904-981c-4ae5-bdbf-86d91f70bbcb"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b5f71341-d1de-4047-a873-ac05c939d846"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_3dd57930-f77c-45de-b3b9-d0ae6446f1bf"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_4b446082-31be-40cf-a54b-3b5ca65dfac2"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_9538de03-3ab0-4aaf-b764-12262106e1e1"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_9c20bdaa-2472-4d16-b461-4f24ddc31adf"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5881a26b-633b-42c9-b329-82b14379f9d0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_2e4ce431-4f8a-408a-b4c5-b00d9932b1fd"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_29bb9fc9-deb5-4d3b-adff-c0a88dc8540e"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1c1e72a0-cd80-4cb8-93a5-7a6dd749ecd7"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ea687411-a876-49c0-b3b5-23000091d1a3"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_425e13af-cabb-42b6-a6a6-15f0b06b7e38"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f2dcb959-35a8-4af1-98f4-85d4cd666887"/>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_a43af75a-8073-4ca6-8b14-a27ff9b42b40"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+    <rdf:type rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptor"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_067cc9aa-3c2b-474f-8942-142d714ee779">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Activate Gain 4 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>067cc9aa-3c2b-474f-8942-142d714ee779</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ea687411-a876-49c0-b3b5-23000091d1a3"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_3bd40068-0a45-4c1b-a957-450b6fc9353b"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_900f618c-39d6-4a69-bcf4-ec17e4f377dd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Activate Gain 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>900f618c-39d6-4a69-bcf4-ec17e4f377dd</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f2dcb959-35a8-4af1-98f4-85d4cd666887"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_b0cc476b-9f6b-4ad7-ae58-96c4238ff334"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_a0f13dec-1c04-424c-a70a-fa0d1b0a36c5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Voltage Drop Compensation 4 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a0f13dec-1c04-424c-a70a-fa0d1b0a36c5</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_425e13af-cabb-42b6-a6a6-15f0b06b7e38"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_f05f4047-b8d6-4790-adc0-6ac00f083362"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_66f766e1-d135-48f5-9049-0557ac4b3ba7"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_b5be286d-96d8-4927-a67a-7fd32852e1aa">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 11 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b5be286d-96d8-4927-a67a-7fd32852e1aa</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a0aa5338-3e33-4ae7-bcaf-ac52773cecc0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_66f766e1-d135-48f5-9049-0557ac4b3ba7"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_2c4e1e38-1243-4dc9-974e-3a2677c4ac84"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_61b17c3c-3125-4524-a572-94fb16269884">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 4 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>61b17c3c-3125-4524-a572-94fb16269884</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_425e13af-cabb-42b6-a6a6-15f0b06b7e38"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e3545874-4520-4bdb-a7d8-e995ac6ed13c"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_1ca3828e-da30-41bd-931a-bf8469b501f5"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_7f0be73b-4af4-42ab-8bcf-67d8d146587f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Voltage Drop Compensation 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7f0be73b-4af4-42ab-8bcf-67d8d146587f</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_29bb9fc9-deb5-4d3b-adff-c0a88dc8540e"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_4281c882-77b1-438f-b4c2-c140e91c5b68"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_51346c01-ea93-426c-a583-f5280c18211d"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_50a06ce8-a5ca-4931-85cd-c1cede447b8c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Activate Gain 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>50a06ce8-a5ca-4931-85cd-c1cede447b8c</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_092b8488-4594-4700-ad6d-55f32e99d288"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_fb87a281-2ca2-4a07-9afb-f0b365404510"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_e19f14c6-1be9-49b7-b6ae-4bc31f9a3945">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller PI controller 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e19f14c6-1be9-49b7-b6ae-4bc31f9a3945</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_193f9f79-b6f6-44ea-ad19-824e4f44e307"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_7adbb13c-df34-4753-a107-fc8e70ddd82a"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_acd05faa-a477-437d-a82f-8149adee6953">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>acd05faa-a477-437d-a82f-8149adee6953</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5c96265f-2272-4917-ae56-e9ce216d3bc0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1c1e72a0-cd80-4cb8-93a5-7a6dd749ecd7"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_669f5a97-c386-41cb-824b-913fbd16c9a1"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_0e4237f0-9583-4e0d-99c6-5136e2bb02a2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 7 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0e4237f0-9583-4e0d-99c6-5136e2bb02a2</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_03c45f1b-a6dc-4c42-8403-51a0c56963af"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_51346c01-ea93-426c-a583-f5280c18211d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ce20fc4e-6a2c-4b98-8c37-9b24170e4077"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_d82a5476-133f-4499-b75a-9592f2ed0e53">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller PI controller 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d82a5476-133f-4499-b75a-9592f2ed0e53</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_4167894f-7674-41be-b274-ab2f0c84a20e"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_f3081655-a7a8-456d-9cbf-6e92cdbc773d"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_b58ba7b6-cf3d-4e6e-9e76-49b5368d27c8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b58ba7b6-cf3d-4e6e-9e76-49b5368d27c8</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_90ef3904-981c-4ae5-bdbf-86d91f70bbcb"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5881a26b-633b-42c9-b329-82b14379f9d0"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_193f9f79-b6f6-44ea-ad19-824e4f44e307"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_5e9313e8-c82e-42fc-81ad-a2bd6c884423">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5e9313e8-c82e-42fc-81ad-a2bd6c884423</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_fb87a281-2ca2-4a07-9afb-f0b365404510"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_666b1158-5d9b-4447-baa4-7a6c790b739d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e5669b42-a633-4da6-ba30-de299ceac729"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_b5f71341-d1de-4047-a873-ac05c939d846"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_a43af75a-8073-4ca6-8b14-a27ff9b42b40">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 12 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a43af75a-8073-4ca6-8b14-a27ff9b42b40</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_2c4e1e38-1243-4dc9-974e-3a2677c4ac84"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_3bd40068-0a45-4c1b-a957-450b6fc9353b"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_6fbef9aa-6f00-42f2-9f08-94429ab84534"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_9538de03-3ab0-4aaf-b764-12262106e1e1"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_37120989-594d-4f93-9866-abecba892aed">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller PI controller 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>37120989-594d-4f93-9866-abecba892aed</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_669f5a97-c386-41cb-824b-913fbd16c9a1"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_e5669b42-a633-4da6-ba30-de299ceac729"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_df035cf9-8e38-4662-8dd2-283df2d73745">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 10 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>df035cf9-8e38-4662-8dd2-283df2d73745</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f05f4047-b8d6-4790-adc0-6ac00f083362"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_dc2c987d-5dc3-47fd-bcb4-caeb6cead990"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_77a43532-299d-4f91-ae29-db251a2260b1"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_cdb74345-3437-4680-8a01-7152ab28d86a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cdb74345-3437-4680-8a01-7152ab28d86a</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_29bb9fc9-deb5-4d3b-adff-c0a88dc8540e"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d9f53b88-96a6-41cb-8b2d-e50d633f59e0"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_4167894f-7674-41be-b274-ab2f0c84a20e"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_fa079d2f-a631-4fd3-a10b-4a171ff3f664">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Voltage Drop Compensation 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fa079d2f-a631-4fd3-a10b-4a171ff3f664</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5c96265f-2272-4917-ae56-e9ce216d3bc0"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_03c45f1b-a6dc-4c42-8403-51a0c56963af"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_08eeb0c8-85a0-42ad-81d7-b8f6cdde3b2f"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_ce7d876b-507e-4478-9c12-be2d8ee14f42">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Inner Loop Controller Summation Operator 8 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ce7d876b-507e-4478-9c12-be2d8ee14f42</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ce20fc4e-6a2c-4b98-8c37-9b24170e4077"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b0cc476b-9f6b-4ad7-ae58-96c4238ff334"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f3081655-a7a8-456d-9cbf-6e92cdbc773d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_9c20bdaa-2472-4d16-b461-4f24ddc31adf"/>
+  </cim:InputOutputDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_7a5c1f45-42e1-4f6d-b561-d47757e929bc">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(9)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7a5c1f45-42e1-4f6d-b561-d47757e929bc</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 7</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_0e4237f0-9583-4e0d-99c6-5136e2bb02a2"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_faed40ec-3977-4a27-b522-8537fdafa4ec">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(1)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>faed40ec-3977-4a27-b522-8537fdafa4ec</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 2</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_cdb74345-3437-4680-8a01-7152ab28d86a"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_f4d2acca-c51a-4477-b396-a41bb0840c42">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f4d2acca-c51a-4477-b396-a41bb0840c42</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 1</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_acd05faa-a477-437d-a82f-8149adee6953"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_336b1522-d3d6-4060-b1ff-450ecba469b5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(2)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>336b1522-d3d6-4060-b1ff-450ecba469b5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 5</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_5e9313e8-c82e-42fc-81ad-a2bd6c884423"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_068fb054-8cb4-41b2-a024-f0a9fccbd85e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(10)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>068fb054-8cb4-41b2-a024-f0a9fccbd85e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 11</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_b5be286d-96d8-4927-a67a-7fd32852e1aa"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_81333458-0599-4d8a-b11d-c96c21df8202">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(11)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>81333458-0599-4d8a-b11d-c96c21df8202</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 10</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_df035cf9-8e38-4662-8dd2-283df2d73745"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_5d831d88-47c3-475d-bb58-c951a8c6ba3b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(3)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5d831d88-47c3-475d-bb58-c951a8c6ba3b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 8</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_ce7d876b-507e-4478-9c12-be2d8ee14f42"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_1c1a4d78-1652-4698-833e-cdfd3ad3e35b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(5)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1c1a4d78-1652-4698-833e-cdfd3ad3e35b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 4</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_61b17c3c-3125-4524-a572-94fb16269884"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_ea680709-4517-4689-b984-894802f80bd9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(4)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ea680709-4517-4689-b984-894802f80bd9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 3</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_b58ba7b6-cf3d-4e6e-9e76-49b5368d27c8"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_c7bb2320-749e-4728-a349-7a9afb7c0c81">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(8)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c7bb2320-749e-4728-a349-7a9afb7c0c81</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 6</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_9c69da44-03ca-4bac-a73e-98b9a813a110"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_f6326da8-6d24-4bb6-bae4-f5c0935d6fa8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(7)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f6326da8-6d24-4bb6-bae4-f5c0935d6fa8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Inner Loop Controller Summation Operator 9</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_4b513ddb-c397-4516-9bc1-55a93ac62767"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0ce9b79d-8e24-4c99-b146-e5b8a9ed3eca">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. converter voltage, negative seq.</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0ce9b79d-8e24-4c99-b146-e5b8a9ed3eca</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Vconv_2_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d834a3c-03dd-4e8c-8b75-acc2e0d6a5f4"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_45a6062a-053d-44d8-a33b-50e873abe1cc"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>18.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_02f6d9f5-0a44-4d04-a1ae-c64f3e4590d4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable duconv_1q for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>02f6d9f5-0a44-4d04-a1ae-c64f3e4590d4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>duconv_1q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>40.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_58f2c51f-8119-4edd-b552-fccd0c2b899b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable freeze_xi2d for Inner Loop Controller PI controller 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.description>Internal variable freeze_xi2d for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>58f2c51f-8119-4edd-b552-fccd0c2b899b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>freeze_xi2d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_45a6062a-053d-44d8-a33b-50e873abe1cc"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>49.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.sequenceNumber>21.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_2dbd103a-7496-4517-a303-9296c393a24d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Proportional gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2dbd103a-7496-4517-a303-9296c393a24d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kp</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_02a33eeb-deea-4ff3-90a3-e04cecbb6505"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_39a0a7b6-aca8-44c3-9be4-5aeaf0f64ee5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d3d58ab9-d200-48a5-85ae-7dc49c8a51ff">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Voltage feed forward gain in positive sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d3d58ab9-d200-48a5-85ae-7dc49c8a51ff</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>KuFF1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_0aa19374-f98c-4521-9970-2d2380dccb3d"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_09880d39-712d-4a1a-ba23-1d0be41b58b3"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>4.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_6a0ef21b-adf3-4255-b59f-c78288d813e2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable di2d for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6a0ef21b-adf3-4255-b59f-c78288d813e2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>di2d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>25.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e5c0a6d1-79c2-491b-981c-88713252825a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_i1q_X for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e5c0a6d1-79c2-491b-981c-88713252825a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i1q_X</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>30.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f4095e84-c7ac-4f48-9739-b427f7ee9611">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Integrator gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f4095e84-c7ac-4f48-9739-b427f7ee9611</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Ki</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_39a0a7b6-aca8-44c3-9be4-5aeaf0f64ee5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_02a33eeb-deea-4ff3-90a3-e04cecbb6505"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_01ed14c1-5ed8-48f8-8851-e60d71fdb005">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_i2d_R for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>01ed14c1-5ed8-48f8-8851-e60d71fdb005</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i2d_R</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>31.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7e06abda-ebdf-4197-bb8f-132eea7eb435">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_iZ_1d for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7e06abda-ebdf-4197-bb8f-132eea7eb435</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_iZ_1d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>35.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_77601e31-51e2-47ba-879c-13080768ee99">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_i1q_R for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>77601e31-51e2-47ba-879c-13080768ee99</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i1q_R</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>29.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d0de18d3-eeeb-4f36-84b9-52764837fa97">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Current feed forward (neg. seq.): 0=off  1=on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d0de18d3-eeeb-4f36-84b9-52764837fa97</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Enable_iFF2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_2d76386e-a9e5-488f-b283-867a656717ce"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_8b2ba6e0-e403-4ca6-9b97-ec1f48df93dd"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>12.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ac92ed20-4bca-4cb8-834a-62ef54469082">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Voltage feed forward (pos. seq.): 0=off  1=on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ac92ed20-4bca-4cb8-834a-62ef54469082</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Enable_uFF</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_0aa19374-f98c-4521-9970-2d2380dccb3d"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_09880d39-712d-4a1a-ba23-1d0be41b58b3"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8237ae3e-0230-4d69-ab9b-ed22751eaaec">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable di2q for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8237ae3e-0230-4d69-ab9b-ed22751eaaec</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>di2q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>26.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7c2b4310-4e2c-46f0-b85c-fe56c396c6b9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Series reactance</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7c2b4310-4e2c-46f0-b85c-fe56c396c6b9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Xseries</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_8b2ba6e0-e403-4ca6-9b97-ec1f48df93dd"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_2d76386e-a9e5-488f-b283-867a656717ce"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c62571cb-fbcd-4d18-8c99-459f36198b1e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7aa63b22-65b0-4955-a0f2-cbf6abb25ac1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>7.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3963ca48-ff3a-4437-9278-85ad4b7ff132">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Integration gain of PI controllers (negative sequence)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3963ca48-ff3a-4437-9278-85ad4b7ff132</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Ki2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d834a3c-03dd-4e8c-8b75-acc2e0d6a5f4"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_45a6062a-053d-44d8-a33b-50e873abe1cc"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>9.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_74ee43a5-cca1-4954-ae03-7026c916722c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable freeze_xi2q for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.description>Internal variable freeze_xi2q for Inner Loop Controller PI controller 4 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>74ee43a5-cca1-4954-ae03-7026c916722c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>freeze_xi2q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d834a3c-03dd-4e8c-8b75-acc2e0d6a5f4"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>22.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.sequenceNumber>50.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5f370ca3-25fa-403c-8409-89491bc6de14">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_iZ_1q for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5f370ca3-25fa-403c-8409-89491bc6de14</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_iZ_1q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>36.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9906d4b2-8cac-40d5-a3c4-f721c0840e2e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable duconv_2d for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9906d4b2-8cac-40d5-a3c4-f721c0840e2e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>duconv_2d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>41.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_988ed719-f211-4fb5-a80f-45d123ee1374">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_iZ_2d for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>988ed719-f211-4fb5-a80f-45d123ee1374</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_iZ_2d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>37.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3199edbb-d0f9-4a0c-8343-6b890ccc2d9b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_i2q_X for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3199edbb-d0f9-4a0c-8343-6b890ccc2d9b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i2q_X</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>34.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4cc38328-a010-4e0f-bc01-9c0d615fa097">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable duconv_2q for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4cc38328-a010-4e0f-bc01-9c0d615fa097</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>duconv_2q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>42.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_69a1ab4b-8f97-4d71-82bc-dd988f9da2f4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Series resistance</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>69a1ab4b-8f97-4d71-82bc-dd988f9da2f4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Rseries</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_8b2ba6e0-e403-4ca6-9b97-ec1f48df93dd"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c62571cb-fbcd-4d18-8c99-459f36198b1e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_2d76386e-a9e5-488f-b283-867a656717ce"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7aa63b22-65b0-4955-a0f2-cbf6abb25ac1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>6.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a4910810-217e-4e0a-9a5a-ebea228f94bb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable u1d_enabled for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a4910810-217e-4e0a-9a5a-ebea228f94bb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1d_enabled</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>43.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5eb6a6af-095e-4749-8eb3-c29fff61e0ae">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable freeze_xi1d for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.description>Internal variable freeze_xi1d for Inner Loop Controller PI controller 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5eb6a6af-095e-4749-8eb3-c29fff61e0ae</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>freeze_xi1d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_02a33eeb-deea-4ff3-90a3-e04cecbb6505"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>19.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.sequenceNumber>47.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e4943934-b62e-4b4b-94c7-88d1e3824660">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable freeze_xi1q for Inner Loop Controller PI controller 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.description>Internal variable freeze_xi1q for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e4943934-b62e-4b4b-94c7-88d1e3824660</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>freeze_xi1q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_39a0a7b6-aca8-44c3-9be4-5aeaf0f64ee5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>48.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.sequenceNumber>20.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_26f631bd-6996-4328-a655-a980160e6b51">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xi2q</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>26f631bd-6996-4328-a655-a980160e6b51</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xi2q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d834a3c-03dd-4e8c-8b75-acc2e0d6a5f4"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>16.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0656bf79-c9b8-48b5-a610-2a832a589298">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xi2d</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0656bf79-c9b8-48b5-a610-2a832a589298</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xi2d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_45a6062a-053d-44d8-a33b-50e873abe1cc"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>15.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9b91bef5-44dc-4112-8f16-3f459ad76068">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. internal converter voltage, pos. seq.</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9b91bef5-44dc-4112-8f16-3f459ad76068</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Vconv_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_39a0a7b6-aca8-44c3-9be4-5aeaf0f64ee5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_02a33eeb-deea-4ff3-90a3-e04cecbb6505"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>17.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_2e1c6079-69b9-4625-b3cb-2e8c9117dc0e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable u1q_enabled for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2e1c6079-69b9-4625-b3cb-2e8c9117dc0e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1q_enabled</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>44.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_459f460d-b895-4b3f-830d-142e6270f9db">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xi1q</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>459f460d-b895-4b3f-830d-142e6270f9db</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xi1q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_39a0a7b6-aca8-44c3-9be4-5aeaf0f64ee5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>14.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d5656619-3efd-4ace-bf6f-5b7f43c845d2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_i2q_R for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d5656619-3efd-4ace-bf6f-5b7f43c845d2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i2q_R</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>33.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_11c9fe7c-a81e-4f74-aa35-9851ab42433c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_iZ_2q for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>11c9fe7c-a81e-4f74-aa35-9851ab42433c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_iZ_2q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>38.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ee1300e9-e1e4-4dec-8808-261e18ee7abc">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_i1d_X for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ee1300e9-e1e4-4dec-8808-261e18ee7abc</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i1d_X</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>28.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_adb2ae2d-326c-48ec-b38f-1d5bb2088aee">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Voltage feed forward (neg. seq.): 0=off  1=on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>adb2ae2d-326c-48ec-b38f-1d5bb2088aee</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Enable_uFF2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_82e482ed-0685-4a02-ad9c-f35c5ebee993"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e6f0cfc0-619c-4de1-b1bd-a9789a17b95f"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>10.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.integer"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ff1e8ac8-833a-45c1-965d-fded149695b7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable duconv_1d for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ff1e8ac8-833a-45c1-965d-fded149695b7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>duconv_1d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>39.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_2b515a44-149d-4bb8-8b1f-8b56fe0dbba5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xi1d</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2b515a44-149d-4bb8-8b1f-8b56fe0dbba5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xi1d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_02a33eeb-deea-4ff3-90a3-e04cecbb6505"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>13.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_6ac60b8b-4bee-434e-8d80-51bfcb519944">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_i1d_R for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6ac60b8b-4bee-434e-8d80-51bfcb519944</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i1d_R</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>27.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e2cc5490-5539-465b-a82b-89b7a4520ece">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Voltage feed forward gain in negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e2cc5490-5539-465b-a82b-89b7a4520ece</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>KuFF2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_82e482ed-0685-4a02-ad9c-f35c5ebee993"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e6f0cfc0-619c-4de1-b1bd-a9789a17b95f"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>11.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_596276d2-4f36-4679-ad01-bf474dae2859">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable du_i2d_X for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>596276d2-4f36-4679-ad01-bf474dae2859</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i2d_X</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>32.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e808fdea-e7b5-4d8f-8981-b67fd71fc5e9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Current feed forward (pos. seq.): 0=off  1=on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e808fdea-e7b5-4d8f-8981-b67fd71fc5e9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Enable_iFF</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c62571cb-fbcd-4d18-8c99-459f36198b1e"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_7aa63b22-65b0-4955-a0f2-cbf6abb25ac1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>5.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_bd3997fa-7f0a-4255-b59d-dc44125536d1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable di1q for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bd3997fa-7f0a-4255-b59d-dc44125536d1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>di1q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>24.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4d4cb1ab-b572-490e-9358-8529f4a2a0db">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable u2q_enabled for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4d4cb1ab-b572-490e-9358-8529f4a2a0db</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2q_enabled</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>46.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_bb588b64-dd92-4ecc-9c75-e66aefe78738">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable di1d for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bb588b64-dd92-4ecc-9c75-e66aefe78738</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>di1d</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>23.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_718a9cb0-163a-487e-9341-5ae5ac481080">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable u2d_enabled for Inner Loop Controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>718a9cb0-163a-487e-9341-5ae5ac481080</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2d_enabled</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>45.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7784f765-1061-46c9-87ba-3e6140e71820">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Proportional gain of PI controllers (negative seq.)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7784f765-1061-46c9-87ba-3e6140e71820</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kp2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e1430a7b-8aef-4f24-a659-47ab7e10dff1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_45a6062a-053d-44d8-a33b-50e873abe1cc"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_4d834a3c-03dd-4e8c-8b75-acc2e0d6a5f4"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>8.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1ca3828e-da30-41bd-931a-bf8469b501f5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller PI controller 4 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1ca3828e-da30-41bd-931a-bf8469b501f5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>di2q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_669f5a97-c386-41cb-824b-913fbd16c9a1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller PI controller 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>669f5a97-c386-41cb-824b-913fbd16c9a1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>di1d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_08eeb0c8-85a0-42ad-81d7-b8f6cdde3b2f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 6 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>08eeb0c8-85a0-42ad-81d7-b8f6cdde3b2f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i1d_R</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ce20fc4e-6a2c-4b98-8c37-9b24170e4077">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 8 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ce20fc4e-6a2c-4b98-8c37-9b24170e4077</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_iZ_1q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b5f71341-d1de-4047-a873-ac05c939d846">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference, positive sequence, d-axis</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b5f71341-d1de-4047-a873-ac05c939d846</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_e3545874-4520-4bdb-a7d8-e995ac6ed13c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Negative sequence reactive current reference without additional fault current</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e3545874-4520-4bdb-a7d8-e995ac6ed13c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2q_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_666b1158-5d9b-4447-baa4-7a6c790b739d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>666b1158-5d9b-4447-baa4-7a6c790b739d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_iZ_1d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_2c4e1e38-1243-4dc9-974e-3a2677c4ac84">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 12 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2c4e1e38-1243-4dc9-974e-3a2677c4ac84</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_iZ_2q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b0cc476b-9f6b-4ad7-ae58-96c4238ff334">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 8 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b0cc476b-9f6b-4ad7-ae58-96c4238ff334</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1q_enabled</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_d9f53b88-96a6-41cb-8b2d-e50d633f59e0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Positive sequence reactive current reference without additional fault current</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d9f53b88-96a6-41cb-8b2d-e50d633f59e0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1q_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_7adbb13c-df34-4753-a107-fc8e70ddd82a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 9 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7adbb13c-df34-4753-a107-fc8e70ddd82a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>duconv_2d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_5c96265f-2272-4917-ae56-e9ce216d3bc0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Local AC current, d-axis, positive sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5c96265f-2272-4917-ae56-e9ce216d3bc0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1c1e72a0-cd80-4cb8-93a5-7a6dd749ecd7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Current reference, positive sequence, d-axis</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1c1e72a0-cd80-4cb8-93a5-7a6dd749ecd7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1d_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_4167894f-7674-41be-b274-ab2f0c84a20e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller PI controller 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4167894f-7674-41be-b274-ab2f0c84a20e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>di1q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_9538de03-3ab0-4aaf-b764-12262106e1e1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference, negative sequence, q-axis</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9538de03-3ab0-4aaf-b764-12262106e1e1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_3bd40068-0a45-4c1b-a957-450b6fc9353b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 12 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3bd40068-0a45-4c1b-a957-450b6fc9353b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2q_enabled</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_dc2c987d-5dc3-47fd-bcb4-caeb6cead990">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 10 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>dc2c987d-5dc3-47fd-bcb4-caeb6cead990</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i2d_R</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_fb87a281-2ca2-4a07-9afb-f0b365404510">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fb87a281-2ca2-4a07-9afb-f0b365404510</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1d_enabled</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_5881a26b-633b-42c9-b329-82b14379f9d0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Current reference, negative sequence, d-axis</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5881a26b-633b-42c9-b329-82b14379f9d0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2d_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_4281c882-77b1-438f-b4c2-c140e91c5b68">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 6 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4281c882-77b1-438f-b4c2-c140e91c5b68</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i1q_X</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_98517359-877a-4f8c-9f36-a0ec95801707">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 9 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>98517359-877a-4f8c-9f36-a0ec95801707</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2d_enabled</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_425e13af-cabb-42b6-a6a6-15f0b06b7e38">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Local AC current, q-axis, negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>425e13af-cabb-42b6-a6a6-15f0b06b7e38</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f2dcb959-35a8-4af1-98f4-85d4cd666887">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Signal, positive sequence, q-axis component</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f2dcb959-35a8-4af1-98f4-85d4cd666887</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f3081655-a7a8-456d-9cbf-6e92cdbc773d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 8 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f3081655-a7a8-456d-9cbf-6e92cdbc773d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>duconv_1q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_e5669b42-a633-4da6-ba30-de299ceac729">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 5 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e5669b42-a633-4da6-ba30-de299ceac729</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>duconv_1d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_77a43532-299d-4f91-ae29-db251a2260b1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 9 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>77a43532-299d-4f91-ae29-db251a2260b1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_iZ_2d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_03c45f1b-a6dc-4c42-8403-51a0c56963af">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 7 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>03c45f1b-a6dc-4c42-8403-51a0c56963af</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i1d_X</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_193f9f79-b6f6-44ea-ad19-824e4f44e307">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller PI controller 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>193f9f79-b6f6-44ea-ad19-824e4f44e307</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>di2d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_3dd57930-f77c-45de-b3b9-d0ae6446f1bf">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference, negative sequence, d-axis</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3dd57930-f77c-45de-b3b9-d0ae6446f1bf</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_51346c01-ea93-426c-a583-f5280c18211d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 7 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>51346c01-ea93-426c-a583-f5280c18211d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i1q_R</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_66f766e1-d135-48f5-9049-0557ac4b3ba7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 11 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>66f766e1-d135-48f5-9049-0557ac4b3ba7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i2q_R</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_2e4ce431-4f8a-408a-b4c5-b00d9932b1fd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Signal, negative sequence, d-axis component</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2e4ce431-4f8a-408a-b4c5-b00d9932b1fd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ea687411-a876-49c0-b3b5-23000091d1a3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Signal, negative sequence, q-axis component</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ea687411-a876-49c0-b3b5-23000091d1a3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_092b8488-4594-4700-ad6d-55f32e99d288">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Activate Gain 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>092b8488-4594-4700-ad6d-55f32e99d288</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a0aa5338-3e33-4ae7-bcaf-ac52773cecc0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 11 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a0aa5338-3e33-4ae7-bcaf-ac52773cecc0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i2d_X</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_29bb9fc9-deb5-4d3b-adff-c0a88dc8540e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Local AC current, q-axis, positive sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>29bb9fc9-deb5-4d3b-adff-c0a88dc8540e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i1q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_6fbef9aa-6f00-42f2-9f08-94429ab84534">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 12 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6fbef9aa-6f00-42f2-9f08-94429ab84534</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>duconv_2q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_4b446082-31be-40cf-a54b-3b5ca65dfac2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Local AC voltage magnitude, negative sequence, unfiltered (RMS sim.)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4b446082-31be-40cf-a54b-3b5ca65dfac2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2_unfilt</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_90ef3904-981c-4ae5-bdbf-86d91f70bbcb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Local AC current, d-axis, negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>90ef3904-981c-4ae5-bdbf-86d91f70bbcb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i2d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f05f4047-b8d6-4790-adc0-6ac00f083362">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Inner Loop Controller Summation Operator 10 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f05f4047-b8d6-4790-adc0-6ac00f083362</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>du_i2q_X</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_9c20bdaa-2472-4d16-b461-4f24ddc31adf">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference, positive sequence, q-axis</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9c20bdaa-2472-4d16-b461-4f24ddc31adf</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_0c745bf1-e4e5-4a78-beac-33da77ed3c84">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Local AC voltage, space phasor (EMT) / pos. seq. (RMS sim.), magnitude</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0c745bf1-e4e5-4a78-beac-33da77ed3c84</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>usp_loc_inst</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+</rdf:RDF>

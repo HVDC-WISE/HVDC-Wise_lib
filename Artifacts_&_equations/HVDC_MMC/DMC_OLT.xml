@@ -1,0 +1,1114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_e7eb2061-25b7-4840-abfd-be2cde9c1d2c">
+    <cim:IdentifiedObject.description>HVDC MMC control frame for balanced and unbalanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7eb2061-25b7-4840-abfd-be2cde9c1d2c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>HVDC MMC Control (TenneT)</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_961df1e3-f34c-4d00-b377-cb359fceeffa">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_8f24b4b9-e1b6-4f10-9b0e-1d7c37bf096c"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Output_Limiter_and_Transformation_Polar_to_xy_3
+
+equation
+	
+	yx = Selfix(Balanced(), 0.0, mag*cos(theta));
+	yy = Selfix(Balanced(), 0.0, mag*sin(theta));
+	
+end Output_Limiter_and_Transformation_Polar_to_xy_3;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for Balanced RMS, 2 for unBalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Polar to xy in negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>961df1e3-f34c-4d00-b377-cb359fceeffa</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation Polar to xy 3</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_848aadaf-9a50-4844-9130-483f634fe03b"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real phi1_inc (start = atan2(sinphi1,cosphi1)-phif);
+Real uconv_1d_ltd (start = Selfix(BoolRMS(),  uconv_r*cosphi1 + uconv_i*sinphi1, uconv_r*cos(phi1_inc) + uconv_i*sin(phi1_inc)));
+Real uconv_1q_ltd (start = inc(uconv_1q_ltd) = Selfix(BoolRMS(), -uconv_r*sinphi1 + uconv_i*cosphi1, -uconv_r*sin(phi1_inc) + uconv_i*cos(phi1_inc)));
+Real uconv_1 (start = sqrt(max(0.0, Sqr(uconv_r)+Sqr(uconv_i))));
+Real uconv_1d (start = Selfix(BoolRMS(),  uconv_r*cosphi1 + uconv_i*sinphi1, uconv_r*cos(phi1_inc) + uconv_i*sin(phi1_inc)));
+Real uconv_1q (start = Selfix(BoolRMS(), -uconv_r*sinphi1 + uconv_i*cosphi1, -uconv_r*sin(phi1_inc) + uconv_i*cos(phi1_inc)));
+// Initial condition for EMT simulation to be improved for unbalanced cases:
+Real uconv_2d (start = Selfix(Balanced(), 0.0, Selfix(BoolRMS(),  uconv_2r*cosphi2+uconv_2i*sinphi2, 0.0)));
+Real uconv_2q (start = Selfix(Balanced(), 0.0, Selfix(BoolRMS(), -uconv_2r*sinphi2+uconv_2i*cosphi2, 0.0)));
+Real ur_haf_ref (start = 0);
+Real ui_haf_ref (start = 0);
+Real uconv_2r;
+if noEvent(abs(uconv_2r))) &lt; 1e-6 then
+    uconv_2r = 0;
+end if;
+Real uconv_2i;
+if noEvent(abs(uconv_2i))) &lt; 1e-6 then
+    uconv_2i = 0;
+end if;
+Real cosphi2;
+if noEvent(abs(cosphi2))) &lt; 1e-6 then
+    cosphi2 = 1;
+end if;
+Real sinphi2;
+if noEvent(abs(sinphi2))) &lt; 1e-6 then
+    sinphi2 = 0;
+end if;
+Real cosphi21;
+if noEvent(abs(cosphi21))) &lt; 1e-6 then
+    cosphi21 = 1;
+end if;
+Real sinphi21;
+if noEvent(abs(sinphi21))) &lt; 1e-6 then
+    sinphi21 = 0;
+end if;
+Real phif;
+if noEvent(abs(phif))) &lt; 1e-6 then
+    phif = 0;
+end if;</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Converter voltage limitation and dq -&gt; alpha beta transformation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>68e5efa7-c90f-4786-a5ca-e83e5e88ffa1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_f667baed-c47a-4dc0-9ae8-85097a3a6aa3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_37f72f5a-9e87-4ef8-b1e6-955fca2882c1"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Output_Limiter_and_Transformation_dq-Back
+
+equation
+	// dq Backwards Transformation of positive sequence component
+	// In RMS simulation: Output considers positive sequence component only
+	// In EMT simulation: Output considers positive and negative sequence components
+	y1r = y1d*cosphi1 - y1q*sinphi1;
+	y1i = y1d*sinphi1 + y1q*cosphi1
+	yr = Selfix(BoolRMS(), y1r, y1r + y2r);
+	yi = Selfix(BoolRMS(), y1i, y1i + y2i);
+	
+end Output_Limiter_and_Transformation_dq-Back;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function BoolRMS
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for RMS, 0 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end BoolRMS;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>d-q Invers Transformation Positive Sequence Including Negative Sequence in EMT Simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f667baed-c47a-4dc0-9ae8-85097a3a6aa3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation dq-Back</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_259653eb-d51b-41bc-b219-0100ba7343eb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_3eec9fcd-aabc-402d-93d0-f6f2edbc627c"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Output_Limiter_and_Transformation_xy_to_polar_3
+
+equation
+	
+	mag = Selfix(balanced(), 0.0, sqrt(max(0.0,Sqr(re)+Sqr(im))));
+	theta = Selfix(Balanced(), 0.0, atan2(im,re)); // Output is in radians, ranging between (-pi,pi].
+	
+end Output_Limiter_and_Transformation_xy_to_polar_3;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for Balanced RMS, 2 for unBalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;
+
+function Sqr
+	input Real x;
+	output Real y;
+algorithm
+	y = x*x;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>xy to polar in negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>259653eb-d51b-41bc-b219-0100ba7343eb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation xy to polar 3</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_9acd75ae-ab65-4782-81ba-934468b91ab9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_816df1d6-76f3-49ec-ade5-8b7cc684bda2"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Output_Limiter_and_Transformation_Maximum_Limiter_2
+
+equation
+	yo = Selfix(Balanced(), 0, max(ymin,min(ymax,yi)));
+	
+end Output_Limiter_and_Transformation_Maximum_Limiter_2;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Maximum limiter in negative sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9acd75ae-ab65-4782-81ba-934468b91ab9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation Maximum Limiter 2 Neg</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_b5dcd65e-0499-4cf5-9b33-318599ed8f4b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_3df5fb2d-48cf-4dc8-a908-9bc7da6de73c"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Output_Limiter_and_Transformation_Polar_to_xy_1
+
+equation
+	yx = mag*cos(theta);
+	yy = mag*sin(theta);
+	
+end Output_Limiter_and_Transformation_Polar_to_xy_1;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Polar to xy</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b5dcd65e-0499-4cf5-9b33-318599ed8f4b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation Polar to xy 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_c6103bb9-12a0-44c0-b2ef-e99dee20dab0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_e9d44cce-6645-448f-a7a7-a307d11dd329"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Output_Limiter_and_Transformation_Maximum_Limiter_1
+
+equation
+	
+	yo = max(ymin,min(ymax,yi));
+	
+end Output_Limiter_and_Transformation_Maximum_Limiter_1;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Maximum Limiter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c6103bb9-12a0-44c0-b2ef-e99dee20dab0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation Maximum Limiter 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_848d8bd0-b752-48cc-a443-ed24bfe87773">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_59ed39cc-5616-449b-a7c3-361164363f64"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Output_Limiter_and_Transformation_Maximum_Limiter_2
+
+equation
+	
+	yo = max(ymin,min(ymax,yi));
+	
+end Output_Limiter_and_Transformation_Maximum_Limiter_2;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Maximum Limiter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>848d8bd0-b752-48cc-a443-ed24bfe87773</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation Maximum Limiter 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_fcb8e3eb-fba0-46d7-a946-190c08c00cde">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_c8c3a4fa-54f7-45c0-818e-25161f9befeb"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Output_Limiter_and_Transformation_xy_to_polar_1
+
+equation
+	mag = sqrt(max(0.0,(sqr(re)+sqr(im))));
+	theta = atan2(im,re); // Output is in radians, ranging between (-pi,pi]. [theta] = 'rad'
+	
+end Output_Limiter_and_Transformation_xy_to_polar_1;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>xy to polar</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fcb8e3eb-fba0-46d7-a946-190c08c00cde</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation xy to polar 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_0f258f46-ca87-4d3d-aee0-2f97a0adfeb4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_8e267d64-6bfd-4107-9bfc-a0db07d82798"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Output_Limiter_and_Transformation_dq-Back_Neg._Seq.
+
+equation
+	// dq Backwards Transformation of negative sequence component
+
+	y21d = Selfix(BoolRMS(), 0.0, y2d*cosphi21 - y2q*sinphi21);
+	y21q = Selfix(BoolRMS(), 0.0, y2d*sinphi21 + y2q*cosphi21);
+
+	y2r = Selfix(Balanced(), 0.0, Selfix(BoolRMS(), y2d*cosphi2 - y2q*sinphi2,  y21d*cosphi1 + y21q*sinphi1));
+	y2i = Selfix(Balanced(), 0.0, Selfix(BoolRMS(), y2d*sinphi2 + y2q*cosphi2, -y21d*sinphi1 + y21q*cosphi1));
+	
+end Output_Limiter_and_Transformation_dq-Back_Neg;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function BoolRMS
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for RMS, 0 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end BoolRMS;
+
+function Balanced
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for balanced RMS, 2 for unbalanced RMS, 3 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end Balanced;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>d-q back transformation of negative sequence in unblanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0f258f46-ca87-4d3d-aee0-2f97a0adfeb4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation dq-Back Neg. Seq.</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_fb9c3ac4-97f3-42e9-b95c-63edcc229d94">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_8294cd33-7457-4f3d-b677-53b60a8b8f57"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Output_Limiter_and_Transformation_Polar_to_xy_2
+
+equation
+	yx = mag*cos(theta);
+	yy = mag*sin(theta);
+	
+end Output_Limiter_and_Transformation_Polar_to_xy_2;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Polar to xy</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fb9c3ac4-97f3-42e9-b95c-63edcc229d94</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation Polar to xy 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_d2b8a106-9604-43c5-aac0-14cb6d55f86d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_9ca3e755-5b8e-4a0c-92be-64a948265fe6"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Output_Limiter_and_Transformation_xy_to_polar_2
+
+equation
+	mag = sqrt(max(0.0,(sqr(re)+sqr(im))));
+	theta = atan2(im,re); // Output is in radians, ranging between (-pi,pi]. [theta] = 'rad'
+	
+end Output_Limiter_and_Transformation_xy_to_polar_2;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>xy to polar</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d2b8a106-9604-43c5-aac0-14cb6d55f86d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation xy to polar 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_a41f410e-3eb0-4699-9b13-d48e7c89dd51">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation Operator 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a41f410e-3eb0-4699-9b13-d48e7c89dd51</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1efa86ab-30ea-429e-8b0c-0defea946345"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1a20ea72-16d5-4a7d-a7e9-c1ee24ed1159"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ca320fd8-8fd7-4f21-af52-3b23c57fffec"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_8294cd33-7457-4f3d-b677-53b60a8b8f57">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation Polar to xy 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8294cd33-7457-4f3d-b677-53b60a8b8f57</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ade92c7d-094d-4954-9bd4-7727081b745d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e92a0f9c-58a2-46eb-b639-4e250f276cbf"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_5cec7569-e1f3-4b1a-9c0d-cc3a2e8d7f0d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_c867ac29-d404-477c-b7fa-77d369dbfcfc"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_c8c3a4fa-54f7-45c0-818e-25161f9befeb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation xy to polar 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c8c3a4fa-54f7-45c0-818e-25161f9befeb</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_9c20bdaa-2472-4d16-b461-4f24ddc31adf"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b5f71341-d1de-4047-a873-ac05c939d846"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_c322fef2-6154-4c01-bc8b-e6e80cf1eb5a"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_c983427e-e6e7-408e-8d4c-9798d15fc406"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_848aadaf-9a50-4844-9130-483f634fe03b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>848aadaf-9a50-4844-9130-483f634fe03b</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f856b087-981a-4cb3-bce5-735994967d7c"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e7717fd3-3524-4faa-9fbf-3c6d045720e0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5fcee0ad-2470-48ac-a4dd-f23bba0982bb"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ac348f51-55b4-4830-ba6f-53e902967a1d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0ed25795-b3fb-417c-9771-07750dedcf11"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1acb2bae-2f34-4801-8f73-1aefd379f825"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_aa6a6d83-7285-430c-a40f-ce8679fe161e"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_9c20bdaa-2472-4d16-b461-4f24ddc31adf"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_656c2a21-5a9f-4cb5-bb61-490e7ab0c439"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0de05d55-34cc-44ab-95b9-fff6f743b0ff"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_09481426-87d8-4111-b91c-1cc6d85b55db"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_3dd57930-f77c-45de-b3b9-d0ae6446f1bf"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1acae086-2ba8-43de-83b5-1c8ca2e0f011"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1efa86ab-30ea-429e-8b0c-0defea946345"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_9538de03-3ab0-4aaf-b764-12262106e1e1"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a0c77e47-2b6e-4a42-b67e-312ef16d68cf"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b5f71341-d1de-4047-a873-ac05c939d846"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_5cec7569-e1f3-4b1a-9c0d-cc3a2e8d7f0d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_c867ac29-d404-477c-b7fa-77d369dbfcfc"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_11fed01c-2a8a-4189-a397-5d7c640c9aba"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ae3f865c-242e-4a3f-8e7a-0e333b99e4d6"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_011d9ee2-22e4-44e7-b7a9-8ecd56949b19">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation Operator 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>011d9ee2-22e4-44e7-b7a9-8ecd56949b19</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0ed25795-b3fb-417c-9771-07750dedcf11"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5ddf5af2-9ad8-4abb-ab45-d3522f43f03b"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_e92a0f9c-58a2-46eb-b639-4e250f276cbf"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_59ed39cc-5616-449b-a7c3-361164363f64">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation Maximum Limiter 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>59ed39cc-5616-449b-a7c3-361164363f64</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a1500ff9-d0b7-49c9-b59d-60bf850c332f"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ade92c7d-094d-4954-9bd4-7727081b745d"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_8f24b4b9-e1b6-4f10-9b0e-1d7c37bf096c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation Polar to xy 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8f24b4b9-e1b6-4f10-9b0e-1d7c37bf096c</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_e6cc4c9b-91ac-4e9b-a5b9-c938c2a21280"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_26733388-a5f9-4b1b-8463-1481cb3e691e"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_1fb8fc25-dff6-44a3-af74-e197e44b260e"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_fd6ed818-e829-4bfc-8e4f-cd228878d902"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_816df1d6-76f3-49ec-ade5-8b7cc684bda2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation Maximum Limiter 2 Neg block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>816df1d6-76f3-49ec-ade5-8b7cc684bda2</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_fce67180-12e9-428d-8eb3-88d6cb55a01b"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_e6cc4c9b-91ac-4e9b-a5b9-c938c2a21280"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_df9cf520-cbc6-46b7-8964-7c9df8e762b0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation Operator 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>df9cf520-cbc6-46b7-8964-7c9df8e762b0</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1acb2bae-2f34-4801-8f73-1aefd379f825"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_61774f6f-4dd7-43d8-81fb-2af71dd3c0d7"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_629b75b3-9ada-446a-b5b7-0f16e6f23c94"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_8e267d64-6bfd-4107-9bfc-a0db07d82798">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation dq-Back Neg. Seq. block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8e267d64-6bfd-4107-9bfc-a0db07d82798</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_aa6a6d83-7285-430c-a40f-ce8679fe161e"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f856b087-981a-4cb3-bce5-735994967d7c"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a0c77e47-2b6e-4a42-b67e-312ef16d68cf"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0de05d55-34cc-44ab-95b9-fff6f743b0ff"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_656c2a21-5a9f-4cb5-bb61-490e7ab0c439"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1fb8fc25-dff6-44a3-af74-e197e44b260e"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ac348f51-55b4-4830-ba6f-53e902967a1d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_fd6ed818-e829-4bfc-8e4f-cd228878d902"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_11fed01c-2a8a-4189-a397-5d7c640c9aba"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ae3f865c-242e-4a3f-8e7a-0e333b99e4d6"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_9ca3e755-5b8e-4a0c-92be-64a948265fe6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation xy to polar 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9ca3e755-5b8e-4a0c-92be-64a948265fe6</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ca320fd8-8fd7-4f21-af52-3b23c57fffec"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_629b75b3-9ada-446a-b5b7-0f16e6f23c94"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a1500ff9-d0b7-49c9-b59d-60bf850c332f"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_5ddf5af2-9ad8-4abb-ab45-d3522f43f03b"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_e9d44cce-6645-448f-a7a7-a307d11dd329">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation Maximum Limiter 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e9d44cce-6645-448f-a7a7-a307d11dd329</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c322fef2-6154-4c01-bc8b-e6e80cf1eb5a"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_c21874c0-10c0-425b-9bc0-e851ebdc7404"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_3df5fb2d-48cf-4dc8-a908-9bc7da6de73c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation Polar to xy 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3df5fb2d-48cf-4dc8-a908-9bc7da6de73c</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c21874c0-10c0-425b-9bc0-e851ebdc7404"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_c983427e-e6e7-408e-8d4c-9798d15fc406"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_819e8ccb-4a65-4668-b572-bd07bb53d126"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_051bd759-ca6f-44a5-a04d-229356bbba43"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_37f72f5a-9e87-4ef8-b1e6-955fca2882c1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation dq-Back block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>37f72f5a-9e87-4ef8-b1e6-955fca2882c1</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_819e8ccb-4a65-4668-b572-bd07bb53d126"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_8ac715cb-070c-4a59-8b8b-9b525c41c73d"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_63bbba64-0edf-4300-ab9d-f428db60c914"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_656c2a21-5a9f-4cb5-bb61-490e7ab0c439"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_051bd759-ca6f-44a5-a04d-229356bbba43"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ac348f51-55b4-4830-ba6f-53e902967a1d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_1a20ea72-16d5-4a7d-a7e9-c1ee24ed1159"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_61774f6f-4dd7-43d8-81fb-2af71dd3c0d7"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_3eec9fcd-aabc-402d-93d0-f6f2edbc627c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Output Limiter and Transformation xy to polar 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3eec9fcd-aabc-402d-93d0-f6f2edbc627c</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_9538de03-3ab0-4aaf-b764-12262106e1e1"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_3dd57930-f77c-45de-b3b9-d0ae6446f1bf"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_fce67180-12e9-428d-8eb3-88d6cb55a01b"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_26733388-a5f9-4b1b-8463-1481cb3e691e"/>
+  </cim:InputOutputDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_ba9420de-3407-4171-bda4-6ebe4433a43d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point theta</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ba9420de-3407-4171-bda4-6ebe4433a43d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation Operator 3</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_011d9ee2-22e4-44e7-b7a9-8ecd56949b19"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_e0340aab-1ce1-4404-b94a-54fa61d4d038">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point ui</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e0340aab-1ce1-4404-b94a-54fa61d4d038</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation Operator 2</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_a41f410e-3eb0-4699-9b13-d48e7c89dd51"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_5fb01bf4-1e7c-4829-9099-1739e6f39d43">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point ur</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5fb01bf4-1e7c-4829-9099-1739e6f39d43</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Output Limiter and Transformation Operator 1</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_df9cf520-cbc6-46b7-8964-7c9df8e762b0"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_be25b708-3743-42a4-a66c-73bebab057ca">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable theta_compensated for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>be25b708-3743-42a4-a66c-73bebab057ca</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta_compensated</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>6.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5ebd1df2-e5e4-4c45-a690-b231fd54df90">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_2d_ltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5ebd1df2-e5e4-4c45-a690-b231fd54df90</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2d_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>13.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_43da2c11-72d2-4f3a-a376-92c8f8ccd22c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_1_ltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>43da2c11-72d2-4f3a-a376-92c8f8ccd22c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>8.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_413b5539-b468-4332-b3bf-683b1b7f655f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable theta for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>413b5539-b468-4332-b3bf-683b1b7f655f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b9c78c90-0cfb-446a-9041-7b39f7c2cab8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable theta2 for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b9c78c90-0cfb-446a-9041-7b39f7c2cab8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>5.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5822567d-62d7-4c98-bff5-62f3177399d1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_ltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5822567d-62d7-4c98-bff5-62f3177399d1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>18.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_226b483a-6ed4-4ffe-992c-3053e64ce964">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable theta1 for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>226b483a-6ed4-4ffe-992c-3053e64ce964</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>4.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3e357ff8-4236-401a-83b5-a4a49683a0b6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_haf_unltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3e357ff8-4236-401a-83b5-a4a49683a0b6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_haf_unltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>15.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9f752961-152b-405d-8447-88bfb840f250">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. converter voltage, negative seq.</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9f752961-152b-405d-8447-88bfb840f250</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_9acd75ae-ab65-4782-81ba-934468b91ab9"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>24.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b5400748-5a29-474a-82ea-4152e79acef3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable phi1_inc for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b5400748-5a29-474a-82ea-4152e79acef3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>phi1_inc</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>21.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_896d44f3-5045-4cf0-add9-3f5f4733a8e6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_i_haf_unltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>896d44f3-5045-4cf0-add9-3f5f4733a8e6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_i_haf_unltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>16.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e02fd272-94bf-47cd-ba15-23e7f77acdea">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_1q_ltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e02fd272-94bf-47cd-ba15-23e7f77acdea</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1q_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>10.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_d3c6ed97-7032-4783-a04b-4c485b01c033">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_1d_ltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d3c6ed97-7032-4783-a04b-4c485b01c033</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1d_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>9.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_796dc6f8-f6cf-47b4-8a66-13eb5bd5c142">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_1i for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>796dc6f8-f6cf-47b4-8a66-13eb5bd5c142</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1i</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_f667baed-c47a-4dc0-9ae8-85097a3a6aa3"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_95503681-a5ae-4508-b532-9039386eb6e8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_i_unltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>95503681-a5ae-4508-b532-9039386eb6e8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_i_unltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>17.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4e31ae13-6544-48e4-9563-e6c14f66775c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_r_unltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4e31ae13-6544-48e4-9563-e6c14f66775c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_r_unltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>20.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_13f307b7-6247-417e-acfe-7686a6a2e36f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_1r for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>13f307b7-6247-417e-acfe-7686a6a2e36f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1r</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_f667baed-c47a-4dc0-9ae8-85097a3a6aa3"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_4a88e7cb-433e-45cc-8332-d38f929abe4b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_2 for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4a88e7cb-433e-45cc-8332-d38f929abe4b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>11.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ab0df3ba-97c3-48fd-a95f-2f0206ecfeb1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_r_haf_unltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ab0df3ba-97c3-48fd-a95f-2f0206ecfeb1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_r_haf_unltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>19.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f6afda12-c463-4be9-a45f-2ed6aa9dd663">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_2_ltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f6afda12-c463-4be9-a45f-2ed6aa9dd663</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>12.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_eeb4eb92-725f-47d3-ad62-3ab0ef924fb3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_2q_ltd for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>eeb4eb92-725f-47d3-ad62-3ab0ef924fb3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2q_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>14.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ead38f6c-9279-457c-a2bf-259cf48537b9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. converter voltage, positive seq.</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ead38f6c-9279-457c-a2bf-259cf48537b9</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_c6103bb9-12a0-44c0-b2ef-e99dee20dab0"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>23.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_bf604191-8cb5-4e5b-974f-ee593e410f66">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_1 for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>bf604191-8cb5-4e5b-974f-ee593e410f66</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>7.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_42504dfe-1ee3-4211-abd5-cc786072c397">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. total converter voltage (EMT sim.)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>42504dfe-1ee3-4211-abd5-cc786072c397</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_68e5efa7-c90f-4786-a5ca-e83e5e88ffa1"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_848d8bd0-b752-48cc-a443-ed24bfe87773"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>22.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_8ac715cb-070c-4a59-8b8b-9b525c41c73d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation dq-Back block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8ac715cb-070c-4a59-8b8b-9b525c41c73d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2r</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_5cec7569-e1f3-4b1a-9c0d-cc3a2e8d7f0d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5cec7569-e1f3-4b1a-9c0d-cc3a2e8d7f0d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_i_nonisl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b5f71341-d1de-4047-a873-ac05c939d846">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b5f71341-d1de-4047-a873-ac05c939d846</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c983427e-e6e7-408e-8d4c-9798d15fc406">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Polar to xy 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c983427e-e6e7-408e-8d4c-9798d15fc406</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta1</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1a20ea72-16d5-4a7d-a7e9-c1ee24ed1159">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Operator 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1a20ea72-16d5-4a7d-a7e9-c1ee24ed1159</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_i_unltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_09481426-87d8-4111-b91c-1cc6d85b55db">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>09481426-87d8-4111-b91c-1cc6d85b55db</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2r_unfilt</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ca320fd8-8fd7-4f21-af52-3b23c57fffec">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation xy to polar 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ca320fd8-8fd7-4f21-af52-3b23c57fffec</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_i_haf_unltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_aa6a6d83-7285-430c-a40f-ce8679fe161e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>aa6a6d83-7285-430c-a40f-ce8679fe161e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>sinphi21</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1efa86ab-30ea-429e-8b0c-0defea946345">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1efa86ab-30ea-429e-8b0c-0defea946345</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ui_haf_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_051bd759-ca6f-44a5-a04d-229356bbba43">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation dq-Back block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>051bd759-ca6f-44a5-a04d-229356bbba43</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1d_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_9538de03-3ab0-4aaf-b764-12262106e1e1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9538de03-3ab0-4aaf-b764-12262106e1e1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_e92a0f9c-58a2-46eb-b639-4e250f276cbf">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Polar to xy 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e92a0f9c-58a2-46eb-b639-4e250f276cbf</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta_compensated</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c867ac29-d404-477c-b7fa-77d369dbfcfc">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c867ac29-d404-477c-b7fa-77d369dbfcfc</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_r_nonisl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a1500ff9-d0b7-49c9-b59d-60bf850c332f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Maximum Limiter 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a1500ff9-d0b7-49c9-b59d-60bf850c332f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_haf_unltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a0c77e47-2b6e-4a42-b67e-312ef16d68cf">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a0c77e47-2b6e-4a42-b67e-312ef16d68cf</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>cosphi2</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_5ddf5af2-9ad8-4abb-ab45-d3522f43f03b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Operator 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5ddf5af2-9ad8-4abb-ab45-d3522f43f03b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_629b75b3-9ada-446a-b5b7-0f16e6f23c94">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation xy to polar 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>629b75b3-9ada-446a-b5b7-0f16e6f23c94</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_r_haf_unltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ae3f865c-242e-4a3f-8e7a-0e333b99e4d6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ae3f865c-242e-4a3f-8e7a-0e333b99e4d6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2i_nonisl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c21874c0-10c0-425b-9bc0-e851ebdc7404">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Polar to xy 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c21874c0-10c0-425b-9bc0-e851ebdc7404</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1acb2bae-2f34-4801-8f73-1aefd379f825">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1acb2bae-2f34-4801-8f73-1aefd379f825</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ur_haf_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_63bbba64-0edf-4300-ab9d-f428db60c914">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation dq-Back block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>63bbba64-0edf-4300-ab9d-f428db60c914</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2i</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_3dd57930-f77c-45de-b3b9-d0ae6446f1bf">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3dd57930-f77c-45de-b3b9-d0ae6446f1bf</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2d</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_0ed25795-b3fb-417c-9771-07750dedcf11">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0ed25795-b3fb-417c-9771-07750dedcf11</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>phif</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_e7717fd3-3524-4faa-9fbf-3c6d045720e0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7717fd3-3524-4faa-9fbf-3c6d045720e0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uspi_loc_inst</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_c322fef2-6154-4c01-bc8b-e6e80cf1eb5a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Maximum Limiter 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c322fef2-6154-4c01-bc8b-e6e80cf1eb5a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_0de05d55-34cc-44ab-95b9-fff6f743b0ff">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0de05d55-34cc-44ab-95b9-fff6f743b0ff</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>cosphi21</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_e6cc4c9b-91ac-4e9b-a5b9-c938c2a21280">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Polar to xy 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e6cc4c9b-91ac-4e9b-a5b9-c938c2a21280</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_26733388-a5f9-4b1b-8463-1481cb3e691e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Polar to xy 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>26733388-a5f9-4b1b-8463-1481cb3e691e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>theta2</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_11fed01c-2a8a-4189-a397-5d7c640c9aba">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Output signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>11fed01c-2a8a-4189-a397-5d7c640c9aba</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2r_nonisl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_fce67180-12e9-428d-8eb3-88d6cb55a01b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Maximum Limiter 2 Neg block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fce67180-12e9-428d-8eb3-88d6cb55a01b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f856b087-981a-4cb3-bce5-735994967d7c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f856b087-981a-4cb3-bce5-735994967d7c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>sinphi2</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1acae086-2ba8-43de-83b5-1c8ca2e0f011">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1acae086-2ba8-43de-83b5-1c8ca2e0f011</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uspr_loc_inst</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_819e8ccb-4a65-4668-b572-bd07bb53d126">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation dq-Back block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>819e8ccb-4a65-4668-b572-bd07bb53d126</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1q_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1fb8fc25-dff6-44a3-af74-e197e44b260e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation dq-Back Neg. Seq. block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1fb8fc25-dff6-44a3-af74-e197e44b260e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2q_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_fd6ed818-e829-4bfc-8e4f-cd228878d902">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation dq-Back Neg. Seq. block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fd6ed818-e829-4bfc-8e4f-cd228878d902</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2d_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_61774f6f-4dd7-43d8-81fb-2af71dd3c0d7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Operator 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>61774f6f-4dd7-43d8-81fb-2af71dd3c0d7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_r_unltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ade92c7d-094d-4954-9bd4-7727081b745d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation Polar to xy 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ade92c7d-094d-4954-9bd4-7727081b745d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_5fcee0ad-2470-48ac-a4dd-f23bba0982bb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5fcee0ad-2470-48ac-a4dd-f23bba0982bb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2i_unfilt</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_9c20bdaa-2472-4d16-b461-4f24ddc31adf">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9c20bdaa-2472-4d16-b461-4f24ddc31adf</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_1q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_656c2a21-5a9f-4cb5-bb61-490e7ab0c439">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>656c2a21-5a9f-4cb5-bb61-490e7ab0c439</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>sinphi1</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ac348f51-55b4-4830-ba6f-53e902967a1d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Output Limiter and Transformation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ac348f51-55b4-4830-ba6f-53e902967a1d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>cosphi1</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+</rdf:RDF>

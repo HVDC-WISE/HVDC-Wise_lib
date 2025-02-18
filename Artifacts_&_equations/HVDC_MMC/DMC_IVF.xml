@@ -1,0 +1,1578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cim="http://cim.ucaiug.io/ns#"
+    xmlns:eumd="http://entsoe.eu/ns/Metadata-European#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:dcterms="http://purl.org/dc/terms/#"
+  xml:base="http://iec.ch/TC57/CIM100" > 
+  <cim:DetailedModelTypeDynamics rdf:ID="_e7eb2061-25b7-4840-abfd-be2cde9c1d2c">
+    <cim:IdentifiedObject.description>HVDC MMC control frame for balanced and unbalanced RMS and EMT simulation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e7eb2061-25b7-4840-abfd-be2cde9c1d2c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>HVDC MMC Control (TenneT)</cim:IdentifiedObject.name>
+  </cim:DetailedModelTypeDynamics>
+  <cim:FunctionDescriptor rdf:ID="_b95180dc-fe7d-4067-96f7-2aa3533dcff5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.EquationDescriptorArtifact rdf:resource="#_052a42d9-04b9-41f0-a313-30abe39ba42d"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_97bf10aa-e429-48ff-9c97-62bc167c93d0"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real uconv (start = sqrt(Sqr(uconv_r)+Sqr(uconv_i)));
+Real cosref (start =  uconv_r/uconv);
+Real sinref (start =  uconv_i/uconv);
+Real uac (start = Selfix(poc, uac_poc, uac_loc));
+Real uac_ref (start = Selfix(poc, Selfix(Mode_Vac_Droop, uac_poc+Dvac*Q_poc, uac_poc), Selfix(Mode_Vac_Droop, uac_loc+Dvac*Q_loc, uac_loc)));
+Real Q_loc;
+if noEvent(abs(Q_loc))) &lt; 1e-6 then
+    Q_loc = 0;
+end if;
+Real Q_poc;
+if noEvent(abs(Q_poc))) &lt; 1e-6 then
+    Q_poc = 0;
+end if;
+Real P;
+if noEvent(abs(P))) &lt; 1e-6 then
+    P = 0;
+end if;
+Real P_ref (start =  P);
+Real f_remote;
+if noEvent(abs(f_remote))) &lt; 1e-6 then
+    f_remote =  fn;
+end if;
+Real fn_remote;
+if noEvent(abs(fn_remote))) &lt; 1e-6 then
+    fn_remote =  f_remote;
+end if;
+Real fref;
+if noEvent(abs(fref))) &lt; 1e-6 then
+    fref = 1;
+end if;
+Real freeze_xi (start = 0);
+Real xi (start =  uconv);
+Real xd (start = 0);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Island V/f Control</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b95180dc-fe7d-4067-96f7-2aa3533dcff5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_052a42d9-04b9-41f0-a313-30abe39ba42d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_88623fda-e1fb-4868-b694-33330b41a6ad"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Current_Limiter
+
+equation
+	udrop_max = i_max*sqrt(sqr(Rseries/100)+Sqr(Xseries/100));
+	umax = u+udrop_max;
+	umin = u-udrop_max;
+end Island_V/f_Control_Current_Limiter;
+
+function Sqr
+	input Real x;
+	output Real y;
+algorithm
+	y = x*x;
+end Sqr;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>AC current magnitude limiter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>052a42d9-04b9-41f0-a313-30abe39ba42d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Current Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_a188b5e0-a900-4a7a-a913-0c44968cfebf">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.EquationDescriptorArtifact rdf:resource="#_53064f87-0259-47ee-a0eb-d125bfa8d8f1"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_733e9526-626e-4e8f-b5bb-a6b692517b86"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_PID_controller
+
+equation
+	//Proportional part:
+	yp = Kp*yin;
+	//Derivative part:
+	dxd = Selfix(Td&gt;0,(yin-xd)/Td,0);
+	der(xd) = dxd;
+	yd  = dxd*Kd;
+	//Integration part:
+	freeze_xi = Flipflop(((pre(xi)&gt;=y_max) and (yin*Ki&gt;0)) or ((pre(xi)&lt;=y_min) and (yin*Ki&lt;0)), ((pre(xi)&lt;y_max) or ((pre(xi)&gt;=y_max) and (yin*Ki&lt;0))) and ((pre(xi)&gt;y_min) or ((pre(xi)&lt;=y_min) and (yin*Ki&gt;0))));
+	der(xi) = Select(freeze_xi, 0.0, yin*Ki); // Freeze integrator if outside limits
+	yi  = LimConst(xi,y_min,y_max);
+	//Output
+	yout = Lim(yp+yi+yd,max(y_min,y_min_dyn),min(y_max,y_max_dyn));
+	
+end Island_V/f_Control_PID_controller;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function Flipflop
+	input  Boolean boolset;
+	input  Boolean boolreset;
+	output Boolean state;
+algorithm
+	if (boolset = true) and (boolreset = false) then
+		state := true;
+	end if;
+	if (boolset = false) and (boolreset = true) then
+		state := false;
+	end if;	
+end Flipflop;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function LimConst
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end LimConst;
+
+function Lim
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end Lim;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>PID controller with anti-windup limiter and dynamic output limits</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a188b5e0-a900-4a7a-a913-0c44968cfebf</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control PID controller</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_435c870f-d373-48fe-81be-9080cece8368">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_0e8c561c-9782-4858-afa2-ab7b15542272"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Frequency_Reference_Calculation
+
+equation
+	f  = Select(mode_f_mapping_cmd, f_remote*fn/fn_remote     , df_in + fn);
+	df = Select(mode_f_mapping_cmd, f_remote*fn/fn_remote - fn, df_in);
+	
+end Island_V/f_Control_Frequency_Reference_Calculation;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real f (start =  fn);
+Real df (start = 0);
+Integer mode_f_mapping_cmd (start =  Mode_f_Mapping);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Frequency reference calculation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>435c870f-d373-48fe-81be-9080cece8368</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Frequency Reference Calculation</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_53064f87-0259-47ee-a0eb-d125bfa8d8f1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_44647230-6678-4a18-97de-eba69e48d476"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Multiplier
+
+equation
+	yo = -yi;
+	
+end Island_V/f_Control_Multiplier;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Multiply with -1</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>53064f87-0259-47ee-a0eb-d125bfa8d8f1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Multiplier</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_3ec9c756-65bb-4324-a2d5-907e978e42f4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.EquationDescriptorArtifact rdf:resource="#_69959a4e-fb11-41fd-afcd-27a322ab49b5"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_668abc75-f672-4064-aea1-2ccabf1fda19"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Oscillator
+
+constant Real pi;
+
+equation
+	der(xphi_t) =  Selfix(BoolRMS(), 2*pi*(df+fn*(1.0-fref)), 2*pi*f);                   
+	phi_t = mod(xphi_t+pi(),2*pi)-pi();        // phi_t = xphi_t, output range: [-pi,pi]
+	phi   = mod((phi_t+phi0)+pi(),2*pi)-pi();  // phi = phi_t + phi0, output range: [-pi,pi]
+	cosphi = cos(phi);
+	sinphi = sin(phi);
+	
+end Island_V/f_Control_Oscillator;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function BoolRMS
+	parameter Integer domainType (start=1);
+	output Boolean yo;
+algorithm
+	domainType = 1; // 1 for RMS, 0 for EMT simulation
+	if domainType = 1 then
+		yo = True;
+	else
+		yo = False;
+	end if;
+end BoolRMS;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Real phi0 (start = Selfix(sinphi&gt;=0,acos(cosphi),-acos(cosphi)));
+Real xphi_t (start = 0);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Oscillator</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3ec9c756-65bb-4324-a2d5-907e978e42f4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Oscillator</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_2deabbda-5deb-4a47-8dae-dc4f74e7b263">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_0d159d0a-9ff9-4e99-a9f2-5fa280cbd66a"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Input_Selector_2
+
+equation
+	Vac = Selfix(poc, Vac_poc, Vac_loc);
+	
+end Island_V/f_Control_Input_Selector_2;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Input selector</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>2deabbda-5deb-4a47-8dae-dc4f74e7b263</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Input Selector 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_8ea4db98-02c9-4fcf-81f4-bf65bfddaf59">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.EquationDescriptorArtifact rdf:resource="#_69a0f3e3-4d23-4a84-91a8-a0a68bf2b82f"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_557c1c55-8a25-4262-827a-d813a9b54c32"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Gradient_Limiter
+
+equation
+	yo = Selfix(gradlim_on, GradLim(Selfix(gradlim_on,yi,0),(dy_min/100),(dy_max/100)), yi);
+	
+end Island_V/f_Control_Gradient_Limiter;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;
+
+function GradLim
+	input Real inputSignal;
+	input Real minGradient;
+	input Real maxGradient;
+	output Real outputSignal;
+algorithm
+	if der(inputSignal) &gt; maxGradient then
+		outputSignal = maxGradient+inputSignal;
+	else if der(inputSignal) &lt; minGradient then
+		outputSignal = minGradient+inputSignal;
+	else
+		outputSignal = inputSignal+der(inputSignal);
+	end if;
+end GradLim;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Gradient Limiter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8ea4db98-02c9-4fcf-81f4-bf65bfddaf59</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Gradient Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_45bf1d83-41c1-40b9-860b-4a52a6626ae6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.EquationDescriptorArtifact rdf:resource="#_2deabbda-5deb-4a47-8dae-dc4f74e7b263"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_cbf24334-59ca-483d-9bec-0595aa6eca60"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Input_Selector_1
+
+equation
+	Vac = Selfix(poc, Vac_poc, Vac_loc);
+	
+end Island_V/f_Control_Input_Selector_1;
+
+function Selfix
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real outputexpr;
+	parameter Real initializedVariable;
+algorithm
+	initializedVariable = conditionalInitialization(boolexpr);
+	if initializedVariable then
+		outputexpr = x;
+	else
+		outputexpr = y;
+	end if;
+end Selfix;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Input selector</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>45bf1d83-41c1-40b9-860b-4a52a6626ae6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Input Selector 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_69959a4e-fb11-41fd-afcd-27a322ab49b5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_58bbd180-ca3c-44e3-b695-d831cfc42831"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Signal_Oscillation
+
+equation
+	
+	y_alpha = y_mag * cosref;
+	y_beta  = y_mag * sinref;
+	
+end Island_V/f_Control_Signal_Oscillation;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Signal Oscillation</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>69959a4e-fb11-41fd-afcd-27a322ab49b5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Signal Oscillation</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_69a0f3e3-4d23-4a84-91a8-a0a68bf2b82f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_cf47bfcb-d13d-4a64-b7e9-367c6d5372d3"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Limiter
+
+equation
+	yo = LimConst(yi, ymin, ymax);
+	
+end Island_V/f_Control_Limiter;
+
+function LimConst
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end LimConst;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:IdentifiedObject.description>Limiter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>69a0f3e3-4d23-4a84-91a8-a0a68bf2b82f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_18437a32-29d8-43ac-8888-fff8f775efe4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.EquationDescriptorArtifact rdf:resource="#_435c870f-d373-48fe-81be-9080cece8368"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_533642e0-db62-4a13-881f-3ad889bb9509"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Frequency_Limiter
+
+equation
+	freeze_df = Picdro(umin-u+0.5, 0.001, 0.001);
+	yo = Select(freeze_df,pre(yo),GradLim(LimConst(Select(freeze_df,0.0,yi), dfmin, dfmax),-ROCOFmax,ROCOFmax));
+	
+end Island_V/f_Control_Frequency_Limiter;
+
+function Picdro
+	input Boolean boolexpr;
+	input Real Tpick;
+	input Real Tdrop;
+	output Boolean varA;
+algorithm
+	if boolexpr = true then
+		varA = delay(1,Tpick);
+	else if boolexpr = false then
+		varA = delay(0,Tdrop);
+	else
+		varA = pre(varA)
+	end if;
+end Picdro;
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;
+
+function GradLim
+	input Real inputSignal;
+	input Real minGradient;
+	input Real maxGradient;
+	output Real outputSignal;
+algorithm
+	if der(inputSignal) &gt; maxGradient then
+		outputSignal = maxGradient+inputSignal;
+	else if der(inputSignal) &lt; minGradient then
+		outputSignal = minGradient+inputSignal;
+	else
+		outputSignal = inputSignal+der(inputSignal);
+	end if;
+end GradLim;
+
+function LimConst
+	input Real x;
+	input Real minLim;
+	input Real maxLim;
+	output Real yo;
+algorithm
+	if x &lt; minLim then
+		yo = minLim;
+	else if x &gt; maxLim then
+		yo = maxLim;
+	else
+		yo = x;
+	end if;
+end LimConst;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Integer freeze_df (start =  Selfix(u&lt;umin, 1, 0));</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Frequency limiter</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>18437a32-29d8-43ac-8888-fff8f775efe4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Frequency Limiter</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_e82b5d06-c320-4d03-9eb7-9ad518570051">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.EquationDescriptorArtifact rdf:resource="#_1e991ec0-efb5-46cb-8a62-87c3c05aba94"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_1e563382-1b6c-4c26-ada5-dfcbd79445d6"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Droop_Gain_1
+
+equation
+	yo = Select(mode, K*yi, 0);
+	
+end Island_V/f_Control_Droop_Gain_1;
+
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Integer mode (start =  Mode);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Gain for droop control</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e82b5d06-c320-4d03-9eb7-9ad518570051</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Droop Gain 1</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:FunctionDescriptor rdf:ID="_1e991ec0-efb5-46cb-8a62-87c3c05aba94">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:FunctionDescriptor.InputOutputDescriptor rdf:resource="#_31af7c09-1cc9-412e-8331-2c2108f98f67"/>
+    <cim:FunctionDescriptor.describedByArtifact>false</cim:FunctionDescriptor.describedByArtifact>
+    <cim:FunctionDescriptor.equation>model Island_V/f_Control_Droop_Gain_2
+
+equation
+	yo = Select(mode, K*yi, 0);
+	
+end Island_V/f_Control_Droop_Gain_2;
+
+
+function Select
+	input Boolean boolexpr;
+	input Real x;
+	input Real y;
+	output Real varA;
+algorithm
+	if boolexpr then
+		varA = x;
+	else
+		varA = y;
+	end if;
+end Select;</cim:FunctionDescriptor.equation>
+    <cim:FunctionDescriptor.equationLanguageKind rdf:resource="#http://cim.ucaiug.io/ns#EquationLanguageKind.modelica"/>
+    <cim:FunctionDescriptor.initialConditionsEquation>Integer mode (start =  Mode);</cim:FunctionDescriptor.initialConditionsEquation>
+    <cim:IdentifiedObject.description>Gain for droop control</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1e991ec0-efb5-46cb-8a62-87c3c05aba94</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Droop Gain 2</cim:IdentifiedObject.name>
+  </cim:FunctionDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_0d159d0a-9ff9-4e99-a9f2-5fa280cbd66a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Input Selector 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0d159d0a-9ff9-4e99-a9f2-5fa280cbd66a</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b71ea0fc-8cb2-40bd-8f4d-6c2a29f05d2f"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f97d43f4-32ab-4418-9094-b99dd4f6e7ba"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_d398026e-79d7-43ac-8910-73e19ed0010f"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_58bbd180-ca3c-44e3-b695-d831cfc42831">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Signal Oscillation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>58bbd180-ca3c-44e3-b695-d831cfc42831</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1e54b40e-a54d-4e08-bbad-049f21dc6c5b"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_5e789f31-fc76-4bc7-a705-3f31bc0afa0c"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_673f9368-0698-47b2-9869-43e940a3823c"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_444ec81f-494c-4c46-be4d-6393805ca503"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_36b36df5-b7e9-429c-b6f6-1fea64a72144"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_668abc75-f672-4064-aea1-2ccabf1fda19">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Oscillator block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>668abc75-f672-4064-aea1-2ccabf1fda19</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_250f3448-982d-4175-9cf3-fe7b813eeadb"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_09da95a2-14cd-4f91-bf73-7723d7652104"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a7646039-6866-4d16-abe3-087d88029618"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_741ad6ce-5ed2-4519-94ce-882a3b9a1635"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_1e54b40e-a54d-4e08-bbad-049f21dc6c5b"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_5e789f31-fc76-4bc7-a705-3f31bc0afa0c"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_733e9526-626e-4e8f-b5bb-a6b692517b86">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control PID controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>733e9526-626e-4e8f-b5bb-a6b692517b86</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_7636ec47-ea47-406a-9d63-4257fc8db57a"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a03cbab7-1e80-4bed-85b8-a684bfd8d0f0"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_628f0f42-5a02-451e-973d-7ef22aad9e36"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_673f9368-0698-47b2-9869-43e940a3823c"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_a42df58c-e257-4cb6-a23e-7292e8273e4e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Summation Operator 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a42df58c-e257-4cb6-a23e-7292e8273e4e</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a2daf424-8510-42d6-82ff-f41034a4190b"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_407e3a0f-fd9f-4443-869f-d8fe7be20366"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_cac707a7-b4e1-4630-883f-474943c27543"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_97bf10aa-e429-48ff-9c97-62bc167c93d0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>97bf10aa-e429-48ff-9c97-62bc167c93d0</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_250f3448-982d-4175-9cf3-fe7b813eeadb"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_407e3a0f-fd9f-4443-869f-d8fe7be20366"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_41423eb4-4940-49f0-aa18-725340ceaa21"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_28a124c4-ddfb-491f-856d-5837398c081b"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1939bb11-3d26-4f8e-ad78-af1fbed9c352"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_028e5811-f453-48d0-9970-b60344e7e362"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_60516ec3-1603-43e5-8e79-84283ed8b744"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ac10b613-4d36-40c0-9ced-a257e3482311"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_f97d43f4-32ab-4418-9094-b99dd4f6e7ba"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_b71ea0fc-8cb2-40bd-8f4d-6c2a29f05d2f"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_50dcb412-a7cf-4343-8b19-34ad35134525"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0c745bf1-e4e5-4a78-beac-33da77ed3c84"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a33964a6-3131-451e-bf0d-8d4a9c181f42"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_4b446082-31be-40cf-a54b-3b5ca65dfac2"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a7646039-6866-4d16-abe3-087d88029618"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a2daf424-8510-42d6-82ff-f41034a4190b"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_ca3ba820-97ad-4253-87a9-a1c7122e0d8d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_31927214-099f-48b9-8dd6-9001adb8a5e1"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_36b36df5-b7e9-429c-b6f6-1fea64a72144"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_1e54b40e-a54d-4e08-bbad-049f21dc6c5b"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_5e789f31-fc76-4bc7-a705-3f31bc0afa0c"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_444ec81f-494c-4c46-be4d-6393805ca503"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_e70ca316-a393-4438-9a63-668262fe7966">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Summation Operator 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e70ca316-a393-4438-9a63-668262fe7966</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d398026e-79d7-43ac-8910-73e19ed0010f"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_6fa0481c-dfce-4bd0-b5e1-822cdc0a00fc"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_628f0f42-5a02-451e-973d-7ef22aad9e36"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_1e563382-1b6c-4c26-ada5-dfcbd79445d6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Droop Gain 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1e563382-1b6c-4c26-ada5-dfcbd79445d6</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_1939bb11-3d26-4f8e-ad78-af1fbed9c352"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_cac707a7-b4e1-4630-883f-474943c27543"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_305cba95-d1fa-4f5a-b6e2-ae360c2687d5"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_cf47bfcb-d13d-4a64-b7e9-367c6d5372d3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cf47bfcb-d13d-4a64-b7e9-367c6d5372d3</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_8101a326-cfc3-4f45-b431-43e2ed48063d"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_6fa0481c-dfce-4bd0-b5e1-822cdc0a00fc"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_557c1c55-8a25-4262-827a-d813a9b54c32">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Gradient Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>557c1c55-8a25-4262-827a-d813a9b54c32</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_60f03ecd-cf51-4394-8a20-6ecfb44c2158"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_8101a326-cfc3-4f45-b431-43e2ed48063d"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_cd96e879-ef26-4e06-8c00-5fc5ab6ac3d9">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Summation Operator 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cd96e879-ef26-4e06-8c00-5fc5ab6ac3d9</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_cb6bfa60-e707-4571-8df5-191d6c811a2a"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_60516ec3-1603-43e5-8e79-84283ed8b744"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_60f03ecd-cf51-4394-8a20-6ecfb44c2158"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_533642e0-db62-4a13-881f-3ad889bb9509">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Frequency Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>533642e0-db62-4a13-881f-3ad889bb9509</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a8dbb2c9-f38c-4d02-a181-f34fbf49a19b"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_d398026e-79d7-43ac-8910-73e19ed0010f"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_87dbe351-13a2-4553-8387-ce8f72f45d0f"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_88623fda-e1fb-4868-b694-33330b41a6ad">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Current Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>88623fda-e1fb-4868-b694-33330b41a6ad</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_0c745bf1-e4e5-4a78-beac-33da77ed3c84"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_7636ec47-ea47-406a-9d63-4257fc8db57a"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a03cbab7-1e80-4bed-85b8-a684bfd8d0f0"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_0e8c561c-9782-4858-afa2-ab7b15542272">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Frequency Reference Calculation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0e8c561c-9782-4858-afa2-ab7b15542272</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_028e5811-f453-48d0-9970-b60344e7e362"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_a33964a6-3131-451e-bf0d-8d4a9c181f42"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_87dbe351-13a2-4553-8387-ce8f72f45d0f"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_41423eb4-4940-49f0-aa18-725340ceaa21"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_741ad6ce-5ed2-4519-94ce-882a3b9a1635"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_09da95a2-14cd-4f91-bf73-7723d7652104"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_31af7c09-1cc9-412e-8331-2c2108f98f67">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Droop Gain 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>31af7c09-1cc9-412e-8331-2c2108f98f67</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_50dcb412-a7cf-4343-8b19-34ad35134525"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_19ff75d6-ca67-428d-b862-d58dec6b19eb"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_cb6bfa60-e707-4571-8df5-191d6c811a2a"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_cbf24334-59ca-483d-9bec-0595aa6eca60">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Input Selector 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cbf24334-59ca-483d-9bec-0595aa6eca60</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_ac10b613-4d36-40c0-9ced-a257e3482311"/>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_28a124c4-ddfb-491f-856d-5837398c081b"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_19ff75d6-ca67-428d-b862-d58dec6b19eb"/>
+  </cim:InputOutputDescriptor>
+  <cim:InputOutputDescriptor rdf:ID="_44647230-6678-4a18-97de-eba69e48d476">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>InputOutputDescriptor for Island V/f Control Multiplier block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>44647230-6678-4a18-97de-eba69e48d476</cim:IdentifiedObject.mRID>
+    <cim:InputOutputDescriptor.InputSignal rdf:resource="#_305cba95-d1fa-4f5a-b6e2-ae360c2687d5"/>
+    <cim:InputOutputDescriptor.OutputSignal rdf:resource="#_a8dbb2c9-f38c-4d02-a181-f34fbf49a19b"/>
+  </cim:InputOutputDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_ae0c8265-3cfc-4dc7-a254-2a9977bc92d1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ae0c8265-3cfc-4dc7-a254-2a9977bc92d1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Summation Operator 3</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_e70ca316-a393-4438-9a63-668262fe7966"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_26c3749e-7b08-4b1d-87da-c6187677de99">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(2)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>26c3749e-7b08-4b1d-87da-c6187677de99</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Summation Operator 2</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_a42df58c-e257-4cb6-a23e-7292e8273e4e"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:OperatorDescriptor rdf:ID="_43e74632-ba60-40a8-b6a6-dab0ac0aa90f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Summation Point(1)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>43e74632-ba60-40a8-b6a6-dab0ac0aa90f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Island V/f Control Summation Operator 1</cim:IdentifiedObject.name>
+    <cim:OperatorDescriptor.InputOutputDescriptor rdf:resource="#_cd96e879-ef26-4e06-8c00-5fc5ab6ac3d9"/>
+    <cim:OperatorDescriptor.operatorKind rdf:resource="#http://cim.ucaiug.io/ns#OperatorDescriptorKind.summation"/>
+  </cim:OperatorDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_88bc3799-425c-4c43-a338-e9cca5741460">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable f for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>88bc3799-425c-4c43-a338-e9cca5741460</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>45.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f9a2f977-e954-41b2-9227-22aec8c51703">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable freeze_xi for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f9a2f977-e954-41b2-9227-22aec8c51703</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>freeze_xi</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>32.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_704a1df4-c520-49e5-836b-d8aa7cec69ed">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency droop control: 0 = off, 1 = on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>704a1df4-c520-49e5-836b-d8aa7cec69ed</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Mode_f_Droop</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e82b5d06-c320-4d03-9eb7-9ad518570051"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>14.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_42a96577-e3fe-43b9-aa42-8e0327cff951">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Series resistance</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>42a96577-e3fe-43b9-aa42-8e0327cff951</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Rseries</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_052a42d9-04b9-41f0-a313-30abe39ba42d"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>10.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ce6ed2ff-17f8-4052-bb51-f16840413a15">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_max for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ce6ed2ff-17f8-4052-bb51-f16840413a15</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>51.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9454eb2f-93a0-4535-ba8e-ebdb8ab6d7c8">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Minimum voltage for frequency droop</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9454eb2f-93a0-4535-ba8e-ebdb8ab6d7c8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Vmin_df</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_18437a32-29d8-43ac-8888-fff8f775efe4"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>16.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ae547394-caa8-4c99-9f2f-0f806e2631f1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Minimum internal converter voltage</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ae547394-caa8-4c99-9f2f-0f806e2631f1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Vconv_min</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>26.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_5b2aaa45-10b7-47f1-abf1-0f934ea9428c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable phi for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5b2aaa45-10b7-47f1-abf1-0f934ea9428c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>phi</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_3ec9c756-65bb-4324-a2d5-907e978e42f4"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>35.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8117e42c-62f5-43cb-a0c2-8dc988c98393">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable yd for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8117e42c-62f5-43cb-a0c2-8dc988c98393</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>yd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>30.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8fa385d4-7e21-4fd3-a863-9df1901c1155">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Q for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8fa385d4-7e21-4fd3-a863-9df1901c1155</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>38.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e5a28e54-726a-4358-a1af-f307817188c2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum terminal voltage</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e5a28e54-726a-4358-a1af-f307817188c2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Vac_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_69a0f3e3-4d23-4a84-91a8-a0a68bf2b82f"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>20.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e794607d-8cf3-4018-a24b-ff6339344922">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable yi for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e794607d-8cf3-4018-a24b-ff6339344922</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>yi</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>29.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_17ebbff6-2fe3-4817-93b9-b180f62b4602">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uac for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>17ebbff6-2fe3-4817-93b9-b180f62b4602</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uac</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>46.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_1476441c-bf22-4cf1-94b4-b75972813b67">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uac_ref_limtd for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1476441c-bf22-4cf1-94b4-b75972813b67</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uac_ref_limtd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>48.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_b4abcf54-cc27-4061-a581-ed4fbea9dc5f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. internal converter voltage, pos. seq.</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b4abcf54-cc27-4061-a581-ed4fbea9dc5f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Vconv_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>22.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ce3588d2-ea2b-4b13-b34b-f9409c10b9f0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable yp for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ce3588d2-ea2b-4b13-b34b-f9409c10b9f0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>yp</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>28.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_07aae027-0ae3-4a71-bb09-50c5aa223e52">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable df_droop_neg for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>07aae027-0ae3-4a71-bb09-50c5aa223e52</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_droop_neg</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>42.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_14545c6e-260b-402c-8c1e-3e76e2ffe4bd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uac_ref_ltd for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>14545c6e-260b-402c-8c1e-3e76e2ffe4bd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uac_ref_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>49.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_8009f404-8a79-4bf4-9326-e4b797e4ba9d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency mapping: 0 = off, 1 = on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8009f404-8a79-4bf4-9326-e4b797e4ba9d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Mode_f_Mapping</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_435c870f-d373-48fe-81be-9080cece8368"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>13.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_547c8f16-b1e3-4486-9513-525f9aae2121">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable Dvac_Q for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>547c8f16-b1e3-4486-9513-525f9aae2121</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Dvac_Q</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>37.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0ee029e4-ccac-4076-8f34-ec149c5d8b84">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>P controlled at: 0 = local AC terminal, 1 = PoC</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0ee029e4-ccac-4076-8f34-ec149c5d8b84</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>poc</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_2deabbda-5deb-4a47-8dae-dc4f74e7b263"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_45bf1d83-41c1-40b9-860b-4a52a6626ae6"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>1.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_3a638e79-1231-4ec9-bfe5-4146f591dadd">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Vac controller time constant derivative part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>3a638e79-1231-4ec9-bfe5-4146f591dadd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Td</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>8.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_502458cc-5f61-4c02-9c33-743de2c64682">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Integrator gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>502458cc-5f61-4c02-9c33-743de2c64682</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Ki</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>6.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f71cbad0-568a-497c-a57e-6ff35d01ae3c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable freeze_df for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f71cbad0-568a-497c-a57e-6ff35d01ae3c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>freeze_df</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_18437a32-29d8-43ac-8888-fff8f775efe4"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>36.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_85738385-ebd3-45e1-94d8-63ceccc177e4">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable dP for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>85738385-ebd3-45e1-94d8-63ceccc177e4</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>39.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_a591bf0a-4526-4421-9a73-de1f2c8d16b2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xd</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a591bf0a-4526-4421-9a73-de1f2c8d16b2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>18.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_83858a67-a4e3-4787-b86f-724c58450417">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable udrop_max for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>83858a67-a4e3-4787-b86f-724c58450417</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>udrop_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>33.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c674e27b-8411-4f37-b361-7e412a6ad15a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xi</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c674e27b-8411-4f37-b361-7e412a6ad15a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xi</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>17.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_f6216ae4-f4bf-476c-8926-8ac4b2cf803e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f6216ae4-f4bf-476c-8926-8ac4b2cf803e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>50.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_fc1c2055-6358-46b9-8b70-4e8d4a6ae45e">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uconv_min for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>fc1c2055-6358-46b9-8b70-4e8d4a6ae45e</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_min</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>52.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_08d09745-0fc4-41d5-8056-0136984b1062">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Vac reference gradient limiter: 0 = off, 1 = on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>08d09745-0fc4-41d5-8056-0136984b1062</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>gradlim_Vref</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_8ea4db98-02c9-4fcf-81f4-bf65bfddaf59"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>2.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_7bdbe8bd-20c5-4d2a-91de-a19b202fd457">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Vac droop control, Vac(Q): 0=off, 1=on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7bdbe8bd-20c5-4d2a-91de-a19b202fd457</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Mode_Vac_Droop</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_1e991ec0-efb5-46cb-8a62-87c3c05aba94"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>3.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.boolean"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_834a0000-5ac4-484d-8a8e-4704337159a7">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Nominal frequency</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>834a0000-5ac4-484d-8a8e-4704337159a7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fn</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_435c870f-d373-48fe-81be-9080cece8368"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_3ec9c756-65bb-4324-a2d5-907e978e42f4"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>12.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ebf07f12-40ea-472a-8423-b8880d6d9873">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum rate of change of frequency</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ebf07f12-40ea-472a-8423-b8880d6d9873</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ROCOFmax</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_18437a32-29d8-43ac-8888-fff8f775efe4"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>24.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_72a15eb4-f8fc-4531-a70c-4644a0ec4803">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Derivative of frequency</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>72a15eb4-f8fc-4531-a70c-4644a0ec4803</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Df</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_e82b5d06-c320-4d03-9eb7-9ad518570051"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>15.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_c17e9b71-eab3-43f7-9c95-a1e73387b458">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable df_ltd for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>c17e9b71-eab3-43f7-9c95-a1e73387b458</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_ltd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>43.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_728c526e-c66a-4be3-aec6-96574255ebb6">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Max. rate of change of Vac reference</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>728c526e-c66a-4be3-aec6-96574255ebb6</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dVac_ref_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_8ea4db98-02c9-4fcf-81f4-bf65bfddaf59"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>21.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_480ad65d-5d94-49d4-a154-be5b40c43af3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum current</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>480ad65d-5d94-49d4-a154-be5b40c43af3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>i_max</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_052a42d9-04b9-41f0-a313-30abe39ba42d"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>9.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e318f265-26ff-4936-99e7-933aac406048">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable uac_ref_droop for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e318f265-26ff-4936-99e7-933aac406048</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uac_ref_droop</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>47.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_0765cba6-bd39-4d08-ae75-317841d8cde0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Series reactance</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0765cba6-bd39-4d08-ae75-317841d8cde0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Xseries</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_052a42d9-04b9-41f0-a313-30abe39ba42d"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>11.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_da24c802-6c21-4afc-99db-a4faa677e8f1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Derivate gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>da24c802-6c21-4afc-99db-a4faa677e8f1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>7.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_e58f70a9-5fc8-47de-8290-3703050283a0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Gain for Vac droop control, Vac(Q)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>e58f70a9-5fc8-47de-8290-3703050283a0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Dvac</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_1e991ec0-efb5-46cb-8a62-87c3c05aba94"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>4.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_9c287d99-31c8-4280-ab6c-a360234e5661">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Maximum frequency deviation (pos. value)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>9c287d99-31c8-4280-ab6c-a360234e5661</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dfmax</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_18437a32-29d8-43ac-8888-fff8f775efe4"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>23.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_11586fef-3a01-4f41-9148-f55ea98208e3">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable df_droop for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>11586fef-3a01-4f41-9148-f55ea98208e3</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_droop</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>41.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_11051019-da34-4d86-957c-1fc0abb2d6ba">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable duac for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>11051019-da34-4d86-957c-1fc0abb2d6ba</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>duac</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>44.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_df6fc5bc-0e41-461a-89f3-5471ffba5ebb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Proportional gain</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>df6fc5bc-0e41-461a-89f3-5471ffba5ebb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Kp</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>5.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_ecff1065-c525-4f1d-92f8-6743bfabc5ba">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Minimum frequency deviation (neg. value)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ecff1065-c525-4f1d-92f8-6743bfabc5ba</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dfmin</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_18437a32-29d8-43ac-8888-fff8f775efe4"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>27.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_72b84d20-ec24-43c5-8615-978127b09080">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Min. rate of change of Vac reference</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>72b84d20-ec24-43c5-8615-978127b09080</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dVac_ref_min</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_8ea4db98-02c9-4fcf-81f4-bf65bfddaf59"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.regular"/>
+    <cim:ParameterDescriptor.sequenceNumber>25.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_128af62a-f80a-4b79-8113-0bebeb8db74b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable phi_t for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>128af62a-f80a-4b79-8113-0bebeb8db74b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>phi_t</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_3ec9c756-65bb-4324-a2d5-907e978e42f4"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>34.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_42b3dae5-5433-4c6a-8d03-d9681546a387">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable df for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>42b3dae5-5433-4c6a-8d03-d9681546a387</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>40.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_1cc8dd61-8eda-48d3-beb9-04498e480ac1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Internal variable dxd for Island V/f Control block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1cc8dd61-8eda-48d3-beb9-04498e480ac1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dxd</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_a188b5e0-a900-4a7a-a913-0c44968cfebf"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.internal"/>
+    <cim:ParameterDescriptor.sequenceNumber>31.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:ParameterDescriptor rdf:ID="_1910073c-151a-451b-80b6-3657666e3e5b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>state variable xphi_t</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1910073c-151a-451b-80b6-3657666e3e5b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>xphi_t</cim:IdentifiedObject.name>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_3ec9c756-65bb-4324-a2d5-907e978e42f4"/>
+    <cim:ParameterDescriptor.FunctionDescriptor rdf:resource="#_b95180dc-fe7d-4067-96f7-2aa3533dcff5"/>
+    <cim:ParameterDescriptor.kind rdf:resource="#http://cim.ucaiug.io/ns#ParameterKind.stateVariable"/>
+    <cim:ParameterDescriptor.sequenceNumber>19.0</cim:ParameterDescriptor.sequenceNumber>
+    <cim:ParameterDescriptor.valueXSDdatatype rdf:resource="#http://cim.ucaiug.io/ns#XSDDatatypeKind.float"/>
+  </cim:ParameterDescriptor>
+  <cim:SignalDescriptor rdf:ID="_6fa0481c-dfce-4bd0-b5e1-822cdc0a00fc">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Summation Operator 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>6fa0481c-dfce-4bd0-b5e1-822cdc0a00fc</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uac_ref_limtd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_444ec81f-494c-4c46-be4d-6393805ca503">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference, imaginary part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>444ec81f-494c-4c46-be4d-6393805ca503</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_i_isl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a8dbb2c9-f38c-4d02-a181-f34fbf49a19b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Frequency Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a8dbb2c9-f38c-4d02-a181-f34fbf49a19b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_droop</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_673f9368-0698-47b2-9869-43e940a3823c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Signal Oscillation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>673f9368-0698-47b2-9869-43e940a3823c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_8101a326-cfc3-4f45-b431-43e2ed48063d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>8101a326-cfc3-4f45-b431-43e2ed48063d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uac_ref_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_28a124c4-ddfb-491f-856d-5837398c081b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Local reactive power, positive sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>28a124c4-ddfb-491f-856d-5837398c081b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Q_loc</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_b71ea0fc-8cb2-40bd-8f4d-6c2a29f05d2f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>AC voltage (measurement at PoC)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>b71ea0fc-8cb2-40bd-8f4d-6c2a29f05d2f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uac_poc</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_7636ec47-ea47-406a-9d63-4257fc8db57a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control PID controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>7636ec47-ea47-406a-9d63-4257fc8db57a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_min</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_87dbe351-13a2-4553-8387-ce8f72f45d0f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Frequency Reference Calculation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>87dbe351-13a2-4553-8387-ce8f72f45d0f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_ltd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_305cba95-d1fa-4f5a-b6e2-ae360c2687d5">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Multiplier block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>305cba95-d1fa-4f5a-b6e2-ae360c2687d5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df_droop_neg</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_60f03ecd-cf51-4394-8a20-6ecfb44c2158">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Gradient Limiter block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>60f03ecd-cf51-4394-8a20-6ecfb44c2158</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uac_ref_droop</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a7646039-6866-4d16-abe3-087d88029618">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Initial oscillator angle</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a7646039-6866-4d16-abe3-087d88029618</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>phi0</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_36b36df5-b7e9-429c-b6f6-1fea64a72144">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference, real part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>36b36df5-b7e9-429c-b6f6-1fea64a72144</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_r_isl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_250f3448-982d-4175-9cf3-fe7b813eeadb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Reference frequency (RMS simulation)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>250f3448-982d-4175-9cf3-fe7b813eeadb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a33964a6-3131-451e-bf0d-8d4a9c181f42">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Nominal frequency of remote system</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a33964a6-3131-451e-bf0d-8d4a9c181f42</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>fn_remote</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_407e3a0f-fd9f-4443-869f-d8fe7be20366">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Active power reference signal</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>407e3a0f-fd9f-4443-869f-d8fe7be20366</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>P_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_028e5811-f453-48d0-9970-b60344e7e362">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency mapping command signal: 0 = off, 1 = on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>028e5811-f453-48d0-9970-b60344e7e362</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>mode_f_mapping_cmd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_50dcb412-a7cf-4343-8b19-34ad35134525">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Vac droop command signal: 0 = off, 1 = on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>50dcb412-a7cf-4343-8b19-34ad35134525</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>mode_uac_droop_cmd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_741ad6ce-5ed2-4519-94ce-882a3b9a1635">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Oscillator block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>741ad6ce-5ed2-4519-94ce-882a3b9a1635</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_f97d43f4-32ab-4418-9094-b99dd4f6e7ba">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>AC voltage (local measurement)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>f97d43f4-32ab-4418-9094-b99dd4f6e7ba</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u1</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_d398026e-79d7-43ac-8910-73e19ed0010f">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Summation Operator 3 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>d398026e-79d7-43ac-8910-73e19ed0010f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uac</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>true</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_0c745bf1-e4e5-4a78-beac-33da77ed3c84">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Local AC voltage, space phasor (EMT) / pos. seq. (RMS sim.), magnitude</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>0c745bf1-e4e5-4a78-beac-33da77ed3c84</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>usp_loc_inst</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ac10b613-4d36-40c0-9ced-a257e3482311">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Reactive power at PoC, positive sequence</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ac10b613-4d36-40c0-9ced-a257e3482311</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Q_poc</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_cac707a7-b4e1-4630-883f-474943c27543">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Droop Gain 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cac707a7-b4e1-4630-883f-474943c27543</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>dP</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_41423eb4-4940-49f0-aa18-725340ceaa21">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency input signal from remote</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>41423eb4-4940-49f0-aa18-725340ceaa21</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>f_fast_remote</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_628f0f42-5a02-451e-973d-7ef22aad9e36">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control PID controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>628f0f42-5a02-451e-973d-7ef22aad9e36</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>duac</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1939bb11-3d26-4f8e-ad78-af1fbed9c352">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Frequency droop command signal: 0 = off, 1 = on</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1939bb11-3d26-4f8e-ad78-af1fbed9c352</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>mode_f_droop_cmd</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_19ff75d6-ca67-428d-b862-d58dec6b19eb">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Droop Gain 2 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>19ff75d6-ca67-428d-b862-d58dec6b19eb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_5e789f31-fc76-4bc7-a705-3f31bc0afa0c">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Signal Oscillation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>5e789f31-fc76-4bc7-a705-3f31bc0afa0c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>cosref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_cb6bfa60-e707-4571-8df5-191d6c811a2a">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Summation Operator 1 block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>cb6bfa60-e707-4571-8df5-191d6c811a2a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Dvac_Q</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>true</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a03cbab7-1e80-4bed-85b8-a684bfd8d0f0">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control PID controller block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a03cbab7-1e80-4bed-85b8-a684bfd8d0f0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_max</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_31927214-099f-48b9-8dd6-9001adb8a5e1">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference for islanded operation, negative sequence, real part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>31927214-099f-48b9-8dd6-9001adb8a5e1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2r_isl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_a2daf424-8510-42d6-82ff-f41034a4190b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Active power</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>a2daf424-8510-42d6-82ff-f41034a4190b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>Pac_loc</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_ca3ba820-97ad-4253-87a9-a1c7122e0d8d">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Converter voltage reference for islanded operation, negative sequence, imaginary part</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>ca3ba820-97ad-4253-87a9-a1c7122e0d8d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uconv_2i_isl</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_60516ec3-1603-43e5-8e79-84283ed8b744">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>AC voltage reference signal</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>60516ec3-1603-43e5-8e79-84283ed8b744</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>uac_ref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_1e54b40e-a54d-4e08-bbad-049f21dc6c5b">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Signal Oscillation block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>1e54b40e-a54d-4e08-bbad-049f21dc6c5b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>sinref</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_4b446082-31be-40cf-a54b-3b5ca65dfac2">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Local AC voltage magnitude, negative sequence, unfiltered (RMS sim.)</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>4b446082-31be-40cf-a54b-3b5ca65dfac2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>u2_unfilt</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+  <cim:SignalDescriptor rdf:ID="_09da95a2-14cd-4f91-bf73-7723d7652104">
+    <cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:resource="#_e7eb2061-25b7-4840-abfd-be2cde9c1d2c"/>
+    <cim:IdentifiedObject.description>Input signal for Island V/f Control Oscillator block</cim:IdentifiedObject.description>
+    <cim:IdentifiedObject.mRID>09da95a2-14cd-4f91-bf73-7723d7652104</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>df</cim:IdentifiedObject.name>
+    <cim:SignalDescriptor.isSignalInverted>false</cim:SignalDescriptor.isSignalInverted>
+  </cim:SignalDescriptor>
+</rdf:RDF>
